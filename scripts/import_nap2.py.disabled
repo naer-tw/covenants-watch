@@ -1,0 +1,150 @@
+#!/usr/bin/env python3
+"""import_nap2.py — 匯入第二期國家人權行動計畫(2025-2027)兒少相關行動。
+
+Wave 86:對應 _public/nap.html 之第二期 placeholder。
+等行政院 / NHRC 公布完整 NAP 第二期後執行。
+
+預期內容(根據 NHRC 2025-07 §12 已知建議):
+  - NHRC 兒少權利專責單位設立(CRC2-CO12)
+  - 反歧視法 / 難民法立法時程
+  - 兒少預算公開儀表板(CRC2-CO13)
+  - 兒少生活狀況調查改採單獨線上問卷
+  - 第一期延續項目(自殺研究公布、生活狀況改版、反歧視法)
+
+用法:
+    python3 scripts/import_nap2.py --csv data/sources/NAP2_actions.csv  # 從 CSV
+    python3 scripts/import_nap2.py --json data/sources/NAP2_actions.json  # 從 JSON
+    python3 scripts/import_nap2.py --predicted   # 灌入「依 NHRC 預期」之 placeholder
+
+CSV 格式範例:
+    action_id,theme_no,theme_name,sub_section,action_text,kpi,target_year,lead_agency
+    NAP2-01-專責單位,1,強化人權保障體制,NHRC 兒少權利專責單位,設立兒少權利專責單位,完成設立 + 員額,2027,NHRC
+"""
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sqlite3
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "data" / "crw.db"
+
+
+PREDICTED_NAP2 = [
+    {
+        "action_id": "NAP2-01-NHRC-專責單位", "theme_no": 1, "theme_name": "強化人權保障體制",
+        "sub_section": "NHRC 兒少權利專責單位", "action_text": "於國家人權委員會內設立兒少權利專責單位",
+        "kpi": "設立完成 + 預算 + 員額充足", "target_year": 2027, "lead_agency": "NHRC",
+        "co_agencies": '["立法院"]', "related_pi": '["跨議題"]', "related_co": '["CRC2-CO12"]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "第一期未達成,第二期應重點延續", "recommend_carry_forward": 0,
+    },
+    {
+        "action_id": "NAP2-03-反歧視法", "theme_no": 3, "theme_name": "平等與不歧視",
+        "sub_section": "反歧視法立法", "action_text": "完成《反歧視法》立法",
+        "kpi": "草案送立法院 + 三讀通過", "target_year": 2027, "lead_agency": "人權處",
+        "co_agencies": '["法務部"]', "related_pi": '["跨議題"]', "related_co": '[]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "NHRC 2025-07 §12 第二期建議第四項;第一期被改列自行追蹤", "recommend_carry_forward": 0,
+    },
+    {
+        "action_id": "NAP2-03-生活狀況調查改版", "theme_no": 3, "theme_name": "平等與不歧視",
+        "sub_section": "兒少生活狀況調查", "action_text": "改採單獨線上問卷,涵蓋體罰/霸凌/歧視題項,涵蓋 LGBTQI/身障/原民/新住民",
+        "kpi": "新版調查上線 + 樣本 1500+ + 涵蓋 4 群體",
+        "target_year": 2026, "lead_agency": "衛福部",
+        "co_agencies": '["教育部"]', "related_pi": '["PI-08","PI-10","跨議題"]', "related_co": '["CRC2-CO17","CRC2-CO18"]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "NHRC 第一期 §4.2 4 點建議",
+    },
+    {
+        "action_id": "NAP2-04-青少年自殺研究公布", "theme_no": 4, "theme_name": "強化生命權保障",
+        "sub_section": "臺大研究成果公布", "action_text": "公布青少年自殺風險因子分析研究 + 規劃後續策略",
+        "kpi": "研究報告公開 + 衛福部對應策略文件",
+        "target_year": 2025, "lead_agency": "衛福部",
+        "co_agencies": '["教育部","臺大"]', "related_pi": '["PI-02"]', "related_co": '["CRC2-CO22","CRC2-CO47"]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "第一期 NAP1-04 期限已過 4 個月仍未公開,第二期應立即補完",
+    },
+    {
+        "action_id": "NAP2-08-難民法", "theme_no": 8, "theme_name": "難民權利保障",
+        "sub_section": "《難民法》立法", "action_text": "完成《難民法》立法",
+        "kpi": "草案送立法院 + 三讀通過", "target_year": 2027, "lead_agency": "內政部",
+        "co_agencies": '["外交部"]', "related_pi": '["PI-13"]', "related_co": '["CRC2-CO25","CRC2-CO61"]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "草案 2005 送立法院 21 年未通過,第二期應確定立法時程",
+    },
+    {
+        "action_id": "NAP2-跨議題-兒少預算", "theme_no": 1, "theme_name": "強化人權保障體制",
+        "sub_section": "兒少預算公開儀表板", "action_text": "建立跨部會跨層級兒少預算公開儀表板",
+        "kpi": "儀表板上線 + 涵蓋衛福/教育/法務/勞動/交通",
+        "target_year": 2026, "lead_agency": "行政院主計總處",
+        "co_agencies": '["衛福部","教育部"]', "related_pi": '["跨議題","PI-10"]', "related_co": '["CRC2-CO13"]',
+        "govt_status": "--", "nhrc_severity": "--", "aabe_assessment": "--",
+        "aabe_evidence": "8,743 份青少年問卷期待透明化",
+    },
+]
+
+
+def import_records(records: list[dict]) -> int:
+    if not records:
+        return 0
+    conn = sqlite3.connect(str(DB))
+    n = 0
+    for r in records:
+        conn.execute("""
+            INSERT OR REPLACE INTO nap_action(action_id, nap_period, theme_no, theme_name,
+                sub_section, action_text, kpi, target_year, lead_agency, co_agencies,
+                govt_self_assessment, govt_status, nhrc_comment, nhrc_severity,
+                aabe_assessment, aabe_evidence, related_pi, related_co,
+                recommend_carry_forward, last_updated)
+            VALUES (?,'2',?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,date('now'))
+        """, (
+            r["action_id"], r["theme_no"], r["theme_name"], r.get("sub_section"),
+            r["action_text"], r.get("kpi"), r.get("target_year"),
+            r.get("lead_agency"), r.get("co_agencies", "[]"),
+            r.get("govt_self_assessment", "--"), r.get("govt_status", "--"),
+            r.get("nhrc_comment", "--"), r.get("nhrc_severity", "--"),
+            r.get("aabe_assessment", "--"), r.get("aabe_evidence", ""),
+            r.get("related_pi", "[]"), r.get("related_co", "[]"),
+            r.get("recommend_carry_forward", 0),
+        ))
+        n += 1
+    conn.commit()
+    # 移除 placeholder
+    conn.execute("DELETE FROM nap_action WHERE action_id='NAP2-PLACEHOLDER'")
+    conn.commit()
+    conn.close()
+    return n
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--csv", help="從 CSV 讀")
+    ap.add_argument("--json", help="從 JSON 讀")
+    ap.add_argument("--predicted", action="store_true",
+                    help="使用 6 項依 NHRC §12 預期之 placeholder(等行政院公布後須校正)")
+    args = ap.parse_args()
+
+    if args.predicted:
+        records = PREDICTED_NAP2
+        print(f"使用預期 placeholder({len(records)} 項;等行政院公布後須校正)")
+    elif args.csv:
+        with open(args.csv, encoding="utf-8") as f:
+            records = list(csv.DictReader(f))
+    elif args.json:
+        records = json.loads(Path(args.json).read_text(encoding="utf-8"))
+    else:
+        ap.print_help()
+        return 0
+
+    n = import_records(records)
+    print(f"✓ 寫入 nap_action 第二期 {n} 筆")
+    print("提示:重跑 python3 scripts/render_nap.py --update 更新 _public/nap.html")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

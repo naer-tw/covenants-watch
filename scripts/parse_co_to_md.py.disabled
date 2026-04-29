@@ -1,0 +1,162 @@
+#!/usr/bin/env python3
+"""
+parse_co_to_md.py — 把 CRC2 結論性意見中文 PDF 解析為 70+ 條 CO 結構化資料。
+
+輸入:
+  data/sources/CRC2_CO_zh_2023-07-24.txt(由 fetch_crc_co.py 抓取並 pypdf 解析)
+
+輸出:
+  data/sources/CRC2_CO_72條.md         — 人類可讀,每條一個 markdown 段落
+  data/sources/CRC2_CO_72條.csv        — 機器可讀,可灌進 SQLite
+  data/concluding_observations_full.md — 取代原來的 concluding_observations.md(含全 72 條)
+"""
+from __future__ import annotations
+
+import csv
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+# 預設 CRC2;可由 --cycle 參數切換
+DEFAULT_SRC = ROOT / "data" / "sources" / "CRC2_CO_zh_2023-07-24.txt"
+
+# Cluster 對照(由中文 PDF 章節標題)
+CLUSTERS = [
+    ("A", "一般執行措施", (1, 14), ["CRC-4", "CRC-42", "CRC-44"]),
+    ("B", "兒少之定義", (15, 15), ["CRC-1"]),
+    ("C", "一般性原則", (16, 23), ["CRC-2", "CRC-3", "CRC-6", "CRC-12"]),
+    ("D", "公民權與自由", (24, 28), ["CRC-7", "CRC-8", "CRC-13", "CRC-14", "CRC-15", "CRC-16", "CRC-17"]),
+    ("E", "保護兒少免受暴力侵害", (29, 37), ["CRC-19", "CRC-24", "CRC-28", "CRC-34", "CRC-37", "CRC-39"]),
+    ("F", "家庭環境與替代性照顧", (38, 44), ["CRC-5", "CRC-9", "CRC-10", "CRC-11", "CRC-18", "CRC-20", "CRC-21", "CRC-25", "CRC-27"]),
+    ("G", "身心障礙兒少", (45, 48), ["CRC-23"]),
+    ("G", "基本健康與福利", (49, 56), ["CRC-6", "CRC-18", "CRC-24", "CRC-26", "CRC-27", "CRC-33"]),
+    ("H", "教育休閒與文化活動", (57, 63), ["CRC-28", "CRC-29", "CRC-30", "CRC-31"]),
+    ("I", "特別保護措施", (64, 71), ["CRC-22", "CRC-30", "CRC-32", "CRC-33", "CRC-34", "CRC-35", "CRC-36", "CRC-37", "CRC-38", "CRC-39", "CRC-40"]),
+    ("J", "公約任擇議定書", (72, 72), ["OPSC", "OPAC", "OPIC"]),
+]
+
+
+def cluster_for_paragraph(n: int) -> tuple[str, str, list[str]]:
+    for cl, name, (lo, hi), crc in CLUSTERS:
+        if lo <= n <= hi:
+            return cl, name, crc
+    # CRC1 共 98 條,範圍超過 CRC2 的 72;這裡放寬,超過 72 仍歸 I 類
+    if n > 72:
+        return "I", "特別保護措施(CRC1 延伸)", []
+    return "?", "未分類", []
+
+
+# CRC1 用「1. 」(英式),CRC2 用「1、」(中式) — 兩種都支援
+PARAGRAPH_RE = re.compile(r"^(\d+)[、.]\s*", re.MULTILINE)
+
+
+def parse_paragraphs(text: str) -> list[dict]:
+    matches = list(PARAGRAPH_RE.finditer(text))
+    paras = []
+    for i, m in enumerate(matches):
+        n = int(m.group(1))
+        start = m.end()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        body = text[start:end].strip()
+        # 清理:刪除頁腳數字、多餘空白
+        body = re.sub(r"\n\s*\d+\s*\n", "\n", body)
+        body = re.sub(r"\s+", " ", body).strip()
+        cl, cl_name, crc = cluster_for_paragraph(n)
+        paras.append({
+            "co_id": f"CRC2-CO{n}",
+            "cycle": 2,
+            "co_paragraph": str(n),
+            "text_zh": body[:1500],  # 截斷防爆
+            "cluster": cl,
+            "cluster_name": cl_name,
+            "crc_articles": crc,
+        })
+    return paras
+
+
+def main() -> int:
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--cycle", choices=["1", "2"], default="2", help="CRC 審查週期(1=2017首次, 2=2022第二次)")
+    ap.add_argument("--src", help="自訂來源 txt 檔(覆蓋 --cycle 預設)")
+    args = ap.parse_args()
+
+    if args.src:
+        src = Path(args.src)
+    elif args.cycle == "1":
+        src = ROOT / "data" / "sources" / "CRC1_CO_zh_2017-11-24.txt"
+    else:
+        src = DEFAULT_SRC
+
+    if not src.exists():
+        print(f"❌ 找不到 {src},先跑 scripts/fetch_crc_co.py --extract")
+        return 1
+
+    text = src.read_text(encoding="utf-8")
+    paras = parse_paragraphs(text)
+    print(f"解析出 {len(paras)} 條 CO(範圍 {paras[0]['co_paragraph']}-{paras[-1]['co_paragraph']})")
+
+    # CRC1 改 co_id 與 cycle
+    if args.cycle == "1":
+        for p in paras:
+            p["co_id"] = f"CRC1-CO{p['co_paragraph']}"
+            p["cycle"] = 1
+
+    # === 輸出 1:人類可讀 markdown ===
+    suffix = f"CRC{args.cycle}_CO_{len(paras)}條"
+    md_path = ROOT / "data" / "sources" / f"{suffix}.md"
+    lines = [
+        "# CRC 第二次國家報告結論性意見 — 全 72 條結構化",
+        "",
+        "> 由 `scripts/parse_co_to_md.py` 從官方 PDF 自動解析。",
+        "> 來源:[CRC2_CO_zh_2023-07-24.pdf](CRC2_CO_zh_2023-07-24.pdf) (衛福部 CRC 資訊網,文件編號 documentId=2BF473B4)",
+        "> 公布日:2022-12-28(行政院兒少權益推動小組第 5 屆第 1 次會議通過)",
+        "> 解析日:2026-04-25",
+        "",
+        "## Cluster 索引",
+        "| Cluster | 章節 | 段落範圍 | 條數 |",
+        "|:---:|---|:---:|:---:|",
+    ]
+    for cl, name, (lo, hi), _ in CLUSTERS:
+        n = sum(1 for p in paras if lo <= int(p["co_paragraph"]) <= hi)
+        lines.append(f"| {cl} | {name} | {lo}–{hi} | {n} |")
+    lines.append("")
+    lines.append("---")
+    lines.append("")
+
+    current_cluster = None
+    for p in paras:
+        if p["cluster_name"] != current_cluster:
+            current_cluster = p["cluster_name"]
+            lines.append(f"## Cluster {p['cluster']}:{current_cluster}")
+            lines.append("")
+        lines.append(f"### {p['co_id']}")
+        lines.append(f"**對應 CRC 條文**:{', '.join(p['crc_articles']) or '—'}  ")
+        lines.append(f"**內容**:{p['text_zh']}")
+        lines.append("")
+    md_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"✓ 寫入 {md_path.relative_to(ROOT)}")
+
+    # === 輸出 2:CSV(供灌入 SQLite)===
+    csv_path = ROOT / "data" / "sources" / f"{suffix}.csv"
+    with csv_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["co_id", "cycle", "co_paragraph", "text_zh",
+                                          "cluster", "crc_articles"])
+        w.writeheader()
+        for p in paras:
+            w.writerow({
+                "co_id": p["co_id"],
+                "cycle": p["cycle"],
+                "co_paragraph": p["co_paragraph"],
+                "text_zh": p["text_zh"],
+                "cluster": p["cluster"],
+                "crc_articles": ",".join(p["crc_articles"]),
+            })
+    print(f"✓ 寫入 {csv_path.relative_to(ROOT)}({len(paras)} 列)")
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

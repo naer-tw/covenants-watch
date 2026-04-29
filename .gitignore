@@ -1,0 +1,38 @@
+# Python venv
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Whisper models(大檔,可重新下載)
+.whisper-models/
+
+# SQLite WAL/SHM(主庫 crw.db 仍納入版控)
+*.db-shm
+*.db-wal
+
+# 監測快取(每次重跑會更新,不需版控)
+.monitor_cache/
+.maintenance_logs/
+
+# Jekyll 輸出(由 sync_to_jekyll.py 重建)
+_jekyll_output/_actions/
+_jekyll_output/_cases/
+_jekyll_output/_issues/
+_jekyll_output/_laws/
+_jekyll_output/_sources/
+
+# macOS
+.DS_Store
+._*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# 大型原始檔(若不想推到 GH 可在此加入,但本平台預設要納入版控)
+# data/sources/*.pdf
+
+# Wave 50:_share/ 是獨立的 GitHub Pages repo,不納入主平台 git
+_share/

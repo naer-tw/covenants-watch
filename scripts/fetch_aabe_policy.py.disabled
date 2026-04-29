@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""
+fetch_aabe_policy.py — 批次抓國教盟政策知識庫(naer-tw.github.io/policy)所有文章。
+
+策略:
+1. 從 sitemap.xml 拉所有 URL
+2. 對每個 URL 抓 HTML
+3. 提取 NewsArticle JSON-LD(headline、description、datePublished、keywords)
+4. 提取主文(過濾 nav/footer/aside)
+5. 存入 data/sources/naaes_policy/{slug}.md(YAML frontmatter + 內文)
+6. 產出 INDEX 摘要
+
+用法:
+    python3 scripts/fetch_aabe_policy.py            # 全抓
+    python3 scripts/fetch_aabe_policy.py --limit 5  # 只抓前 5 篇(測試)
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import html as html_mod
+import json
+import re
+import sys
+from pathlib import Path
+
+# Wave 36:共用 HTTP 模組
+from _http import fetch_text as fetch
+
+ROOT = Path(__file__).resolve().parent.parent
+OUT = ROOT / "data" / "sources" / "naaes_policy"
+SITEMAP = "https://naer-tw.github.io/policy/sitemap.xml"
+
+
+def slug_from_url(url: str) -> str:
+    """https://naer-tw.github.io/policy/child-rights/2026-04-22-X.html → child-rights_2026-04-22-X"""
+    p = url.replace("https://naer-tw.github.io/policy/", "").rstrip("/")
+    p = p.replace(".html", "").replace("/", "_")
+    return p or "index"
+
+
+def extract_article(html: str, url: str) -> dict:
+    out = {"url": url, "headline": "", "description": "", "datePublished": "",
+           "keywords": [], "section": "", "body_text": ""}
+    # 1. NewsArticle JSON-LD
+    for m in re.finditer(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>',
+                         html, re.DOTALL):
+        try:
+            data = json.loads(m.group(1).strip())
+            if isinstance(data, dict) and data.get("@type") == "NewsArticle":
+                out["headline"] = data.get("headline", "")
+                out["description"] = data.get("description", "")
+                out["datePublished"] = (data.get("datePublished") or "")[:10]
+                kw = data.get("keywords", [])
+                out["keywords"] = kw if isinstance(kw, list) else [kw]
+                section = data.get("articleSection", "")
+                out["section"] = section if isinstance(section, str) else ""
+                break
+        except (json.JSONDecodeError, AttributeError):
+            continue
+
+    # 2. body text — 用 <main> 或 <article> 之外圍
+    body_match = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL)
+    if not body_match:
+        body_match = re.search(r'<article[^>]*>(.*?)</article>', html, re.DOTALL)
+    body_html = body_match.group(1) if body_match else html
+
+    # 移除 script/style/nav/footer/header/aside
+    for tag in ["script", "style", "nav", "footer", "header", "aside", "form"]:
+        body_html = re.sub(rf'<{tag}[^>]*>.*?</{tag}>', "", body_html, flags=re.DOTALL)
+
+    # 折疊標籤為換行,然後 strip 所有 HTML
+    body_html = re.sub(r'<(h[1-6]|p|li|br|div)[^>]*>', "\n", body_html, flags=re.IGNORECASE)
+    body_html = re.sub(r'</?[^>]+>', "", body_html)
+    body_html = html_mod.unescape(body_html)
+    body_html = re.sub(r'\n{3,}', "\n\n", body_html).strip()
+    out["body_text"] = body_html
+
+    return out
+
+
+def article_to_md(art: dict) -> str:
+    fm = ["---"]
+    fm.append(f"source_url: {art['url']}")
+    if art["headline"]:
+        fm.append(f"title: {art['headline']}")
+    if art["datePublished"]:
+        fm.append(f"date: {art['datePublished']}")
+    if art["section"]:
+        fm.append(f"section: {art['section']}")
+    if art["keywords"]:
+        fm.append(f"keywords: [{', '.join(art['keywords'])}]")
+    fm.append(f"fetched_at: {dt.date.today().isoformat()}")
+    fm.append("---")
+    fm.append("")
+    fm.append(f"# {art['headline'] or '(無標題)'}")
+    fm.append("")
+    if art["description"]:
+        fm.append(f"> **摘要**:{art['description']}")
+        fm.append("")
+    fm.append("---")
+    fm.append("")
+    fm.append(art["body_text"])
+    return "\n".join(fm)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, help="只抓前 N 篇(測試用)")
+    ap.add_argument("--skip-existing", action="store_true", help="跳過已抓的")
+    args = ap.parse_args()
+
+    OUT.mkdir(parents=True, exist_ok=True)
+
+    print(f"▶ 抓 sitemap.xml...")
+    sitemap = fetch(SITEMAP)
+    urls = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+    # 過濾掉目錄頁(無 .html)
+    urls = [u for u in urls if u.endswith(".html")]
+    print(f"  共 {len(urls)} 篇文章")
+
+    if args.limit:
+        urls = urls[:args.limit]
+        print(f"  --limit {args.limit},只處理前 {len(urls)} 篇")
+
+    n_ok = 0
+    n_skip = 0
+    n_err = 0
+    summary = []
+
+    for i, url in enumerate(urls, 1):
+        slug = slug_from_url(url)
+        out_path = OUT / f"{slug}.md"
+        if args.skip_existing and out_path.exists():
+            n_skip += 1
+            continue
+        try:
+            html = fetch(url)
+            art = extract_article(html, url)
+            out_path.write_text(article_to_md(art), encoding="utf-8")
+            wc = len(art["body_text"])
+            print(f"  {i:>2}/{len(urls)} ✓ {slug:<60} {wc:>6} 字")
+            summary.append({
+                "url": url, "slug": slug, "headline": art["headline"],
+                "date": art["datePublished"], "section": art["section"], "wc": wc,
+            })
+            n_ok += 1
+        except Exception as e:
+            print(f"  {i:>2}/{len(urls)} ❌ {slug}: {e}")
+            n_err += 1
+
+    # 產出 INDEX
+    idx_path = OUT / "INDEX.md"
+    lines = ["# NAAES 政策知識庫文章索引(自動抓取)", "", f"抓取日:{dt.date.today()}",
+             f"來源:{SITEMAP}", f"成功 {n_ok} / 跳過 {n_skip} / 失敗 {n_err}",
+             "", "## 文章清單(按日期降序)", ""]
+    summary.sort(key=lambda x: x["date"] or "", reverse=True)
+    for s in summary:
+        lines.append(f"- **{s['date'] or '?'}** [{s['headline'] or s['slug']}]({s['slug']}.md)"
+                     f" — {s['section']} · {s['wc']:,} 字")
+    idx_path.write_text("\n".join(lines), encoding="utf-8")
+    print(f"\n✓ INDEX:{idx_path.relative_to(ROOT)}")
+    print(f"✓ {n_ok} 篇進 {OUT.relative_to(ROOT)}/")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

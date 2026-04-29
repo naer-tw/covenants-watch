@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+"""
+aabe_to_advocacy.py — 把 data/sources/naaes_policy/ 27 篇 NAAES 文章
+轉為 advocacy_action 條目並灌進 SQLite。
+
+依 docs/naaes_policy_to_issue_mapping.md 之分類關聯到對應 PI。
+
+用法:
+    python3 scripts/aabe_to_advocacy.py            # 全部
+    python3 scripts/aabe_to_advocacy.py --dry-run  # 不寫入,只列出
+"""
+from __future__ import annotations
+
+import argparse
+import re
+import sqlite3
+import sys
+from pathlib import Path
+
+# Wave 36:共用 frontmatter 模組
+from _md_frontmatter import parse_yaml
+
+ROOT = Path(__file__).resolve().parent.parent
+NAAES_DIR = ROOT / "data" / "sources" / "naaes_policy"
+DB = ROOT / "data" / "crw.db"
+
+
+# 對應映射表(從 docs/naaes_policy_to_issue_mapping.md)
+ISSUE_MAPPING = {
+    # PI-01 校園霸凌
+    "campus-safety_2026-03-25-永和國中霸凌案": ["PI-01"],
+    "teacher-affairs_2026-01-23-校事會議修法": ["PI-01"],
+    # PI-02 心理健康
+    "youth-health_2025-12-05-青少年自殺通報": ["PI-02"],
+    # PI-05 少年司法
+    "child-rights_2026-04-01-少事法矯正教育假釋塗銷轉銜改革": ["PI-05"],
+    "campus-safety_2026-03-23-轉介教育條例": ["PI-05"],
+    "child-rights_2025-12-24-少年重大暴力案件量刑透明化": ["PI-05"],
+    # PI-06 網路安全
+    "health_2026-04-24-健康台灣無菸品世代": ["PI-06"],
+    "campus-safety_2026-04-02-校園唾液快篩二層檢測機制": ["PI-06"],
+    "campus-safety_2025-12-16-校園菸毒與毒駕新興毒品檢測": ["PI-06"],
+    "health_2026-01-13-無菸城市": ["PI-06"],
+    # PI-08 性平
+    "education-reform_2026-04-15-性平法再校準-國教盟公聽會": ["PI-08"],
+    "education-reform_2026-04-15-家長立場-全長聯公聽會": ["PI-08"],
+    "child-rights_20251208-sexual-violence-prevention-education": ["PI-08"],
+    # PI-09 學習權
+    "education-reform_2026-04-12-台灣實驗教育國際比較": ["PI-09"],
+    "education-reform_2026-04-12-偏鄉公校轉型實驗教育": ["PI-09"],
+    "education-reform_2026-04-12-偽實驗與弱勢學生權益": ["PI-09"],
+    "school-lunch_2026-04-03-國民教育平權": ["PI-09"],
+    "school-lunch_2026-01-09-免費營養午餐配套": ["PI-09", "PI-11"],
+    # PI-10 表意 / 跨議題(Wave 39 修正:對齊 docs/naaes_policy_to_issue_mapping.md 跨議題引用表)
+    "campus-safety_2026-03-23-倡議成果追蹤": ["PI-01", "PI-05", "PI-06"],
+    "child-rights_2025-12-06-兒童成長需求總體檢論壇": ["PI-09", "PI-10", "PI-11"],
+    # PI-11 家庭功能
+    "child-rights_2026-04-02-台灣未來帳戶": ["PI-11"],
+    "child-rights_2026-04-01-兒童節育兒支持政策": ["PI-11"],
+    "child-health_2026-04-01-兒童消失危機-育兒津貼翻倍": ["PI-11"],
+    # PI-12 替代照顧
+    # 0422 文章 Wave 38 已逐段對應至四議題,同步擴充跨議題關聯
+    "child-rights_2026-04-22-兒少權法修法六大缺口": ["PI-12", "PI-11", "PI-05", "PI-01"],
+    "child-rights_2026-04-17-兒少保護體系改革五大修法工程": ["PI-12"],
+    "child-rights_2026-04-17-剴剴案社工判刑與兒少保護修法訴求": ["PI-12"],
+    # PI-13 移民/無國籍
+    "child-health_2026-01-14-人工生殖法修法風險": ["PI-13"],
+}
+
+
+def slug_to_action_id(slug: str) -> str:
+    """slug → action_id(以 NAAES- 前綴避免與既有 advocacy 衝突)"""
+    return f"NAAES-{slug}"
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dry-run", action="store_true")
+    args = ap.parse_args()
+
+    if not NAAES_DIR.exists():
+        print(f"❌ {NAAES_DIR} 不存在,先跑 scripts/fetch_aabe_policy.py")
+        return 1
+
+    if not args.dry_run:
+        con = sqlite3.connect(DB)
+        cur = con.cursor()
+
+    inserted = 0
+    relations = 0
+    skipped = 0
+
+    for md_path in sorted(NAAES_DIR.glob("*.md")):
+        if md_path.name == "INDEX.md":
+            continue
+        slug = md_path.stem
+        text = md_path.read_text(encoding="utf-8")
+        m = re.match(r"^---\n(.*?)\n---\n", text, re.DOTALL)
+        if not m:
+            print(f"  ⚠ {slug}: 無 frontmatter,跳過")
+            skipped += 1
+            continue
+        meta = parse_yaml(m.group(1))
+
+        action_id = slug_to_action_id(slug)
+        title = meta.get("title", slug)
+        date = meta.get("date") or "2026"
+        url = meta.get("source_url", "")
+        related_pis = ISSUE_MAPPING.get(slug, [])
+
+        # 摘要(取「> **摘要**:」之後的第一段)
+        body = text[m.end():]
+        excerpt_match = re.search(r">\s*\*\*摘要\*\*[::](.*?)(?=\n\n|\n>|\Z)", body, re.DOTALL)
+        excerpt = (excerpt_match.group(1).strip() if excerpt_match else "")[:500]
+
+        if args.dry_run:
+            print(f"  {action_id} → {related_pis} — {title[:50]}")
+            inserted += 1
+            relations += len(related_pis)
+            continue
+
+        cur.execute("""
+            INSERT OR REPLACE INTO advocacy_action
+            (action_id, title, action_date, action_type, main_argument,
+             public_url, quotable_excerpt)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            action_id, title, date, "政策分析(GEO 文章)",
+            excerpt, url, excerpt,
+        ))
+        for pi in related_pis:
+            try:
+                cur.execute(
+                    "INSERT OR IGNORE INTO rel_issue_action(issue_id, action_id) VALUES (?, ?)",
+                    (pi, action_id),
+                )
+                relations += 1
+            except sqlite3.IntegrityError as e:
+                print(f"  ⚠ rel ({pi}, {action_id}) skipped: {e}")
+        inserted += 1
+
+    if args.dry_run:
+        print(f"\n[dry-run] {inserted} 篇 + {relations} 條關聯")
+    else:
+        con.commit()
+        print(f"\n✓ 寫入 {inserted} 篇 advocacy_action + {relations} 條 rel_issue_action")
+        # 統計
+        for q in ("advocacy_action", "rel_issue_action"):
+            cnt = cur.execute(f"SELECT COUNT(*) FROM {q}").fetchone()[0]
+            print(f"  {q}: {cnt}")
+        con.close()
+
+    if skipped:
+        print(f"  ⚠ {skipped} 篇跳過(無 frontmatter)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

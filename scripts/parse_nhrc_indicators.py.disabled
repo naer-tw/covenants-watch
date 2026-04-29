@@ -1,0 +1,246 @@
+#!/usr/bin/env python3
+"""parse_nhrc_indicators.py — NHRC 兒童權利監測指標集 239 項 PDF/Excel 解析。
+
+Wave 85:對應 MVP 藍圖 §3 + data/sources/NHRC_239指標集_2026-02_佔位.md
+
+NHRC 於 2026-02-04 發布之指標集格式預估(待 PDF 公布後對照修正):
+  - 4 大支柱:SDGs / 受教育權 / 公共參與 / 兒童司法
+  - 每項含:指標 ID / 名稱(中英) / 主管機關 / 計算方式 / 最新數值 / CRC 對應
+
+骨架功能:
+  1. PDF/Excel 兩種輸入格式(pypdf + openpyxl)
+  2. 解析後寫入 SQLite nhrc_indicator 表
+  3. 自動對照本平台 14 PI(透過 vocab_issue 關鍵字 fuzzy match)
+
+用法:
+    python3 scripts/parse_nhrc_indicators.py PDF_PATH                # 從 PDF 解析
+    python3 scripts/parse_nhrc_indicators.py XLSX_PATH               # 從 Excel
+    python3 scripts/parse_nhrc_indicators.py --dry-run TEST_DATA     # 不寫 DB
+    python3 scripts/parse_nhrc_indicators.py --list                  # 列出已匯入
+
+注意:本檔之解析規則須在實際拿到 NHRC PDF 後**最終校正**。
+目前內建一份 6 項範例資料,用於 schema 驗證 + 流程演練。
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sqlite3
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "data" / "crw.db"
+
+PILLARS = ["SDGs", "受教育權", "公共參與", "兒童司法"]
+
+
+def init_schema(conn: sqlite3.Connection) -> None:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS nhrc_indicator (
+            indicator_id TEXT PRIMARY KEY,
+            pillar TEXT,
+            sub_section TEXT,
+            name_zh TEXT NOT NULL,
+            name_en TEXT,
+            unit TEXT,
+            data_source_agency TEXT,
+            data_url TEXT,
+            crc_articles TEXT,            -- JSON array
+            related_pi TEXT,              -- JSON array
+            latest_value TEXT,
+            latest_date TEXT,
+            trend TEXT CHECK(trend IN ('improving','stable','worsening','--')),
+            nhrc_concern TEXT,
+            last_updated TEXT
+        )
+    """)
+    conn.commit()
+
+
+# 議題關鍵字 → PI 對應(用於 fuzzy match NHRC 指標名稱)
+PI_KEYWORDS = {
+    "PI-01": ["霸凌", "bullying"],
+    "PI-02": ["自殺", "心理健康", "suicide", "mental"],
+    "PI-03": ["體罰", "corporal"],
+    "PI-04": ["輔導", "WISER", "counsel"],
+    "PI-05": ["少年", "司法", "juvenile"],
+    "PI-06": ["網路", "詐騙", "依托咪酯", "毒品", "cyber"],
+    "PI-07": ["性剝削", "性侵", "sexual"],
+    "PI-08": ["性別", "性教育", "淋病", "梅毒", "gender"],
+    "PI-09": ["課業", "補習", "學習權", "academic"],
+    "PI-10": ["表意", "校園民主", "參與", "voice", "participation"],
+    "PI-11": ["家庭", "親職", "家暴", "family"],
+    "PI-12": ["替代照顧", "機構安置", "兒福聯盟", "alternative care"],
+    "PI-13": ["移民", "難民", "無國籍", "migrant", "stateless"],
+    "PI-14": ["LGBTQI", "LGBT", "跨性別"],
+}
+
+
+def auto_tag_pi(name_zh: str) -> list[str]:
+    matched = []
+    text = name_zh.lower()
+    for pi, kws in PI_KEYWORDS.items():
+        if any(kw.lower() in text for kw in kws):
+            matched.append(pi)
+    return matched
+
+
+def parse_pdf(pdf_path: Path) -> list[dict]:
+    """從 NHRC 239 指標 PDF 解析(待 NHRC 釋出後實作)。"""
+    try:
+        from pypdf import PdfReader
+    except ImportError:
+        print("⚠ 需 pypdf:.venv/bin/pip install pypdf", file=sys.stderr)
+        return []
+
+    reader = PdfReader(str(pdf_path))
+    text = "\n".join(p.extract_text() or "" for p in reader.pages)
+
+    # ⚠ 解析規則待 NHRC 釋出實際 PDF 後補完。骨架版只切「指標 N」之段落。
+    indicators = []
+    pattern = re.compile(r"指標\s*(\d+)[^\n]*\n([^\n]+)\n.*?(\d+\.?\d*\s*(?:%|人|件|歲|×))?",
+                         re.DOTALL)
+    for i, m in enumerate(pattern.finditer(text)):
+        idx = m.group(1)
+        name = m.group(2).strip()
+        value = m.group(3) if m.group(3) else "--"
+        indicators.append({
+            "indicator_id": f"NHRC-239-{int(idx):03d}",
+            "name_zh": name[:80],
+            "latest_value": value,
+            "pillar": "未分類(待人工標)",
+        })
+        if len(indicators) >= 250:  # 安全上限
+            break
+    return indicators
+
+
+def parse_xlsx(xlsx_path: Path) -> list[dict]:
+    """從 Excel 解析(若 NHRC 釋出 .xlsx 版本)。"""
+    try:
+        import openpyxl
+    except ImportError:
+        print("⚠ 需 openpyxl:.venv/bin/pip install openpyxl", file=sys.stderr)
+        return []
+    wb = openpyxl.load_workbook(xlsx_path, read_only=True)
+    ws = wb.active
+    indicators = []
+    rows = list(ws.iter_rows(values_only=True))
+    if not rows:
+        return []
+    # 假設第 1 列為 header,後續每列為一指標
+    headers = [str(c).strip() if c else "" for c in rows[0]]
+    for row in rows[1:]:
+        rec = dict(zip(headers, row))
+        if not rec.get("指標 ID") and not rec.get("indicator_id"):
+            continue
+        indicators.append({
+            "indicator_id": rec.get("指標 ID") or rec.get("indicator_id"),
+            "name_zh": rec.get("名稱") or rec.get("name_zh", ""),
+            "name_en": rec.get("name_en", ""),
+            "pillar": rec.get("支柱") or rec.get("pillar", "未分類"),
+            "data_source_agency": rec.get("主管機關") or rec.get("agency", ""),
+            "latest_value": str(rec.get("最新數值") or rec.get("latest_value", "--")),
+            "latest_date": str(rec.get("更新日期") or rec.get("latest_date", "")),
+        })
+    return indicators
+
+
+def get_sample_data() -> list[dict]:
+    """6 項範例(等真實 PDF 取代)。"""
+    return [
+        {"indicator_id": "NHRC-239-042", "pillar": "SDGs", "name_zh": "校園霸凌通報率", "name_en": "Campus Bullying Reporting Rate", "unit": "件/千人", "data_source_agency": "教育部", "latest_value": "12.3", "latest_date": "2024", "trend": "stable", "crc_articles": '["CRC-19","CRC-28"]'},
+        {"indicator_id": "NHRC-239-043", "pillar": "SDGs", "name_zh": "校園霸凌處置成立率", "name_en": "Campus Bullying Sustained Rate", "unit": "%", "data_source_agency": "教育部", "latest_value": "31.87%", "latest_date": "2025-12", "trend": "worsening", "nhrc_concern": "NHRC 4641 件分析顯示 65% 未通報社政", "crc_articles": '["CRC-19"]'},
+        {"indicator_id": "NHRC-239-088", "pillar": "SDGs", "name_zh": "15-24 歲女性自殺通報數", "name_en": "Female Youth Suicide Notifications", "unit": "人", "data_source_agency": "衛福部", "latest_value": "33,964", "latest_date": "2024", "trend": "worsening", "nhrc_concern": "10 年累計增 142%", "crc_articles": '["CRC-6","CRC-24"]'},
+        {"indicator_id": "NHRC-239-115", "pillar": "受教育權", "name_zh": "友善校園人權環境指標自評率", "data_source_agency": "教育部 / 地方政府", "latest_value": "未公開", "latest_date": "2024", "trend": "--", "nhrc_concern": "NHRC 多次建請提供縣市層級資料,迄未見"},
+        {"indicator_id": "NHRC-239-160", "pillar": "公共參與", "name_zh": "兒少代表會議發言可追蹤性", "data_source_agency": "行政院 / 各部會", "latest_value": "0%", "latest_date": "2025", "trend": "stable", "nhrc_concern": "GC12 表意權實質落實,僅程序層面"},
+        {"indicator_id": "NHRC-239-205", "pillar": "兒童司法", "name_zh": "少年司法塗銷實務跨機關殘留", "data_source_agency": "司法院 / 法務部", "latest_value": "存在", "latest_date": "2025", "trend": "--", "nhrc_concern": "對接本平台 PI-05 §民間觀察 4"},
+    ]
+
+
+def write_to_db(records: list[dict]) -> int:
+    if not records:
+        return 0
+    conn = sqlite3.connect(str(DB))
+    init_schema(conn)
+    n = 0
+    for r in records:
+        related_pi = json.dumps(auto_tag_pi(r.get("name_zh", "")), ensure_ascii=False)
+        conn.execute("""
+            INSERT OR REPLACE INTO nhrc_indicator(indicator_id, pillar, sub_section,
+                name_zh, name_en, unit, data_source_agency, data_url, crc_articles,
+                related_pi, latest_value, latest_date, trend, nhrc_concern, last_updated)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,date('now'))
+        """, (
+            r.get("indicator_id"), r.get("pillar"), r.get("sub_section"),
+            r.get("name_zh", ""), r.get("name_en"), r.get("unit"),
+            r.get("data_source_agency"), r.get("data_url"),
+            r.get("crc_articles", "[]"), related_pi,
+            r.get("latest_value"), r.get("latest_date"),
+            r.get("trend"), r.get("nhrc_concern"),
+        ))
+        n += 1
+    conn.commit()
+    conn.close()
+    return n
+
+
+def list_indicators() -> int:
+    conn = sqlite3.connect(str(DB))
+    init_schema(conn)
+    rows = conn.execute(
+        "SELECT indicator_id, pillar, name_zh, latest_value, related_pi "
+        "FROM nhrc_indicator ORDER BY indicator_id LIMIT 30"
+    ).fetchall()
+    print(f"已入庫 {conn.execute('SELECT COUNT(*) FROM nhrc_indicator').fetchone()[0]} 項")
+    print("─" * 90)
+    for row in rows:
+        idx, pillar, name, val, pi = row
+        print(f"{idx} | {(pillar or '--'):8} | {name[:30]:30} | {val:12} | {pi}")
+    conn.close()
+    return 0
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("input", nargs="?", help="PDF / XLSX 檔案路徑;省略 + --sample 灌範例資料")
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--list", action="store_true", help="列出已入庫指標")
+    ap.add_argument("--sample", action="store_true", help="用內建 6 項範例資料(用於 schema 驗證)")
+    args = ap.parse_args()
+
+    if args.list:
+        return list_indicators()
+
+    if args.sample or not args.input:
+        records = get_sample_data()
+        print(f"使用內建範例 {len(records)} 項")
+    else:
+        path = Path(args.input)
+        if not path.exists():
+            print(f"❌ {path} 不存在", file=sys.stderr)
+            return 1
+        if path.suffix.lower() == ".pdf":
+            records = parse_pdf(path)
+        elif path.suffix.lower() in (".xlsx", ".xls"):
+            records = parse_xlsx(path)
+        else:
+            print(f"❌ 不支援副檔名 {path.suffix}", file=sys.stderr)
+            return 1
+        print(f"從 {path.name} 解析 {len(records)} 項")
+
+    if args.dry_run:
+        for r in records[:5]:
+            print(f"  {r['indicator_id']} | {r.get('pillar')} | {r.get('name_zh')[:40]}")
+        print(f"(dry-run — 不寫入)")
+        return 0
+
+    n = write_to_db(records)
+    print(f"✓ 寫入 nhrc_indicator 表 {n} 筆")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
