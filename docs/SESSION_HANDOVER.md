@@ -75,7 +75,16 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | 48 | 預覽驗證 — 主要頁面 + 16 PI + sitemap/llms 全 200 |
 | 49 | **PI-05 首批 metadata**：NAP I 期程、PDF URL、CovenantsWatch 既有評估 + status 升 partial_metadata |
 | 50 | **PI-09 區域對照組**：日本 / 韓國 / 澳 / 紐 RSF 排名（佐證 Taiwan 上升非區域同步）|
-| 51 | 本檔最終更新至 Wave 51 |
+| 51 | 本檔更新至 Wave 51 |
+| 53 | 整合本地 skills（~/clawd/skills/）— legislative-monitor / international-radar / news-monitoring |
+| 54 | PI-13 採用三表架構（A 議題 / B 事件 / C 對照）+ L1/L2/L3 + 兩公約特化偵測 |
+| 55 | Felo AI 實證搜尋 — 抓到太極門案（PI-08 個案研究）|
+| 56 | data/sources/_INTERNATIONAL_RADAR.md — 9 大國際資料源類別 |
+| 57 | parallel-research spawn agent 蒐集 PI-11 自殺率資料（背景執行）|
+| 58 | shadow_report/compile.py 5 audience 完整實作（professional/media/advocacy/legislative/social）|
+| 59 | self_qa 升至 67 pass + commit |
+| 60 | **PI-11 首批實證**：青少年自殺率 2018-2025（2023 年 7.0 高於 OECD 6.5）+ 政策投入時間軸 |
+| 60 | status: partial_evidence（PI-05/08/09/11 皆已部分實證）|
 
 ## 三、四大區塊與 16 張議題卡狀態
 
