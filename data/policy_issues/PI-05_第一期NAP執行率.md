@@ -3,7 +3,7 @@ pi_id: PI-05
 title: 第一期國家人權行動計畫（2022-2024）執行率總體檢
 block: B_nap_progress
 priority: P1
-status: framework
+status: partial_metadata
 audience_versions: [professional, media, advocacy, legislative]
 covenant: ICCPR + ICESCR
 co_referenced: []
@@ -18,7 +18,39 @@ last_updated: 2026-04-30
 
 行政院 2022 年 5 月核定第一期國家人權行動計畫（NAP I），含逾百項行動項目，期程至 2024 年 12 月。本卡片以**三方資料交叉檢核**檢驗執行率：政府自評 vs NHRC 監督 vs 民間觀察。
 
-## 一、研究設計
+## 一·二、實證資料（首批 metadata 已匯入）
+
+> 來源：法務部「人權大步走」官網 + CovenantsWatch 公開言論
+> 完整 CSV：`data/evidence/nap_phase1_metadata.csv`
+
+### NAP 第一期基本資訊
+
+| 項目 | 數值 / 內容 |
+|---|---|
+| 期程 | 2022-05-06 ~ 2024-12-31 |
+| 官方核定機關 | 行政院 |
+| 主要文件 | 國家人權行動計畫.pdf（2,096 KB）|
+| 公開來源 | 法務部「人權大步走」<br>https://www.humanrights.moj.gov.tw/17725/17778/17803/29537/36050/36069/post |
+| 最後官方更新 | 2024-06-27 |
+| 公開下載量（查詢時點）| 4,236 次 |
+
+### 民間既有評估記錄
+
+- **2022-12-08**（CovenantsWatch 座談會）：人權公約施行監督聯盟對 2022-24 NAP 提出公開疑慮，認為其**可能僅為宣示性質**而缺乏實質執行機制。
+  - 來源：https://covenantswatch.org.tw/2022/12/08/
+
+### 待補（Wave 50+）
+
+- [ ] PDF 全文 OCR 切段 → SQLite `nap_action` 表
+- [ ] 行政院期末報告（若已公開）
+- [ ] 各部會自評執行率
+- [ ] CovenantsWatch 對應評估（若已產出系統性報告）
+- [ ] NHRC 監察院監督意見（若已產出）
+- [ ] 三方判斷分歧度量化
+
+> **本卡片不在三方資料完整匯入前下任何具體執行率結論。**
+
+## 二、研究設計
 
 ### 樣本
 - NAP I 完整行動清單（行政院公告）

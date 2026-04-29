@@ -1,7 +1,7 @@
 # Session Handover — 兩公約施行總檢討平台
 
 > **建立日**：2026-04-29
-> **最後更新**：2026-04-30（Wave 1-37：16 PI 全完成 + 兩輪 cold read QA + 全部修補）
+> **最後更新**：2026-04-30（Wave 1-51：16 PI + 兩輪 cold read + 首批實證注入 + 平台基礎設施完備）
 > **方法論來源**：兒少權監督平台 PLATFORM_PLAYBOOK.md
 > **此檔目的**：讓下個 session 不依賴對話脈絡即可冷接手
 
@@ -61,7 +61,21 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | 33-34 | 首頁加 16 PI 連結 + 統計欄；PI-01/03 cold read 漏網部分補修 |
 | 35 | **第二輪 cold read QA**（5 個 actionable 問題） |
 | 36 | 第二輪 5 問題全修：PI-01 政黨欄位中性化、PI-09 NCC 案件匿名化條款、**PI-10 Steelman B 補強至對等強度**（補 9 條判例 + 起草史 + GC13 §28）、PI-07 NHRC 措辭柔化、PI-02 交叉引用補齊 |
-| 37 | 本檔最終更新至 Wave 37 |
+| 37 | 本檔更新至 Wave 37 |
+| 38 | 預覽驗證 — 17 HTML 全 200 / Steelman B 補強 9 條法源齊全 |
+| 39 | 兩公約專用抓取腳本骨架（fetch_co / fetch_legislative / statistical_analysis）|
+| 40 | **PI-09 首批實證**：RSF Taiwan 2013-2025 排名（47 → 24，亞洲第 1）|
+| 41 | PI-09 加 Freedom House 2017-2026 評分 + 雙指標交叉佐證 + status 升 partial_evidence |
+| 42 | _public/about.html + methodology.html + feedback.html（4 類回饋通道）|
+| 43 | robots.txt + sitemap.xml（20 URL）+ llms.txt（AI 友善索引）|
+| 44 | shadow_report/master_template.md（影子報告 v0.1 骨架，6 章 + 4 附錄）|
+| 45 | deployment/github_pages.md（A/B/C 三種域名選項 + 預檢清單 + 上線判準）|
+| 46 | 首頁 nav 加 about/methodology/feedback/llms 連結 |
+| 47 | self_qa 升至 66 pass + commit |
+| 48 | 預覽驗證 — 主要頁面 + 16 PI + sitemap/llms 全 200 |
+| 49 | **PI-05 首批 metadata**：NAP I 期程、PDF URL、CovenantsWatch 既有評估 + status 升 partial_metadata |
+| 50 | **PI-09 區域對照組**：日本 / 韓國 / 澳 / 紐 RSF 排名（佐證 Taiwan 上升非區域同步）|
+| 51 | 本檔最終更新至 Wave 51 |
 
 ## 三、四大區塊與 16 張議題卡狀態
 
@@ -127,13 +141,20 @@ cat data/policy_issues/_PI_PLANNING.md | head -40
 python3 scripts/two_cov_md_to_db.py
 ```
 
-## 六、可進入下個階段的方向（Wave 38+）
+## 六、可進入下個階段的方向（Wave 52+）
 
-實證化優先順序（依第二輪 cold read 建議）：
-1. **PI-09 言論自由客觀指標** — 資料最易（RSF / Freedom House 公開）、政治風險最低、可立即視覺化 14 年時間序列
-2. **PI-05 第一期 NAP 執行率** — NAP I 已於 2024 結束，期末報告 + CovenantsWatch 評估皆已存在
-3. **PI-01 / PI-02 16 年 250 點 CO 匯入** — 全平台地基；前三屆 CO 全文公開；建議與 PI-12 共用 schema
-4. **Wave 50+ 影子報告 v0.1** — compile 5 audience（壓縮已實證之 PI）
+已完成首批實證（Wave 40-50）：
+- ✅ PI-09 RSF 13 年 + FH 10 年 + 日韓澳紐對照組
+- ✅ PI-05 NAP I metadata（PDF URL + CovenantsWatch 既有評估）
+
+下個 session 推薦做：
+1. **下載 NAP I PDF + OCR 切段 → SQLite `nap_action` 表**
+   `python3 scripts/two_cov_fetch_co.py --review 1 --pdf <path>`
+2. **PI-01 / PI-02 4 屆 CO 全文匯入**（前三屆已公開）
+3. **PI-09 加 NCC 處分量化**（須法律顧問複核 + 14 日異議期）
+4. **PI-13 立法院公報 API 對接**（須申請 token）
+5. **Datawrapper 視覺化**：RSF 13 年趨勢圖、FH 10 年趨勢圖、區域對照組
+6. **Wave 60+ 影子報告 v0.2**（PI-05/09 實證注入後 compile）
 
 最難取得（後排）：PI-15 各部會分年預算數位化、PI-16 五版教科書授權、PI-07 NHRC 內部任命過程
 
