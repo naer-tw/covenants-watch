@@ -3,7 +3,7 @@ pi_id: PI-07
 title: 監察院國家人權委員會（NHRC）獨立監督的實證盲點
 block: B_nap_progress
 priority: P1
-status: framework
+status: partial_evidence
 audience_versions: [professional, media, advocacy, legislative]
 covenant: ICCPR + ICESCR
 co_referenced: []
@@ -20,7 +20,63 @@ last_updated: 2026-04-30
 
 > 本卡片**不對 NHRC 之政治立場做主觀評價**，僅以巴黎原則 6 大要件 + GANHRI 認證標準為客觀依據。
 
-## 一、研究設計
+## 一·二、首批實證（已匯入）
+
+> 完整 CSV：`data/evidence/nhrc_paris_principles.csv`
+> 由 parallel-research agent 整理（2026-04-30）
+
+### 基本事實
+
+| 項目 | 內容 |
+|---|---|
+| 成立時間 | 2020-08-01 |
+| 法源 | 《監察院國家人權委員會組織法》（2019-12 立法院三讀，2020-01 公布）|
+| 委員人數 | 10 人（主任委員由監察院院長兼任 + 7 名當然委員 + 2 名輪值委員）|
+| 任命機制 | 總統提名，立法院同意 |
+| 預算 | 114 年度國家人權業務約 1.18 億元（附屬於監察院，非獨立編列）|
+| **GANHRI 認證** | **未列入會員名單**（截至本平台查詢時點，監察院未公開正式申請紀錄）|
+
+### 巴黎原則 6 要件對照
+
+| 要件 | NHRC 現況 | 評註 |
+|---|---|---|
+| 1. 法律明定授權 | 有（組織法）| 具備 |
+| 2. 自主性（含財政）| 預算附屬於監察院 | 非獨立預算編列 |
+| 3. 多元組成 | 委員均須兼具監察委員身分 | 提名管道單一 |
+| 4. 充分職權與調查權 | 可調查酷刑、人權侵害、歧視事件 | 具備 |
+| 5. 充足資源 | 110-112 年度執行率為監察院各工作計畫中最低 | 資料缺口：人力編制細目 |
+| 6. 與民間/國際合作 | 2022 CO 要求強化受理申訴、公約監督 | 受 GANHRI 未認證限制 |
+
+### 亞洲對照組
+
+| 機構 | 成立 | GANHRI 認證 |
+|---|---|---|
+| **韓國 NHRCK** | 2001 | A 級（2025 SCA 第 46 屆啟動 special review）|
+| **菲律賓 CHR** | 1987 | A 級（2023-05 確認）|
+| **印度 NHRC** | 1993 | A 級（2023、2024 連續兩年 deferred）|
+| **台灣 NHRC** | 2020 | **未認證**（未公開正式申請紀錄）|
+
+### 6 年運作（2020-08 起）已產出
+
+- 年度國家人權狀況報告：2021、2022、2023、2024（4 份）
+- CRPD/CEDAW/CRC/ICCPR-ICESCR 獨立評估意見：多份
+
+### 資料缺口
+
+- 監察院未公開「是否、何時向 GANHRI 提出認證申請」之正式說明
+- NHRC 6 年累計專案報告/調查報告之集中統計官網未提供
+- 預算近 5 年趨勢僅見 114 年度數字（1.18 億），110-113 編列數須翻閱各年度單位預算評估報告比對
+
+### 來源
+
+- [監察院國家人權委員會組織法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=A0010119)
+- [國家人權委員會官網](https://nhrc.cy.gov.tw/)
+- [監察院 114 年度單位預算評估報告](https://www.ly.gov.tw/Pages/List.aspx?nodeid=55738)
+- [GANHRI Membership](https://ganhri.org/membership/)
+- [GANHRI Paris Principles](https://ganhri.org/paris-principles/)
+- [Asia Pacific Forum – GANHRI](https://www.asiapacificforum.net/global-alliance-of-national-human-rights-institutions)
+
+## 二、研究設計
 
 ### 標尺
 - **巴黎原則 6 大要件**（1993 UN GA Resolution 48/134）
