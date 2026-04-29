@@ -1,7 +1,7 @@
 # Session Handover — 兩公約施行總檢討平台
 
 > **建立日**：2026-04-29
-> **最後更新**：2026-04-30（Wave 1-19 一氣呵成 + cold read QA + 修補）
+> **最後更新**：2026-04-30（Wave 1-37：16 PI 全完成 + 兩輪 cold read QA + 全部修補）
 > **方法論來源**：兒少權監督平台 PLATFORM_PLAYBOOK.md
 > **此檔目的**：讓下個 session 不依賴對話脈絡即可冷接手
 
@@ -55,35 +55,42 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | 16 | git init + first commit + self_qa 首跑（63 pass）|
 | 17 | 4 張 PI 生成 _public/issues/PI-XX.html + spawn cold read QA |
 | 18 | **cold read 全面修補**：移除預設貼標、政黨點名、假數字、emoji + 新增 _STEELMAN SOP + internal/ 內部研究夾 |
-| 19 | auto memory + 預覽驗證 + 本檔最終更新 |
+| 19 | auto memory + 預覽驗證 + 本檔首次更新 |
+| 20-31 | 完成剩餘 12 張 PI（PI-02/04/05/06/07/08/09/10/11/14/15/16）全含 §steelman + §control_group |
+| 32 | 16 PI HTML 重生 + emoji 統一替換為 inline SVG |
+| 33-34 | 首頁加 16 PI 連結 + 統計欄；PI-01/03 cold read 漏網部分補修 |
+| 35 | **第二輪 cold read QA**（5 個 actionable 問題） |
+| 36 | 第二輪 5 問題全修：PI-01 政黨欄位中性化、PI-09 NCC 案件匿名化條款、**PI-10 Steelman B 補強至對等強度**（補 9 條判例 + 起草史 + GC13 §28）、PI-07 NHRC 措辭柔化、PI-02 交叉引用補齊 |
+| 37 | 本檔最終更新至 Wave 37 |
 
 ## 三、四大區塊與 16 張議題卡狀態
 
 ### A 區：兩公約施行 16 年總體檢討（4 卡）
-- [x] PI-01 兩公約 16 年施行歷程（draft）
-- [ ] PI-02 第一次審查 13 年回顧
-- [x] PI-03 第四次審查 2025 全覽（draft_pending_data）
-- [ ] PI-04「施行法」獨特性國際比較
+- [x] PI-01 兩公約 16 年施行歷程
+- [x] PI-02 第一次審查 13 年回顧
+- [x] PI-03 第四次審查 2025 全覽
+- [x] PI-04「施行法」獨特性國際比較
 
 ### B 區：NAP 國家人權行動計畫（3 卡）
-- [ ] PI-05 第一期 NAP 執行率
-- [ ] PI-06 第二期 NAP 關鍵承諾
-- [ ] PI-07 NHRC 獨立監督盲點
+- [x] PI-05 第一期 NAP 執行率
+- [x] PI-06 第二期 NAP 關鍵承諾
+- [x] PI-07 NHRC 獨立監督盲點
 
 ### C 區：國際比較（4 卡）
-- [ ] PI-08 第 18 條宗教自由國際標準
-- [ ] PI-09 第 19 條言論自由在台萎縮
-- [ ] PI-10 第 26 條 vs 第 13 條條文選擇性
-- [ ] PI-11 第 12 條健康權與兒少自殺
+- [x] PI-08 第 18 條宗教自由國際標準
+- [x] PI-09 第 19 條言論自由在台萎縮
+- [x] PI-10 第 26 條 vs 第 13 條詮釋光譜（**雙面 Steelman 對等**）
+- [x] PI-11 第 12 條健康權與兒少自殺
 
-### D 區：工具化與政黨化證據（5 卡）
-- [x] PI-12 條文援引頻率不對稱（framework_pending_data）
-- [x] PI-13 立法院公報量化（framework_pending_data）
-- [ ] PI-14 民間代表團組成代表性
-- [ ] PI-15 人權白皮書 vs 施政落差
-- [ ] PI-16 教科書中的兩公約敘事
+### D 區：援引行為與政策落差客觀檢驗（5 卡）
+- [x] PI-12 條文援引頻率分布客觀檢驗
+- [x] PI-13 立法院公報量化
+- [x] PI-14 民間代表團組成代表性
+- [x] PI-15 人權白皮書 4 維對照
+- [x] PI-16 教科書中的兩公約敘事
 
-> 4/16 完成，狀態多為「框架完成、待實證資料」。
+> **16/16 框架完成**，狀態為「研究設計骨架完成，待實證資料 Wave 21+ 匯入」。
+> 全部含 §steelman + §control_group + 品質控管 + 立場聲明。
 
 ## 四、用戶端待辦（本平台無法代為）
 
@@ -120,14 +127,15 @@ cat data/policy_issues/_PI_PLANNING.md | head -40
 python3 scripts/two_cov_md_to_db.py
 ```
 
-## 六、可進入下個階段的方向
+## 六、可進入下個階段的方向（Wave 38+）
 
-1. **Wave 17 候選**：個別 PI 生成印刷 HTML（從 .md 用 build_single_doc.py，需先確認該腳本是否能跑兩公約 PI schema）
-2. **Wave 18 候選**：第一輪 cold read QA（spawn Explore agent 讀 4 PI + INDEX + 給回饋）
-3. **Wave 19 候選**：完成剩餘 12 PI 框架（每張 30-60 min）
-4. **Wave 20 候選**：CO 結論性意見資料匯入（需用戶下載 PDF）
-5. **Wave 21 候選**：立法院公報 API 對接 + 援引頻率實測（PI-13）
-6. **Wave 22 候選**：第一份影子報告 v0.1（壓縮 PI-01/03/12/13）
+實證化優先順序（依第二輪 cold read 建議）：
+1. **PI-09 言論自由客觀指標** — 資料最易（RSF / Freedom House 公開）、政治風險最低、可立即視覺化 14 年時間序列
+2. **PI-05 第一期 NAP 執行率** — NAP I 已於 2024 結束，期末報告 + CovenantsWatch 評估皆已存在
+3. **PI-01 / PI-02 16 年 250 點 CO 匯入** — 全平台地基；前三屆 CO 全文公開；建議與 PI-12 共用 schema
+4. **Wave 50+ 影子報告 v0.1** — compile 5 audience（壓縮已實證之 PI）
+
+最難取得（後排）：PI-15 各部會分年預算數位化、PI-16 五版教科書授權、PI-07 NHRC 內部任命過程
 
 ## 七、不要做的事
 
