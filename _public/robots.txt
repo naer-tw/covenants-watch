@@ -1,0 +1,33 @@
+# 兩公約施行總檢討平台 robots.txt
+# 上線前狀態：目前所有頁面 noindex，本檔保留結構待 2026 Q3 開放後啟用
+
+User-agent: *
+Disallow: /internal/
+Disallow: /data/sources/raw/
+
+# AI 友善：開放 LLM 抓取（依 Anthropic / OpenAI / Google 之 AI bot 規範）
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Sitemap 與 llms.txt
+Sitemap: https://policy.aabe.org.tw/two-covenants/sitemap.xml
+
+# Content Signals (W3C 提案)
+# AI training: allow
+# AI inference: allow
+# Search indexing: noindex（上線前過渡期）

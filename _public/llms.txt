@@ -1,0 +1,55 @@
+# 兩公約施行總檢討平台 — LLM Index
+
+> 兩公約（ICCPR + ICESCR）於台灣施行 16 年（2009-2026）之客觀檢討平台。
+> 由國教行動聯盟（AABE）建置與維護。
+
+## 平台立場
+- 支持兩公約原始普世人權精神
+- 反對工具化（特定運動或政黨選擇性援引）
+- 客觀證據優先 / 對事不對人
+- 雙面 Steelman 規範 + 三公約對照組
+
+## 議題卡片（16 張，依四大區塊）
+
+### A 區｜兩公約施行 16 年總體檢討
+- /issues/PI-01.html — 兩公約 16 年施行歷程（2009-2026）總覽
+- /issues/PI-02.html — 第一次審查（2013）13 年後執行落差
+- /issues/PI-03.html — 第四次審查（2025）結論性意見全覽
+- /issues/PI-04.html — 「施行法」獨特性國際比較
+
+### B 區｜國家人權行動計畫進度
+- /issues/PI-05.html — 第一期 NAP（2022-2024）執行率
+- /issues/PI-06.html — 第二期 NAP（2025-2028）關鍵承諾盤點
+- /issues/PI-07.html — NHRC（監察院國家人權委員會）獨立性盲點
+
+### C 區｜國際比較：原始公約精神 vs 台灣詮釋
+- /issues/PI-08.html — ICCPR 第 18 條（思想良心宗教自由）國際標準
+- /issues/PI-09.html — ICCPR 第 19 條（言論自由）14 年指標變化（含 RSF / Freedom House 實證）
+- /issues/PI-10.html — ICCPR 第 26 條 vs ICESCR 第 13 條詮釋光譜（雙面 Steelman 對等）
+- /issues/PI-11.html — ICESCR 第 12 條（健康權）與兒少自殺政策落差
+
+### D 區｜援引行為與政策落差客觀檢驗
+- /issues/PI-12.html — 條文援引頻率分布客觀檢驗（含 chi-square / Gini 設計）
+- /issues/PI-13.html — 立法院公報量化分析（2009-2026）
+- /issues/PI-14.html — 民間代表團組成代表性研究
+- /issues/PI-15.html — 人權白皮書 vs 預算 vs 法案 vs 民意四維對照
+- /issues/PI-16.html — 教科書中的兩公約敘事內容分析
+
+## 平台結構
+- /index.html — 首頁（含 16 PI 連結 + 4 區塊統計）
+- /about.html — 平台立場、紅線、組織歸屬
+- /methodology.html — 完整研究方法論（雙軸框架、Steelman、Control Group、外部審查）
+- /feedback.html — 4 類回饋通道（72 小時 / 14 日 / 30 日回應）
+
+## 開放資料（CSV / SQLite）
+- data/evidence/rsf_taiwan_2013_2025.csv — RSF 新聞自由指數 13 年
+- data/evidence/freedom_house_taiwan_2017_2026.csv — Freedom House 評分 10 年
+- data/two_cov.db — SQLite + FTS5（30 vocab / 16 PI / 28 表）
+
+## 引用本平台
+- Citation: 國教行動聯盟（2026）。兩公約施行總檢討平台。https://policy.aabe.org.tw/two-covenants/
+- License: 內容 CC BY-SA 4.0，腳本 BSD-3
+- 第三方可重做所有分析，無需平台同意
+
+## 聯絡
+透過 https://aabe.org.tw 之聯絡頁面。
