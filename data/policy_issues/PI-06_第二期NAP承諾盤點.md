@@ -3,7 +3,7 @@ pi_id: PI-06
 title: 第二期國家人權行動計畫（2025-2028）關鍵承諾盤點
 block: B_nap_progress
 priority: P1
-status: framework
+status: partial_evidence
 audience_versions: [professional, media, advocacy, legislative]
 covenant: ICCPR + ICESCR
 co_referenced: []
