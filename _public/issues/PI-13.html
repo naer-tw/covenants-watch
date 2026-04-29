@@ -121,6 +121,86 @@ H0/H1，由資料決定）</h3>
 <blockquote>
 <p>此設計取代「預期某黨高、某黨低」之預設，避免確認偏誤。</p>
 </blockquote>
+<h2
+id="一二三表架構採用-legislative-monitor-skill">一·二、三表架構（採用
+legislative-monitor skill）</h2>
+<p>本卡片採用 <code>~/clawd/skills/legislative-monitor</code>
+之<strong>三表架構</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>表格</th>
+<th>用途</th>
+<th>格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A 表</strong></td>
+<td>議題清單</td>
+<td>Markdown 表格</td>
+</tr>
+<tr>
+<td><strong>B 表</strong></td>
+<td>事件資料（每筆官員發言）</td>
+<td>JSON 陣列</td>
+</tr>
+<tr>
+<td><strong>C 表</strong></td>
+<td>對照矩陣（議題 × 會期）</td>
+<td>Markdown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="l-等級定義承諾強度">L 等級定義（承諾強度）</h3>
+<table>
+<thead>
+<tr>
+<th>等級</th>
+<th>定義</th>
+<th>關鍵詞</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>L3</strong></td>
+<td>明確時程承諾</td>
+<td>一個月、三個月、會辦理、立即處理、儘速</td>
+</tr>
+<tr>
+<td><strong>L2</strong></td>
+<td>研議中</td>
+<td>研議、評估、檢討、考量、研究、規劃</td>
+</tr>
+<tr>
+<td><strong>L1</strong></td>
+<td>議題提及</td>
+<td>報告、說明、我們會、承諾、配合</td>
+</tr>
+</tbody>
+</table>
+<h3 id="兩公約特化偵測">兩公約特化偵測</h3>
+<p>本平台在 legislative-monitor 三表架構基礎上，新增： -
+<strong>兩公約援引偵測</strong>：每筆 B 表事件標記是否援引兩公約 -
+<strong>條文號擷取</strong>：自動標記 <code>ICCPR-26</code> /
+<code>ICESCR-12</code> 等條文標籤 - <strong>雙寫入</strong>：B 表 JSON +
+SQLite <code>legislative_citation</code> 表（FTS5 全文索引）</p>
+<h3 id="b-表事件-json-範例">B 表事件 JSON 範例</h3>
+<pre class="json"><code>{
+  &quot;id&quot;: &quot;B-0001&quot;,
+  &quot;date&quot;: &quot;114/3/5&quot;,
+  &quot;meeting&quot;: &quot;司法及法制 第5次(4)&quot;,
+  &quot;summary&quot;: &quot;邱部長：關於兩公約 Art.26 適用，我們會在三個月內研議...&quot;,
+  &quot;level&quot;: &quot;L3&quot;,
+  &quot;session&quot;: &quot;第4會期&quot;,
+  &quot;official&quot;: &quot;邱泰源&quot;,
+  &quot;agency&quot;: &quot;衛福部&quot;,
+  &quot;covenant_referenced&quot;: true,
+  &quot;articles_cited&quot;: [&quot;ICCPR-26&quot;],
+  &quot;speaker_party&quot;: &quot;（依當時職務記錄）&quot;,
+  &quot;bulletin_url&quot;: &quot;https://lis.ly.gov.tw/...&quot;,
+  &quot;bulletin_archive&quot;: &quot;https://web.archive.org/...&quot;
+}</code></pre>
 <h2 id="二實作-sop">二、實作 SOP</h2>
 <pre class="bash"><code># Wave 22+ 實作
 
