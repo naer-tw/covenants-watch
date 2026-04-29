@@ -1,21 +1,37 @@
 # Session Handover — 兩公約施行總檢討平台
 
-> **建立日**：2026-04-29（Wave 1-16 一氣呵成）
+> **建立日**：2026-04-29
+> **最後更新**：2026-04-30（Wave 1-19 一氣呵成 + cold read QA + 修補）
 > **方法論來源**：兒少權監督平台 PLATFORM_PLAYBOOK.md
 > **此檔目的**：讓下個 session 不依賴對話脈絡即可冷接手
 
 ---
 
-## 一、平台目前狀態（截至 Wave 16）
+## 一、平台目前狀態（截至 Wave 19）
 
 ```
-git log --oneline 顯示（最新）：
-  init: 兩公約總檢討平台 — 從兒少權監督平台 fork（含 16 PI 規劃 + 4 P0 卡 + SQLite）
+git log --oneline 最新 4 條：
+61e14c7 fix(Wave 18): cold read QA 全面修補 — 移除預設貼標 + 數字一致 + steelman 規範
+04b5b99 fix: remove stray crw.db from old self_qa heredoc
+24f9c10 fix(Wave 16): self_qa.sh 改寫為兩公約版
+ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(Wave 1-16)
 ```
 
-**self_qa.sh 狀態**：待 Wave 16 首次執行（已知問題：scripts/ 仍有兒少權專用腳本，已標記 .disabled）
+**self_qa.sh 狀態**：✓ 63 pass / ⚠ 0 / ✗ 0
 **SQLite**：4 PI 入庫 / 30 vocab_co_topic / 7 政黨 / 8 problem_tag / 3 quotability / 4 privacy
-**部署**：尚未 git push（無 remote），_public/index.html 已生
+**對外 HTML**：5 份（首頁 + 4 PI），全通過 emoji 檢核
+**部署**：尚未 git push（無 remote）
+
+## 一·二、cold read QA 修補（Wave 18）
+
+外部 QA agent 發現 5 個關鍵問題，全部已修補：
+1. 「308 點 CO」數字不一致 → 改「逾 250 點」
+2. PI-12/13/_ARTICLE_INDEX 違反自家紅線（預設貼標、政黨偏好預設、團體點名）→ 整份重寫，所有預設假設移入 `internal/PI-12_hypotheses.md`
+3. 「× 10 不對稱」閾值缺統計學依據 → 改 chi-square / 基尼係數 + CRC/CEDAW/CRPD 對照組
+4. 點名 NGO 名稱有名譽風險 → 改代碼匿名化（P1/P2/N01-N99）
+5. 首頁含 ⚠ emoji → 替換為 inline SVG
+
+新增 `_STEELMAN_AND_CONTROL_GROUPS.md` 強制 SOP-1/2/3/4。
 
 ## 二、Wave 1-16 增量
 
@@ -36,7 +52,10 @@ git log --oneline 顯示（最新）：
 | 13 | scripts/two_cov_md_to_db.py + 兒少權專用腳本 .disabled |
 | 14 | _public/index.html 首頁 |
 | 15 | 本檔 + ROADMAP + DECISIONS |
-| 16 | git init + first commit + self_qa 首跑 |
+| 16 | git init + first commit + self_qa 首跑（63 pass）|
+| 17 | 4 張 PI 生成 _public/issues/PI-XX.html + spawn cold read QA |
+| 18 | **cold read 全面修補**：移除預設貼標、政黨點名、假數字、emoji + 新增 _STEELMAN SOP + internal/ 內部研究夾 |
+| 19 | auto memory + 預覽驗證 + 本檔最終更新 |
 
 ## 三、四大區塊與 16 張議題卡狀態
 
