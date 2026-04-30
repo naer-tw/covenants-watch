@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>影子報告 — 兩公約施行總檢討平台</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body{font-family:"Noto Sans TC","Inter",sans-serif;background:#fafaf7;color:#0a0a0a;line-height:1.7;font-size:17px;margin:0}
+  .container{max-width:880px;margin:0 auto;padding:48px 24px}
+  h1{font-size:36px;font-weight:900;margin-bottom:24px;border-bottom:4px solid #0a0a0a;padding-bottom:16px}
+  h2{font-size:22px;font-weight:800;margin:32px 0 14px;border-left:6px solid #6d28d9;padding-left:16px}
+  .nav{font-size:14px;margin-bottom:24px}
+  .nav a{color:#8B2631;text-decoration:none;border-bottom:1px solid #ccc;margin-right:14px}
+  .audience-card{background:white;border:1px solid #ccc;padding:20px 24px;margin:14px 0;border-radius:4px}
+  .audience-card h3{margin:0 0 8px;font-size:18px}
+  .audience-card a{color:#6d28d9;font-weight:600;text-decoration:none}
+  .desc{font-size:14px;color:#666;margin-bottom:8px}
+  .placeholder{background:#fef3c7;border:1px solid #d97706;padding:14px 18px;margin:18px 0;border-radius:4px;font-size:14px}
+  .footer{margin-top:60px;padding-top:24px;border-top:1px solid #ccc;font-size:13px;color:#666}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav"><a href="../index.html">← 回首頁</a> · <a href="../about.html">關於</a> · <a href="../methodology.html">方法</a></div>
+
+<h1>民間影子報告（v0.2 草案）</h1>
+
+<div class="placeholder">
+本影子報告為 v0.2 草案版本（自動編譯自 16 張 PI 議題卡）。<br>
+正式版（v1.0）預定於 2026 年 Q3 發布前完成外部審查（含反對立場學者）+ 法律顧問複核。
+</div>
+
+<p>本平台採 5 audience 結構，同一份原始議題卡自動編譯為 5 種版本。</p>
+
+<h2>5 種版本</h2>
+
+<div class="audience-card">
+  <h3><a href="professional.html">專業版（含全 16 PI 摘要）→</a></h3>
+  <div class="desc">受眾：審查委員、政府、學者｜含條文號 + GC + 統計｜長度約 4,000 字</div>
+</div>
+
+<div class="audience-card">
+  <h3><a href="media.html">媒體版 →</a></h3>
+  <div class="desc">受眾：記者、公眾｜先講結論 + 3 大客觀指標｜長度約 400 字</div>
+</div>
+
+<div class="audience-card">
+  <h3><a href="advocacy.html">倡議版 →</a></h3>
+  <div class="desc">受眾：教會、家長團體、其他 NGO｜行動指引 + 速查卡｜長度約 540 字</div>
+</div>
+
+<div class="audience-card">
+  <h3><a href="legislative.html">立法院版 →</a></h3>
+  <div class="desc">受眾：立委辦公室｜質詢題草稿 + 修法建議｜長度約 370 字</div>
+</div>
+
+<div class="audience-card">
+  <h3><a href="social.html">社群版 →</a></h3>
+  <div class="desc">受眾：IG / FB / Threads｜140 字 + 圖卡腳本｜長度約 500 字</div>
+</div>
+
+<h2>版本歷程</h2>
+<ul>
+  <li><strong>v0.1-skeleton</strong>（2026-04-30）：16 PI 框架 + 部分實證</li>
+  <li><strong>v0.2-current</strong>（2026-04-30）：16/16 PI partial_evidence + 15 份 evidence CSV</li>
+  <li>v0.3 / v0.4 / v0.5：逐步整合 4 屆 CO 全文、立法院公報量化、外部審查</li>
+  <li><strong>v1.0</strong>（2027-Q1 預定）：國際審查前正式發布版</li>
+</ul>
+
+<h2>原始資料</h2>
+<ul>
+  <li>16 張議題卡 markdown 原始檔：<code>data/policy_issues/PI-XX_*.md</code></li>
+  <li>15 份 evidence CSV：<code>data/evidence/*.csv</code>（CC BY-SA 4.0）</li>
+  <li>SQLite 主庫：<code>data/two_cov.db</code>（含 FTS5）</li>
+  <li>compile 腳本：<code>shadow_report/compile.py</code>（BSD-3）</li>
+</ul>
+
+<div class="footer">
+最後更新：2026-04-30｜© 2026 國教行動聯盟<br>
+本影子報告所有內容以 CC BY-SA 4.0 授權發布；歡迎第三方重做分析。
+</div>
+</div>
+</body>
+</html>

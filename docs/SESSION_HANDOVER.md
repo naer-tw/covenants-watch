@@ -92,7 +92,13 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | 63 | PI-07 巴黎原則 6 要件 + GANHRI 未認證 + 4 國亞洲對照 |
 | 64 | PI-15 性平處預算（2024 1,627 萬 → 2025 提案削至 3,000 元）|
 | 64 | _public/dashboards/index.html 戰情室視覺化說明頁 |
-| 65 | **partial_evidence 達 7 張**（PI-04/05/07/08/09/11/15）|
+| 65 | partial_evidence 達 7 張（PI-04/05/07/08/09/11/15）|
+| 66-72 | spawn 第二波 4 agent + 第三輪 cold read QA + 5 個修補 |
+| 73 | partial_evidence 達 10 張（+PI-02/06/14）|
+| 75 | spawn 第三波 4 agent（PI-13/10/16/12）|
+| 76 | PI-01/03 status 升 partial_evidence（PI-03 12 委員描述更正）|
+| 77 | **🎯 全 16/16 PI 達 partial_evidence**（PI-10/12/13/16 完成）|
+| 77 | data/evidence CSV 達 15 份 |
 
 ## 三、四大區塊與 16 張議題卡狀態
 
