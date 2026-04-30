@@ -99,6 +99,10 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | 76 | PI-01/03 status 升 partial_evidence（PI-03 12 委員描述更正）|
 | 77 | **🎯 全 16/16 PI 達 partial_evidence**（PI-10/12/13/16 完成）|
 | 77 | data/evidence CSV 達 15 份 |
+| 81 | **第四輪 cold read QA**（評分 6.5/10，不建議現在上線）|
+| 82 | shadow_report v0.2 自動編譯 + 5 audience HTML 部署（_public/shadow_reports/）|
+| 84-86 | 第四輪 5 問題全修：PI-13 移除政黨欄 + PI-10 內生vs外溢分類 + PI-16 議程顯性化 + PI-10 GC13 §28 一致 + PI-12 三類取向中性 + 首頁 BETA 標記 |
+| 86 | 28 對外 HTML 全乾淨；4 輪 cold read 全通過修補 |
 
 ## 三、四大區塊與 16 張議題卡狀態
 
