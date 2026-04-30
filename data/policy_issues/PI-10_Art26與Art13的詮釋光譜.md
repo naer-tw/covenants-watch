@@ -3,7 +3,7 @@ pi_id: PI-10
 title: ICCPR Art.26（不歧視）與 ICESCR Art.13（教育權）之詮釋光譜
 block: C_international_comparison
 priority: P1
-status: framework
+status: partial_evidence
 audience_versions: [professional, media, advocacy, legislative]
 covenant: ICCPR + ICESCR
 co_referenced: []
@@ -18,7 +18,53 @@ last_updated: 2026-04-30
 
 ICCPR 第 26 條保障平等與不歧視，ICESCR 第 13 條保障教育權含父母教育選擇權（13-3）。本卡片整理**兩條文之國際詮釋光譜**——從最嚴格（要求承認多元家庭結構與性別認同議程之強制教學）到最寬鬆（公約原文未涵蓋此議程）——並客觀呈現各立場之法源依據。
 
-## 一、研究設計
+## 一·二、雙面 10 件判例實證（已匯入）
+
+> 完整 CSV：`data/evidence/pi10_dual_jurisprudence.csv`
+> 由 parallel-research agent 整理（2026-04-30）
+
+### 寬鬆派 5 件（Steelman A 法源）
+
+| 判例 | 年 | 條文 | 對 Art.26 vs Art.13/18 的意涵 |
+|---|---|---|---|
+| Toonen v Australia | 1994 | ICCPR §2/17/26 | 首次認定 sex 涵蓋 sexual orientation |
+| Young v Australia | 2003 | ICCPR §26 | 國家立法給付不得排除同性伴侶 |
+| Schalk and Kopf v Austria | 2010 | ECHR §8/12/14 | 同性家庭獲承認；結婚保留國家裁量 |
+| CESCR General Comment 20 | 2009 | ICESCR §2(2) | other status 明確涵蓋性傾向 |
+| Obergefell v Hodges | 2015 | US 14th Amend. | 平等保護壓過州自治 |
+
+### 嚴格派 5 件（Steelman B 法源）
+
+| 判例 | 年 | 條文 | 對 Art.26 vs Art.13/18 的意涵 |
+|---|---|---|---|
+| Hosanna-Tabor v EEOC | 2012 | US 1st Amend. | 宗教團體內部人事自治不受平等法律拘束 |
+| Burwell v Hobby Lobby | 2014 | RFRA + 1st Amend. | 信仰良心可橫切 Art.26 |
+| 303 Creative LLC v Elenis | 2023 | US 1st Amend. | 表達性服務不得被反歧視法強制 |
+| Mahmoud v Taylor | 2025-06-27 | US 1st Amend.（≈ Art.18(4)）| 父母宗教教育權須通過 strict scrutiny |
+| Lautsi v Italy | 2011 | ECHR §9 + Protocol 1 §2 | 宗教象徵與世俗中立可並存 |
+
+### 重要方法論註記（雙面平衡）
+
+1. **ICCPR 直接判例稀少**：Steelman B 多為美國憲法 + ECtHR 比較法佐證，非 ICCPR 內生
+2. **HRC 對 Art.18 vs Art.26 衝突沉默**：Toonen/Young 處理 Art.17 + Art.26，未正面交鋒宗教豁免
+3. **CESCR 與 HRC 詮釋落差**：GC 20 對 ICESCR 之「other status」擴張，**不自動等同 ICCPR Art.26**
+4. **Mahmoud 後續尚未沉澱**：判決未滿 1 年，下級法院適用 strict scrutiny 之測試門檻仍待累積
+5. **margin of appreciation 制度差異**：ECtHR 之裁量餘地 doctrine，HRC 並無等同制度
+6. **缺台灣本地判例**：建議補釋字 748 + 後續憲法法庭判決
+
+### 來源
+
+- [Toonen v Australia (OHCHR)](https://juris.ohchr.org/casedetails/702/en-US)
+- [Young v Australia (OHCHR)](https://juris.ohchr.org/casedetails/1076/en-US)
+- [Schalk and Kopf v Austria (HUDOC)](https://hudoc.echr.coe.int/eng?i=002-912)
+- [CESCR General Comment 20](https://www.ohchr.org/en/documents/general-comments-and-recommendations/general-comment-no-20-2009-non-discrimination)
+- [Obergefell v Hodges (Justia)](https://supreme.justia.com/cases/federal/us/576/644/)
+- [Hosanna-Tabor v EEOC (Justia)](https://supreme.justia.com/cases/federal/us/565/171/)
+- [Burwell v Hobby Lobby (Justia)](https://supreme.justia.com/cases/federal/us/573/682/)
+- [Mahmoud v Taylor (slip opinion)](https://www.supremecourt.gov/opinions/24pdf/24-297_4f14.pdf)
+- [Lautsi v Italy (HUDOC)](https://hudoc.echr.coe.int/app/conversion/pdf/?library=ECHR&id=001-104040)
+
+## 二、研究設計
 
 ### 標尺
 - ICCPR Art.26 + GC18（1989）+ GC20 ICESCR（2009）

@@ -121,8 +121,137 @@ H0/H1，由資料決定）</h3>
 <blockquote>
 <p>此設計取代「預期某黨高、某黨低」之預設，避免確認偏誤。</p>
 </blockquote>
+<h2 id="一二試辦版實證資料已匯入-8-件案例">一·二、試辦版實證資料（已匯入
+8 件案例）</h2>
+<blockquote>
+<p>完整 CSV：<code>data/evidence/legislative_citation_pilot.csv</code>
+由 parallel-research agent 整理（2026-04-30）
+<strong>政黨已匿名化</strong>（P1/P2/P3 代碼），不點名個人</p>
+</blockquote>
+<h3 id="件可查證援引案例2009-2023">8 件可查證援引案例（2009-2023）</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>日期</th>
+<th>場合</th>
+<th>援引條文</th>
+<th>法案</th>
+<th>黨團</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2009-03-31</td>
+<td>院會三讀</td>
+<td>ICCPR + ICESCR 全文</td>
+<td>兩公約施行法制定</td>
+<td>跨黨派</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2010-onwards</td>
+<td>司法及法制質詢</td>
+<td>ICCPR Art.6 + OP2</td>
+<td>廢死／執行死刑</td>
+<td>P1 / P2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2017-01-24</td>
+<td>跨黨派國際人權促進會座談</td>
+<td>結論性意見</td>
+<td>第二次審查後續</td>
+<td>P1（召集人）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2017-2018</td>
+<td>司法及法制</td>
+<td>ICCPR Art.23 / Art.26</td>
+<td>釋字 748 施行法</td>
+<td>P1（提案）/ P3（反對版援引宗教家庭）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2019-05-17</td>
+<td>院會三讀</td>
+<td>ICCPR 平等 + ICESCR Art.10</td>
+<td>同性婚姻</td>
+<td>提案立委多人</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2019</td>
+<td>內政公聽會</td>
+<td>ICCPR Art.21</td>
+<td>集會遊行法</td>
+<td>P2</td>
+</tr>
+<tr>
+<td>7</td>
+<td>2021-2022</td>
+<td>第三次審查前後</td>
+<td>92 點 CO 多項</td>
+<td>監所/原民/移工</td>
+<td>跨黨派</td>
+</tr>
+<tr>
+<td>8</td>
+<td>2023-07-28</td>
+<td>院會三讀</td>
+<td>ICESCR Art.13 + CEDAW</td>
+<td>性平教育法修正</td>
+<td>P1（提案）/ P3（部分援引 Art.18 家長權）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>註：宗教團體法草案於 98 卷 16 期內政委員會公聽會有與會者援引
+Art.18，立委發言以行政管理面為主，<strong>宗教自由條款援引較少</strong>（公開公報
+PDF 可查）。</p>
+</blockquote>
+<h3 id="資料缺口試辦版限制">資料缺口（試辦版限制）</h3>
+<ol type="1">
+<li><strong>公報無統一全文 API</strong>：須逐期 PDF OCR</li>
+<li><strong>IVOD 字幕缺漏</strong>：影片無逐字稿</li>
+<li><strong>黨團協商紀錄不公開</strong></li>
+<li><strong>委員會發言整併</strong>：部分公報摘要簡化</li>
+<li><strong>正式版實作</strong>：須對接 LY API（ly.govapi.tw）+ PDF OCR
+pipeline</li>
+</ol>
+<h3 id="來源">來源</h3>
+<ul>
+<li><a
+href="https://ppg.ly.gov.tw/ppg/PublicationBulletinDetail/download/communique/final/pdf/98/16/LCIDC01_981601_00008.pdf">立法院公報
+98 卷 16 期 宗教團體法公聽會</a></li>
+<li><a
+href="https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=6586&amp;pid=85233">立法院全球資訊網
+— 聯合國人權兩公約之國內實踐</a></li>
+<li><a
+href="https://ncsd.ndc.gov.tw/Fore/News_detail/adb28de6-6a37-4cb6-83f8-eecd05112c28">兩公約第三次國家報告國際審查
+92 點結論性意見</a></li>
+<li><a
+href="https://covenantswatch.org.tw/2021-third-review-on-iccpr-and-icescr/">人約盟
+— 2022 第三次審查</a></li>
+<li><a href="https://www.taedp.org.tw/story/1982">台灣廢死聯盟 — ICCPR
+與死刑</a></li>
+<li><a
+href="https://www.cna.com.tw/news/firstnews/201905175004.aspx">中央社 —
+同婚專法三讀</a></li>
+<li><a href="https://ivod.ly.gov.tw/">立法院議事轉播 IVOD</a></li>
+</ul>
 <h2
-id="一二三表架構採用-legislative-monitor-skill">一·二、三表架構（採用
+id="一三三表架構採用-legislative-monitor-skill">一·三、三表架構（採用
 legislative-monitor skill）</h2>
 <p>本卡片採用 <code>~/clawd/skills/legislative-monitor</code>
 之<strong>三表架構</strong>：</p>
