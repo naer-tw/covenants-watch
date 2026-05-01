@@ -157,6 +157,81 @@ def backtrack(conn, event_id: str, depth: int = 0, max_depth: int = 3, visited: 
         backtrack(conn, from_e, depth + 1, max_depth, visited)
 
 
+def law_history(conn, law_query: str) -> None:
+    """5) 法律修法歷程：列出該法律全部版本 + 條文 delta + 修法事件"""
+    cur = conn.execute(
+        """SELECT law_id, law_name_zh, law_pcode, enacted_date, primary_agency
+           FROM law WHERE law_name_zh LIKE ?""",
+        (f"%{law_query}%",),
+    )
+    laws = cur.fetchall()
+    if not laws:
+        print(f"  無法律「{law_query}」之記錄")
+        return
+
+    for law_id, name, pcode, enacted, agency in laws:
+        print(f"\n=== 法律：{name}（{law_id}） ===")
+        print(f"  全國法規資料庫 pcode：{pcode}")
+        print(f"  制定日：{enacted}｜主管：{agency}\n")
+
+        # 列版本
+        vers = conn.execute(
+            """SELECT version_id, version_label, promulgated_date, effective_date,
+                      legislative_reason, is_current
+               FROM law_version WHERE law_id=? ORDER BY promulgated_date""",
+            (law_id,),
+        ).fetchall()
+
+        print(f"歷次版本（{len(vers)} 個）：\n")
+        for v_id, label, prom, effect, reason, current in vers:
+            tag = " [現行]" if current else ""
+            print(f"  {prom}  {label}{tag}  ({v_id})")
+            if reason:
+                print(f"     立法理由：{reason[:80]}")
+
+            # 列該版本的條文變動
+            changes = conn.execute(
+                """SELECT article_number, change_type, text_before, text_after, reason
+                   FROM law_article_change WHERE version_id=?""",
+                (v_id,),
+            ).fetchall()
+            for art, c_type, before, after, c_reason in changes:
+                print(f"\n     [{c_type}] {art}")
+                if before:
+                    print(f"        修正前：{before[:80]}")
+                if after:
+                    print(f"        修正後：{after[:80]}")
+                if c_reason:
+                    print(f"        理由：{c_reason[:80]}")
+            print()
+
+        # 修法事件
+        amends = conn.execute(
+            """SELECT amendment_id, third_reading, key_changes, triggered_by_co
+               FROM law_amendment WHERE law_id=? ORDER BY third_reading""",
+            (law_id,),
+        ).fetchall()
+        if amends:
+            print(f"修法事件（{len(amends)} 筆）：")
+            for a_id, tr, key, triggered in amends:
+                print(f"  {tr}  {a_id}")
+                if key:
+                    print(f"     關鍵變動：{key[:100]}")
+                if triggered:
+                    print(f"     觸發來源：{triggered}")
+            print()
+
+        # 行政命令
+        orders = conn.execute(
+            "SELECT order_name, order_type, promulgated_date FROM executive_order WHERE parent_law_id=?",
+            (law_id,),
+        ).fetchall()
+        if orders:
+            print(f"附屬行政命令 / 施行細則（{len(orders)} 筆）：")
+            for o_name, o_type, o_date in orders:
+                print(f"  {o_date}  [{o_type}] {o_name}")
+
+
 def search_full_text(conn, query: str) -> None:
     """4) 全文檢索"""
     cur = conn.execute(
@@ -179,6 +254,7 @@ def main() -> int:
     g.add_argument("--actor", help="行動者全紀錄（如：廢死聯盟）")
     g.add_argument("--backtrack", help="結果反推（給 event_id）")
     g.add_argument("--search", help="全文檢索")
+    g.add_argument("--law", help="法律修法歷程（如：學生輔導法）")
     parser.add_argument("--max-depth", type=int, default=3,
                         help="反推鏈最大深度（紅線：超過 3 層加警告）")
     args = parser.parse_args()
@@ -197,6 +273,8 @@ def main() -> int:
             backtrack(conn, args.backtrack, max_depth=args.max_depth)
         elif args.search:
             search_full_text(conn, args.search)
+        elif args.law:
+            law_history(conn, args.law)
     finally:
         conn.close()
     return 0

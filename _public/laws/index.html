@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>法律修法歷程 — 兩公約施行總檢討平台</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body{font-family:"Noto Sans TC","Inter",sans-serif;background:#fafaf7;color:#0a0a0a;line-height:1.7;font-size:17px;margin:0}
+  .container{max-width:880px;margin:0 auto;padding:48px 24px}
+  h1{font-size:36px;font-weight:900;margin-bottom:16px;border-bottom:4px solid #0a0a0a;padding-bottom:14px}
+  h2{font-size:22px;font-weight:800;margin:32px 0 14px;border-left:6px solid #1E40AF;padding-left:14px}
+  .nav{font-size:14px;margin-bottom:24px}
+  .nav a{color:#8B2631;text-decoration:none;border-bottom:1px solid #ccc;margin-right:14px}
+  .law-card{background:white;border:1px solid #ccc;padding:18px 22px;margin:14px 0;border-radius:4px}
+  .law-card h3{margin:0 0 6px;font-size:18px}
+  .law-card a{color:#1E40AF;font-weight:600;text-decoration:none}
+  .desc{font-size:14px;color:#666;margin-bottom:6px}
+  .stats{font-size:13px;color:#888;font-variant-numeric:tabular-nums}
+  pre{background:#0a0a0a;color:#e5e7eb;padding:14px;border-radius:4px;font-size:13px;overflow-x:auto}
+  .footer{margin-top:60px;padding-top:24px;border-top:1px solid #ccc;font-size:13px;color:#666}
+  .info{background:#f3f0e8;padding:14px 18px;margin:18px 0;border-radius:4px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav"><a href="../index.html">← 回首頁</a></div>
+
+<h1>法律修法歷程</h1>
+
+<div class="info">
+本系統補強：除了 trace（議題脈絡追溯）之事件層級，本層級記錄<strong>條文 delta、立法理由、行政命令</strong>之精確法律資料。<br>
+與 trace 系統雙向連結：每個 amendment 對應一個 trace event。
+</div>
+
+<h2>查詢工具</h2>
+<pre>python3 scripts/two_cov_trace.py --law 學生輔導法
+python3 scripts/two_cov_trace.py --law 兩公約施行法
+python3 scripts/two_cov_trace.py --law 性別平等教育法</pre>
+
+<h2>已建立的法律記錄</h2>
+<p>當前資料庫中之 6 部核心法律之修法歷程（待 agent 蒐集寫入後自動更新）：</p>
+
+<div class="law-card">
+  <h3><a href="two_covenants_act.html">兩公約施行法（L001）→</a></h3>
+  <div class="desc">2009-04-22 制定公布｜法務部主政｜對應 ICCPR 1-27 + ICESCR 1-15 全部條文</div>
+</div>
+
+<div class="law-card">
+  <h3><a href="student_counseling_act.html">學生輔導法（L002）→</a></h3>
+  <div class="desc">2014-11-12 制定公布；2024-12-18 修正（大專師生比 1200:1 → 900:1）</div>
+</div>
+
+<div class="law-card">
+  <h3><a href="748_act.html">司法院釋字 748 號施行法（L003）→</a></h3>
+  <div class="desc">2019-05-22 公布；2023 收養條款修正</div>
+</div>
+
+<div class="law-card">
+  <h3><a href="gender_equity_education_act.html">性別平等教育法（L004）→</a></h3>
+  <div class="desc">2004-06-23 制定；2011 / 2018 / 2024 歷次修正</div>
+</div>
+
+<div class="law-card">
+  <h3><a href="suicide_prevention_act.html">自殺防治法（L005）→</a></h3>
+  <div class="desc">2019-06-19 制定公布</div>
+</div>
+
+<div class="law-card">
+  <h3><a href="assembly_parade_act.html">集會遊行法（L006）→</a></h3>
+  <div class="desc">CO 1/2/3 屆均要求廢除許可制；至 2026 仍未修法</div>
+</div>
+
+<h2>Schema 設計</h2>
+
+<p>data/law_schema.sql 之 5 表結構：</p>
+<ul>
+  <li><code>law</code>：法規元資訊（pcode、主管機關、對應公約條文、related_pi）</li>
+  <li><code>law_version</code>：歷次三讀版本（公布日、施行日、立法理由）</li>
+  <li><code>law_article_change</code>：條文 delta（修正前 / 修正後逐字比對 + 理由）</li>
+  <li><code>law_amendment</code>：修法事件（連到 trace event）+ 觸發來源 CO</li>
+  <li><code>executive_order</code>：附屬施行細則 / 行政命令</li>
+</ul>
+
+<div class="footer">
+最後更新：2026-04-30｜© 2026 國教行動聯盟｜CC BY-SA 4.0
+</div>
+</div>
+</body>
+</html>
