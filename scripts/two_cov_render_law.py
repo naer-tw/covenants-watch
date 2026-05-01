@@ -205,9 +205,11 @@ def render_one(conn, law_id: str, slug: str):
 
 SLUG_MAP = {
     "兩公約施行法": "two_covenants_act",
+    "公民與政治權利國際公約及經濟社會文化權利國際公約施行法": "two_covenants_act",
     "學生輔導法": "student_counseling_act",
     "司法院釋字 748 號施行法": "748_act",
     "748 同婚施行法": "748_act",
+    "司法院釋字第七四八號解釋施行法": "748_act",
     "性別平等教育法": "gender_equity_education_act",
     "自殺防治法": "suicide_prevention_act",
     "集會遊行法": "assembly_parade_act",
