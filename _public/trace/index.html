@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>議題脈絡追溯 — 兩公約施行總檢討平台</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body{font-family:"Noto Sans TC","Inter",sans-serif;background:#fafaf7;color:#0a0a0a;line-height:1.7;font-size:17px;margin:0}
+  .container{max-width:880px;margin:0 auto;padding:48px 24px}
+  h1{font-size:36px;font-weight:900;margin-bottom:16px;border-bottom:4px solid #0a0a0a;padding-bottom:14px}
+  h2{font-size:22px;font-weight:800;margin:32px 0 14px;border-left:6px solid #2FA598;padding-left:14px}
+  .nav{font-size:14px;margin-bottom:24px}
+  .nav a{color:#8B2631;text-decoration:none;border-bottom:1px solid #ccc;margin-right:14px}
+  .red-line{background:#fef2f2;border-left:4px solid #8B2631;padding:14px 18px;margin:18px 0;font-size:14px}
+  .issue-card{background:white;border:1px solid #ccc;padding:18px 22px;margin:14px 0;border-radius:4px}
+  .issue-card h3{margin:0 0 6px;font-size:18px}
+  .issue-card a{color:#6d28d9;font-weight:600;text-decoration:none}
+  .desc{font-size:14px;color:#666;margin-bottom:6px}
+  .stats{font-size:13px;color:#888;font-variant-numeric:tabular-nums}
+  .footer{margin-top:60px;padding-top:24px;border-top:1px solid #ccc;font-size:13px;color:#666}
+  pre.example{background:#0a0a0a;color:#e5e7eb;padding:14px;border-radius:4px;font-size:13px;overflow-x:auto}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="nav"><a href="../index.html">← 回首頁</a></div>
+
+<h1>議題脈絡追溯</h1>
+
+<div class="red-line">
+<strong>本平台脈絡追溯設計紅線（5 條）</strong>：<br>
+1. 稱「脈絡追溯」非「責任追溯」（記論述鏈，不判責任）<br>
+2. 每個歸因節點必附反證 / 反事實<br>
+3. 因果鏈不超過 3 層（避免過度推論）<br>
+4. 正反結果並陳<br>
+5. 論述（statement）與責任歸屬（accountability）嚴格分離
+</div>
+
+<h2>四種查詢模式</h2>
+<p>用 <code>scripts/two_cov_trace.py</code> 命令列查詢：</p>
+<pre class="example"># 1) 議題向前追溯
+python3 scripts/two_cov_trace.py --issue 廢死
+
+# 2) 行動者全紀錄（誰倡議了什麼？政府回應什麼？）
+python3 scripts/two_cov_trace.py --actor "廢死聯盟"
+python3 scripts/two_cov_trace.py --actor "Manfred Nowak"
+
+# 3) 結果反推：給一個 outcome event_id，列出可能影響它的事件鏈（含反證）
+python3 scripts/two_cov_trace.py --backtrack EV-2024-002
+
+# 4) 全文檢索
+python3 scripts/two_cov_trace.py --search "OP2 批准"</pre>
+
+<h2>已建立議題（範例）</h2>
+
+<div class="issue-card">
+  <h3><a href="death_penalty.html">廢死議題脈絡 →</a></h3>
+  <div class="desc">2009 兩公約施行 → 2012 影子報告 → 4 屆 CO 重複要求 → 2024 113 憲判 8 號 → 2025 民調 88% 反對</div>
+  <div class="stats">8 events · 7 causal links · 8 actors · 3 outcome indicators</div>
+</div>
+
+<div class="issue-card">
+  <h3><a href="same_sex_marriage.html">同性婚姻議題脈絡 →</a></h3>
+  <div class="desc">1994 Toonen → 2017 釋字 748 → 2018 公投 → 2019 立法 → 2022 CO 擴張要求 → 2025 Mahmoud 反向</div>
+  <div class="stats">8 events · 7 causal links · 6 actors · 2 outcome indicators</div>
+</div>
+
+<h2>使用情境範例</h2>
+
+<h3>情境 A：「我看到一個議題」</h3>
+<p>例：你想了解「兒少自殺率上升」的脈絡。</p>
+<ol>
+  <li>進入 <code>youth_suicide.html</code>（待後續填充）查看完整時序鏈</li>
+  <li>看哪個 NGO 在哪屆審查倡議何政策、產出何 CO</li>
+  <li>看政府後續修法、預算配置、實際指標變化</li>
+  <li>每條因果鏈都附「反證」+「並列原因」，避免單向歸因</li>
+</ol>
+
+<h3>情境 B：「我看到一個負面結果」</h3>
+<p>例：你看到「青少年自殺率 2023 年高於 OECD 平均」，想反推。</p>
+<ol>
+  <li>找對應 outcome event_id</li>
+  <li>跑 <code>--backtrack EV-XXXX-XXX</code></li>
+  <li>系統列出**所有可能的上層論述鏈**，每條附反證與並列原因</li>
+  <li>鏈長 > 3 自動加警告（避免過度推論）</li>
+  <li>讀者依「反證 / 並列原因 / 多元因果」自行評估</li>
+</ol>
+
+<h3>情境 C：「我想了解一個倡議者」</h3>
+<p>例：你想知道「Manfred Nowak 4 屆都關注什麼？」</p>
+<ol>
+  <li>跑 <code>--actor "Nowak"</code></li>
+  <li>系統列出該行動者全部論述記錄（按時序）</li>
+  <li>含立場光譜、活躍期、所有事件</li>
+</ol>
+
+<h2>資料結構（4 表 + FTS5）</h2>
+<ul>
+  <li><code>actor</code>：行動者（NGO / 委員 / 政府 / 立委 / 媒體 / 學者 / 法院 / 民眾）+ 立場光譜欄位</li>
+  <li><code>event</code>：論述 / 行動 / 結果（含 issue_tags、related_pi、related_co、source_url、source_archive、is_positive_outcome）</li>
+  <li><code>causal_link</code>：因果連結 + <strong>反證</strong> + <strong>並列原因</strong> + 鏈深度</li>
+  <li><code>outcome_indicator</code>：結果指標（前後值 + <strong>混淆變項</strong>清單）</li>
+  <li>SQLite views：<code>v_issue_timeline</code>、<code>v_actor_record</code>（簡化查詢）</li>
+  <li>FTS5：<code>fts_event</code> 全文檢索</li>
+</ul>
+
+<h2>編碼品質</h2>
+<ul>
+  <li>每筆 causal_link 須由 ≥ 2 名研究員獨立編碼後仲裁</li>
+  <li>編碼者間信度（kappa coefficient）≥ 0.7 才能對外發布</li>
+  <li>所有反證 / 並列原因公開供第三方挑戰</li>
+</ul>
+
+<div class="footer">
+最後更新：2026-04-30｜© 2026 國教行動聯盟｜CC BY-SA 4.0<br>
+原始 SQLite：<code>data/two_cov.db</code>｜ schema：<code>data/trace_schema.sql</code>
+</div>
+</div>
+</body>
+</html>

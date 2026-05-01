@@ -111,7 +111,13 @@ def extract_nhrc_indicators(text: str) -> str:
         date = r.get("latest_date", "—")
         trend = trend_icon.get(r.get("trend", ""), r.get("trend", "—"))
         concern = r.get("nhrc_concern", "")
-        html.append(f'<tr style="border-top: 1px solid #ddd;"><td style="padding: 6px 10px;">{name}{"<br><small style=\"color:#888\">⚠ " + concern + "</small>" if concern else ""}</td><td style="padding: 6px 10px; font-weight: 600; color: #d32f2f;">{val}</td><td style="padding: 6px 10px; color: #666;">{date}</td><td style="padding: 6px 10px;">{trend}</td></tr>')
+        concern_html = ('<br><small style="color:#888">[ ' + concern + ' ]</small>') if concern else ''
+        row = '<tr style="border-top: 1px solid #ddd;">'
+        row += '<td style="padding: 6px 10px;">' + name + concern_html + '</td>'
+        row += '<td style="padding: 6px 10px; font-weight: 600; color: #d32f2f;">' + str(val) + '</td>'
+        row += '<td style="padding: 6px 10px; color: #666;">' + str(date) + '</td>'
+        row += '<td style="padding: 6px 10px;">' + str(trend) + '</td></tr>'
+        html.append(row)
     html.append('</tbody></table>')
     html.append('<p style="margin: 8px 0 0; font-size: 11.5px; color: #888;">來源:國家人權委員會兒童權利監測指標集(2026-02-04 發布,239 項) ‧ 平台對接中</p>')
     html.append('</section>')
