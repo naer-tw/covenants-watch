@@ -284,7 +284,20 @@ def main() -> int:
         slug_map = {
             "廢死": "death_penalty", "同性婚姻": "same_sex_marriage",
             "兒少自殺": "youth_suicide", "兩公約施行": "covenants_implementation",
-            "宗教自由": "religious_freedom",
+            "宗教自由": "religious_freedom", "原住民族": "indigenous_rights",
+            "移工": "migrant_workers", "教育權": "education_right",
+            "言論自由": "free_speech", "健康權": "health_right",
+            "自決權": "self_determination", "漁工": "fishermen",
+            "性平教育": "gender_equity_education", "選擇權": "parent_choice",
+            "集會": "assembly", "傳統領域": "traditional_territory",
+            "平埔正名": "plains_indigenous", "語言": "indigenous_language",
+            "良心拒服兵役": "conscientious_objection", "稅務": "taxation",
+            "家長教育選擇權": "parent_education_choice",
+            "媒體換照": "media_license", "反滲透": "anti_infiltration",
+            "平台監管": "platform_regulation", "媒體多元": "media_diversity",
+            "菸害": "tobacco", "健保": "national_health", "長照": "long_term_care",
+            "疫情": "pandemic", "疫苗": "vaccine", "毒駕": "drug_driving",
+            "校園菸毒": "school_substance", "校園": "campus",
         }
         for issue in sorted(all_issues):
             # 計算事件數，跳過 < 3
