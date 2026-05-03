@@ -84,8 +84,8 @@ echo
 echo "▶ 6. 立場與紅線"
 emoji_files=$(find _public -name "*.html" -exec grep -lP "[\x{1F300}-\x{1F9FF}]|[\x{2600}-\x{27BF}]" {} \; 2>/dev/null || true)
 [ -z "$emoji_files" ] && say "✓" "_public/ HTML 無 emoji" || say "⚠" "_public/ 含 emoji:$emoji_files"
-grep -q "支持兩公約原始精神" CLAUDE.md 2>/dev/null && say "✓" "CLAUDE.md 立場聲明" || say "✗" "CLAUDE.md 立場聲明缺失"
-grep -q "絕對紅線" CLAUDE.md 2>/dev/null && say "✓" "CLAUDE.md 絕對紅線" || say "✗" "CLAUDE.md 絕對紅線缺失"
+(grep -q "支持兩公約原始精神\|Support 兩公約 original spirit\|本平台支持兩公約原始精神" CLAUDE.md 2>/dev/null) && say "✓" "CLAUDE.md 立場聲明" || say "✗" "CLAUDE.md 立場聲明缺失"
+(grep -q "絕對紅線\|Absolute red lines\|Red lines" CLAUDE.md 2>/dev/null) && say "✓" "CLAUDE.md 絕對紅線" || say "✗" "CLAUDE.md 絕對紅線缺失"
 echo
 
 # 7. 治理文件
