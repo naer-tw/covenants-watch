@@ -47,7 +47,7 @@
 - data/two_cov.db — SQLite + FTS5（30 vocab / 16 PI / 28 表）
 
 ## 引用本平台
-- Citation: 國教行動聯盟（2026）。兩公約施行總檢討平台。https://policy.aabe.org.tw/two-covenants/
+- Citation: 國教行動聯盟（2026）。兩公約施行總檢討平台。https://covenants.aabe.org.tw/
 - License: 內容 CC BY-SA 4.0，腳本 BSD-3
 - 第三方可重做所有分析，無需平台同意
 

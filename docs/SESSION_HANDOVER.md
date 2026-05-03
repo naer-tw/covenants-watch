@@ -143,7 +143,7 @@ ff6d8ea init: 兩公約施行總檢討平台 — fork 自兒少權監督平台(W
 | **立法院公報 API 申請** | 取得 token / 確認 robots 合規 | Wave 12 量化前 |
 | **媒體 archive 取得授權** | 各報 archive 或 web.archive.org | Wave 12 量化前 |
 | **Tally 表單開立**（feedback）| 連通 _public/feedback.html | 上線前 |
-| **GitHub repo 建立 + push** | naer-tw/two-covenants 或 sub-path | 任何時候 |
+| **GitHub repo 建立 + push** | naer-tw/covenants-watch 或 sub-path | 任何時候 |
 | **域名 / sub-path 決定** | policy.aabe.org.tw/two-covenants/ vs 獨立 | 部署前 |
 
 ## 五、下個 session 開頭該跑的指令

@@ -13,7 +13,7 @@ admin_url: /admin/
 
 ### Step 1：push 到 GitHub
 ```bash
-gh repo create naer-tw/two-covenants-watch --public
+gh repo create naer-tw/covenants-watch --public
 git push -u origin main
 ```
 
@@ -30,7 +30,7 @@ git push -u origin main
    ```yaml
    backend:
      name: github
-     repo: naer-tw/two-covenants-watch
+     repo: naer-tw/covenants-watch
      branch: main
      base_url: https://api.netlify.com  # OAuth proxy
    ```

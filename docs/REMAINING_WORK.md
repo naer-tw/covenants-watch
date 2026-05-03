@@ -39,7 +39,7 @@ status: post-wave-109
 ## 類 B：必須由你手動的（AI 不能代為）
 
 ### B1. 部署（你需要下命令）
-- [ ] **建立 GitHub repo**：`gh repo create naer-tw/two-covenants --public`
+- [ ] **建立 GitHub repo**：`gh repo create naer-tw/covenants-watch --public`
 - [ ] **設定 GH Pages**：Settings → Pages → Source
 - [ ] **DNS CNAME**（若用 covenants.aabe.org.tw）：DNS provider 設定後才 push CNAME
 - [ ] **IndexNow ping** 後續：DNS 設定後執行

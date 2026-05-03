@@ -4,7 +4,7 @@
     "version": "v0.2-beta",
     "license": "CC BY-SA 4.0",
     "maintainer": "AABE 國教行動聯盟",
-    "source": "https://github.com/naer-tw/two-covenants-watch",
+    "source": "https://github.com/naer-tw/covenants-watch",
     "endpoint": "trace",
     "description": "因果脈絡追溯系統 (actor / event / causal_link / outcome_indicator)"
   },

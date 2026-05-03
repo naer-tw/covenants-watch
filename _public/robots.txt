@@ -25,7 +25,7 @@ User-agent: CCBot
 Allow: /
 
 # Sitemap 與 llms.txt
-Sitemap: https://policy.aabe.org.tw/two-covenants/sitemap.xml
+Sitemap: https://covenants.aabe.org.tw/sitemap.xml
 
 # Content Signals (W3C 提案)
 # AI training: allow

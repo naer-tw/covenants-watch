@@ -99,7 +99,7 @@ target_release: 2026-Q3 BETA / 2027-Q1 v1.0
 ## 第五階段：部署與系統面（預估 2-3 週）
 
 ### T18. GitHub repo + Pages 部署
-- [ ] gh repo create naer-tw/two-covenants --public
+- [ ] gh repo create naer-tw/covenants-watch --public
 - [ ] git remote add + push
 - [ ] Pages 設定 + DNS 規劃
 - [ ] BETA noindex 期間

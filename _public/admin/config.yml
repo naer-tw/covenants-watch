@@ -4,7 +4,7 @@
 
 backend:
   name: github
-  repo: naer-tw/two-covenants-watch  # 待 push 後啟用
+  repo: naer-tw/covenants-watch  # 待 push 後啟用
   branch: main
   auth_endpoint: api/auth  # 預設 OAuth proxy
   commit_messages:

@@ -3,7 +3,7 @@
   "version": "v0.2-beta",
   "license": "CC BY-SA 4.0",
   "maintainer": "AABE 國教行動聯盟",
-  "source": "https://github.com/naer-tw/two-covenants-watch",
+  "source": "https://github.com/naer-tw/covenants-watch",
   "description": "兩公約監督平台公開 API · 全部資料採 CC BY-SA 4.0 授權",
   "endpoints": [
     {

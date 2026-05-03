@@ -22,7 +22,7 @@ META = {
     "version": "v0.2-beta",
     "license": "CC BY-SA 4.0",
     "maintainer": "AABE 國教行動聯盟",
-    "source": "https://github.com/naer-tw/two-covenants-watch",
+    "source": "https://github.com/naer-tw/covenants-watch",
 }
 
 

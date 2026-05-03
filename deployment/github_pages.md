@@ -21,7 +21,7 @@ last_updated: 2026-04-30
 - **優點**：政治風險隔離；獨立 GA / GSC 追蹤
 - **缺點**：須設 CNAME；SEO 需重新累積
 - **DNS**：CNAME `covenants.aabe.org.tw` → `naer-tw.github.io`
-- **GitHub Pages 設定**：新 repo `naer-tw/two-covenants`
+- **GitHub Pages 設定**：新 repo `naer-tw/covenants-watch`
 
 ### 選項 C：完全獨立 repo + 過渡期 noindex（推薦）
 - 起初部署於新 repo，全頁 `<meta name="robots" content="noindex,nofollow">`
@@ -36,10 +36,10 @@ cd /Users/coachyang/Documents/Claude/Projects/兩公約總檢討平台
 git log --oneline | head -5
 
 # 2. 建立 GitHub repo
-gh repo create naer-tw/two-covenants --public --description "兩公約施行總檢討平台"
+gh repo create naer-tw/covenants-watch --public --description "兩公約施行總檢討平台"
 
 # 3. 加 remote 並 push（首次）
-git remote add origin git@github.com:naer-tw/two-covenants.git
+git remote add origin git@github.com:naer-tw/covenants-watch.git
 git push -u origin main
 
 # 4. 啟用 GitHub Pages
