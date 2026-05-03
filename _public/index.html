@@ -60,11 +60,19 @@
   /* AABE 識別專用色(與 brand 警示紅明確分離) */
   --aabe-gold: #8B6F50;      /* 深沉金 — AABE 機構標識用 */
 
-  /* 兩公約識別輔色(本平台特有,雙公約並陳)*/
-  --cycle-iccpr: #5D3A1A;    /* 深棕 — 公民與政治權利公約 */
-  --cycle-icescr: #1F3D6B;   /* 深藍 — 經濟社會文化權利公約 */
+  /* 兩公約識別輔色(本平台特有,雙公約並陳)
+   * ICCPR 深棕 #5D3A1A — 公政公約,土地法理感
+   * ICESCR 深酒紅 #5C1A1B — 經社文公約,國際工運傳統色
+   * 二色與其他公約平台明顯區分:
+   *   - 兒少 CRC #1F3D6B 深藍(避免 ICESCR 撞色,故 ICESCR 改深酒紅)
+   *   - 身障 CRPD #2D7059 森林綠
+   *   - 婦女 CEDAW #4B2480 深紫
+   * 與 brand 朱紅 #B5371F 區分:brand 為亮朱紅 / ICESCR 為深酒紅
+   */
+  --cycle-iccpr: #5D3A1A;
+  --cycle-icescr: #5C1A1B;
   --cycle-iccpr-soft: #EFE4DA;
-  --cycle-icescr-soft: #DEE6F1;
+  --cycle-icescr-soft: #F2DCDA;
 
   /* 輔助 */
   --warning-soft: #F5EAD7;
@@ -1237,8 +1245,14 @@ footer .credit {
 
 <a href="#main" class="skip">跳到主要內容</a>
 
+<!-- ━━━━━━━━━━━━━ 雙公約識別色帶(本平台特有,一眼辨識)━━━━━━━━━━━━━ -->
+<div aria-label="雙公約識別色帶" style="display:flex;height:5px;width:100%;position:sticky;top:0;z-index:60">
+  <div style="flex:1;background:var(--cycle-iccpr)" title="ICCPR 公政公約"></div>
+  <div style="flex:1;background:var(--cycle-icescr)" title="ICESCR 經社文公約"></div>
+</div>
+
 <!-- ━━━━━━━━━━━━━ Masthead ━━━━━━━━━━━━━ -->
-<header class="masthead" role="banner">
+<header class="masthead" role="banner" style="top:5px">
   <div class="masthead-inner">
     <a href="/" class="logo">
       <span class="icon" aria-hidden="true">
@@ -1246,7 +1260,12 @@ footer .credit {
       </span>
       <div>
         <h1>兩公約監督平台</h1>
-        <p>Two Covenants Watch Taiwan</p>
+        <p>
+          <span style="background:var(--cycle-iccpr);color:#fff;padding:1px 5px;border-radius:2px;font-weight:700;letter-spacing:0.06em;font-size:9.5px">ICCPR</span>
+          <span style="margin:0 4px;color:var(--text-muted)">×</span>
+          <span style="background:var(--cycle-icescr);color:#fff;padding:1px 5px;border-radius:2px;font-weight:700;letter-spacing:0.06em;font-size:9.5px">ICESCR</span>
+          <span style="margin-left:6px">Two Covenants Watch</span>
+        </p>
       </div>
       <span class="produced-by" aria-label="由國教行動聯盟製作">
         <span class="aabe-mark">AABE</span>
