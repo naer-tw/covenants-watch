@@ -1,0 +1,54 @@
+{
+  "platform": "兩公約監督平台 / Two Covenants Watch Taiwan",
+  "version": "v0.2-beta",
+  "license": "CC BY-SA 4.0",
+  "maintainer": "AABE 國教行動聯盟",
+  "source": "https://github.com/naer-tw/two-covenants-watch",
+  "description": "兩公約監督平台公開 API · 全部資料採 CC BY-SA 4.0 授權",
+  "endpoints": [
+    {
+      "name": "pi",
+      "url": "pi.json",
+      "description": "16 PI 議題卡 metadata"
+    },
+    {
+      "name": "trace",
+      "url": "trace.json",
+      "description": "因果脈絡追溯系統(actor/event/causal_link/outcome)"
+    },
+    {
+      "name": "laws",
+      "url": "laws.json",
+      "description": "6 部核心法律修法歷程 + 條文 delta"
+    },
+    {
+      "name": "timeline",
+      "url": "timeline.json",
+      "description": "混合事件與修法之全平台時序軸"
+    },
+    {
+      "name": "coverage",
+      "url": "coverage.json",
+      "description": "PI 狀態 + 法律覆蓋 + 統計"
+    },
+    {
+      "name": "search-index",
+      "url": "search-index.json",
+      "description": "fuse.js 全文搜尋索引"
+    }
+  ],
+  "schema": {
+    "actor": "actor_id, actor_type, name, affiliation, position_spectrum, active_period, is_anonymized",
+    "event": "event_id, event_date, event_type, issue_tags, actor_id, title, summary, related_pi, related_co, related_article, is_positive_outcome",
+    "causal_link": "from_event, to_event, link_type, evidence_strength, chain_depth, counter_evidence, multi_causal_note",
+    "outcome_indicator": "indicator_id, event_id, metric_name, before_value, after_value, direction, confounders",
+    "law": "law_id, law_name_zh, law_pcode, enacted_date, primary_agency, covers_articles",
+    "law_article_change": "change_id, version_id, article_number, change_type, text_before, text_after, reason, related_co, related_article"
+  },
+  "usage_examples": {
+    "fetch all PI": "fetch('api/pi.json').then(r=>r.json()).then(d=>console.log(d.items))",
+    "filter events by issue tag": "data.events.filter(e => e.issue_tags && e.issue_tags.includes('廢死'))",
+    "join causal_link with events": "links.map(l => ({...l, from: events.find(e=>e.event_id===l.from_event), to: events.find(e=>e.event_id===l.to_event)}))"
+  },
+  "license_text": "Released under Creative Commons Attribution-ShareAlike 4.0. You are free to share and adapt; please credit AABE 國教行動聯盟 and link back to this platform."
+}

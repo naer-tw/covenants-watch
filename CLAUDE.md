@@ -26,6 +26,13 @@ Pro / Media (800-1200 字) / Legislative / **Advocacy** (churches, parent groups
 ## Absolute red lines
 ❌ Name individuals (unless court-ruled) ❌ Emotional/attack language (邪惡/可恥/變態) ❌ Fabricated citations ❌ Unauthorized PII ❌ Interviews without `governance/transcript_citation_sop.md` ❌ Emoji in public HTML (use SVG) ❌ Force push / amend pushed ❌ System brew/pip (use `.venv/bin/pip`) ❌ Notion / Super.so (Markdown SSOT)
 
+## Verify before commit (mandatory — run, don't eyeball)
+```bash
+bash scripts/self_qa.sh        # must pass; red → fix and re-run
+grep -l "本平台立場聲明" <article>.md   # stance disclosure: must appear at start AND end
+```
+Do **not** report "should be OK" without `self_qa.sh` green.
+
 ## Stance disclosure (verbatim Chinese — required at start + end of every article)
 ```
 ## 本平台立場聲明

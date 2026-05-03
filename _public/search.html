@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全平台搜尋 — 兩公約監督平台</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-alt: #F1EFEA;
+  --bg-deep: #0E2238;
+  --text: #1F1F1F;
+  --text-muted: #5C5C5C;
+  --text-meta: #8A8A8A;
+  --brand: #B5371F;
+  --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A;
+  --cycle-icescr: #5C1A1B;
+  --border: #DDD8CD;
+  --hairline: #E8E3D6;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+.color-strip { display:flex; height:5px; width:100%; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+.container { max-width: 980px; margin: 0 auto; padding: 32px 24px; }
+.nav { font-size: 14px; margin-bottom: 16px; }
+.nav a { color: var(--brand); text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }
+h1 { font-family: var(--serif); font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+.sub { color: var(--text-muted); font-size: 13px; margin-bottom: 24px; }
+.search-input {
+  width: 100%; padding: 14px 18px;
+  border: 2px solid var(--bg-deep); border-radius: 6px;
+  font-family: var(--sans); font-size: 16px;
+  background: #fff;
+}
+.search-input:focus { outline: 3px solid var(--brand); outline-offset: 2px; }
+.filters { display: flex; gap: 8px; margin: 16px 0; flex-wrap: wrap; }
+.filter-btn {
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 6px 12px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}
+.filter-btn.active { background: var(--bg-deep); color: #fff; border-color: var(--bg-deep); }
+.filter-btn .count { color: var(--text-meta); font-size: 11px; margin-left: 4px; }
+.filter-btn.active .count { color: rgba(255,255,255,0.7); }
+.stats { font-size: 13px; color: var(--text-muted); margin: 12px 0 18px; font-variant-numeric: tabular-nums; }
+.stats b { color: var(--bg-deep); font-family: var(--sans-en); }
+.results { display: flex; flex-direction: column; gap: 12px; }
+.result {
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 14px 18px; text-decoration: none; color: inherit;
+  display: block; transition: border-color .15s, transform .15s;
+}
+.result:hover { border-color: var(--brand); transform: translateY(-1px); }
+.result-meta { display: flex; gap: 8px; align-items: center; font-size: 11px; margin-bottom: 6px; flex-wrap: wrap; }
+.tag {
+  font-family: var(--sans-en); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; font-size: 10.5px;
+}
+.tag.pi { background: var(--aabe-gold); color: #fff; }
+.tag.event { background: var(--bg-deep); color: #fff; }
+.tag.actor { background: #6d28d9; color: #fff; }
+.tag.law { background: #1F3D6B; color: #fff; }
+.tag.law_change { background: #2D7059; color: #fff; }
+.tag.outcome { background: #D97706; color: #fff; }
+.result-id { color: var(--text-meta); font-family: var(--sans-en); }
+.result-date { color: var(--text-muted); font-size: 12px; margin-left: auto; }
+.result h3 { font-family: var(--serif); font-size: 16px; font-weight: 700; line-height: 1.35; color: var(--bg-deep); margin-bottom: 4px; }
+.result p { font-size: 13.5px; color: var(--text); line-height: 1.55; }
+.result mark { background: #fff3cd; padding: 0 2px; }
+.empty { text-align: center; color: var(--text-muted); padding: 40px 0; font-size: 14px; }
+.footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--text-muted); text-align: center; }
+@media (max-width: 600px) {
+  .container { padding: 24px 16px; }
+  .filters { gap: 6px; }
+  .filter-btn { padding: 5px 9px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<div class="container">
+  <div class="nav"><a href="index.html">← 回首頁</a></div>
+  <h1>全平台搜尋</h1>
+  <p class="sub">客戶端 fuse.js 模糊搜尋 · 索引 <b id="total-count">…</b> 筆 · 含 PI 議題卡 / 事件鏈 / 行動者 / 法律修法 / 結果指標</p>
+
+  <input id="q" class="search-input" type="search" placeholder="例:廢死、宗教自由、學生輔導法、Manfred Nowak、ICCPR §18..." autofocus>
+
+  <div class="filters">
+    <button class="filter-btn active" data-type="all">全部 <span class="count" id="cnt-all">0</span></button>
+    <button class="filter-btn" data-type="pi">議題卡 PI <span class="count" id="cnt-pi">0</span></button>
+    <button class="filter-btn" data-type="event">事件 <span class="count" id="cnt-event">0</span></button>
+    <button class="filter-btn" data-type="actor">行動者 <span class="count" id="cnt-actor">0</span></button>
+    <button class="filter-btn" data-type="law">法律 <span class="count" id="cnt-law">0</span></button>
+    <button class="filter-btn" data-type="law_change">條文修正 <span class="count" id="cnt-law_change">0</span></button>
+    <button class="filter-btn" data-type="outcome">結果指標 <span class="count" id="cnt-outcome">0</span></button>
+  </div>
+
+  <p class="stats" id="stats">輸入關鍵字開始搜尋</p>
+
+  <div id="results" class="results"></div>
+
+  <div class="footer">
+    搜尋索引每次部署時自動重生(<code>scripts/two_cov_build_search_index.py</code>)<br>
+    Powered by <a href="https://fusejs.io" target="_blank" rel="noopener" style="color:var(--brand)">Fuse.js</a> · 全客戶端,無伺服器,無追蹤
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+<script>
+let fuse = null;
+let allItems = [];
+let activeType = 'all';
+
+const qInput = document.getElementById('q');
+const resultsEl = document.getElementById('results');
+const statsEl = document.getElementById('stats');
+const totalCountEl = document.getElementById('total-count');
+
+const TYPE_LABEL = {
+  pi: 'PI', event: 'EVENT', actor: 'ACTOR',
+  law: 'LAW', law_change: 'Δ 條文', outcome: 'INDICATOR'
+};
+
+function escapeHTML(s) {
+  if (!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+}
+
+function highlightMatch(text, query) {
+  if (!query || !text) return escapeHTML(text);
+  const escaped = escapeHTML(text);
+  const parts = query.toLowerCase().split(/\s+/).filter(Boolean);
+  let result = escaped;
+  for (const p of parts) {
+    if (p.length < 2) continue;
+    const re = new RegExp(`(${p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+    result = result.replace(re, '<mark>$1</mark>');
+  }
+  return result;
+}
+
+function renderResults(items, query) {
+  if (items.length === 0) {
+    resultsEl.innerHTML = '<div class="empty">無符合結果</div>';
+    return;
+  }
+  resultsEl.innerHTML = items.slice(0, 100).map(it => {
+    const i = it.item || it;
+    const date = i.date ? `<span class="result-date">${escapeHTML(i.date)}</span>` : '';
+    const idStr = i.id ? `<span class="result-id">${escapeHTML(i.id)}</span>` : '';
+    return `
+      <a href="${i.url}" class="result">
+        <div class="result-meta">
+          <span class="tag ${i.type}">${TYPE_LABEL[i.type] || i.type}</span>
+          ${idStr}
+          ${date}
+        </div>
+        <h3>${highlightMatch(i.title, query)}</h3>
+        <p>${highlightMatch(i.summary || '', query)}</p>
+      </a>
+    `;
+  }).join('');
+}
+
+function updateCounts(items) {
+  const counts = {all: items.length, pi:0, event:0, actor:0, law:0, law_change:0, outcome:0};
+  items.forEach(i => {
+    const it = i.item || i;
+    if (it.type in counts) counts[it.type]++;
+  });
+  Object.entries(counts).forEach(([k, v]) => {
+    const el = document.getElementById('cnt-' + k);
+    if (el) el.textContent = v;
+  });
+}
+
+function search() {
+  const q = qInput.value.trim();
+  let items;
+  if (!q) {
+    items = allItems.map(i => ({item: i}));
+  } else {
+    items = fuse.search(q);
+  }
+  if (activeType !== 'all') {
+    items = items.filter(r => (r.item || r).type === activeType);
+  }
+  updateCounts(items);
+  statsEl.innerHTML = `搜尋「<b>${escapeHTML(q || '全部')}</b>」 · 找到 <b>${items.length}</b> 筆`;
+  renderResults(items, q);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeType = btn.dataset.type;
+    search();
+  });
+});
+
+let debounceTimer;
+qInput.addEventListener('input', () => {
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(search, 150);
+});
+
+// 從 URL 讀取 ?q=...
+const urlParams = new URLSearchParams(window.location.search);
+const initQ = urlParams.get('q');
+if (initQ) qInput.value = initQ;
+
+fetch('api/search-index.json')
+  .then(r => r.json())
+  .then(data => {
+    allItems = data.items;
+    totalCountEl.textContent = allItems.length;
+    fuse = new Fuse(allItems, {
+      keys: [
+        { name: 'title', weight: 2.0 },
+        { name: 'summary', weight: 1.0 },
+        { name: 'id', weight: 1.5 },
+        { name: 'keywords', weight: 1.5 },
+        { name: 'actor', weight: 1.0 },
+        { name: 'related_pi', weight: 0.8 },
+        { name: 'related_article', weight: 1.2 },
+        { name: 'issue_tags', weight: 1.0 },
+      ],
+      threshold: 0.35,
+      includeScore: true,
+      minMatchCharLength: 2,
+      ignoreLocation: true,
+    });
+    search();
+  })
+  .catch(err => {
+    statsEl.innerHTML = '<span style="color:var(--brand)">載入索引失敗。請確認 _public/api/search-index.json 存在</span>';
+    console.error(err);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+name: Monthly maintenance
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # 每月 1 號 UTC 00:00
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  monthly-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Self QA
+        id: qa
+        run: |
+          set +e
+          bash scripts/self_qa.sh > /tmp/qa.txt 2>&1
+          rc=$?
+          cat /tmp/qa.txt
+          echo "qa_rc=$rc" >> $GITHUB_OUTPUT
+          tail -5 /tmp/qa.txt > /tmp/qa-tail.txt
+          {
+            echo "qa_summary<<EOF"
+            cat /tmp/qa-tail.txt
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Article coverage scan
+        run: python3 scripts/two_cov_article_coverage.py | tee /tmp/coverage.txt
+
+      - name: Evidence status report
+        run: python3 scripts/two_cov_evidence_status.py | tee /tmp/evidence.txt
+
+      - name: Open issue if QA failed
+        if: steps.qa.outputs.qa_rc != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const qa = fs.readFileSync('/tmp/qa.txt', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[Monthly QA] self_qa failed on ${new Date().toISOString().slice(0,10)}`,
+              body: `## Self QA Result\n\n\`\`\`\n${qa.slice(-3000)}\n\`\`\`\n\nTriggered by scheduled monthly maintenance.`,
+              labels: ['monthly-qa', 'needs-attention']
+            });
+
+      - name: Summary
+        run: |
+          echo "## Monthly Maintenance Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Self QA" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -10 /tmp/qa.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "### Article coverage" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat /tmp/coverage.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "### Evidence status" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat /tmp/evidence.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY

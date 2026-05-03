@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API · 兩公約監督平台</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+body { font-family: "Noto Sans TC", -apple-system, sans-serif; line-height: 1.6; max-width: 880px; margin: 0 auto; padding: 32px 24px; background: #FAFAF7; color: #1F1F1F; }
+h1 { font-family: "Noto Serif TC", Georgia, serif; font-size: 28px; margin-bottom: 4px; }
+.sub { color: #5C5C5C; font-size: 13px; margin-bottom: 24px; }
+.nav { font-size: 14px; margin-bottom: 16px; }
+.nav a { color: #B5371F; text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }
+.color-strip { display:flex; height:5px; width:100%; margin: -32px -24px 24px; }
+.color-strip > div:nth-child(1) { flex:1; background: #5D3A1A; }
+.color-strip > div:nth-child(2) { flex:1; background: #5C1A1B; }
+h2 { font-family: "Noto Serif TC", Georgia, serif; font-size: 20px; margin: 32px 0 12px; border-left: 4px solid #0E2238; padding-left: 12px; }
+.endpoint { background: #fff; border: 1px solid #DDD8CD; border-radius: 4px; padding: 14px 18px; margin: 10px 0; }
+.endpoint-name { font-family: "JetBrains Mono", Menlo, monospace; font-size: 14px; font-weight: 700; color: #0E2238; }
+.endpoint-name a { color: #B5371F; text-decoration: none; }
+.endpoint-name a:hover { text-decoration: underline; }
+.endpoint-desc { font-size: 13.5px; color: #5C5C5C; margin-top: 4px; }
+.endpoint-meta { font-size: 11.5px; color: #8A8A8A; font-family: "Inter", sans-serif; margin-top: 6px; }
+pre { background: #0E2238; color: #e5e7eb; padding: 14px; border-radius: 4px; font-size: 13px; overflow-x: auto; line-height: 1.5; }
+code { font-family: "JetBrains Mono", Menlo, monospace; background: #F1EFEA; padding: 1px 5px; border-radius: 2px; font-size: 13px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+th, td { border: 1px solid #DDD8CD; padding: 7px 10px; text-align: left; vertical-align: top; }
+th { background: #F1EFEA; }
+.footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #E8E3D6; font-size: 12px; color: #5C5C5C; text-align: center; }
+.license { background: #F4E1DC; border-left: 4px solid #B5371F; padding: 12px 16px; margin: 14px 0; font-size: 13.5px; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<div class="nav"><a href="../index.html">← 回首頁</a></div>
+<h1>公開 API</h1>
+<p class="sub">SQLite → JSON · 全部資料採 <strong>CC BY-SA 4.0</strong> · 無 rate limit · 無 auth · 第三方歡迎使用</p>
+
+<div class="license">
+<strong>授權聲明:</strong>本平台所有 JSON 資料採 Creative Commons Attribution-ShareAlike 4.0 國際授權。
+您可自由使用、改作、商業使用,惟須:(1) 標示來源:AABE 國教行動聯盟兩公約監督平台 + 連結回本平台;(2) 衍生作品須採相同授權。
+</div>
+
+<h2>6 個 endpoints</h2>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="index.json">GET /api/index.json</a></div>
+  <div class="endpoint-desc">API 元資訊 + 所有 endpoint 清單 + schema 文件 + 使用範例</div>
+  <div class="endpoint-meta">~ 2.4 KB</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="pi.json">GET /api/pi.json</a></div>
+  <div class="endpoint-desc">16 PI 議題卡 metadata(pi_id / title / status / covenant / keywords / file_path)</div>
+  <div class="endpoint-meta">~ 7 KB · 16 items</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="trace.json">GET /api/trace.json</a></div>
+  <div class="endpoint-desc">因果脈絡追溯系統(actor 107 + event 100 + causal_link 74 + outcome_indicator 33)</div>
+  <div class="endpoint-meta">~ 163 KB · 314 records</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="laws.json">GET /api/laws.json</a></div>
+  <div class="endpoint-desc">6 部核心法律修法歷程(law + version + article_change + amendment + executive_order)</div>
+  <div class="endpoint-meta">~ 36 KB · 53 records</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="timeline.json">GET /api/timeline.json</a></div>
+  <div class="endpoint-desc">混合 events 與 amendments 之全平台時序軸(統一 schema 含 source 欄)</div>
+  <div class="endpoint-meta">~ 43 KB · ~107 items</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="coverage.json">GET /api/coverage.json</a></div>
+  <div class="endpoint-desc">PI 狀態 + 法律覆蓋 + 統計總覽(用於儀表板 dashboard)</div>
+  <div class="endpoint-meta">~ 4 KB</div>
+</div>
+
+<div class="endpoint">
+  <div class="endpoint-name"><a href="search-index.json">GET /api/search-index.json</a></div>
+  <div class="endpoint-desc">fuse.js 全文搜尋索引(已部署於 <a href="../search.html" style="color:#B5371F">search.html</a>)</div>
+  <div class="endpoint-meta">~ 98 KB · 278 items</div>
+</div>
+
+<h2>使用範例(JavaScript)</h2>
+
+<pre>// 1. 抓所有 PI
+const pi = await fetch('/api/pi.json').then(r => r.json());
+console.log(`共 ${pi.items.length} 張議題卡`);
+
+// 2. 過濾廢死相關事件
+const trace = await fetch('/api/trace.json').then(r => r.json());
+const deathPenalty = trace.events.filter(e =>
+  e.issue_tags && e.issue_tags.includes('廢死')
+);
+
+// 3. 找出 ICCPR §18 相關之法律條文 delta
+const laws = await fetch('/api/laws.json').then(r => r.json());
+const art18changes = laws.article_changes.filter(c =>
+  c.related_article && c.related_article.includes('ICCPR-18')
+);
+
+// 4. 串接 causal_link 與 events
+const linkChain = trace.causal_links.map(link => ({
+  ...link,
+  from: trace.events.find(e => e.event_id === link.from_event),
+  to: trace.events.find(e => e.event_id === link.to_event),
+}));</pre>
+
+<h2>使用範例(Python)</h2>
+
+<pre>import requests
+
+base = 'https://covenants.aabe.org.tw/api'  # 部署後
+# 或本地: http://localhost:8765/api
+
+trace = requests.get(f'{base}/trace.json').json()
+print(f"actors: {len(trace['actors'])}")
+print(f"events: {len(trace['events'])}")
+
+# 篩選 2024 年後之事件
+recent = [e for e in trace['events'] if e['event_date'] >= '2024']
+print(f"2024+ 事件:{len(recent)} 筆")</pre>
+
+<h2>Schema 摘要</h2>
+
+<table>
+<tr><th>表</th><th>主要欄位</th></tr>
+<tr><td><code>actor</code></td><td>actor_id, actor_type, name, affiliation, position_spectrum, active_period, is_anonymized</td></tr>
+<tr><td><code>event</code></td><td>event_id, event_date, event_type, issue_tags, actor_id, title, summary, related_pi, related_co, related_article, is_positive_outcome</td></tr>
+<tr><td><code>causal_link</code></td><td>from_event, to_event, link_type, evidence_strength, chain_depth, <strong>counter_evidence</strong>, <strong>multi_causal_note</strong></td></tr>
+<tr><td><code>outcome_indicator</code></td><td>indicator_id, event_id, metric_name, before_value, after_value, direction, <strong>confounders</strong></td></tr>
+<tr><td><code>law</code></td><td>law_id, law_name_zh, law_pcode, enacted_date, primary_agency, covers_articles</td></tr>
+<tr><td><code>law_article_change</code></td><td>change_id, version_id, article_number, change_type, <strong>text_before, text_after, reason</strong>, related_co, related_article</td></tr>
+</table>
+
+<h2>建構自動化</h2>
+
+<p>API 內容由以下腳本自動匯出,每次 push 觸發 GitHub Actions 重生:</p>
+<pre>scripts/two_cov_export_api.py        # JSON endpoints
+scripts/two_cov_build_search_index.py  # search index</pre>
+
+<h2>原始資料</h2>
+
+<p>如需直接存取 SQLite(完整 schema + FTS5 全文索引):</p>
+<pre>git clone https://github.com/naer-tw/two-covenants-watch
+cd two-covenants-watch
+sqlite3 data/two_cov.db</pre>
+
+<div class="footer">
+最後更新:2026-05-04 · 版本 v0.2-beta · maintainer: AABE 國教行動聯盟<br>
+本平台採 BSD-3 (scripts) + CC BY-SA 4.0 (data + content)
+</div>
+</body>
+</html>

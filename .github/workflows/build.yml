@@ -1,0 +1,146 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # 手動觸發
+
+permissions:
+  contents: write  # 允許 push 重生的 HTML
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          # 暫無外部依賴(全部 stdlib);未來如加 pdfplumber/scipy 在此補
+
+      - name: Sync MD → SQLite
+        run: python3 scripts/two_cov_md_to_db.py || true
+
+      - name: Rebuild PI HTML
+        run: |
+          for f in data/policy_issues/PI-*.md; do
+            pi=$(basename "$f" | cut -d_ -f1)
+            python3 scripts/build_single_doc.py "$f" \
+              --out "_public/issues/${pi}.html" \
+              --strip-frontmatter --noindex --schema-type article \
+              || echo "skip $pi"
+          done
+
+      - name: Render trace HTML
+        run: python3 scripts/two_cov_render_trace.py --all || true
+
+      - name: Render law HTML
+        run: python3 scripts/two_cov_render_law.py --all || true
+
+      - name: Recompile shadow report (5 audience)
+        run: |
+          python3 shadow_report/compile.py --audience all || true
+          for aud in professional media advocacy legislative social; do
+            python3 scripts/build_single_doc.py \
+              "shadow_report/build/shadow_report_${aud}.md" \
+              --out "_public/shadow_reports/${aud}.html" \
+              --noindex --schema-type article || true
+          done
+
+      - name: Build search index
+        run: python3 scripts/two_cov_build_search_index.py
+
+      - name: Export API JSON
+        run: python3 scripts/two_cov_export_api.py
+
+      - name: Article coverage scan
+        run: python3 scripts/two_cov_article_coverage.py
+
+      - name: Replace ⚠ with SVG (emoji enforcement)
+        run: |
+          python3 <<'EOF'
+          import re
+          from pathlib import Path
+          SVG = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#d97706" stroke-width="1.6" style="vertical-align:-2px;display:inline-block"><path d="M8 1.5L15 14H1L8 1.5Z"/><line x1="8" y1="6" x2="8" y2="10"/><circle cx="8" cy="12" r="0.8" fill="#d97706"/></svg>'
+          for f in sorted(Path('_public').rglob('*.html')):
+              text = f.read_text()
+              new = re.sub(r'⚠️?', SVG, text)
+              if new != text:
+                  f.write_text(new)
+                  print(f"  ✓ replaced: {f}")
+          EOF
+
+      - name: Self QA
+        run: bash scripts/self_qa.sh
+
+      - name: Commit regenerated API only(避免 CI 與本地 HTML 衝突)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # 只 commit API JSON / search-index / evidence CSV 鏡像
+          # HTML 改動由本地 push 主導,避免 CI 與本地衝突
+          git add _public/api/ || true
+          git diff --cached --quiet || git commit -m "ci: auto-rebuild API + search index [skip ci]"
+          git push || true
+
+  deploy-pages:
+    needs: build-and-qa
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main  # 拉最新(含 build job 的 commit)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload _public/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  indexnow-ping:
+    needs: deploy-pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping IndexNow
+        run: |
+          curl -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "host": "covenants.aabe.org.tw",
+              "key": "41565caff1994461bfbbb0aaadd9c0cc",
+              "urlList": [
+                "https://covenants.aabe.org.tw/",
+                "https://covenants.aabe.org.tw/trace/",
+                "https://covenants.aabe.org.tw/laws/",
+                "https://covenants.aabe.org.tw/agenda_transparency.html",
+                "https://covenants.aabe.org.tw/dashboards/",
+                "https://covenants.aabe.org.tw/shadow_reports/",
+                "https://covenants.aabe.org.tw/api/"
+              ]
+            }' || echo "IndexNow ping skipped (DNS not yet configured)"

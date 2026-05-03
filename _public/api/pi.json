@@ -1,0 +1,189 @@
+{
+  "_meta": {
+    "platform": "兩公約監督平台 / Two Covenants Watch Taiwan",
+    "version": "v0.2-beta",
+    "license": "CC BY-SA 4.0",
+    "maintainer": "AABE 國教行動聯盟",
+    "source": "https://github.com/naer-tw/two-covenants-watch",
+    "endpoint": "pi",
+    "description": "16 PI 議題卡 metadata"
+  },
+  "items": [
+    {
+      "pi_id": "PI-01",
+      "title": "兩公約在台施行 16 年（2009-2026）總體檢討",
+      "block": "A_overall_review",
+      "priority": "P0",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "兩公約施行法,馬政府,國際審查,16年,人權公約",
+      "file_path": "data/policy_issues/PI-01_兩公約16年施行歷程.md"
+    },
+    {
+      "pi_id": "PI-02",
+      "title": "第一次兩公約國際審查（2013）13 年後的執行落差總清算",
+      "block": "A_overall_review",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "第一次審查,2013,Manfred Nowak,13年回顧,81點CO",
+      "file_path": "data/policy_issues/PI-02_第一次審查13年回顧.md"
+    },
+    {
+      "pi_id": "PI-03",
+      "title": "第四次兩公約國際審查（2026 預定）即時追蹤",
+      "block": "A_overall_review",
+      "priority": "P0",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "第四次審查,2026,國際審查,結論性意見",
+      "file_path": "data/policy_issues/PI-03_第四次國際審查2025.md"
+    },
+    {
+      "pi_id": "PI-04",
+      "title": "「兩公約施行法」框架的國際獨特性與其詮釋彈性",
+      "block": "A_overall_review",
+      "priority": "P2",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "施行法,國際比較,內國法效力,詮釋彈性",
+      "file_path": "data/policy_issues/PI-04_施行法國際比較.md"
+    },
+    {
+      "pi_id": "PI-05",
+      "title": "第一期國家人權行動計畫（2022-2024）執行率總體檢",
+      "block": "B_nap_progress",
+      "priority": "P1",
+      "status": "partial_metadata",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "NAP,第一期,行動計畫,執行率,持續推動",
+      "file_path": "data/policy_issues/PI-05_第一期NAP執行率.md"
+    },
+    {
+      "pi_id": "PI-06",
+      "title": "第二期國家人權行動計畫（2025-2028）關鍵承諾盤點",
+      "block": "B_nap_progress",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "NAP,第二期,2025-2028,承諾盤點",
+      "file_path": "data/policy_issues/PI-06_第二期NAP承諾盤點.md"
+    },
+    {
+      "pi_id": "PI-07",
+      "title": "監察院國家人權委員會（NHRC）獨立監督的實證盲點",
+      "block": "B_nap_progress",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "NHRC,監察院,國家人權委員會,GANHRI,巴黎原則",
+      "file_path": "data/policy_issues/PI-07_NHRC獨立性盲點.md"
+    },
+    {
+      "pi_id": "PI-08",
+      "title": "ICCPR 第 18 條（思想良心宗教自由）國際標準與台灣實踐",
+      "block": "C_international_comparison",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR",
+      "co_referenced": "[]",
+      "keywords": "Art.18,宗教自由,GC22,良心拒絕,父母教育選擇權",
+      "file_path": "data/policy_issues/PI-08_第18條宗教自由國際標準.md"
+    },
+    {
+      "pi_id": "PI-09",
+      "title": "ICCPR 第 19 條（言論自由）在台之客觀指標變化（2014-2026）",
+      "block": "C_international_comparison",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR",
+      "co_referenced": "[]",
+      "keywords": "Art.19,言論自由,RSF,新聞自由指數,NCC,假訊息",
+      "file_path": "data/policy_issues/PI-09_第19條言論自由.md"
+    },
+    {
+      "pi_id": "PI-10",
+      "title": "ICCPR Art.26（不歧視）與 ICESCR Art.13（教育權）之詮釋光譜",
+      "block": "C_international_comparison",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "Art.26,Art.13,不歧視,教育權,父母教育選擇權,詮釋光譜",
+      "file_path": "data/policy_issues/PI-10_Art26與Art13的詮釋光譜.md"
+    },
+    {
+      "pi_id": "PI-11",
+      "title": "ICESCR 第 12 條（健康權）與兒少自殺率上升的政策落差",
+      "block": "C_international_comparison",
+      "priority": "P1",
+      "status": "partial_evidence",
+      "covenant": "ICESCR",
+      "co_referenced": "[]",
+      "keywords": "Art.12,健康權,GC14,兒少自殺,心理健康,政策投入",
+      "file_path": "data/policy_issues/PI-11_第12條健康權與兒少自殺.md"
+    },
+    {
+      "pi_id": "PI-12",
+      "title": "兩公約條文援引頻率分布之客觀檢驗",
+      "block": "D_political_use_evidence",
+      "priority": "P0",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "條文援引,量化分析,研究設計",
+      "file_path": "data/policy_issues/PI-12_條文援引頻率不對稱.md"
+    },
+    {
+      "pi_id": "PI-13",
+      "title": "立法院公報兩公約援引量化分析（2009-2026）",
+      "block": "D_political_use_evidence",
+      "priority": "P0",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "立法院公報,量化研究,援引分析,開放資料",
+      "file_path": "data/policy_issues/PI-13_立法院公報量化分析.md"
+    },
+    {
+      "pi_id": "PI-14",
+      "title": "兩公約國際審查民間代表團組成之代表性研究",
+      "block": "D_political_use_evidence",
+      "priority": "P2",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "民間代表團,代表性,NGO,審查機制",
+      "file_path": "data/policy_issues/PI-14_民間代表團組成代表性.md"
+    },
+    {
+      "pi_id": "PI-15",
+      "title": "政府人權白皮書承諾 vs 預算 vs 法案 vs 民眾感受四維對照",
+      "block": "D_political_use_evidence",
+      "priority": "P2",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "人權白皮書,性別白皮書,預算,法案,民眾感受",
+      "file_path": "data/policy_issues/PI-15_人權白皮書與施政落差.md"
+    },
+    {
+      "pi_id": "PI-16",
+      "title": "高中公民與社會領綱中兩公約敘事的條文選擇性",
+      "block": "D_political_use_evidence",
+      "priority": "P3",
+      "status": "partial_evidence",
+      "covenant": "ICCPR + ICESCR",
+      "co_referenced": "[]",
+      "keywords": "教科書,課綱,公民教育,條文選擇性,父母教育選擇權",
+      "file_path": "data/policy_issues/PI-16_教科書中的兩公約敘事.md"
+    }
+  ]
+}

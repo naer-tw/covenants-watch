@@ -6,6 +6,7 @@
 <title>戰情室 — 兩公約施行總檢討平台</title>
 <meta name="description" content="兩公約施行 16 年客觀指標視覺化儀表板：RSF / Freedom House / NAP / 青少年自殺率。">
 <meta name="robots" content="noindex,nofollow">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   body{font-family:"Noto Sans TC","Inter",sans-serif;background:#fafaf7;color:#0a0a0a;line-height:1.7;font-size:17px;margin:0}
   .container{max-width:980px;margin:0 auto;padding:48px 24px}
@@ -40,8 +41,7 @@
 <p>本頁集中呈現本平台已蒐集之客觀指標與第三方資料。所有資料皆附原始 CSV 下載連結，第三方可獨立重做分析。</p>
 
 <div class="placeholder">
-互動式 Datawrapper / Observable 圖表將於 2026 Q3 上線時啟用。<br>
-目前先以資料表 + CSV 下載提供。
+本頁圖表由 <strong>Chart.js</strong> 客戶端即時渲染,資料源為 <code>data/evidence/*.csv</code>,可透過下方 CSV 連結下載原始資料獨立重現。
 </div>
 
 <h2>1. RSF 新聞自由指數（2013-2025）</h2>
@@ -69,7 +69,8 @@
 </tbody>
 </table>
 
-<div class="embed-frame">[Datawrapper 折線圖將嵌入此處]</div>
+<div class="embed-frame" style="display:block;height:auto;padding:16px"><canvas id="chart-rsf" style="max-height:340px"></canvas></div>
+<p style="font-size:12px;color:#888;margin-top:6px"><strong>方法論警語</strong>:RSF 於 2022 年大幅改版方法論(增 5 大面向),<strong>2022 前後排名不可直接比較</strong>。圖中 2022 後之上升須與舊版分段解讀。</p>
 
 <h2>2. Freedom House 評分（2017-2026）</h2>
 <a class="csv-link" href="../../data/evidence/freedom_house_taiwan_2017_2026.csv">↓ freedom_house_taiwan_2017_2026.csv</a>
@@ -149,5 +150,86 @@
 所有 CSV 採 CC BY-SA 4.0 授權，第三方可自由重做分析。
 </div>
 </div>
+<script>
+// 客戶端 chart.js 渲染:RSF 13 年走勢
+async function loadCSV(url) {
+  const text = await fetch(url).then(r => r.text());
+  const [header, ...rows] = text.trim().split('\n');
+  const cols = header.split(',');
+  return rows.map(r => {
+    const v = r.split(',');
+    const obj = {};
+    cols.forEach((c, i) => obj[c.trim()] = v[i]?.trim() || '');
+    return obj;
+  });
+}
+
+(async () => {
+  // RSF Taiwan 13 年
+  try {
+    const rsf = await loadCSV('../api/evidence/rsf_taiwan_2013_2025.csv');
+    const ctx = document.getElementById('chart-rsf');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: rsf.map(r => r.year),
+          datasets: [{
+            label: 'RSF 世界排名(數字越小越自由)',
+            data: rsf.map(r => parseInt(r.world_rank)),
+            borderColor: '#5C1A1B',
+            backgroundColor: 'rgba(92,26,27,0.10)',
+            tension: 0.2,
+            pointRadius: 5,
+            pointBackgroundColor: '#5C1A1B',
+            fill: true,
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            title: {
+              display: true,
+              text: 'RSF Taiwan 新聞自由指數排名(2013-2025) · 對應 ICCPR §19',
+              font: { size: 16, weight: '700' }
+            },
+            tooltip: {
+              callbacks: {
+                afterLabel: ctx => {
+                  const r = rsf[ctx.dataIndex];
+                  const notes = [];
+                  if (r.note) notes.push('備註:' + r.note);
+                  if (r.year === '2022') notes.push('⚠ RSF 此年大幅改版方法論');
+                  return notes;
+                }
+              }
+            },
+            subtitle: {
+              display: true,
+              text: '橘色虛線標記 2022 方法論變更時點(前後不可直接比較)',
+              color: '#666',
+              font: { size: 12 }
+            }
+          },
+          scales: {
+            y: {
+              reverse: true,  // 排名越小越好,Y 軸反向
+              title: { display: true, text: '世界排名' },
+              ticks: { stepSize: 5 }
+            },
+            x: {
+              title: { display: true, text: '年份' }
+            }
+          }
+        }
+      });
+    }
+  } catch (e) {
+    console.error('RSF chart load failed', e);
+  }
+})();
+</script>
+
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>編輯後台 — 兩公約監督平台 · Decap CMS</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  body { font-family: "Noto Sans TC", -apple-system, sans-serif; }
+  .color-strip { display: flex; height: 5px; }
+  .color-strip > div:nth-child(1) { flex:1; background: #5D3A1A; }
+  .color-strip > div:nth-child(2) { flex:1; background: #5C1A1B; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<noscript>本後台需 JavaScript。</noscript>
+
+<!-- Decap CMS 主程式 (原 Netlify CMS) -->
+<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+<script>
+// 部署後 Decap CMS 會自動讀 /admin/config.yml
+// 開發環境若要 local 試用,可加:
+// CMS.init({ load_config_file: false, config: {...} });
+</script>
+</body>
+</html>

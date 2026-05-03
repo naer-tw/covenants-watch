@@ -1,0 +1,5 @@
+year,age_group,suicide_rate_per_100k_or_count,note,source
+2021,10-24,4.5,OECD 比較口徑(每 10 萬),OECD
+2022,10-14,1.6,衛福部(每 10 萬),衛福部
+2022,all_ages,10.7,粗死亡率(每 10 萬),衛福部
+2024,all_ages,4062 deaths total,全年齡 總死亡人數;15-45 歲青壯世代支持方案啟動,行政院

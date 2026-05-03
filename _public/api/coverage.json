@@ -1,0 +1,143 @@
+{
+  "_meta": {
+    "platform": "兩公約監督平台 / Two Covenants Watch Taiwan",
+    "version": "v0.2-beta",
+    "license": "CC BY-SA 4.0",
+    "maintainer": "AABE 國教行動聯盟",
+    "source": "https://github.com/naer-tw/two-covenants-watch",
+    "endpoint": "coverage",
+    "description": "PI 狀態 / 法律覆蓋 / 條文盤點 統計"
+  },
+  "pi_status": [
+    {
+      "pi_id": "PI-01",
+      "title": "兩公約在台施行 16 年（2009-2026）總體檢討",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-02",
+      "title": "第一次兩公約國際審查（2013）13 年後的執行落差總清算",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-03",
+      "title": "第四次兩公約國際審查（2026 預定）即時追蹤",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-04",
+      "title": "「兩公約施行法」框架的國際獨特性與其詮釋彈性",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-05",
+      "title": "第一期國家人權行動計畫（2022-2024）執行率總體檢",
+      "status": "partial_metadata"
+    },
+    {
+      "pi_id": "PI-06",
+      "title": "第二期國家人權行動計畫（2025-2028）關鍵承諾盤點",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-07",
+      "title": "監察院國家人權委員會（NHRC）獨立監督的實證盲點",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-08",
+      "title": "ICCPR 第 18 條（思想良心宗教自由）國際標準與台灣實踐",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-09",
+      "title": "ICCPR 第 19 條（言論自由）在台之客觀指標變化（2014-2026）",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-10",
+      "title": "ICCPR Art.26（不歧視）與 ICESCR Art.13（教育權）之詮釋光譜",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-11",
+      "title": "ICESCR 第 12 條（健康權）與兒少自殺率上升的政策落差",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-12",
+      "title": "兩公約條文援引頻率分布之客觀檢驗",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-13",
+      "title": "立法院公報兩公約援引量化分析（2009-2026）",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-14",
+      "title": "兩公約國際審查民間代表團組成之代表性研究",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-15",
+      "title": "政府人權白皮書承諾 vs 預算 vs 法案 vs 民眾感受四維對照",
+      "status": "partial_evidence"
+    },
+    {
+      "pi_id": "PI-16",
+      "title": "高中公民與社會領綱中兩公約敘事的條文選擇性",
+      "status": "partial_evidence"
+    }
+  ],
+  "laws_count": [
+    {
+      "law_id": "L001",
+      "law_name_zh": "公民與政治權利國際公約及經濟社會文化權利國際公約施行法",
+      "n_versions": 1,
+      "n_changes": 2
+    },
+    {
+      "law_id": "L002",
+      "law_name_zh": "學生輔導法",
+      "n_versions": 2,
+      "n_changes": 3
+    },
+    {
+      "law_id": "L003",
+      "law_name_zh": "司法院釋字第七四八號解釋施行法",
+      "n_versions": 2,
+      "n_changes": 3
+    },
+    {
+      "law_id": "L004",
+      "law_name_zh": "性別平等教育法",
+      "n_versions": 7,
+      "n_changes": 4
+    },
+    {
+      "law_id": "L005",
+      "law_name_zh": "自殺防治法",
+      "n_versions": 1,
+      "n_changes": 3
+    },
+    {
+      "law_id": "L006",
+      "law_name_zh": "集會遊行法",
+      "n_versions": 4,
+      "n_changes": 1
+    }
+  ],
+  "totals": {
+    "pi": 16,
+    "partial_evidence": 16,
+    "actor": 107,
+    "event": 100,
+    "causal_link": 74,
+    "outcome_indicator": 33,
+    "law": 6,
+    "law_version": 17,
+    "law_article_change": 16,
+    "law_amendment": 7
+  }
+}

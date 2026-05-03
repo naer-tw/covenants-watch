@@ -1,0 +1,134 @@
+# Decap CMS 設定 — 兩公約監督平台
+# 部署到 GitHub Pages 後,需於 GitHub repo Settings → Identity 啟用 GitHub OAuth backend
+# 或改用 git-gateway(Netlify)/ Auth.js 自架
+
+backend:
+  name: github
+  repo: naer-tw/two-covenants-watch  # 待 push 後啟用
+  branch: main
+  auth_endpoint: api/auth  # 預設 OAuth proxy
+  commit_messages:
+    create: 'cms: create {{collection}} "{{slug}}"'
+    update: 'cms: update {{collection}} "{{slug}}"'
+    delete: 'cms: delete {{collection}} "{{slug}}"'
+
+# 本地開發用(無需 backend)
+# local_backend: true
+
+publish_mode: editorial_workflow  # PR 工作流(草稿 → 審核 → 發布)
+
+media_folder: '_public/media'
+public_folder: '/media'
+
+site_url: https://covenants.aabe.org.tw
+display_url: https://covenants.aabe.org.tw
+logo_url: https://aabe.org.tw/favicon.ico
+
+locale: 'zh_Hant'
+
+# ─────────────────────────────────────────
+# Collections
+# ─────────────────────────────────────────
+collections:
+  # 1. 議題卡 PI(16 張)
+  - name: 'policy_issues'
+    label: 'PI 議題卡'
+    folder: 'data/policy_issues'
+    create: false  # 不允許新建(16 PI 為固定架構)
+    delete: false
+    extension: 'md'
+    format: 'frontmatter'
+    slug: '{{fields.pi_id}}'
+    identifier_field: pi_id
+    summary: '{{pi_id}} · {{title}} · {{status}}'
+    sortable_fields: ['pi_id', 'priority', 'status']
+    view_filters:
+      - label: '已 partial_evidence'
+        field: status
+        pattern: 'partial'
+      - label: 'A 區施行檢討'
+        field: block
+        pattern: 'A_'
+      - label: 'D 區援引行為'
+        field: block
+        pattern: 'D_'
+    fields:
+      - { name: pi_id, label: 'PI 編號', widget: string, pattern: ['^PI-\d{2}$', '格式 PI-XX'] }
+      - { name: title, label: '標題', widget: string }
+      - name: block
+        label: '所屬區塊'
+        widget: select
+        options:
+          - { label: 'A 兩公約施行 16 年總體檢討', value: 'A_overall_review' }
+          - { label: 'B NAP 國家人權行動計畫', value: 'B_nap_progress' }
+          - { label: 'C 國際比較', value: 'C_international_comparison' }
+          - { label: 'D 援引行為與政策落差客觀檢驗', value: 'D_political_use_evidence' }
+      - name: priority
+        label: '優先級'
+        widget: select
+        options: [P0, P1, P2, P3]
+        default: P1
+      - name: status
+        label: '狀態'
+        widget: select
+        options: [framework, research_design_only, draft, partial_metadata, partial_evidence, research_complete, external_review_complete, published]
+        default: framework
+      - name: covenant
+        label: '對應公約'
+        widget: select
+        options: ['ICCPR', 'ICESCR', 'ICCPR + ICESCR']
+        default: 'ICCPR + ICESCR'
+      - { name: keywords, label: '關鍵字', widget: list, default: [], required: false }
+      - { name: co_referenced, label: '對應 CO 條目(JSON array)', widget: list, default: [], required: false }
+      - name: audience_versions
+        label: '輸出版本'
+        widget: list
+        default: [professional, media, advocacy, legislative]
+      - { name: created, label: '建立日期', widget: date, format: 'YYYY-MM-DD' }
+      - { name: last_updated, label: '最後更新', widget: date, format: 'YYYY-MM-DD' }
+      - { name: body, label: '內文(Markdown)', widget: markdown }
+
+  # 2. trace seed SQL(供管理者編輯,不開放線上發布)
+  - name: 'trace_seeds'
+    label: 'Trace 議題種子 SQL'
+    folder: 'data'
+    create: true
+    extension: 'sql'
+    format: 'frontmatter'
+    slug: 'trace_seed_{{slug}}'
+    filter: { field: 'name', pattern: '^trace_seed_' }
+    fields:
+      - { name: title, label: 'Issue 名稱(中文)', widget: string }
+      - name: status
+        label: '狀態'
+        widget: select
+        options: [draft, reviewed, published]
+        default: draft
+      - { name: created_at, label: '建立日期', widget: date, format: 'YYYY-MM-DD' }
+      - { name: body, label: 'SQL 內容', widget: text, required: true }
+
+  # 3. governance 治理文件
+  - name: 'governance'
+    label: '治理文件'
+    folder: 'governance'
+    create: false
+    delete: false
+    extension: 'md'
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    fields:
+      - { name: name, label: '文件名', widget: string }
+      - { name: description, label: '描述', widget: text, required: false }
+      - { name: body, label: '內文', widget: markdown }
+
+  # 4. evidence CSV (僅檢視,不允許 CMS 編輯;以避免亂改原始資料)
+  - name: 'evidence'
+    label: 'Evidence CSV(唯讀)'
+    folder: 'data/evidence'
+    create: false
+    delete: false
+    extension: 'csv'
+    format: 'frontmatter'
+    editor: { preview: false }
+    fields:
+      - { name: body, label: 'CSV 內容', widget: text }
