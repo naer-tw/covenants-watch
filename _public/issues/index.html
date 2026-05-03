@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<!-- aabe-insider-gate --><script src="../insider-gate.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16 議題卡 PI 總覽 — 兩公約監督平台</title>
+<meta name="description" content="兩公約監督平台 16 張議題卡(PI-01 至 PI-16)按四大區塊分類:整體檢視、NAP 進程、國際比較、政治運用之證據。">
+<link rel="canonical" href="https://covenants.aabe.org.tw/issues/">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-alt: #F1EFEA;
+  --bg-deep: #0E2238;
+  --text: #1F1F1F;
+  --text-muted: #5C5C5C;
+  --text-meta: #8A8A8A;
+  --brand: #B5371F;
+  --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A;
+  --cycle-icescr: #5C1A1B;
+  --institutional-light: #44638A;
+  --border: #DDD8CD;
+  --hairline: #E8E3D6;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+.color-strip { display:flex; height:5px; width:100%; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+.nav { font-size: 14px; margin-bottom: 16px; }
+.nav a { color: var(--brand); text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }
+header.page { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 2px solid var(--bg-deep); }
+h1 { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.lead { color: var(--text-muted); font-size: 14.5px; max-width: 640px; }
+
+.block { margin-top: 36px; }
+.block-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--hairline); }
+.block-letter { font-family: var(--sans-en); font-size: 28px; font-weight: 700; color: var(--bg-deep); line-height: 1; }
+.block-title { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--bg-deep); }
+.block-count { margin-left: auto; font-family: var(--sans-en); font-size: 12px; color: var(--text-meta); }
+
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 14px 16px; text-decoration: none; color: inherit;
+  display: block; transition: border-color .15s, transform .15s, box-shadow .15s;
+  position: relative;
+}
+.card:hover { border-color: var(--brand); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+.card-meta { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+.pi-id {
+  font-family: var(--sans-en); font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--bg-deep); background: var(--bg-alt); padding: 2px 7px; border-radius: 3px;
+}
+.chip {
+  font-family: var(--sans-en); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px;
+}
+.chip.p0 { background: var(--brand); color: #fff; }
+.chip.p1 { background: var(--aabe-gold); color: #fff; }
+.chip.p2 { background: var(--institutional-light); color: #fff; }
+.chip.p3 { background: #8A8A8A; color: #fff; }
+.chip.status { background: var(--bg-alt); color: var(--text-muted); }
+.card h2 { font-family: var(--serif); font-size: 16px; font-weight: 700; line-height: 1.4; color: var(--bg-deep); }
+.card-arrow { color: var(--text-meta); font-family: var(--sans-en); font-size: 13px; }
+
+.legend { margin-top: 40px; padding: 16px; background: var(--bg-alt); border-left: 3px solid var(--bg-deep); font-size: 13px; color: var(--text-muted); }
+.legend strong { color: var(--bg-deep); font-family: var(--sans-en); margin-right: 4px; }
+.legend code { font-family: var(--sans-en); background: #fff; padding: 1px 6px; border-radius: 2px; font-size: 12px; }
+
+.footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--text-muted); text-align: center; }
+.footer a { color: var(--brand); }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<div class="container">
+  <div class="nav">
+    <a href="../index.html">← 回首頁</a>
+    <a href="../trace/index.html">議題鏈追溯</a>
+    <a href="../laws/index.html">法律修法</a>
+    <a href="../search.html">全平台搜尋</a>
+  </div>
+
+  <header class="page">
+    <h1>16 議題卡 PI · 兩公約施行總檢討</h1>
+    <p class="lead">
+      本平台以 16 張結構化議題卡為單元,依四大區塊分類:
+      <strong>A</strong> 整體檢視、<strong>B</strong> NAP 進程、
+      <strong>C</strong> 國際比較、<strong>D</strong> 政治運用之證據。
+      每張卡均標示優先級(P0-P3)與證據完備度狀態。
+    </p>
+  </header>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-letter">A</span>
+      <h2 class="block-title">整體檢視 · Overall Review</h2>
+      <span class="block-count">4 PI</span>
+    </div>
+    <div class="grid">
+      <a href="PI-01.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-01</span><span class="chip p0">P0</span><span class="chip status">部分證據</span></div>
+        <h2>兩公約在台施行 16 年(2009-2026)總體檢討</h2>
+      </a>
+      <a href="PI-02.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-02</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>第一次兩公約國際審查(2013)13 年後的執行落差總清算</h2>
+      </a>
+      <a href="PI-03.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-03</span><span class="chip p0">P0</span><span class="chip status">部分證據</span></div>
+        <h2>第四次兩公約國際審查(2026 預定)即時追蹤</h2>
+      </a>
+      <a href="PI-04.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-04</span><span class="chip p2">P2</span><span class="chip status">部分證據</span></div>
+        <h2>「兩公約施行法」框架的國際獨特性與其詮釋彈性</h2>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-letter">B</span>
+      <h2 class="block-title">NAP 進程 · National Action Plan</h2>
+      <span class="block-count">3 PI</span>
+    </div>
+    <div class="grid">
+      <a href="PI-05.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-05</span><span class="chip p1">P1</span><span class="chip status">部分中介資料</span></div>
+        <h2>第一期國家人權行動計畫(2022-2024)執行率總體檢</h2>
+      </a>
+      <a href="PI-06.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-06</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>第二期國家人權行動計畫(2025-2028)關鍵承諾盤點</h2>
+      </a>
+      <a href="PI-07.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-07</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>監察院國家人權委員會(NHRC)獨立監督的實證盲點</h2>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-letter">C</span>
+      <h2 class="block-title">國際比較 · International Comparison</h2>
+      <span class="block-count">4 PI</span>
+    </div>
+    <div class="grid">
+      <a href="PI-08.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-08</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>ICCPR §18(思想良心宗教自由)國際標準與台灣實踐</h2>
+      </a>
+      <a href="PI-09.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-09</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>ICCPR §19(言論自由)在台之客觀指標變化(2009-2026)</h2>
+      </a>
+      <a href="PI-10.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-10</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>ICCPR §26(不歧視)與 ICESCR §13(教育權)之詮釋光譜</h2>
+      </a>
+      <a href="PI-11.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-11</span><span class="chip p1">P1</span><span class="chip status">部分證據</span></div>
+        <h2>ICESCR §12(健康權)與兒少自殺率上升的政策落差</h2>
+      </a>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="block-head">
+      <span class="block-letter">D</span>
+      <h2 class="block-title">政治運用之證據 · Political Use Evidence</h2>
+      <span class="block-count">5 PI</span>
+    </div>
+    <div class="grid">
+      <a href="PI-12.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-12</span><span class="chip p0">P0</span><span class="chip status">部分證據</span></div>
+        <h2>兩公約條文援引頻率分布之客觀檢驗</h2>
+      </a>
+      <a href="PI-13.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-13</span><span class="chip p0">P0</span><span class="chip status">部分證據</span></div>
+        <h2>立法院公報兩公約援引量化分析(2009-2026)</h2>
+      </a>
+      <a href="PI-14.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-14</span><span class="chip p2">P2</span><span class="chip status">部分證據</span></div>
+        <h2>兩公約國際審查民間代表團組成之代表性研究</h2>
+      </a>
+      <a href="PI-15.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-15</span><span class="chip p2">P2</span><span class="chip status">部分證據</span></div>
+        <h2>政府人權白皮書承諾 vs 預算 vs 法案 vs 民眾感受四維落差</h2>
+      </a>
+      <a href="PI-16.html" class="card">
+        <div class="card-meta"><span class="pi-id">PI-16</span><span class="chip p3">P3</span><span class="chip status">部分證據</span></div>
+        <h2>高中公民與社會領綱中兩公約敘事的條文選擇性</h2>
+      </a>
+    </div>
+  </section>
+
+  <div class="legend">
+    <strong>優先級</strong>
+    <code>P0</code> 高度政治化議題 ·
+    <code>P1</code> 結構性指標 ·
+    <code>P2</code> 結構性監督 ·
+    <code>P3</code> 教育長期影響<br>
+    <strong>狀態</strong>
+    每張卡之證據完備度逐月更新,可在 <a href="../api/coverage.json" style="color:var(--brand)">coverage.json</a> 取得最新統計。
+  </div>
+
+  <div class="footer">
+    兩公約監督平台 · 國教行動聯盟(AABE)<br>
+    <a href="../index.html">回首頁</a> · <a href="../about.html">關於</a> · <a href="../methodology.html">方法論</a> · <a href="../api/index.html">API</a>
+  </div>
+</div>
+</body>
+</html>

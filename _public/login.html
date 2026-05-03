@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>自家人登入 — 兩公約監督平台</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7;
+  --bg-alt: #F1EFEA;
+  --bg-deep: #0E2238;
+  --text: #1F1F1F;
+  --text-muted: #5C5C5C;
+  --brand: #B5371F;
+  --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A;
+  --cycle-icescr: #5C1A1B;
+  --border: #DDD8CD;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans); background: var(--bg); color: var(--text);
+  min-height: 100vh; display: flex; flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+.color-strip { display: flex; height: 5px; flex-shrink: 0; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+main {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 32px 20px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px 28px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.brand-row { display: flex; align-items: center; gap: 8px; margin-bottom: 20px; }
+.brand-mark {
+  display: inline-flex;
+  font-family: var(--sans-en);
+  font-weight: 700; font-size: 11px; letter-spacing: 0.06em;
+  background: var(--bg-deep); color: #fff;
+  padding: 3px 7px; border-radius: 3px;
+}
+.brand-name { font-family: var(--serif); font-size: 14.5px; font-weight: 700; color: var(--bg-deep); }
+h1 { font-family: var(--serif); font-size: 22px; font-weight: 700; line-height: 1.3; margin-bottom: 6px; color: var(--bg-deep); }
+.sub { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; line-height: 1.5; }
+
+form { display: flex; flex-direction: column; gap: 14px; }
+label { font-size: 12.5px; font-weight: 500; color: var(--text-muted); margin-bottom: 4px; display: block; }
+input[type="text"], input[type="password"] {
+  width: 100%; padding: 10px 12px;
+  font-family: var(--sans); font-size: 15px;
+  border: 1.5px solid var(--border); border-radius: 4px;
+  background: #fff; color: var(--text);
+  transition: border-color .15s;
+}
+input:focus { outline: none; border-color: var(--bg-deep); }
+.err {
+  display: none;
+  background: #FCEFEC; color: var(--brand); border-left: 3px solid var(--brand);
+  padding: 8px 12px; font-size: 13px; border-radius: 2px;
+}
+.err.show { display: block; }
+button[type="submit"] {
+  margin-top: 6px;
+  width: 100%; padding: 11px 16px;
+  background: var(--bg-deep); color: #fff;
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  border: none; border-radius: 4px; cursor: pointer;
+  transition: background .15s;
+}
+button[type="submit"]:hover { background: #1a3354; }
+
+.note {
+  margin-top: 20px; padding: 12px 14px;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--aabe-gold);
+  font-size: 12px; color: var(--text-muted); line-height: 1.6;
+}
+.note strong { color: var(--bg-deep); }
+footer.foot {
+  text-align: center; padding: 18px 12px;
+  font-size: 11.5px; color: var(--text-muted);
+}
+footer.foot a { color: var(--brand); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<main>
+  <div class="card">
+    <div class="brand-row">
+      <span class="brand-mark">AABE</span>
+      <span class="brand-name">國教行動聯盟 · 兩公約監督平台</span>
+    </div>
+    <h1>自家人登入</h1>
+    <p class="sub">本平台目前位於上線前審查階段(2026 Q3 公開),僅提供 AABE 自家人預覽。</p>
+
+    <div id="err" class="err">帳號或密碼錯誤</div>
+
+    <form id="login-form" autocomplete="on" method="post" action="login.html">
+      <div>
+        <label for="username">帳號</label>
+        <input type="text" id="username" name="username" autocomplete="username" required autofocus>
+      </div>
+      <div>
+        <label for="password">密碼</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button type="submit">登入</button>
+    </form>
+
+    <div class="note">
+      <strong>提示:</strong>登入成功後,本機瀏覽器將記住此狀態(直到清除瀏覽資料)。
+      若您是訪客而非 AABE 自家人,請於 2026 Q3 後再訪。
+    </div>
+  </div>
+</main>
+<footer class="foot">
+  © 2026 國教行動聯盟 AABE · CC BY-SA 4.0 ·
+  <a href="about.html">關於本平台</a>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('login-form');
+  var err = document.getElementById('err');
+  // 已登入則直接跳轉
+  if (localStorage.getItem('aabe_insider_v1') === 'ok') {
+    var nextHref = new URLSearchParams(location.search).get('next') || 'index.html';
+    location.replace(nextHref);
+    return;
+  }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var u = document.getElementById('username').value.trim();
+    var p = document.getElementById('password').value;
+    // 軟閘門:固定帳密(非真正驗證)
+    if (u === 'AABE' && p === '1234') {
+      try {
+        localStorage.setItem('aabe_insider_v1', 'ok');
+      } catch (e) { /* private mode */ }
+      var next = new URLSearchParams(location.search).get('next') || 'index.html';
+      // 確保 next 不跳出本站
+      if (/^https?:/i.test(next)) next = 'index.html';
+      location.replace(next);
+    } else {
+      err.classList.add('show');
+      document.getElementById('password').value = '';
+      document.getElementById('password').focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
