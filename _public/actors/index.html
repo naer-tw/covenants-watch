@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<!-- aabe-insider-gate --><script src="../insider-gate.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行動者目錄 · 全 107 個 — 兩公約監督平台</title>
+<meta name="description" content="兩公約監督平台行動者目錄,涵蓋 39 民間團體 / 27 政府機關 / 9 法院 / 9 國際委員 等共 107 位行動者。">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7; --bg-alt: #F1EFEA; --bg-deep: #0E2238;
+  --text: #1F1F1F; --text-muted: #5C5C5C; --text-meta: #8A8A8A;
+  --brand: #B5371F; --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A; --cycle-icescr: #5C1A1B;
+  --institutional-light: #44638A;
+  --border: #DDD8CD; --hairline: #E8E3D6;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+.color-strip { display:flex; height:5px; width:100%; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+.container { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+.nav { font-size: 14px; margin-bottom: 16px; }
+.nav a { color: var(--brand); text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }
+header.page { margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--bg-deep); }
+h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.lead { color: var(--text-muted); font-size: 14.5px; max-width: 720px; }
+
+.totals { display: flex; gap: 20px; margin: 16px 0;
+  padding: 12px 16px; background: var(--bg-alt);
+  border-left: 3px solid var(--bg-deep); flex-wrap: wrap; }
+.totals .stat { display: flex; flex-direction: column; }
+.totals .num { font-family: var(--sans-en); font-size: 22px; font-weight: 700; color: var(--bg-deep); line-height: 1; }
+.totals .lbl { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+
+.controls { margin: 24px 0 16px; }
+.search-bar { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 4px; font-family: var(--sans); font-size: 14px; background: #fff; }
+.search-bar:focus { outline: none; border-color: var(--bg-deep); }
+.filter-bar { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
+.filter-label { font-size: 13px; color: var(--text-muted); margin-right: 4px; }
+.filter-btn {
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 5px 10px; font-size: 12.5px; cursor: pointer; font-family: var(--sans);
+}
+.filter-btn.active { background: var(--bg-deep); color: #fff; border-color: var(--bg-deep); }
+.filter-btn .cnt { color: var(--text-meta); font-size: 11px; margin-left: 4px; font-family: var(--sans-en); }
+.filter-btn.active .cnt { color: rgba(255,255,255,0.7); }
+
+.actor-section { margin-top: 28px; }
+.actor-section h2 { font-family: var(--serif); font-size: 19px; font-weight: 700; color: var(--bg-deep); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid var(--hairline); display: flex; align-items: baseline; gap: 8px; }
+.actor-section h2 .count { font-family: var(--sans-en); font-size: 13px; color: var(--text-meta); font-weight: 500; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+
+.card {
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 12px 14px; transition: border-color .15s, box-shadow .15s;
+  display: flex; flex-direction: column;
+}
+.card:hover { border-color: var(--brand); }
+.card-head { display: flex; gap: 6px; align-items: center; margin-bottom: 4px; flex-wrap: wrap; }
+.type-tag {
+  font-family: var(--sans-en); font-size: 9.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 3px; color: #fff;
+}
+.type-tag.ngo { background: var(--brand); }
+.type-tag.govt { background: var(--bg-deep); }
+.type-tag.court { background: var(--cycle-iccpr); }
+.type-tag.intl { background: var(--aabe-gold); }
+.type-tag.legis { background: var(--institutional-light); }
+.type-tag.academic { background: #4f4f4f; }
+.type-tag.media { background: #6d28d9; }
+.type-tag.industry { background: #5C1A1B; }
+.type-tag.public { background: #8A8A8A; }
+.actor-id { font-family: var(--sans-en); font-size: 10px; color: var(--text-meta); }
+
+.card .name { font-family: var(--serif); font-size: 15px; font-weight: 700; color: var(--bg-deep); line-height: 1.35; margin-bottom: 4px; }
+.card .meta { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.card .position { display: inline-block; margin-top: 4px; padding: 1px 6px; background: var(--bg-alt); border-radius: 2px; font-size: 11px; color: var(--text-muted); }
+.card .events-count { margin-top: 6px; font-family: var(--sans-en); font-size: 11px; color: var(--text-meta); }
+.card .events-count b { color: var(--bg-deep); font-weight: 700; }
+
+.legend { margin-top: 32px; padding: 16px; background: var(--bg-alt); border-left: 3px solid var(--aabe-gold); font-size: 13px; color: var(--text-muted); }
+.legend strong { color: var(--bg-deep); }
+.footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--text-muted); text-align: center; }
+.footer a { color: var(--brand); }
+
+.empty { text-align: center; padding: 24px; color: var(--text-muted); font-size: 14px; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<div class="container">
+  <div class="nav">
+    <a href="../index.html">← 回首頁</a>
+    <a href="../issues/index.html">16 PI 議題卡</a>
+    <a href="../trace/index.html">議題脈絡追溯</a>
+    <a href="../laws/index.html">法律修法</a>
+    <a href="../search.html">全平台搜尋</a>
+  </div>
+
+  <header class="page">
+    <h1>行動者目錄 · 全 107 個</h1>
+    <p class="lead">
+      本平台收錄之行動者,涵蓋民間團體、政府機關、司法、國際委員、立委、學界、媒體等 11 類。
+      所有立場光譜(position_spectrum)為依其公開出版物 / 公開立場彙整,雙人編碼,可請求修正。
+    </p>
+  </header>
+
+  <div class="totals">
+    <div class="stat"><span class="num">107</span><span class="lbl">行動者總數</span></div>
+    <div class="stat"><span class="num">39</span><span class="lbl">民間團體</span></div>
+    <div class="stat"><span class="num">27</span><span class="lbl">政府機關</span></div>
+    <div class="stat"><span class="num">9</span><span class="lbl">司法 / 法院</span></div>
+    <div class="stat"><span class="num">9</span><span class="lbl">國際委員 / 審查專家</span></div>
+    <div class="stat"><span class="num">6</span><span class="lbl">立法委員 / 政黨</span></div>
+    <div class="stat"><span class="num">4</span><span class="lbl">國際組織</span></div>
+    <div class="stat"><span class="num">3</span><span class="lbl">學界 / 研究機構</span></div>
+    <div class="stat"><span class="num">3</span><span class="lbl">媒體</span></div>
+    <div class="stat"><span class="num">1</span><span class="lbl">媒體</span></div>
+    <div class="stat"><span class="num">2</span><span class="lbl">產業公會</span></div>
+    <div class="stat"><span class="num">4</span><span class="lbl">公眾 / 個人</span></div>
+  </div>
+
+  <div class="controls">
+    <input type="search" id="q" class="search-bar" placeholder="搜尋行動者名稱、立場、隸屬...(例:廢死、宗教、人權)">
+    <div class="filter-bar">
+      <span class="filter-label">類型:</span>
+      <button class="filter-btn active" data-type="all">全部 <span class="cnt">107</span></button>
+      <button class="filter-btn" data-type="ngo">民間團體 <span class="cnt">39</span></button>
+      <button class="filter-btn" data-type="govt_agency">政府機關 <span class="cnt">27</span></button>
+      <button class="filter-btn" data-type="court">司法 / 法院 <span class="cnt">9</span></button>
+      <button class="filter-btn" data-type="committee_member">國際委員 / 審查專家 <span class="cnt">9</span></button>
+      <button class="filter-btn" data-type="legislator">立法委員 / 政黨 <span class="cnt">6</span></button>
+      <button class="filter-btn" data-type="intl_actor">國際組織 <span class="cnt">4</span></button>
+      <button class="filter-btn" data-type="academic">學界 / 研究機構 <span class="cnt">3</span></button>
+      <button class="filter-btn" data-type="private_media">媒體 <span class="cnt">3</span></button>
+      <button class="filter-btn" data-type="media">媒體 <span class="cnt">1</span></button>
+      <button class="filter-btn" data-type="industry_assoc">產業公會 <span class="cnt">2</span></button>
+      <button class="filter-btn" data-type="public">公眾 / 個人 <span class="cnt">4</span></button>
+    </div>
+  </div>
+
+  <div id="results">
+
+  <section class="actor-section" data-type-section="ngo">
+    <h2>民間團體 <span class="count">(39)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="ngo" data-search="下一代幸福聯盟 家長 opt-out 派 / 嚴格派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A705</span>
+        </div>
+        <div class="name">下一代幸福聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">家長 opt-out 派 / 嚴格派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="主要宗教團體聯合（含佛教、道教、基督教、天主教等） 寬鬆派（反高度管制） 民間 反對宗教團體法行政管制密度過高">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A306</span>
+        </div>
+        <div class="name">主要宗教團體聯合（含佛教、道教、基督教、天主教等）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">寬鬆派（反高度管制）</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="人本教育基金會 校園文化批判／結構派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A203</span>
+        </div>
+        <div class="name">人本教育基金會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">校園文化批判／結構派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟 人權監督中性記錄者 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A205</span>
+        </div>
+        <div class="name">人權公約施行監督聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">人權監督中性記錄者</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟 人權監督中性記錄者 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A405</span>
+        </div>
+        <div class="name">人權公約施行監督聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">人權監督中性記錄者</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟（covenantswatch） 寬鬆派 民間組織 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A007</span>
+        </div>
+        <div class="name">人權公約施行監督聯盟（CovenantsWatch）</div>
+        <div class="meta">民間組織</div>
+        <div><span class="position">寬鬆派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟（教育權） 國家義務派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A710</span>
+        </div>
+        <div class="name">人權公約施行監督聯盟（教育權）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">國家義務派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="兒童福利聯盟基金會 兒少權益倡議 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A201</span>
+        </div>
+        <div class="name">兒童福利聯盟基金會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">兒少權益倡議</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="全國家長團體聯盟 選擇權派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A707</span>
+        </div>
+        <div class="name">全國家長團體聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">選擇權派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="全國教師會／國教行動聯盟（校園藥物） 公衛派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A814</span>
+        </div>
+        <div class="name">全國教師會／國教行動聯盟（校園藥物）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">公衛派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="卓越新聞獎基金會 自律優先派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A508</span>
+        </div>
+        <div class="name">卓越新聞獎基金會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">自律優先派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="原住民族 16 族聯合會（集合主體） 自決派 民間 含太魯閣、賽德克、撒奇萊雅等正名後族群代表組織">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A607</span>
+        </div>
+        <div class="name">原住民族 16 族聯合會（集合主體）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">自決派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="原住民族青年陣線 自決派 民間 凱道部落運動主要組織者，主張 fpic 絕對論">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A605</span>
+        </div>
+        <div class="name">原住民族青年陣線</div>
+        <div class="meta">民間</div>
+        <div><span class="position">自決派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣事實查核中心 自律派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A516</span>
+        </div>
+        <div class="name">台灣事實查核中心</div>
+        <div class="meta">民間</div>
+        <div><span class="position">自律派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣人權促進會（防疫人權） 個人權利派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A812</span>
+        </div>
+        <div class="name">台灣人權促進會（防疫人權）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">個人權利派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣國際勞工協會 tiwa 移工權益寬鬆派／結構批判 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A401</span>
+        </div>
+        <div class="name">台灣國際勞工協會 TIWA</div>
+        <div class="meta">民間</div>
+        <div><span class="position">移工權益寬鬆派／結構批判</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣實驗教育推動中心 選擇權派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A709</span>
+        </div>
+        <div class="name">台灣實驗教育推動中心</div>
+        <div class="meta">民間</div>
+        <div><span class="position">選擇權派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣少年權益與福利促進聯盟 青少年權益寬鬆派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A204</span>
+        </div>
+        <div class="name">台灣少年權益與福利促進聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">青少年權益寬鬆派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣性別平等教育協會 性別推動派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A706</span>
+        </div>
+        <div class="name">台灣性別平等教育協會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">性別推動派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣拒菸聯盟 公衛派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A810</span>
+        </div>
+        <div class="name">台灣拒菸聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣新聞記者協會 新聞自由派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A507</span>
+        </div>
+        <div class="name">台灣新聞記者協會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">新聞自由派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="台灣醫療改革基金會 公衛派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A809</span>
+        </div>
+        <div class="name">台灣醫療改革基金會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">公衛派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="國教行動聯盟 選擇權派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A708</span>
+        </div>
+        <div class="name">國教行動聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">選擇權派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="外籍漁工人權保障聯盟 遠洋漁工權益寬鬆派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A404</span>
+        </div>
+        <div class="name">外籍漁工人權保障聯盟</div>
+        <div class="meta">民間</div>
+        <div><span class="position">遠洋漁工權益寬鬆派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="媒體改造學社 結構改革派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A506</span>
+        </div>
+        <div class="name">媒體改造學社</div>
+        <div class="meta">民間</div>
+        <div><span class="position">結構改革派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="宗教自由倡議聯盟（含太極門相關 ngo、世界公民總會台灣分會） 嚴格派（要求平反） 民間 長期主張個案為宗教歧視典型">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A301</span>
+        </div>
+        <div class="name">宗教自由倡議聯盟（含太極門相關 NGO、世界公民總會台灣分會）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">嚴格派（要求平反）</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="平埔族復振團體（集合主體） 自決派 民間 西拉雅、馬卡道、噶哈巫等族群復振團體">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A608</span>
+        </div>
+        <div class="name">平埔族復振團體（集合主體）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">自決派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="廢死聯盟（taedp） 寬鬆派（廢死） 民間組織 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A001</span>
+        </div>
+        <div class="name">廢死聯盟（TAEDP）</div>
+        <div class="meta">民間組織</div>
+        <div><span class="position">寬鬆派（廢死）</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="性平／同婚倡議團體 寬鬆派（性別平等） 民間 與宗教團體立場對立">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A311</span>
+        </div>
+        <div class="name">性平／同婚倡議團體</div>
+        <div class="meta">民間</div>
+        <div><span class="position">寬鬆派（性別平等）</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="桃園市產業總工會 勞工團結／在地申訴 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A403</span>
+        </div>
+        <div class="name">桃園市產業總工會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">勞工團結／在地申訴</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="私有地主團體（集合主體） 保留派 民間 傳統領域劃設範圍內之非原民地主">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A609</span>
+        </div>
+        <div class="name">私有地主團體（集合主體）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">保留派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="移工聯盟 ment 移工權益寬鬆派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A402</span>
+        </div>
+        <div class="name">移工聯盟 MENT</div>
+        <div class="meta">民間</div>
+        <div><span class="position">移工權益寬鬆派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="耶和華見證人等良心拒服兵役者社群 嚴格派（信仰） 民間 推動替代役制度催生">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A309</span>
+        </div>
+        <div class="name">耶和華見證人等良心拒服兵役者社群</div>
+        <div class="meta">民間</div>
+        <div><span class="position">嚴格派（信仰）</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="董氏基金會 公衛派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A808</span>
+        </div>
+        <div class="name">董氏基金會</div>
+        <div class="meta">民間</div>
+        <div><span class="position">公衛派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="董氏基金會心理衛生中心 心理健康倡議 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A202</span>
+        </div>
+        <div class="name">董氏基金會心理衛生中心</div>
+        <div class="meta">民間</div>
+        <div><span class="position">心理健康倡議</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="被害人家屬團體 嚴格派 民間組織 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A008</span>
+        </div>
+        <div class="name">被害人家屬團體</div>
+        <div class="meta">民間組織</div>
+        <div><span class="position">嚴格派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="護家盟／下一代幸福聯盟（宗教多元團體聯合） 嚴格派（傳統婚家） 民間 2018 公投三案發起">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A310</span>
+        </div>
+        <div class="name">護家盟／下一代幸福聯盟（宗教多元團體聯合）</div>
+        <div class="meta">民間</div>
+        <div><span class="position">嚴格派（傳統婚家）</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="ngo" data-search="醫療藥物使用者權益團體 個人權利派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A813</span>
+        </div>
+        <div class="name">醫療藥物使用者權益團體</div>
+        <div class="meta">民間</div>
+        <div><span class="position">個人權利派</span></div>
+      </div>
+      <div class="card" data-type="ngo" data-search="長照家屬／病友自助團體 個人權利派 民間 ">
+        <div class="card-head">
+          <span class="type-tag ngo">民間團體</span>
+          <span class="actor-id">A815</span>
+        </div>
+        <div class="name">長照家屬／病友自助團體</div>
+        <div class="meta">民間</div>
+        <div><span class="position">個人權利派</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="govt_agency">
+    <h2>政府機關 <span class="count">(27)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="govt_agency" data-search="ncc 國家通訊傳播委員會 監管派 獨立機關 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A501</span>
+        </div>
+        <div class="name">NCC 國家通訊傳播委員會</div>
+        <div class="meta">獨立機關</div>
+        <div><span class="position">監管派</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="中央選舉委員會 程序派 獨立機關 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A704</span>
+        </div>
+        <div class="name">中央選舉委員會</div>
+        <div class="meta">獨立機關</div>
+        <div><span class="position">程序派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="內政部移民署（失聯移工專案） 政策執行 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A409</span>
+        </div>
+        <div class="name">內政部移民署（失聯移工專案）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="內政部警政署（毒品執法） 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A806</span>
+        </div>
+        <div class="name">內政部警政署（毒品執法）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="內政部（宗教事務） 中間 行政院 宗教團體法草案主政">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A305</span>
+        </div>
+        <div class="name">內政部（宗教事務）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">中間</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="勞動部勞動力發展署 政策執行 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A407</span>
+        </div>
+        <div class="name">勞動部勞動力發展署</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="原住民族委員會 漸進派 行政院二級機關 主管原住民族行政；負責諮商同意辦法">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A601</span>
+        </div>
+        <div class="name">原住民族委員會</div>
+        <div class="meta">行政院二級機關</div>
+        <div><span class="position">漸進派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="國家人權委員會 中性／嚴格派（人權標準） 監察院 2025 認定後備軍人替代役不足違反 iccpr">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A312</span>
+        </div>
+        <div class="name">國家人權委員會</div>
+        <div class="meta">監察院</div>
+        <div><span class="position">中性／嚴格派（人權標準）</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="國家人權委員會（原民議題） 監督派 監察院 撰寫獨立評估意見">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A604</span>
+        </div>
+        <div class="name">國家人權委員會（原民議題）</div>
+        <div class="meta">監察院</div>
+        <div><span class="position">監督派</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="國稅局／財政部 中間（行政立場） 行政院 稅務查核主管機關">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A302</span>
+        </div>
+        <div class="name">國稅局／財政部</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">中間（行政立場）</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="教育部 國家義務派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A701</span>
+        </div>
+        <div class="name">教育部</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">國家義務派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="教育部學特司（藥物濫用防制） 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A807</span>
+        </div>
+        <div class="name">教育部學特司（藥物濫用防制）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="教育部學生事務及特殊教育司 政策執行 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A207</span>
+        </div>
+        <div class="name">教育部學生事務及特殊教育司</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="法務部 官方執行機關 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A003</span>
+        </div>
+        <div class="name">法務部</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">官方執行機關</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="法務部（毒品防制業務） 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A805</span>
+        </div>
+        <div class="name">法務部（毒品防制業務）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="監察院／國家人權委員會（移工議題） 人權問責 獨立監督 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A411</span>
+        </div>
+        <div class="name">監察院／國家人權委員會（移工議題）</div>
+        <div class="meta">獨立監督</div>
+        <div><span class="position">人權問責</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="總統府原住民族歷史正義與轉型正義委員會 漸進派 總統府 2016 蔡英文道歉後設置">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A603</span>
+        </div>
+        <div class="name">總統府原住民族歷史正義與轉型正義委員會</div>
+        <div class="meta">總統府</div>
+        <div><span class="position">漸進派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="行政院人權及轉型正義處 漸進派 行政院 督辦兩公約落實之跨部會幕僚">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A602</span>
+        </div>
+        <div class="name">行政院人權及轉型正義處</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">漸進派</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="行政院性別平等處 性別推動派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A702</span>
+        </div>
+        <div class="name">行政院性別平等處</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">性別推動派</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="行政院農業部漁業署 政策執行（遠洋漁工） 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A408</span>
+        </div>
+        <div class="name">行政院農業部漁業署</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行（遠洋漁工）</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="行政院（言論自由議題） 支持監管派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A502</span>
+        </div>
+        <div class="name">行政院（言論自由議題）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">支持監管派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部中央健康保險署 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A802</span>
+        </div>
+        <div class="name">衛福部中央健康保險署</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部國民健康署 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A801</span>
+        </div>
+        <div class="name">衛福部國民健康署</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部心理健康司 政策執行 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A206</span>
+        </div>
+        <div class="name">衛福部心理健康司</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部疾病管制署 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A803</span>
+        </div>
+        <div class="name">衛福部疾病管制署</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部社會及家庭署（crc 主政） 政策執行 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A208</span>
+        </div>
+        <div class="name">衛福部社會及家庭署（CRC 主政）</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">政策執行</span></div>
+      </div>
+      <div class="card" data-type="govt_agency" data-search="衛福部長期照顧司 公衛派 行政院 ">
+        <div class="card-head">
+          <span class="type-tag govt">政府機關</span>
+          <span class="actor-id">A804</span>
+        </div>
+        <div class="name">衛福部長期照顧司</div>
+        <div class="meta">行政院</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="court">
+    <h2>司法 / 法院 <span class="count">(9)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="court" data-search="un 人權事務委員會 — — ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A106</span>
+        </div>
+        <div class="name">UN 人權事務委員會</div>
+        <div class="meta">—</div>
+        <div><span class="position">—</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="台北高等行政法院 司法審查派 司法院 ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A505</span>
+        </div>
+        <div class="name">台北高等行政法院</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">司法審查派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="司法院憲法法庭（言論自由議題） 權利審查派 司法院 ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A504</span>
+        </div>
+        <div class="name">司法院憲法法庭（言論自由議題）</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">權利審查派</span></div>
+      </div>
+      <div class="card" data-type="court" data-search="大法官／憲法法庭 司法解釋 司法院 ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A101</span>
+        </div>
+        <div class="name">大法官／憲法法庭</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">司法解釋</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="大法官／憲法法庭 中性記錄者 司法院 釋字 490、573、748">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A308</span>
+        </div>
+        <div class="name">大法官／憲法法庭</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">中性記錄者</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="憲法法庭 司法解釋 司法院 ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A004</span>
+        </div>
+        <div class="name">憲法法庭</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">司法解釋</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="憲法法庭（原民議題） 法理派 司法院 111 憲判 17 號西拉雅案合議庭">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A611</span>
+        </div>
+        <div class="name">憲法法庭（原民議題）</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">法理派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="最高法院刑事庭 中性記錄者 司法院 2007 終判無罪確定">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A303</span>
+        </div>
+        <div class="name">最高法院刑事庭</div>
+        <div class="meta">司法院</div>
+        <div><span class="position">中性記錄者</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="court" data-search="美國最高法院（比較法） — — ">
+        <div class="card-head">
+          <span class="type-tag court">司法 / 法院</span>
+          <span class="actor-id">A105</span>
+        </div>
+        <div class="name">美國最高法院（比較法）</div>
+        <div class="meta">—</div>
+        <div><span class="position">—</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="committee_member">
+    <h2>國際委員 / 審查專家 <span class="count">(9)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="committee_member" data-search="cescr 審查委員會（健康權章） 公衛派 聯合國 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A816</span>
+        </div>
+        <div class="name">CESCR 審查委員會（健康權章）</div>
+        <div class="meta">聯合國</div>
+        <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="iccpr/icescr 國際審查委員會 嚴格派（國際標準） 聯合國體系專家 三屆審查均提宗教自由議題">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A304</span>
+        </div>
+        <div class="name">ICCPR/ICESCR 國際審查委員會</div>
+        <div class="meta">聯合國體系專家</div>
+        <div><span class="position">嚴格派（國際標準）</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="manfred nowak 寬鬆派（廢死） 奧地利 / 前 un 酷刑特別報告員 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A002</span>
+        </div>
+        <div class="name">Manfred Nowak</div>
+        <div class="meta">奧地利 / 前 UN 酷刑特別報告員</div>
+        <div><span class="position">寬鬆派（廢死）</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="un 人權事務委員會（gc34 制定） 條約機構 聯合國 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A511</span>
+        </div>
+        <div class="name">UN 人權事務委員會（GC34 制定）</div>
+        <div class="meta">聯合國</div>
+        <div><span class="position">條約機構</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="兩公約國際審查委員會（原民章節） 監督派 聯合國體系專家 歷屆來台審查之國際人權專家">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A612</span>
+        </div>
+        <div class="name">兩公約國際審查委員會（原民章節）</div>
+        <div class="meta">聯合國體系專家</div>
+        <div><span class="position">監督派</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="兩公約國際審查委員會（移工章節） 國際標準 聯合國體系專家 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A410</span>
+        </div>
+        <div class="name">兩公約國際審查委員會（移工章節）</div>
+        <div class="meta">聯合國體系專家</div>
+        <div><span class="position">國際標準</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="兩公約第三次國際審查委員會（言論自由章） 條約審查 聯合國體系 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A512</span>
+        </div>
+        <div class="name">兩公約第三次國際審查委員會（言論自由章）</div>
+        <div class="meta">聯合國體系</div>
+        <div><span class="position">條約審查</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="兩公約第三次審查國際委員會（教育章） 監督派 聯合國體系 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A711</span>
+        </div>
+        <div class="name">兩公約第三次審查國際委員會（教育章）</div>
+        <div class="meta">聯合國體系</div>
+        <div><span class="position">監督派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="committee_member" data-search="兩公約／crc 國際審查委員會 國際標準 聯合國體系專家 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際委員 / 審查專家</span>
+          <span class="actor-id">A209</span>
+        </div>
+        <div class="name">兩公約／CRC 國際審查委員會</div>
+        <div class="meta">聯合國體系專家</div>
+        <div><span class="position">國際標準</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="legislator">
+    <h2>立法委員 / 政黨 <span class="count">(6)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="legislator" data-search="立法院內政委員會（原民法案） 分歧 立法院 原基法、原住民族語言法等審議場域">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A610</span>
+        </div>
+        <div class="name">立法院內政委員會（原民法案）</div>
+        <div class="meta">立法院</div>
+        <div><span class="position">分歧</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+      <div class="card" data-type="legislator" data-search="立法院教育及文化委員會 跨黨派 立法院 ">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A211</span>
+        </div>
+        <div class="name">立法院教育及文化委員會</div>
+        <div class="meta">立法院</div>
+        <div><span class="position">跨黨派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="legislator" data-search="立法院教育及文化委員會 分歧 立法院 ">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A703</span>
+        </div>
+        <div class="name">立法院教育及文化委員會</div>
+        <div class="meta">立法院</div>
+        <div><span class="position">分歧</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+      </div>
+      <div class="card" data-type="legislator" data-search="立法院社會福利及衛生環境委員會 跨黨派 立法院 ">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A413</span>
+        </div>
+        <div class="name">立法院社會福利及衛生環境委員會</div>
+        <div class="meta">立法院</div>
+        <div><span class="position">跨黨派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="legislator" data-search="立法院（多數黨團） 支持監管派 立法院 ">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A503</span>
+        </div>
+        <div class="name">立法院（多數黨團）</div>
+        <div class="meta">立法院</div>
+        <div><span class="position">支持監管派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="legislator" data-search="立法院（提案／撤簽委員） 分歧 跨黨派 宗教基本法多次提案後撤簽擱置">
+        <div class="card-head">
+          <span class="type-tag legis">立法委員 / 政黨</span>
+          <span class="actor-id">A307</span>
+        </div>
+        <div class="name">立法院（提案／撤簽委員）</div>
+        <div class="meta">跨黨派</div>
+        <div><span class="position">分歧</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="intl_actor">
+    <h2>國際組織 <span class="count">(4)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="intl_actor" data-search="freedom house 權利監督派 國際 ngo ">
+        <div class="card-head">
+          <span class="type-tag intl">國際組織</span>
+          <span class="actor-id">A510</span>
+        </div>
+        <div class="name">Freedom House</div>
+        <div class="meta">國際 NGO</div>
+        <div><span class="position">權利監督派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="intl_actor" data-search="無國界記者組織 rsf 新聞自由派 國際 ngo ">
+        <div class="card-head">
+          <span class="type-tag intl">國際組織</span>
+          <span class="actor-id">A509</span>
+        </div>
+        <div class="name">無國界記者組織 RSF</div>
+        <div class="meta">國際 NGO</div>
+        <div><span class="position">新聞自由派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="intl_actor" data-search="美國國務院（tip report／dol 強迫勞動清單） 國際問責 外國政府 ">
+        <div class="card-head">
+          <span class="type-tag intl">國際組織</span>
+          <span class="actor-id">A412</span>
+        </div>
+        <div class="name">美國國務院（TIP Report／DOL 強迫勞動清單）</div>
+        <div class="meta">外國政府</div>
+        <div><span class="position">國際問責</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+      </div>
+      <div class="card" data-type="intl_actor" data-search="聯合國原住民族常設論壇 (unpfii) 倡議派 un ecosoc 台灣未獲席次但持續關注">
+        <div class="card-head">
+          <span class="type-tag intl">國際組織</span>
+          <span class="actor-id">A613</span>
+        </div>
+        <div class="name">聯合國原住民族常設論壇 (UNPFII)</div>
+        <div class="meta">UN ECOSOC</div>
+        <div><span class="position">倡議派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="academic">
+    <h2>學界 / 研究機構 <span class="count">(3)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="academic" data-search="法律 / 神學學者群 跨光譜 學界 ">
+        <div class="card-head">
+          <span class="type-tag academic">學界 / 研究機構</span>
+          <span class="actor-id">A104</span>
+        </div>
+        <div class="name">法律 / 神學學者群</div>
+        <div class="meta">學界</div>
+        <div><span class="position">跨光譜</span></div>
+      </div>
+      <div class="card" data-type="academic" data-search="法律學者群 跨光譜 學界 ">
+        <div class="card-head">
+          <span class="type-tag academic">學界 / 研究機構</span>
+          <span class="actor-id">A006</span>
+        </div>
+        <div class="name">法律學者群</div>
+        <div class="meta">學界</div>
+        <div><span class="position">跨光譜</span></div>
+      </div>
+      <div class="card" data-type="academic" data-search="自殺防治學會／公衛學者群 實證派 學界 ">
+        <div class="card-head">
+          <span class="type-tag academic">學界 / 研究機構</span>
+          <span class="actor-id">A210</span>
+        </div>
+        <div class="name">自殺防治學會／公衛學者群</div>
+        <div class="meta">學界</div>
+        <div><span class="position">實證派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="private_media">
+    <h2>媒體 <span class="count">(3)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="private_media" data-search="個案媒體 1（2020 不予換照案） 受處分方 私部門 ">
+        <div class="card-head">
+          <span class="type-tag media">媒體</span>
+          <span class="actor-id">A513</span>
+        </div>
+        <div class="name">個案媒體 1（2020 不予換照案）</div>
+        <div class="meta">私部門</div>
+        <div><span class="position">受處分方</span></div>
+      </div>
+      <div class="card" data-type="private_media" data-search="個案媒體 2 受處分方 私部門 ">
+        <div class="card-head">
+          <span class="type-tag media">媒體</span>
+          <span class="actor-id">A514</span>
+        </div>
+        <div class="name">個案媒體 2</div>
+        <div class="meta">私部門</div>
+        <div><span class="position">受處分方</span></div>
+      </div>
+      <div class="card" data-type="private_media" data-search="個案媒體 3 受處分方 私部門 ">
+        <div class="card-head">
+          <span class="type-tag media">媒體</span>
+          <span class="actor-id">A515</span>
+        </div>
+        <div class="name">個案媒體 3</div>
+        <div class="meta">私部門</div>
+        <div><span class="position">受處分方</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="media">
+    <h2>媒體 <span class="count">(1)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="media" data-search="原住民族電視台 / 原文會 自決派 民間財團法人 titv，原住民族文化事業基金會">
+        <div class="card-head">
+          <span class="type-tag media">媒體</span>
+          <span class="actor-id">A606</span>
+        </div>
+        <div class="name">原住民族電視台 / 原文會</div>
+        <div class="meta">民間財團法人</div>
+        <div><span class="position">自決派</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="industry_assoc">
+    <h2>產業公會 <span class="count">(2)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="industry_assoc" data-search="加熱菸／電子煙產業團體 經濟產業派 民間 ">
+        <div class="card-head">
+          <span class="type-tag industry">產業公會</span>
+          <span class="actor-id">A811</span>
+        </div>
+        <div class="name">加熱菸／電子煙產業團體</div>
+        <div class="meta">民間</div>
+        <div><span class="position">經濟產業派</span></div>
+      </div>
+      <div class="card" data-type="industry_assoc" data-search="工商團體（產業／長照雇主代表聯合） 成本效率嚴格派 資方 ">
+        <div class="card-head">
+          <span class="type-tag industry">產業公會</span>
+          <span class="actor-id">A406</span>
+        </div>
+        <div class="name">工商團體（產業／長照雇主代表聯合）</div>
+        <div class="meta">資方</div>
+        <div><span class="position">成本效率嚴格派</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="actor-section" data-type-section="public">
+    <h2>公眾 / 個人 <span class="count">(4)</span></h2>
+    <div class="grid">
+      <div class="card" data-type="public" data-search="一般民眾（民調 88%） 嚴格派（保留死刑） — ">
+        <div class="card-head">
+          <span class="type-tag public">公眾 / 個人</span>
+          <span class="actor-id">A005</span>
+        </div>
+        <div class="name">一般民眾（民調 88%）</div>
+        <div class="meta">—</div>
+        <div><span class="position">嚴格派（保留死刑）</span></div>
+      </div>
+      <div class="card" data-type="public" data-search="婚姻平權反對方（民間） 嚴格派 — ">
+        <div class="card-head">
+          <span class="type-tag public">公眾 / 個人</span>
+          <span class="actor-id">A103</span>
+        </div>
+        <div class="name">婚姻平權反對方（民間）</div>
+        <div class="meta">—</div>
+        <div><span class="position">嚴格派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+      <div class="card" data-type="public" data-search="婚姻平權支持方（民間） 寬鬆派 — ">
+        <div class="card-head">
+          <span class="type-tag public">公眾 / 個人</span>
+          <span class="actor-id">A102</span>
+        </div>
+        <div class="name">婚姻平權支持方（民間）</div>
+        <div class="meta">—</div>
+        <div><span class="position">寬鬆派</span></div>
+      </div>
+      <div class="card" data-type="public" data-search="高所得家長／國際學校族群 exit option 階級 民間 ">
+        <div class="card-head">
+          <span class="type-tag public">公眾 / 個人</span>
+          <span class="actor-id">A712</span>
+        </div>
+        <div class="name">高所得家長／國際學校族群</div>
+        <div class="meta">民間</div>
+        <div><span class="position">exit option 階級</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+      </div>
+    </div>
+  </section>
+
+    <div id="empty" class="empty hidden">無符合條件之行動者</div>
+  </div>
+
+  <div class="legend">
+    <strong>說明</strong>:
+    本目錄為動態產生(由資料庫 actor 表),每次部署時重新編譯。立場光譜採雙人獨立編碼,如有錯誤請來信
+    <a href="mailto:contact@aabe.org.tw" style="color:var(--brand)">contact@aabe.org.tw</a> 申請修正,72 小時內回覆。
+    <br><br>
+    <strong>API</strong>:本目錄之原始資料可由 <a href="../api/trace.json" style="color:var(--brand)">api/trace.json</a> 取得(actors 欄位)。
+  </div>
+
+  <div class="footer">
+    兩公約監督平台 · 國教行動聯盟(AABE)<br>
+    <a href="../index.html">回首頁</a> · <a href="../about.html">關於</a> · <a href="../methodology.html">方法論</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var q = document.getElementById('q');
+  var buttons = document.querySelectorAll('.filter-btn');
+  var cards = document.querySelectorAll('.card');
+  var sections = document.querySelectorAll('.actor-section');
+  var empty = document.getElementById('empty');
+
+  var activeType = 'all';
+
+  function applyFilter() {
+    var query = q.value.trim().toLowerCase();
+    var visibleCount = 0;
+    cards.forEach(function (c) {
+      var typeMatch = activeType === 'all' || c.dataset.type === activeType;
+      var searchMatch = !query || c.dataset.search.indexOf(query) >= 0;
+      if (typeMatch && searchMatch) {
+        c.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        c.classList.add('hidden');
+      }
+    });
+    // 隱藏空白 section
+    sections.forEach(function (s) {
+      var visibleCards = s.querySelectorAll('.card:not(.hidden)').length;
+      s.style.display = visibleCards === 0 ? 'none' : '';
+    });
+    empty.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      buttons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeType = btn.dataset.type;
+      applyFilter();
+    });
+  });
+
+  var debounce;
+  q.addEventListener('input', function () {
+    clearTimeout(debounce);
+    debounce = setTimeout(applyFilter, 120);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+#!/usr/bin/env python3
+"""
+產生 _public/trace/index.html — 動態列出全部已 render 之 trace 議題
+- 從資料庫 event 表抓 issue_tags 統計
+- 加議題分類 filter (按議題 group)
+- 列每個議題之 events / actors / causal_links / outcome_indicators 數量
+
+Usage:
+    python3 scripts/two_cov_render_trace_index.py
+"""
+from __future__ import annotations
+import json
+import sqlite3
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "data" / "two_cov.db"
+OUT = ROOT / "_public" / "trace" / "index.html"
+
+# 議題之中文 → URL slug 對照(對應 two_cov_render_trace.py 之 slug_map)
+SLUG_MAP = {
+    "廢死": "death_penalty",
+    "同性婚姻": "same_sex_marriage",
+    "兒少自殺": "youth_suicide",
+    "宗教自由": "religious_freedom",
+    "原住民族": "indigenous_rights",
+    "移工": "migrant_workers",
+    "教育權": "education_right",
+    "言論自由": "free_speech",
+    "健康權": "health_right",
+    "漁工": "fishermen",
+    "性平教育": "gender_equity_education",
+    "選擇權": "parent_choice",
+    "良心拒服兵役": "conscientious_objection",
+    "稅務": "taxation",
+    "菸害": "tobacco",
+}
+
+# 議題分組(用於 filter category)
+ISSUE_GROUPS = {
+    "civil_political": ("公民政治權", ["廢死", "言論自由", "宗教自由", "良心拒服兵役"]),
+    "minority": ("少數族群 / 弱勢", ["原住民族", "移工", "漁工"]),
+    "family_education": ("家庭與教育", ["教育權", "性平教育", "選擇權", "同性婚姻"]),
+    "health_welfare": ("健康與福利", ["兒少自殺", "健康權", "菸害", "稅務"]),
+}
+
+# 簡短描述(供卡片摘要)
+DESC_MAP = {
+    "廢死": "2009 兩公約施行 → 2012 影子報告 → 4 屆 CO 重複要求 → 2024 113 憲判 8 號 → 2025 民調 88% 反對",
+    "同性婚姻": "1994 Toonen → 2017 釋字 748 → 2018 公投 → 2019 立法 → 2022 CO 擴張要求 → 2025 Mahmoud 反向",
+    "兒少自殺": "2014 學輔法 → 2017 影子報告 → CRC CO → 2019 自殺率年增 22.4% + 自殺防治法 → 2021 重大校園事件 → 2022 兩公約+CRC CO 雙批 → 2023 1.07 億方案 → 2024 學輔法修正 + 韌性計畫",
+    "宗教自由": "2009 兩公約施行 → ICCPR §18 + GC22 標準 → 教會雇用自治 → 校園信仰表達 → 父母教育選擇權之宗教面向",
+    "原住民族": "原住民族基本法 + 傳統領域 + 平埔正名 + 語言權 + 自決權 + 國際勞工組織 169 號公約",
+    "移工": "勞基法適用 + 家事勞工權益 + 仲介費 + 居留權 + 強迫勞動 + ILO 國際標準",
+    "教育權": "ICESCR §13 + 父母教育選擇權 + 強迫教育 vs 自由教育 + 國民教育法 + 私校自主",
+    "言論自由": "ICCPR §19 + GC34 三要件 + NCC 處分 + 反滲透法 + 媒體換照 + RSF 排名 24",
+    "健康權": "ICESCR §12 + GC14 + 健保納保 + 心理衛生 + 醫療資源城鄉差距",
+    "漁工": "境外聘僱漁工 + 強迫勞動 + 仲介剝削 + 住艙與工時 + 國際遠洋漁業壓力",
+    "性平教育": "性平法 2004 + 108 課綱 + 多元性別教材 + 父母選擇權 + 性別認同教學爭議",
+    "選擇權": "ICESCR §13-3 + GC13 §28 父母教育選擇權 + Mahmoud v Taylor 2025 + 教科書內容",
+    "良心拒服兵役": "ICCPR §18 良心自由 + 替代役制度 + 宗教信仰豁免 + GC22 §11",
+    "稅務": "ICCPR §18 + 教會稅 + 宗教團體免稅 + 稅捐稽徵法 + 宗教自由與納稅之張力",
+    "菸害": "ICESCR §12 健康權 + WHO FCTC + 菸害防治法 4 次修正 + 加味菸 + 電子煙 + 兒少接觸",
+}
+
+
+def main() -> int:
+    conn = sqlite3.connect(DB)
+
+    # 統計每個議題之數據
+    issue_stats: dict[str, dict] = {}
+    for issue, slug in SLUG_MAP.items():
+        n_evt = conn.execute(
+            "SELECT COUNT(*) FROM event WHERE issue_tags LIKE ?", (f"%{issue}%",)
+        ).fetchone()[0]
+        n_act = conn.execute(
+            "SELECT COUNT(DISTINCT actor_id) FROM event WHERE issue_tags LIKE ? AND actor_id IS NOT NULL",
+            (f"%{issue}%",),
+        ).fetchone()[0]
+        n_link = conn.execute(
+            "SELECT COUNT(*) FROM causal_link cl WHERE cl.from_event IN (SELECT event_id FROM event WHERE issue_tags LIKE ?) OR cl.to_event IN (SELECT event_id FROM event WHERE issue_tags LIKE ?)",
+            (f"%{issue}%", f"%{issue}%"),
+        ).fetchone()[0]
+        n_out = conn.execute(
+            "SELECT COUNT(*) FROM outcome_indicator oi WHERE oi.event_id IN (SELECT event_id FROM event WHERE issue_tags LIKE ?)",
+            (f"%{issue}%",),
+        ).fetchone()[0]
+        issue_stats[issue] = {
+            "slug": slug,
+            "events": n_evt,
+            "actors": n_act,
+            "links": n_link,
+            "outcomes": n_out,
+            "desc": DESC_MAP.get(issue, ""),
+        }
+
+    # 總計
+    total_evt = sum(s["events"] for s in issue_stats.values())
+    total_act = sum(s["actors"] for s in issue_stats.values())
+    total_link = sum(s["links"] for s in issue_stats.values())
+
+    # HTML 輸出
+    html = f"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>議題脈絡追溯 · 全 {len(issue_stats)} 議題 — 兩公約監督平台</title>
+<meta name="description" content="兩公約監督平台議題脈絡追溯,涵蓋 {len(issue_stats)} 個議題、{total_evt} 個事件、{total_act}+ 行動者、{total_link} 條因果連結。可按議題類別篩選。">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {{
+  --bg: #FAFAF7; --bg-alt: #F1EFEA; --bg-deep: #0E2238;
+  --text: #1F1F1F; --text-muted: #5C5C5C; --text-meta: #8A8A8A;
+  --brand: #B5371F; --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A; --cycle-icescr: #5C1A1B;
+  --institutional-light: #44638A;
+  --border: #DDD8CD; --hairline: #E8E3D6;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}}
+* {{ box-sizing: border-box; margin: 0; padding: 0; }}
+body {{ font-family: var(--sans); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }}
+.color-strip {{ display:flex; height:5px; width:100%; }}
+.color-strip > div:nth-child(1) {{ flex:1; background: var(--cycle-iccpr); }}
+.color-strip > div:nth-child(2) {{ flex:1; background: var(--cycle-icescr); }}
+.container {{ max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }}
+.nav {{ font-size: 14px; margin-bottom: 16px; }}
+.nav a {{ color: var(--brand); text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }}
+header.page {{ margin-bottom: 24px; padding-bottom: 20px; border-bottom: 2px solid var(--bg-deep); }}
+h1 {{ font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }}
+.lead {{ color: var(--text-muted); font-size: 14.5px; max-width: 720px; }}
+
+.totals {{
+  display: flex; gap: 20px; margin: 16px 0;
+  padding: 12px 16px; background: var(--bg-alt);
+  border-left: 3px solid var(--bg-deep); flex-wrap: wrap;
+}}
+.totals .stat {{ display: flex; flex-direction: column; }}
+.totals .num {{ font-family: var(--sans-en); font-size: 22px; font-weight: 700; color: var(--bg-deep); line-height: 1; }}
+.totals .lbl {{ font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }}
+
+.filter-bar {{ display: flex; gap: 8px; margin: 24px 0 16px; flex-wrap: wrap; align-items: center; }}
+.filter-label {{ font-size: 13px; color: var(--text-muted); margin-right: 4px; }}
+.filter-btn {{
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 6px 12px; font-size: 13px; cursor: pointer; font-family: var(--sans);
+}}
+.filter-btn.active {{ background: var(--bg-deep); color: #fff; border-color: var(--bg-deep); }}
+.filter-btn .cnt {{ color: var(--text-meta); font-size: 11px; margin-left: 4px; font-family: var(--sans-en); }}
+.filter-btn.active .cnt {{ color: rgba(255,255,255,0.7); }}
+
+.grid {{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }}
+@media (max-width: 720px) {{ .grid {{ grid-template-columns: 1fr; }} }}
+
+.card {{
+  background: #fff; border: 1px solid var(--border); border-radius: 4px;
+  padding: 16px 18px; text-decoration: none; color: inherit;
+  display: block; transition: border-color .15s, transform .15s, box-shadow .15s;
+}}
+.card:hover {{ border-color: var(--brand); transform: translateY(-1px); box-shadow: 0 2px 8px rgba(0,0,0,.04); }}
+.card-head {{ display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }}
+.group-tag {{
+  font-family: var(--sans-en); font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  background: var(--aabe-gold); color: #fff; padding: 2px 7px; border-radius: 3px;
+}}
+.group-tag.civil_political {{ background: var(--cycle-iccpr); }}
+.group-tag.minority {{ background: var(--brand); }}
+.group-tag.family_education {{ background: var(--institutional-light); }}
+.group-tag.health_welfare {{ background: var(--cycle-icescr); }}
+.card h2 {{ font-family: var(--serif); font-size: 17px; font-weight: 700; line-height: 1.4; color: var(--bg-deep); }}
+.card .desc {{ font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-top: 6px; }}
+.card .stats {{
+  display: flex; gap: 14px; margin-top: 10px; padding-top: 8px;
+  border-top: 1px dashed var(--hairline); font-size: 12px; color: var(--text-meta);
+  font-family: var(--sans-en);
+}}
+.card .stats b {{ color: var(--bg-deep); font-weight: 700; }}
+
+.legend {{ margin-top: 32px; padding: 16px; background: var(--bg-alt); border-left: 3px solid var(--aabe-gold); font-size: 13px; color: var(--text-muted); }}
+.legend strong {{ color: var(--bg-deep); }}
+.footer {{ margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--text-muted); text-align: center; }}
+.footer a {{ color: var(--brand); }}
+
+.empty {{ text-align: center; padding: 40px 20px; color: var(--text-muted); font-size: 14px; }}
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<div class="container">
+  <div class="nav">
+    <a href="../index.html">← 回首頁</a>
+    <a href="../issues/index.html">16 PI 議題卡</a>
+    <a href="../actors/index.html">行動者目錄</a>
+    <a href="../laws/index.html">法律修法</a>
+    <a href="../search.html">全平台搜尋</a>
+  </div>
+
+  <header class="page">
+    <h1>議題脈絡追溯 · 全 {len(issue_stats)} 個議題</h1>
+    <p class="lead">
+      本平台以 actor / event / causal_link / outcome_indicator 四元結構,追溯議題從倡議發動 → 政府回應 → 結果指標之完整因果脈絡。
+      可按議題類別篩選,或直接點入個別議題查看完整時間軸。
+    </p>
+  </header>
+
+  <div class="totals">
+    <div class="stat"><span class="num">{len(issue_stats)}</span><span class="lbl">議題</span></div>
+    <div class="stat"><span class="num">{total_evt}</span><span class="lbl">事件 events</span></div>
+    <div class="stat"><span class="num">{total_act}</span><span class="lbl">行動者引用</span></div>
+    <div class="stat"><span class="num">{total_link}</span><span class="lbl">因果連結</span></div>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">議題分類:</span>
+    <button class="filter-btn active" data-group="all">全部 <span class="cnt" id="cnt-all">0</span></button>
+"""
+
+    # 加 filter buttons
+    for grp_key, (grp_label, grp_issues) in ISSUE_GROUPS.items():
+        cnt = sum(1 for i in grp_issues if i in issue_stats)
+        html += f'    <button class="filter-btn" data-group="{grp_key}">{grp_label} <span class="cnt">{cnt}</span></button>\n'
+
+    html += """  </div>
+
+  <div id="grid" class="grid">
+"""
+
+    # 加 cards (依分組 + 議題順序)
+    for grp_key, (grp_label, grp_issues) in ISSUE_GROUPS.items():
+        for issue in grp_issues:
+            stat = issue_stats.get(issue)
+            if not stat:
+                continue
+            html += f"""    <a href="{stat['slug']}.html" class="card" data-group="{grp_key}">
+      <div class="card-head">
+        <span class="group-tag {grp_key}">{grp_label}</span>
+      </div>
+      <h2>{issue}議題脈絡</h2>
+      <div class="desc">{stat['desc']}</div>
+      <div class="stats">
+        <span><b>{stat['events']}</b> events</span>
+        <span><b>{stat['links']}</b> links</span>
+        <span><b>{stat['actors']}</b> actors</span>
+        <span><b>{stat['outcomes']}</b> outcomes</span>
+      </div>
+    </a>
+"""
+
+    html += f"""  </div>
+
+  <div id="empty" class="empty" style="display:none">此分類目前無議題</div>
+
+  <div class="legend">
+    <strong>說明</strong>:
+    本頁僅列出已建立完整 trace(events ≥ 3)之議題。資料庫另含 47 個議題標籤,部分待補完整因果鏈後上線。
+    完整議題分類索引請見 <a href="../search.html?type=event" style="color:var(--brand)">全平台搜尋</a>。
+  </div>
+
+  <div class="footer">
+    兩公約監督平台 · 國教行動聯盟(AABE)<br>
+    <a href="../index.html">回首頁</a> · <a href="../about.html">關於</a> · <a href="../methodology.html">方法論</a> · <a href="../api/trace.json">trace API</a>
+  </div>
+</div>
+
+<script>
+(function () {{
+  var buttons = document.querySelectorAll('.filter-btn');
+  var grid = document.getElementById('grid');
+  var empty = document.getElementById('empty');
+  var cards = grid.querySelectorAll('.card');
+  document.getElementById('cnt-all').textContent = cards.length;
+
+  buttons.forEach(function (btn) {{
+    btn.addEventListener('click', function () {{
+      buttons.forEach(function (b) {{ b.classList.remove('active'); }});
+      btn.classList.add('active');
+      var group = btn.dataset.group;
+      var visible = 0;
+      cards.forEach(function (c) {{
+        if (group === 'all' || c.dataset.group === group) {{
+          c.style.display = '';
+          visible++;
+        }} else {{
+          c.style.display = 'none';
+        }}
+      }});
+      empty.style.display = visible === 0 ? 'block' : 'none';
+    }});
+  }});
+}})();
+</script>
+</body>
+</html>
+"""
+
+    OUT.write_text(html, encoding="utf-8")
+    print(f"  ✓ trace/index.html  {len(issue_stats)} 議題  {OUT.stat().st_size:,} bytes")
+    conn.close()
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
