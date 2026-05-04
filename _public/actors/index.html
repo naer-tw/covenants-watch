@@ -85,6 +85,37 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
 .card .position { display: inline-block; margin-top: 4px; padding: 1px 6px; background: var(--bg-alt); border-radius: 2px; font-size: 11px; color: var(--text-muted); }
 .card .events-count { margin-top: 6px; font-family: var(--sans-en); font-size: 11px; color: var(--text-meta); }
 .card .events-count b { color: var(--bg-deep); font-weight: 700; }
+.card .toggle-events {
+  margin-top: 8px; padding: 5px 10px; font-size: 11.5px;
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px;
+  color: var(--text-muted); cursor: pointer; font-family: var(--sans);
+  transition: background .15s;
+}
+.card .toggle-events:hover { background: var(--bg-deep); color: #fff; border-color: var(--bg-deep); }
+.card .events-list {
+  display: none; margin-top: 10px; padding: 10px; background: var(--bg-alt); border-radius: 3px;
+  font-size: 11.5px; line-height: 1.55; max-height: 300px; overflow-y: auto;
+}
+.card .events-list.open { display: block; }
+.event-item {
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+}
+.event-item:last-child { border-bottom: none; }
+.event-date { font-family: var(--sans-en); font-size: 10.5px; color: var(--text-meta); margin-right: 6px; }
+.event-type-mini {
+  font-family: var(--sans-en); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; background: var(--aabe-gold); color: #fff;
+}
+.event-type-mini.shadow_report { background: var(--brand); }
+.event-type-mini.legislation { background: var(--bg-deep); }
+.event-type-mini.govt_response { background: var(--cycle-iccpr); }
+.event-type-mini.court_ruling { background: #4f4f4f; }
+.event-type-mini.public_opinion { background: var(--institutional-light); }
+.event-type-mini.outcome { background: #2D5F3E; }
+.event-type-mini.intl_actor { background: #6d28d9; }
+.event-type-mini.co_paragraph { background: var(--cycle-icescr); }
+.event-title { font-weight: 600; color: var(--bg-deep); margin-top: 2px; }
+.event-summary { color: var(--text-muted); margin-top: 2px; }
 
 .legend { margin-top: 32px; padding: 16px; background: var(--bg-alt); border-left: 3px solid var(--aabe-gold); font-size: 13px; color: var(--text-muted); }
 .legend strong { color: var(--bg-deep); }
@@ -162,6 +193,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間</div>
         <div><span class="position">家長 opt-out 派 / 嚴格派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A705">▸ 展開事件清單</button>
+        <div id="evts-A705" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2019-04</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">反同/挺同雙方均不滿意修法（換湯不換藥 vs 違反公投）</div>
+            <div class="event-summary">行政技術調整使雙方陣營皆認立場未受尊重</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="主要宗教團體聯合（含佛教、道教、基督教、天主教等） 寬鬆派（反高度管制） 民間 反對宗教團體法行政管制密度過高">
         <div class="card-head">
@@ -171,6 +211,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">主要宗教團體聯合（含佛教、道教、基督教、天主教等）</div>
         <div class="meta">民間</div>
         <div><span class="position">寬鬆派（反高度管制）</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A306">▸ 展開事件清單</button>
+        <div id="evts-A306" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">主要宗教團體聯合第三屆審查平行報告 — 宗教團體權益</div>
+            <div class="event-summary">主要宗教團體聯合(含佛教、道教、基督教、天主教等)以寬鬆派立場主張 ICCPR §18 + 教會雇用自治。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="人本教育基金會 校園文化批判／結構派 民間 ">
         <div class="card-head">
@@ -180,7 +230,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">人本教育基金會</div>
         <div class="meta">民間</div>
         <div><span class="position">校園文化批判／結構派</span></div>
-        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A203">▸ 展開事件清單</button>
+        <div id="evts-A203" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">重大校園自殺事件群（公開報導）</div>
+            <div class="event-summary">數起高中／國中校園事件引發對校規、自述書、學業壓力之檢討（不點名個人）</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">人本教育基金會 ICCPR/ICESCR 平行報告 — 校園文化批判</div>
+            <div class="event-summary">人本教育以結構派立場提出校園文化、體罰、輔導與管教等議題,涵蓋 ICESCR §13 教育權與 ICCPR §7 不受酷刑。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟 人權監督中性記錄者 民間 ">
         <div class="card-head">
@@ -191,6 +256,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間</div>
         <div><span class="position">人權監督中性記錄者</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A205">▸ 展開事件清單</button>
+        <div id="evts-A205" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2017-01-20</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">兩公約第二次審查 NGO 平行報告</div>
+            <div class="event-summary">80 個 NGO 聯合提交，涵蓋兒少權益／心理健康人力不足</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟 人權監督中性記錄者 民間 ">
         <div class="card-head">
@@ -210,6 +284,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間組織</div>
         <div><span class="position">寬鬆派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A007">▸ 展開事件清單</button>
+        <div id="evts-A007" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">人約盟 ICCPR 影子報告 — 廢死章節</div>
+            <div class="event-summary">要求台灣立即停止執行死刑、批准 ICCPR OP2</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="人權公約施行監督聯盟（教育權） 國家義務派 民間 ">
         <div class="card-head">
@@ -228,6 +311,28 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">兒童福利聯盟基金會</div>
         <div class="meta">民間</div>
         <div><span class="position">兒少權益倡議</span></div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A201">▸ 展開事件清單</button>
+        <div id="evts-A201" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">兒福聯盟第四屆審查平行報告 — 兒少自殺率達 7.0/十萬警訊</div>
+            <div class="event-summary">兒福聯盟提出 2024 兒少自殺率達 7.0/十萬,高於 OECD 平均 6.5(z=3.12 outlier)。主張 ICESCR §12 + 學生輔導法執行落差。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">兒福聯盟第二屆審查平行報告 — 兒少自殺率上升警訊</div>
+            <div class="event-summary">兒福聯盟提出兒少自殺率近年上升之早期警訊,主張 ICESCR §12 健康權之兒少分項應有獨立指標。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">兒福聯盟 ICCPR/ICESCR 平行報告 — 兒少權益章節</div>
+            <div class="event-summary">兒福聯盟首次參與兩公約國際審查,提出兒少權益關切,主張兒少健康權與教育權應對應 CRC 標準同步檢視。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="全國家長團體聯盟 選擇權派 民間 ">
         <div class="card-head">
@@ -238,6 +343,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間</div>
         <div><span class="position">選擇權派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A707">▸ 展開事件清單</button>
+        <div id="evts-A707" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2026</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">父母教育選擇權與國家義務之憲法級張力持續未決</div>
+            <div class="event-summary">ICCPR 18-4 與 ICESCR 13-3 之內部衝突未獲制度化解方</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2024</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">高中升學壓力 / 學貸 / 補教文化 — 受教權實質可負擔性持續爭議</div>
+            <div class="event-summary">長期結構性現象，108 課綱未根本解決</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="全國教師會／國教行動聯盟（校園藥物） 公衛派 民間 ">
         <div class="card-head">
@@ -247,6 +367,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">全國教師會／國教行動聯盟（校園藥物）</div>
         <div class="meta">民間</div>
         <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A814">▸ 展開事件清單</button>
+        <div id="evts-A814" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">全國教師會/國教盟(校園藥物)第四屆審查平行報告</div>
+            <div class="event-summary">教師會援引校園藥物使用議題,主張 ICESCR §12 + ICCPR §24 兒少保護之雙公約執法。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="卓越新聞獎基金會 自律優先派 民間 ">
         <div class="card-head">
@@ -265,6 +395,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">原住民族 16 族聯合會（集合主體）</div>
         <div class="meta">民間</div>
         <div><span class="position">自決派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A607">▸ 展開事件清單</button>
+        <div id="evts-A607" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">原住民族 16 族聯合會 ICCPR/ICESCR 平行報告 — 自決權</div>
+            <div class="event-summary">原住民族 16 族聯合主張 ICCPR §1 自決權 + 傳統領域 + 語言權,對應 UN Declaration on the Rights of Indigenous Peoples。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="原住民族青年陣線 自決派 民間 凱道部落運動主要組織者，主張 fpic 絕對論">
         <div class="card-head">
@@ -274,7 +414,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">原住民族青年陣線</div>
         <div class="meta">民間</div>
         <div><span class="position">自決派</span></div>
-        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A605">▸ 展開事件清單</button>
+        <div id="evts-A605" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">原住民族青年陣線第四屆審查平行報告 — 自決權</div>
+            <div class="event-summary">原民青年陣線主張 ICCPR §1 + UN Declaration on Rights of Indigenous Peoples + 傳統領域議題之新進展。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-02-23</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">凱道部落運動展開</div>
+            <div class="event-summary">原住民族團體在凱達格蘭大道紮營抗議諮商同意辦法排除私有地，後遭驅離至二二八公園，持續逾百日</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣事實查核中心 自律派 民間 ">
         <div class="card-head">
@@ -284,6 +439,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣事實查核中心</div>
         <div class="meta">民間</div>
         <div><span class="position">自律派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A516">▸ 展開事件清單</button>
+        <div id="evts-A516" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣事實查核中心第三屆審查平行報告 — 自律機制</div>
+            <div class="event-summary">查核中心以自律派立場主張媒體自律 + 假訊息議題,涵蓋 ICCPR §19 + GC34。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣人權促進會（防疫人權） 個人權利派 民間 ">
         <div class="card-head">
@@ -293,6 +458,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣人權促進會（防疫人權）</div>
         <div class="meta">民間</div>
         <div><span class="position">個人權利派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A812">▸ 展開事件清單</button>
+        <div id="evts-A812" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣人權促進會第三屆審查平行報告 — 防疫人權</div>
+            <div class="event-summary">台權會以個人權利派立場主張 COVID-19 期間防疫措施之 ICCPR §17 隱私權與 §12 行動自由。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣國際勞工協會 tiwa 移工權益寬鬆派／結構批判 民間 ">
         <div class="card-head">
@@ -302,6 +477,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣國際勞工協會 TIWA</div>
         <div class="meta">民間</div>
         <div><span class="position">移工權益寬鬆派／結構批判</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A401">▸ 展開事件清單</button>
+        <div id="evts-A401" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">TIWA 台灣國際勞工協會 ICCPR/ICESCR 平行報告 — 移工權益</div>
+            <div class="event-summary">TIWA 主張勞基法應全面適用家事勞工 + 仲介費議題 + 居留權,涵蓋 ICCPR §8 強迫勞動 + ICESCR §7 公平工作條件。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣實驗教育推動中心 選擇權派 民間 ">
         <div class="card-head">
@@ -320,6 +505,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣少年權益與福利促進聯盟</div>
         <div class="meta">民間</div>
         <div><span class="position">青少年權益寬鬆派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A204">▸ 展開事件清單</button>
+        <div id="evts-A204" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣少年權益與福利促進聯盟第三屆審查平行報告</div>
+            <div class="event-summary">少促聯主張 ICCPR §24 + ICESCR §10 + §12 之兒少分項,並以 CRC 連動。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣性別平等教育協會 性別推動派 民間 ">
         <div class="card-head">
@@ -329,6 +524,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣性別平等教育協會</div>
         <div class="meta">民間</div>
         <div><span class="position">性別推動派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A706">▸ 展開事件清單</button>
+        <div id="evts-A706" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">性別平等教育協會第三屆審查平行報告</div>
+            <div class="event-summary">性平協會主張 108 課綱性平教育之全面實施 + 教師訓練,涵蓋 ICCPR §26 + ICESCR §13。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣性別平等教育協會 ICCPR/ICESCR 平行報告 — 性平教育推動</div>
+            <div class="event-summary">性平教育協會主張 108 課綱前期之性別平等教育推動,涵蓋 ICESCR §13 教育權與 ICCPR §26 不歧視。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣拒菸聯盟 公衛派 民間 ">
         <div class="card-head">
@@ -338,7 +549,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣拒菸聯盟</div>
         <div class="meta">民間</div>
         <div><span class="position">公衛派</span></div>
-        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A810">▸ 展開事件清單</button>
+        <div id="evts-A810" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-11-17</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">NGO 籲全面下架加味菸品，質疑加熱菸成兒少入口</div>
+            <div class="event-summary">民團指 4 成青少年使用加味菸品</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣拒菸聯盟第二屆審查平行報告 — 菸害防治</div>
+            <div class="event-summary">拒菸聯盟主張 WHO FCTC + 菸害防治法執行落差,涵蓋 ICESCR §12 健康權與兒少接觸。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣新聞記者協會 新聞自由派 民間 ">
         <div class="card-head">
@@ -348,6 +574,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣新聞記者協會</div>
         <div class="meta">民間</div>
         <div><span class="position">新聞自由派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A507">▸ 展開事件清單</button>
+        <div id="evts-A507" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣新聞記者協會第四屆審查平行報告 — 平台監管時代</div>
+            <div class="event-summary">記協援引 RSF 2025 排名 24 + Freedom House 2026 公民自由首次下降,主張 ICCPR §19 + GC34 + 平台監管立法之挑戰。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣新聞記者協會第二屆審查平行報告 — 新聞自由</div>
+            <div class="event-summary">記協主張 ICCPR §19 + GC34 三要件 + RSF 排名背景下之台灣新聞自由實況。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="台灣醫療改革基金會 公衛派 民間 ">
         <div class="card-head">
@@ -357,6 +599,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">台灣醫療改革基金會</div>
         <div class="meta">民間</div>
         <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A809">▸ 展開事件清單</button>
+        <div id="evts-A809" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">台灣醫療改革基金會第三屆審查平行報告 — 醫療體系改革</div>
+            <div class="event-summary">醫改會主張 ICESCR §12 + GC14 + 健保納保 + 醫療資源城鄉差距議題。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="國教行動聯盟 選擇權派 民間 ">
         <div class="card-head">
@@ -366,6 +618,34 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">國教行動聯盟</div>
         <div class="meta">民間</div>
         <div><span class="position">選擇權派</span></div>
+        <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A708">▸ 展開事件清單</button>
+        <div id="evts-A708" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">國教行動聯盟第四屆審查平行報告 — Mahmoud v Taylor 援引</div>
+            <div class="event-summary">AABE 援引美國最高法院 Mahmoud v Taylor (605 U.S., 2025-06-27) 之父母教育選擇權判決,主張 ICESCR §13-3 + GC13 §28 之國際趨勢。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">國教行動聯盟第三屆審查平行報告 — 教科書內容之選擇權</div>
+            <div class="event-summary">AABE 延續主張並引用 Mahmoud v Taylor 前哨案件 + ECHR 比較,涵蓋 ICESCR §13-3 + GC13 §28。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">國教行動聯盟第二屆審查平行報告 — 父母教育選擇權延續主張</div>
+            <div class="event-summary">AABE 延續 2013 年立場,進一步援引 ICESCR §13-3 + GC13 §28 + 國際比較對照(Hosanna-Tabor v EEOC)。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">國教行動聯盟 ICCPR/ICESCR 平行報告 — 父母教育選擇權</div>
+            <div class="event-summary">AABE 國教行動聯盟援引 ICESCR §13-3 + GC13 §28,主張父母依其信念選擇宗教與道德教育之核心權利。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="外籍漁工人權保障聯盟 遠洋漁工權益寬鬆派 民間 ">
         <div class="card-head">
@@ -375,6 +655,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">外籍漁工人權保障聯盟</div>
         <div class="meta">民間</div>
         <div><span class="position">遠洋漁工權益寬鬆派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A404">▸ 展開事件清單</button>
+        <div id="evts-A404" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">外籍漁工人權保障聯盟第三屆審查平行報告</div>
+            <div class="event-summary">漁工聯盟主張境外聘僱制度之強迫勞動風險,涵蓋 ICCPR §8 + ICESCR §7,並援引國際遠洋漁業壓力。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="媒體改造學社 結構改革派 民間 ">
         <div class="card-head">
@@ -384,6 +674,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">媒體改造學社</div>
         <div class="meta">民間</div>
         <div><span class="position">結構改革派</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A506">▸ 展開事件清單</button>
+        <div id="evts-A506" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">媒體改造學社第三屆審查平行報告 — 媒體結構</div>
+            <div class="event-summary">媒改學社延續結構改革派主張,涵蓋 ICCPR §19 + GC34 + 媒體所有權集中議題。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">媒體改造學社 ICCPR 平行報告 — 媒體結構改革</div>
+            <div class="event-summary">媒改學社主張媒體結構改革議題,涵蓋 ICCPR §19 言論自由與 GC34 標準。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="宗教自由倡議聯盟（含太極門相關 ngo、世界公民總會台灣分會） 嚴格派（要求平反） 民間 長期主張個案為宗教歧視典型">
         <div class="card-head">
@@ -393,6 +699,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">宗教自由倡議聯盟（含太極門相關 NGO、世界公民總會台灣分會）</div>
         <div class="meta">民間</div>
         <div><span class="position">嚴格派（要求平反）</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A301">▸ 展開事件清單</button>
+        <div id="evts-A301" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">宗教自由倡議聯盟第三屆審查平行報告 — 稅務面向</div>
+            <div class="event-summary">宗教自由聯盟以稅捐稽徵法之宗教團體免稅議題切入,主張 ICCPR §18 之納稅人權利。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">宗教自由倡議聯盟第二屆審查平行報告 — 宗教自由</div>
+            <div class="event-summary">宗教自由聯盟(含太極門相關 NGO、世界公民總會台灣分會)主張 ICCPR §18 + GC22 + 既有案件平反。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="平埔族復振團體（集合主體） 自決派 民間 西拉雅、馬卡道、噶哈巫等族群復振團體">
         <div class="card-head">
@@ -402,6 +724,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">平埔族復振團體（集合主體）</div>
         <div class="meta">民間</div>
         <div><span class="position">自決派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A608">▸ 展開事件清單</button>
+        <div id="evts-A608" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">平埔族復振團體第三屆審查平行報告</div>
+            <div class="event-summary">平埔族復振團體主張 ICCPR §1 自決權 + 平埔族正名議題,並援引憲法法庭 111 憲判 17 號。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="廢死聯盟（taedp） 寬鬆派（廢死） 民間組織 ">
         <div class="card-head">
@@ -412,6 +744,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間組織</div>
         <div><span class="position">寬鬆派（廢死）</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A001">▸ 展開事件清單</button>
+        <div id="evts-A001" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">廢死聯盟影子報告呼籲</div>
+            <div class="event-summary">要求批准 ICCPR 第二任擇議定書</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="性平／同婚倡議團體 寬鬆派（性別平等） 民間 與宗教團體立場對立">
         <div class="card-head">
@@ -421,6 +762,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">性平／同婚倡議團體</div>
         <div class="meta">民間</div>
         <div><span class="position">寬鬆派（性別平等）</span></div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A311">▸ 展開事件清單</button>
+        <div id="evts-A311" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">性平/同婚倡議團體第四屆審查平行報告</div>
+            <div class="event-summary">性平倡議團體援引 113 憲判 8 號廢死案 + 同婚立法成果,主張 ICCPR §26 + 性別平等之延伸。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">性平/同婚倡議團體第二屆審查平行報告 — 性別平等推動</div>
+            <div class="event-summary">性平倡議團體主張 ICCPR §26 不歧視 + 性別認同之整合執法,涵蓋 108 課綱前期之教材爭議。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="桃園市產業總工會 勞工團結／在地申訴 民間 ">
         <div class="card-head">
@@ -430,6 +787,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">桃園市產業總工會</div>
         <div class="meta">民間</div>
         <div><span class="position">勞工團結／在地申訴</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A403">▸ 展開事件清單</button>
+        <div id="evts-A403" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">桃園市產業總工會第三屆審查平行報告 — 在地移工申訴</div>
+            <div class="event-summary">桃工總以勞工團結派立場主張在地申訴管道之 ICCPR §22 + ICESCR §7。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="私有地主團體（集合主體） 保留派 民間 傳統領域劃設範圍內之非原民地主">
         <div class="card-head">
@@ -439,6 +806,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">私有地主團體（集合主體）</div>
         <div class="meta">民間</div>
         <div><span class="position">保留派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A609">▸ 展開事件清單</button>
+        <div id="evts-A609" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2020</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">私有地主團體 — 傳統領域議題立場</div>
+            <div class="event-summary">私有地主團體以保留派立場主張原住民族傳統領域劃設應排除私有地,涉及財產權與自決權之張力。具體日期待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="移工聯盟 ment 移工權益寬鬆派 民間 ">
         <div class="card-head">
@@ -448,7 +825,28 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">移工聯盟 MENT</div>
         <div class="meta">民間</div>
         <div><span class="position">移工權益寬鬆派</span></div>
-        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A402">▸ 展開事件清單</button>
+        <div id="evts-A402" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">移工聯盟 MENT 第四屆審查平行報告</div>
+            <div class="event-summary">MENT 移工聯盟延續主張,並援引 ILO 國際標準 + 強迫勞動議題之新增案例。具體段落號待補。</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2021-05</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">移工聯盟訴求《家事服務法》 17 年躺立院</div>
+            <div class="event-summary">工人版草案 2004 年提出，至 2021 年仍卡關；勞動部稱「社會共識不足」推動專法困難</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">移工聯盟 MENT ICCPR/ICESCR 平行報告 — 移工權益</div>
+            <div class="event-summary">移工聯盟主張仲介剝削、強迫勞動之系統性問題,涵蓋 ICCPR §8 + §22 結社自由。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="耶和華見證人等良心拒服兵役者社群 嚴格派（信仰） 民間 推動替代役制度催生">
         <div class="card-head">
@@ -458,6 +856,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">耶和華見證人等良心拒服兵役者社群</div>
         <div class="meta">民間</div>
         <div><span class="position">嚴格派（信仰）</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A309">▸ 展開事件清單</button>
+        <div id="evts-A309" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">耶和華見證人良心拒服兵役第三屆審查平行報告</div>
+            <div class="event-summary">耶和華見證人社群主張 ICCPR §18 + GC22 §11 + 替代役制度之良心豁免。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="董氏基金會 公衛派 民間 ">
         <div class="card-head">
@@ -467,6 +875,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">董氏基金會</div>
         <div class="meta">民間</div>
         <div><span class="position">公衛派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A808">▸ 展開事件清單</button>
+        <div id="evts-A808" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2012-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">董氏基金會 ICCPR/ICESCR 平行報告 — 公衛權益</div>
+            <div class="event-summary">董氏基金會以公衛派立場主張菸害防治 + 心理衛生,涵蓋 ICESCR §12 健康權。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="董氏基金會心理衛生中心 心理健康倡議 民間 ">
         <div class="card-head">
@@ -476,6 +894,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">董氏基金會心理衛生中心</div>
         <div class="meta">民間</div>
         <div><span class="position">心理健康倡議</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A202">▸ 展開事件清單</button>
+        <div id="evts-A202" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">董氏基金會心理衛生中心第四屆審查平行報告</div>
+            <div class="event-summary">董氏心衛中心主張 ICESCR §12 + 心理健康分項 + 自殺防治法十年成效檢核。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="被害人家屬團體 嚴格派 民間組織 ">
         <div class="card-head">
@@ -485,6 +913,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">被害人家屬團體</div>
         <div class="meta">民間組織</div>
         <div><span class="position">嚴格派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A008">▸ 展開事件清單</button>
+        <div id="evts-A008" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-Q3</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">被害人家屬團體 — 廢死辯論立場</div>
+            <div class="event-summary">被害人家屬團體以嚴格派立場參與廢死辯論,主張被害者人權之 ICCPR §6 + §7 應與加害者人權並重。具體場次待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="護家盟／下一代幸福聯盟（宗教多元團體聯合） 嚴格派（傳統婚家） 民間 2018 公投三案發起">
         <div class="card-head">
@@ -494,7 +932,22 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">護家盟／下一代幸福聯盟（宗教多元團體聯合）</div>
         <div class="meta">民間</div>
         <div><span class="position">嚴格派（傳統婚家）</span></div>
-        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A310">▸ 展開事件清單</button>
+        <div id="evts-A310" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2018-11-24</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">公投第 11 案通過（國中小不實施同志教育施行細則）</div>
+            <div class="event-summary">宗教多元團體主導，主張家長宗教教育選擇權；性平倡議方則認損及學生平等受教權</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2016-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">護家盟/下一代幸福聯盟第二屆審查平行報告 — 傳統婚家立場</div>
+            <div class="event-summary">護家盟以嚴格派立場主張婚姻定義之傳統解釋,涵蓋 ICESCR §10 家庭保障 + ICCPR §23 婚姻自由。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="醫療藥物使用者權益團體 個人權利派 民間 ">
         <div class="card-head">
@@ -504,6 +957,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">醫療藥物使用者權益團體</div>
         <div class="meta">民間</div>
         <div><span class="position">個人權利派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A813">▸ 展開事件清單</button>
+        <div id="evts-A813" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">醫療藥物使用者權益團體第四屆審查平行報告</div>
+            <div class="event-summary">醫藥使用者團體以個人權利派立場主張 ICESCR §12 + 健保給付 + 罕見疾病議題。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="ngo" data-search="長照家屬／病友自助團體 個人權利派 民間 ">
         <div class="card-head">
@@ -513,6 +976,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="name">長照家屬／病友自助團體</div>
         <div class="meta">民間</div>
         <div><span class="position">個人權利派</span></div>
+        <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A815">▸ 展開事件清單</button>
+        <div id="evts-A815" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-12</span>
+            <span class="event-type-mini shadow_report">影子報告</span>
+            <div class="event-title">長照家屬/病友自助團體第三屆審查平行報告</div>
+            <div class="event-summary">長照家屬團體主張 ICESCR §12 + §10 之長照家屬權益,並涵蓋失能者人權。具體段落號待補。</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -529,6 +1002,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">獨立機關</div>
         <div><span class="position">監管派</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A501">▸ 展開事件清單</button>
+        <div id="evts-A501" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-09-07</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">NCC 撤回數位中介法草案</div>
+            <div class="event-summary">NCC 宣布全案退回內部工作小組重議，無重新提出時程</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2022-06-29</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">NCC 通過數位中介服務法草案</div>
+            <div class="event-summary">第 18 條等規定使主管機關可於法院裁定前要求平台對被指控不實訊息加註警示</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2020-11-18</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">2020 重大媒體換照爭議（個案 1 不予換照）</div>
+            <div class="event-summary">NCC 委員一致決議不予換照，理由為違反查證原則累積處分</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="中央選舉委員會 程序派 獨立機關 ">
         <div class="card-head">
@@ -539,6 +1033,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">獨立機關</div>
         <div><span class="position">程序派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A704">▸ 展開事件清單</button>
+        <div id="evts-A704" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2018-11-24</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">公投第 11 案通過：國民教育階段不得實施性平法施行細則所定「同志教育」</div>
+            <div class="event-summary">宗教與家長團體主導；性平倡議方則認損及學生平等受教權</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="內政部移民署（失聯移工專案） 政策執行 行政院 ">
         <div class="card-head">
@@ -549,6 +1052,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">政策執行</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A409">▸ 展開事件清單</button>
+        <div id="evts-A409" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-06-02</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">失聯移工年增首見下降 / 累計仍逾 9 萬</div>
+            <div class="event-summary">2024 新增失聯 25,773 人較前年減 5,783 人；累計失聯尚未出境者仍逾 9 萬</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="內政部警政署（毒品執法） 公衛派 行政院 ">
         <div class="card-head">
@@ -559,6 +1071,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A806">▸ 展開事件清單</button>
+        <div id="evts-A806" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-11-20</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">毒品唾液快篩執法上路</div>
+            <div class="event-summary">攔檢現場唾液快篩，陽性後血液／尿液二層確認；拒測罰 18 萬</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="內政部（宗教事務） 中間 行政院 宗教團體法草案主政">
         <div class="card-head">
@@ -569,6 +1090,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">中間</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A305">▸ 展開事件清單</button>
+        <div id="evts-A305" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2017-08-16</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">內政部宣布暫緩推動《宗教團體法》草案</div>
+            <div class="event-summary">因宗教團體與人權團體反對行政管制密度過高、寺廟財產規範未獲共識，立法暫擱</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="勞動部勞動力發展署 政策執行 行政院 ">
         <div class="card-head">
@@ -579,6 +1109,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">政策執行</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A407">▸ 展開事件清單</button>
+        <div id="evts-A407" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-11</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">勞動部優化跨國轉換雇主線上平台</div>
+            <div class="event-summary">建立線上轉換系統，研擬禁止雇主與仲介扣留證件之條文</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2024-07</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">印尼「零付費」政策對台延後實施／擴大產業移工配額</div>
+            <div class="event-summary">原 2024-01-15 上路延至 07-15；同期增加引進印度移工 MOU 簽署</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="原住民族委員會 漸進派 行政院二級機關 主管原住民族行政；負責諮商同意辦法">
         <div class="card-head">
@@ -589,6 +1134,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院二級機關</div>
         <div><span class="position">漸進派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A601">▸ 展開事件清單</button>
+        <div id="evts-A601" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2017-02-18</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">原民會公告諮商同意辦法 — 排除私有地</div>
+            <div class="event-summary">《原住民族土地或部落範圍土地劃設辦法》排除私有地，引爆團體反彈</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="國家人權委員會 中性／嚴格派（人權標準） 監察院 2025 認定後備軍人替代役不足違反 iccpr">
         <div class="card-head">
@@ -599,6 +1153,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">監察院</div>
         <div><span class="position">中性／嚴格派（人權標準）</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A312">▸ 展開事件清單</button>
+        <div id="evts-A312" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-01-15</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">國家人權委員會認定後備軍人召集制度違反 ICCPR Art.18</div>
+            <div class="event-summary">現行兵役法未提供合理替代選項、違反宗教信仰自由與良心自由保障</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="國家人權委員會（原民議題） 監督派 監察院 撰寫獨立評估意見">
         <div class="card-head">
@@ -618,6 +1181,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">中間（行政立場）</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A302">▸ 展開事件清單</button>
+        <div id="evts-A302" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2018-12-26</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">國稅局更正特定團體多年度敬師禮稅額為零</div>
+            <div class="event-summary">延宕逾 20 年之行政爭議部分終結</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">1996-12-19</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">特定氣功修練團體遭刑事起訴與稅務查核啟動</div>
+            <div class="event-summary">檢方搜索並查扣資產，國稅局同步開單補稅；後續延伸 25 年稅務行政爭議</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="教育部 國家義務派 行政院 ">
         <div class="card-head">
@@ -628,6 +1206,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">國家義務派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A701">▸ 展開事件清單</button>
+        <div id="evts-A701" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2019-08-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">108 課綱施行</div>
+            <div class="event-summary">議題融入、選修擴大、自主學習</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2019-04-02</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">性平法施行細則第 13 條修正</div>
+            <div class="event-summary">刪「同志教育」字樣，新增「認識尊重不同性傾向/性別認同」</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="教育部學特司（藥物濫用防制） 公衛派 行政院 ">
         <div class="card-head">
@@ -647,6 +1240,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">政策執行</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A207">▸ 展開事件清單</button>
+        <div id="evts-A207" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12-18</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">學生輔導法修正公布</div>
+            <div class="event-summary">大專師生比 1200:1→900:1；國中小增逾 600 名專輔教師</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2014-11-12</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">學生輔導法施行</div>
+            <div class="event-summary">建立國中小／高中／大專三級輔導體制與輔諮中心</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="法務部 官方執行機關 行政院 ">
         <div class="card-head">
@@ -657,6 +1265,33 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">官方執行機關</span></div>
         <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A003">▸ 展開事件清單</button>
+        <div id="evts-A003" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-09-20</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">法務部 2024-09 後未再執行死刑</div>
+            <div class="event-summary">36 名死囚仍在獄中；尚未進入 OP2 批准程序</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2023-05-16</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">同性同婚收養可</div>
+            <div class="event-summary">行政院修法允許同性收養共同子女</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2019-05-17</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">立法院三讀《748 施行法》</div>
+            <div class="event-summary">另立專法保障同性結合</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2009-12-10</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">兩公約施行法施行</div>
+            <div class="event-summary">ICCPR Art.6 生命權成為國內法律效力</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="法務部（毒品防制業務） 公衛派 行政院 ">
         <div class="card-head">
@@ -676,6 +1311,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">獨立監督</div>
         <div><span class="position">人權問責</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A411">▸ 展開事件清單</button>
+        <div id="evts-A411" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-09</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">監察院 300 頁失聯移工調查報告</div>
+            <div class="event-summary">失聯移工 2023 年底達 8.6 萬人新高，列出仲介剝削、轉換雇主限制等 10 大根源</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="總統府原住民族歷史正義與轉型正義委員會 漸進派 總統府 2016 蔡英文道歉後設置">
         <div class="card-head">
@@ -686,6 +1330,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">總統府</div>
         <div><span class="position">漸進派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A603">▸ 展開事件清單</button>
+        <div id="evts-A603" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2016-08-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">蔡總統代表政府向原住民族道歉</div>
+            <div class="event-summary">總統府成立歷史正義與轉型正義委員會，提出語言法、自治法、土海法、平埔正名等九項承諾</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="行政院人權及轉型正義處 漸進派 行政院 督辦兩公約落實之跨部會幕僚">
         <div class="card-head">
@@ -723,6 +1376,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">支持監管派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A502">▸ 展開事件清單</button>
+        <div id="evts-A502" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-08-20</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">行政院介入暫緩公聽會</div>
+            <div class="event-summary">行政院長指示 NCC 暫緩原訂 8/25 公聽會；總統公開重申言論自由為憲法權利</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="衛福部中央健康保險署 公衛派 行政院 ">
         <div class="card-head">
@@ -733,6 +1395,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A802">▸ 展開事件清單</button>
+        <div id="evts-A802" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2026-03-01</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">健保補充保費修法爭議：年領 2 萬即課徵之提案暫緩</div>
+            <div class="event-summary">行政院因社會反彈暫緩補充保費年度累計新制</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-01-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">二代健保上路：補充保費與財務永續改革</div>
+            <div class="event-summary">健保財源由薪資為主改採經常性所得＋6 類補充保費</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="衛福部國民健康署 公衛派 行政院 ">
         <div class="card-head">
@@ -743,6 +1420,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A801">▸ 展開事件清單</button>
+        <div id="evts-A801" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-03-22</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">菸害防制法新法施行：禁電子煙、加熱菸納健康風險評估</div>
+            <div class="event-summary">全面禁類菸品、加熱菸採「健康風險評估審查制」、吸菸年齡提升至 20 歲、警示圖文擴至 50%</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2009-01-23</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">菸害防制法第二次大修上路</div>
+            <div class="event-summary">室內公共場所全面禁菸、菸品稅捐調升、菸盒警示圖文 35%</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="衛福部心理健康司 政策執行 行政院 ">
         <div class="card-head">
@@ -753,6 +1445,33 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">政策執行</span></div>
         <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A206">▸ 展開事件清單</button>
+        <div id="evts-A206" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">全民心理健康韌性計畫（2025-2030）核定</div>
+            <div class="event-summary">6 年 56.3 億元、6 大策略</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2024-08-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">「15-45 歲青壯世代心理健康支持方案」啟動</div>
+            <div class="event-summary">擴大年齡上限至 45 歲，預估 6 萬人次</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2023</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">「年輕族群心理健康支持方案」1.07 億元</div>
+            <div class="event-summary">15-30 歲免費 3 次心理諮商試辦</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2019-06-19</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">《自殺防治法》三讀施行</div>
+            <div class="event-summary">建立通報、關懷、媒體報導規範</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="衛福部疾病管制署 公衛派 行政院 ">
         <div class="card-head">
@@ -763,6 +1482,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A803">▸ 展開事件清單</button>
+        <div id="evts-A803" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2021-07-19</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">高端疫苗 EUA 通過程序爭議</div>
+            <div class="event-summary">食藥署於解盲日同步公告審查標準，名單與會議過程不公開，引發 ICESCR 健康權「可接受性／資訊透明」面向質疑</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2020-02-25</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">《嚴重特殊傳染性肺炎防治及紓困振興特別條例》通過</div>
+            <div class="event-summary">邊境管制、居家隔離、口罩配售、手機定位追蹤等措施引發法源依據與比例原則爭議</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="govt_agency" data-search="衛福部社會及家庭署（crc 主政） 政策執行 行政院 ">
         <div class="card-head">
@@ -782,6 +1516,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">行政院</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A804">▸ 展開事件清單</button>
+        <div id="evts-A804" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-01-01</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">長照 2.0 擴及青壯年失智 / 啟動長照 3.0 籌備</div>
+            <div class="event-summary">服務對象擴大、整合醫療長照、強化家庭支持</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-06-03</span>
+            <span class="event-type-mini govt_response">政府回應</span>
+            <div class="event-title">長照 2.0 全面上路：ABC 三級服務體系</div>
+            <div class="event-summary">從 1.0 機構式擴大為社區整合（A）／複合式（B）／巷弄站（C）</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -798,6 +1547,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">—</div>
         <div><span class="position">—</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A106">▸ 展開事件清單</button>
+        <div id="evts-A106" class="events-list">
+          <div class="event-item">
+            <span class="event-date">1994-03-31</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">Toonen v Australia 個人申訴決定</div>
+            <div class="event-summary">UN HRC 首次認定 ICCPR sex 涵蓋 sexual orientation</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="台北高等行政法院 司法審查派 司法院 ">
         <div class="card-head">
@@ -808,6 +1566,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">司法審查派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A505">▸ 展開事件清單</button>
+        <div id="evts-A505" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-05-26</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">高等行政法院撤銷 2020 不予換照處分</div>
+            <div class="event-summary">撤銷原處分但同時駁回業者請求重新換照與賠償；命 NCC 依判決法律見解另為適法處分</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="司法院憲法法庭（言論自由議題） 權利審查派 司法院 ">
         <div class="card-head">
@@ -827,6 +1594,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">司法解釋</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A101">▸ 展開事件清單</button>
+        <div id="evts-A101" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2017-05-24</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">司法院釋字 748</div>
+            <div class="event-summary">要求 2 年內完成同性結合立法</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="大法官／憲法法庭 中性記錄者 司法院 釋字 490、573、748">
         <div class="card-head">
@@ -837,6 +1613,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">中性記錄者</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A308">▸ 展開事件清單</button>
+        <div id="evts-A308" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2017-05-24</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">釋字第 748 號解釋</div>
+            <div class="event-summary">宣告民法未保障同婚違憲；多元宗教團體聯合表達反對立場</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">1999-10-01</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">釋字第 490 號（兵役合憲、惟促立替代役）</div>
+            <div class="event-summary">大法官就良心拒服兵役者宣告兵役制度合憲，但促政府研議替代方案</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="憲法法庭 司法解釋 司法院 ">
         <div class="card-head">
@@ -847,6 +1638,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">司法解釋</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A004">▸ 展開事件清單</button>
+        <div id="evts-A004" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-09-20</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">113 憲判 8 號死刑釋憲</div>
+            <div class="event-summary">實質縮限死刑適用範圍但未廢除；要求 2 年內修法</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="憲法法庭（原民議題） 法理派 司法院 111 憲判 17 號西拉雅案合議庭">
         <div class="card-head">
@@ -857,6 +1657,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">法理派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A611">▸ 展開事件清單</button>
+        <div id="evts-A611" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-10-28</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">憲法法庭 111 憲判 17 號 — 西拉雅案</div>
+            <div class="event-summary">15 位大法官全體一致判《原住民身分法》§2 違憲，命 3 年內修法</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="最高法院刑事庭 中性記錄者 司法院 2007 終判無罪確定">
         <div class="card-head">
@@ -867,6 +1676,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">司法院</div>
         <div><span class="position">中性記錄者</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A303">▸ 展開事件清單</button>
+        <div id="evts-A303" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2007-07-13</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">最高法院刑事終判無罪無欠稅確定</div>
+            <div class="event-summary">確認該團體弟子敬師禮屬贈與性質、非營業收入；刑事爭議告終</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="court" data-search="美國最高法院（比較法） — — ">
         <div class="card-head">
@@ -877,6 +1695,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">—</div>
         <div><span class="position">—</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A105">▸ 展開事件清單</button>
+        <div id="evts-A105" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-06-27</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">Mahmoud v Taylor 父母 opt-out</div>
+            <div class="event-summary">美最高 6-3 父母宗教教育權須通過 strict scrutiny</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2015-06-26</span>
+            <span class="event-type-mini court_ruling">判決</span>
+            <div class="event-title">Obergefell v Hodges 同婚為基本權</div>
+            <div class="event-summary">美國最高法院 5-4 認定結婚為基本權</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -893,6 +1726,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國</div>
         <div><span class="position">公衛派</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A816">▸ 展開事件清單</button>
+        <div id="evts-A816" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 92 點 CO（健康權章）</div>
+            <div class="event-summary">國際審查委員就健康權提出多項建議，含長照給付公平、心理衛生、傳染病期間人權平衡與健康資訊近用</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2009-12-10</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">兩公約施行法生效，健康權內國法化</div>
+            <div class="event-summary">ICESCR 第 12 條經施行法引入內國法體系，並依 GC14 認定健康權包含可獲得性／可近性／可接受性／品質四要素</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="iccpr/icescr 國際審查委員會 嚴格派（國際標準） 聯合國體系專家 三屆審查均提宗教自由議題">
         <div class="card-head">
@@ -903,6 +1751,21 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系專家</div>
         <div><span class="position">嚴格派（國際標準）</span></div>
         <div class="events-count">參與事件:<b>2</b> 個</div>
+        <button class="toggle-events" data-target="evts-A304">▸ 展開事件清單</button>
+        <div id="evts-A304" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">ICCPR 第三屆結論性意見 §63（含宗教自由建議）</div>
+            <div class="event-summary">關切後備軍人召集無宗教豁免、宗教團體法立法延宕、少數信仰行政待遇差別</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-03-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">ICCPR 第一屆結論性意見（涉宗教自由相關段落）</div>
+            <div class="event-summary">國際審查委員會關注良心拒服兵役、宗教團體法立法停滯與少數信仰行政差別待遇</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="manfred nowak 寬鬆派（廢死） 奧地利 / 前 un 酷刑特別報告員 ">
         <div class="card-head">
@@ -913,6 +1776,33 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">奧地利 / 前 UN 酷刑特別報告員</div>
         <div><span class="position">寬鬆派（廢死）</span></div>
         <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A002">▸ 展開事件清單</button>
+        <div id="evts-A002" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2026-05</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">第四次審查預期再次提出</div>
+            <div class="event-summary">Manfred Nowak 第 4 屆主席連續 4 屆關注</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">第三次審查 CO 同婚範圍擴張要求</div>
+            <div class="event-summary">要求同性收養、跨國同婚立法</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-03-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">CO §6 要求批准 ICCPR OP2</div>
+            <div class="event-summary">國際委員建議台灣立即批准廢死議定書</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-03-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">CO §57 立即停止執行</div>
+            <div class="event-summary">國際委員建議立即停止執行死刑、邁向廢除</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="un 人權事務委員會（gc34 制定） 條約機構 聯合國 ">
         <div class="card-head">
@@ -923,6 +1813,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國</div>
         <div><span class="position">條約機構</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A511">▸ 展開事件清單</button>
+        <div id="evts-A511" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2011-07-21</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">UN 人權委員會通過 GC 34</div>
+            <div class="event-summary">對 ICCPR Art.19 採嚴格詮釋：限制須由法律明定、針對 19(3)(a)(b) 列舉目的、符合必要性與比例原則</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="兩公約國際審查委員會（原民章節） 監督派 聯合國體系專家 歷屆來台審查之國際人權專家">
         <div class="card-head">
@@ -933,6 +1832,33 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系專家</div>
         <div><span class="position">監督派</span></div>
         <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A612">▸ 展開事件清單</button>
+        <div id="evts-A612" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2026-04-15</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">CO §76 第四度於審查中被重申（預期）</div>
+            <div class="event-summary">第四次兩公約審查預期再次點名 FPIC、傳統領域、平埔身分修法三項未竟事項</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 — 92 點 CO 重申 §76</div>
+            <div class="event-summary">92 點結論性意見第三度要求修正諮商同意辦法、落實 FPIC、檢討傳統領域排除私有地</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-12-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第二次審查 — CO §76/§78 升級</div>
+            <div class="event-summary">結論性意見再次點名 FPIC 程序不完備，並指諮商同意辦法限縮傳統領域違反公約精神</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-03-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第一次國際審查 — 點名 FPIC 落差</div>
+            <div class="event-summary">首次審查結論性意見要求政府落實原基法 §21 諮商同意，並參酌 UNDRIP</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="兩公約國際審查委員會（移工章節） 國際標準 聯合國體系專家 ">
         <div class="card-head">
@@ -943,6 +1869,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系專家</div>
         <div><span class="position">國際標準</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A410">▸ 展開事件清單</button>
+        <div id="evts-A410" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 CO（移工段）</div>
+            <div class="event-summary">再次要求：家事與漁業移工納入勞基法、檢討仲介制度、強制體檢應符 ICESCR Art.12，第三次連續提出</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-01-20</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第二次審查 CO §69 §70</div>
+            <div class="event-summary">§69：強烈建議將所有移工納入勞基法保障；§70：應廢除（abolish）私人就業仲介制度</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2013-03-01</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第一次審查 CO（移工章）</div>
+            <div class="event-summary">要求檢討家事勞工、漁工排除於勞基法外之合理性，並關注強制體檢、限制轉換雇主與人身自由</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="兩公約第三次國際審查委員會（言論自由章） 條約審查 聯合國體系 ">
         <div class="card-head">
@@ -953,6 +1900,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系</div>
         <div><span class="position">條約審查</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A512">▸ 展開事件清單</button>
+        <div id="evts-A512" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2026</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">第 4 屆兩公約國際審查啟動</div>
+            <div class="event-summary">審查預期再度關切平台監管比例原則 + 假訊息治理</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 92 點 CO（言論自由章）</div>
+            <div class="event-summary">委員續關切媒體多元、查證義務與假訊息治理之比例原則衝突</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-01-20</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第二次審查結論性意見（媒體章）</div>
+            <div class="event-summary">建議政府採取預防措施，避免新聞台與報社併購使公眾資訊傳播被過度集中</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="兩公約第三次審查國際委員會（教育章） 監督派 聯合國體系 ">
         <div class="card-head">
@@ -963,6 +1931,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系</div>
         <div><span class="position">監督派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A711">▸ 展開事件清單</button>
+        <div id="evts-A711" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 CO（教育章）</div>
+            <div class="event-summary">涉教育權多項建議，含家長教育選擇權之爭議</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="committee_member" data-search="兩公約／crc 國際審查委員會 國際標準 聯合國體系專家 ">
         <div class="card-head">
@@ -973,6 +1950,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">聯合國體系專家</div>
         <div><span class="position">國際標準</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A209">▸ 展開事件清單</button>
+        <div id="evts-A209" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-11</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">CRC 第二次國家報告 CO</div>
+            <div class="event-summary">指出生育率低但兒少死亡率高，肯定政策但點出結構性壓力（學業／霸凌／不當對待）</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2022-05-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">兩公約第三次審查 CO</div>
+            <div class="event-summary">要求強化兒少心理健康、減壓校園文化、擴增輔導人力</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-11-24</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">CRC 第一次國家報告審查 CO</div>
+            <div class="event-summary">關注兒少自殺率與心理健康支持資源不足</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -989,6 +1987,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">立法院</div>
         <div><span class="position">分歧</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A610">▸ 展開事件清單</button>
+        <div id="evts-A610" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025-10-28</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">身分法修法期限屆至 — 立法進度落後</div>
+            <div class="event-summary">憲判限期屆至，行政院修正草案在立法院僵局；平埔族正名仍未到位</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2019-01-09</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">國家語言發展法公布施行</div>
+            <div class="event-summary">確立各固有族群自然語言一律平等，原民語、客語、台語、手語並列</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2017-06-14</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">原住民族語言發展法施行 — 列為國家語言</div>
+            <div class="event-summary">正式承認 16 族語為國家語言，落實道歉文承諾之一</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="legislator" data-search="立法院教育及文化委員會 跨黨派 立法院 ">
         <div class="card-head">
@@ -999,6 +2018,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">立法院</div>
         <div><span class="position">跨黨派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A211">▸ 展開事件清單</button>
+        <div id="evts-A211" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-05-25</span>
+            <span class="event-type-mini committee_question">委員質詢</span>
+            <div class="event-title">立院「兒少自殺原因回溯調查機制」公聽會</div>
+            <div class="event-summary">跨部會檢討三級輔導與死因回溯</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="legislator" data-search="立法院教育及文化委員會 分歧 立法院 ">
         <div class="card-head">
@@ -1009,6 +2037,33 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">立法院</div>
         <div><span class="position">分歧</span></div>
         <div class="events-count">參與事件:<b>4</b> 個</div>
+        <button class="toggle-events" data-target="evts-A703">▸ 展開事件清單</button>
+        <div id="evts-A703" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-08-16</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">性平教育法第三次大修</div>
+            <div class="event-summary">禁師生戀、外聘調查、懲罰性賠償；**未引入家長 opt-out 課程選擇權**</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2014-11-20</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">兒童權利公約施行法生效</div>
+            <div class="event-summary">CRC 28/29 與 ICESCR 並行</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2014-11-19</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">實驗教育三法三讀</div>
+            <div class="event-summary">「家長教育選擇權」首次完整法制化（公辦民營/學校型態/非學校型態三軌）</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2009-12-10</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">兩公約施行法生效，教育權正式內國法化</div>
+            <div class="event-summary">ICESCR Art.13 經施行法引入內國法體系</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="legislator" data-search="立法院社會福利及衛生環境委員會 跨黨派 立法院 ">
         <div class="card-head">
@@ -1019,6 +2074,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">立法院</div>
         <div><span class="position">跨黨派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A413">▸ 展開事件清單</button>
+        <div id="evts-A413" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2023-05-30</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">《就業服務法》第 46 條修正：80 歲以上長者免巴氏量表</div>
+            <div class="event-summary">放寬聘僱家庭看護工門檻；同次修法未處理移工自由轉換雇主之 §53 限制</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="legislator" data-search="立法院（多數黨團） 支持監管派 立法院 ">
         <div class="card-head">
@@ -1029,6 +2093,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">立法院</div>
         <div><span class="position">支持監管派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A503">▸ 展開事件清單</button>
+        <div id="evts-A503" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2019-12-31</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">反滲透法三讀通過</div>
+            <div class="event-summary">立法院以 67:4 三讀通過，2020/1/15 公布、2020/1/17 施行</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="legislator" data-search="立法院（提案／撤簽委員） 分歧 跨黨派 宗教基本法多次提案後撤簽擱置">
         <div class="card-head">
@@ -1039,6 +2112,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">跨黨派</div>
         <div><span class="position">分歧</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A307">▸ 展開事件清單</button>
+        <div id="evts-A307" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2000-02-02</span>
+            <span class="event-type-mini legislation">立法</span>
+            <div class="event-title">《替代役實施條例》制定公布</div>
+            <div class="event-summary">建立宗教因素得申服替代役之制度，回應釋字 490 與國際標準</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1055,6 +2137,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">國際 NGO</div>
         <div><span class="position">權利監督派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A510">▸ 展開事件清單</button>
+        <div id="evts-A510" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-12-31</span>
+            <span class="event-type-mini intl_actor">國際行動者</span>
+            <div class="event-title">Freedom House 2024 評等</div>
+            <div class="event-summary">政治權利 38/40、公民自由 56/60、總分 94/100；網路自由 79/100</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="intl_actor" data-search="無國界記者組織 rsf 新聞自由派 國際 ngo ">
         <div class="card-head">
@@ -1065,6 +2156,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">國際 NGO</div>
         <div><span class="position">新聞自由派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A509">▸ 展開事件清單</button>
+        <div id="evts-A509" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2022-05-03</span>
+            <span class="event-type-mini intl_actor">國際行動者</span>
+            <div class="event-title">RSF 2022 方法論重大變更</div>
+            <div class="event-summary">改採五大面向（政治／法律／經濟／社會文化／安全），2022 起與 2021 以前不可直接比較</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="intl_actor" data-search="美國國務院（tip report／dol 強迫勞動清單） 國際問責 外國政府 ">
         <div class="card-head">
@@ -1075,6 +2175,27 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">外國政府</div>
         <div><span class="position">國際問責</span></div>
         <div class="events-count">參與事件:<b>3</b> 個</div>
+        <button class="toggle-events" data-target="evts-A412">▸ 展開事件清單</button>
+        <div id="evts-A412" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2024-01-15</span>
+            <span class="event-type-mini intl_actor">國際行動者</span>
+            <div class="event-title">美國 TIP Report 第三度將台灣遠洋漁獲列強迫勞動清單</div>
+            <div class="event-summary">明指「政府調查人力與規定不足，持續阻礙鑑別、調查與起訴」</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2020-09-30</span>
+            <span class="event-type-mini intl_actor">國際行動者</span>
+            <div class="event-title">美國 DOL 將我國遠洋漁獲首列「童工及強迫勞動製品清單」</div>
+            <div class="event-summary">遠洋漁工長工時、扣證件、苛扣薪資情形未改善</div>
+          </div>
+          <div class="event-item">
+            <span class="event-date">2018-06-28</span>
+            <span class="event-type-mini intl_actor">國際行動者</span>
+            <div class="event-title">美國 TIP Report 首次點名台灣遠洋漁船強迫勞動</div>
+            <div class="event-summary">列出 ILO 11 項強迫勞動指標：扣留證件、限制行動、超時工作、暴力、苛扣薪資</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="intl_actor" data-search="聯合國原住民族常設論壇 (unpfii) 倡議派 un ecosoc 台灣未獲席次但持續關注">
         <div class="card-head">
@@ -1085,6 +2206,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">UN ECOSOC</div>
         <div><span class="position">倡議派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A613">▸ 展開事件清單</button>
+        <div id="evts-A613" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2007-09-13</span>
+            <span class="event-type-mini co_paragraph">結論性意見</span>
+            <div class="event-title">UNDRIP 聯合國通過原住民族權利宣言</div>
+            <div class="event-summary">確立 FPIC、自決、文化權；台灣雖非會員，原民會 2008 年中譯</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1119,6 +2249,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">學界</div>
         <div><span class="position">實證派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A210">▸ 展開事件清單</button>
+        <div id="evts-A210" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2019-06</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">15-24 歲自殺人數年增 22.4%</div>
+            <div class="event-summary">2019 較 2018 增 47 人達 257 人，連 6 年上升</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1216,6 +2355,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">—</div>
         <div><span class="position">嚴格派</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A103">▸ 展開事件清單</button>
+        <div id="evts-A103" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2018-11-24</span>
+            <span class="event-type-mini public_opinion">公民倡議</span>
+            <div class="event-title">愛家公投三案通過</div>
+            <div class="event-summary">公投反對同性婚姻納入民法</div>
+          </div>
+        </div>
       </div>
       <div class="card" data-type="public" data-search="婚姻平權支持方（民間） 寬鬆派 — ">
         <div class="card-head">
@@ -1235,6 +2383,15 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <div class="meta">民間</div>
         <div><span class="position">exit option 階級</span></div>
         <div class="events-count">參與事件:<b>1</b> 個</div>
+        <button class="toggle-events" data-target="evts-A712">▸ 展開事件清單</button>
+        <div id="evts-A712" class="events-list">
+          <div class="event-item">
+            <span class="event-date">2025</span>
+            <span class="event-type-mini outcome">結果指標</span>
+            <div class="event-title">IB / 國際學校 / 雙語高中擴張 — 高所得家長 exit option 制度化</div>
+            <div class="event-summary">從不足 5,000 人擴至逾 20,000 人</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1300,6 +2457,16 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
   q.addEventListener('input', function () {
     clearTimeout(debounce);
     debounce = setTimeout(applyFilter, 120);
+  });
+
+  // accordion 展開事件清單
+  document.querySelectorAll('.toggle-events').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      var open = target.classList.toggle('open');
+      btn.textContent = open ? '▾ 收合事件清單' : '▸ 展開事件清單';
+    });
   });
 })();
 </script>

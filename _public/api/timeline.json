@@ -198,6 +198,105 @@
     },
     {
       "source": "event",
+      "id": "EV-2012-005",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "兒福聯盟 ICCPR/ICESCR 平行報告 — 兒少權益章節",
+      "summary": "兒福聯盟首次參與兩公約國際審查,提出兒少權益關切,主張兒少健康權與教育權應對應 CRC 標準同步檢視。具體段落號待補。",
+      "issue_tags": "[\"兒少自殺\",\"教育權\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A201"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-006",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "人本教育基金會 ICCPR/ICESCR 平行報告 — 校園文化批判",
+      "summary": "人本教育以結構派立場提出校園文化、體罰、輔導與管教等議題,涵蓋 ICESCR §13 教育權與 ICCPR §7 不受酷刑。具體段落號待補。",
+      "issue_tags": "[\"兒少自殺\",\"教育權\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A203"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-007",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "台灣性別平等教育協會 ICCPR/ICESCR 平行報告 — 性平教育推動",
+      "summary": "性平教育協會主張 108 課綱前期之性別平等教育推動,涵蓋 ICESCR §13 教育權與 ICCPR §26 不歧視。具體段落號待補。",
+      "issue_tags": "[\"性平教育\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A706"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-008",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "國教行動聯盟 ICCPR/ICESCR 平行報告 — 父母教育選擇權",
+      "summary": "AABE 國教行動聯盟援引 ICESCR §13-3 + GC13 §28,主張父母依其信念選擇宗教與道德教育之核心權利。具體段落號待補。",
+      "issue_tags": "[\"選擇權\",\"教育權\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A708"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-009",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "TIWA 台灣國際勞工協會 ICCPR/ICESCR 平行報告 — 移工權益",
+      "summary": "TIWA 主張勞基法應全面適用家事勞工 + 仲介費議題 + 居留權,涵蓋 ICCPR §8 強迫勞動 + ICESCR §7 公平工作條件。具體段落號待補。",
+      "issue_tags": "[\"移工\"]",
+      "related_pi": "PI-04",
+      "actor_id": "A401"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-010",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "移工聯盟 MENT ICCPR/ICESCR 平行報告 — 移工權益",
+      "summary": "移工聯盟主張仲介剝削、強迫勞動之系統性問題,涵蓋 ICCPR §8 + §22 結社自由。具體段落號待補。",
+      "issue_tags": "[\"移工\"]",
+      "related_pi": "PI-04",
+      "actor_id": "A402"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-011",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "原住民族 16 族聯合會 ICCPR/ICESCR 平行報告 — 自決權",
+      "summary": "原住民族 16 族聯合主張 ICCPR §1 自決權 + 傳統領域 + 語言權,對應 UN Declaration on the Rights of Indigenous Peoples。具體段落號待補。",
+      "issue_tags": "[\"原住民族\"]",
+      "related_pi": null,
+      "actor_id": "A607"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-012",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "媒體改造學社 ICCPR 平行報告 — 媒體結構改革",
+      "summary": "媒改學社主張媒體結構改革議題,涵蓋 ICCPR §19 言論自由與 GC34 標準。具體段落號待補。",
+      "issue_tags": "[\"言論自由\",\"媒體多元\"]",
+      "related_pi": "PI-09",
+      "actor_id": "A506"
+    },
+    {
+      "source": "event",
+      "id": "EV-2012-013",
+      "date": "2012-12",
+      "event_type": "shadow_report",
+      "title": "董氏基金會 ICCPR/ICESCR 平行報告 — 公衛權益",
+      "summary": "董氏基金會以公衛派立場主張菸害防治 + 心理衛生,涵蓋 ICESCR §12 健康權。具體段落號待補。",
+      "issue_tags": "[\"健康權\",\"菸害\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A808"
+    },
+    {
+      "source": "event",
       "id": "EV-2013-803",
       "date": "2013-01-01",
       "event_type": "govt_response",
@@ -316,6 +415,83 @@
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-12\"]",
       "actor_id": "A603"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-001",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "兒福聯盟第二屆審查平行報告 — 兒少自殺率上升警訊",
+      "summary": "兒福聯盟提出兒少自殺率近年上升之早期警訊,主張 ICESCR §12 健康權之兒少分項應有獨立指標。具體段落號待補。",
+      "issue_tags": "[\"兒少自殺\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A201"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-002",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "國教行動聯盟第二屆審查平行報告 — 父母教育選擇權延續主張",
+      "summary": "AABE 延續 2013 年立場,進一步援引 ICESCR §13-3 + GC13 §28 + 國際比較對照(Hosanna-Tabor v EEOC)。具體段落號待補。",
+      "issue_tags": "[\"教育權\",\"選擇權\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A708"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-003",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "性平/同婚倡議團體第二屆審查平行報告 — 性別平等推動",
+      "summary": "性平倡議團體主張 ICCPR §26 不歧視 + 性別認同之整合執法,涵蓋 108 課綱前期之教材爭議。具體段落號待補。",
+      "issue_tags": "[\"性平教育\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A311"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-004",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "護家盟/下一代幸福聯盟第二屆審查平行報告 — 傳統婚家立場",
+      "summary": "護家盟以嚴格派立場主張婚姻定義之傳統解釋,涵蓋 ICESCR §10 家庭保障 + ICCPR §23 婚姻自由。具體段落號待補。",
+      "issue_tags": "[\"同性婚姻\"]",
+      "related_pi": null,
+      "actor_id": "A310"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-005",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "宗教自由倡議聯盟第二屆審查平行報告 — 宗教自由",
+      "summary": "宗教自由聯盟(含太極門相關 NGO、世界公民總會台灣分會)主張 ICCPR §18 + GC22 + 既有案件平反。具體段落號待補。",
+      "issue_tags": "[\"宗教自由\",\"良心拒服兵役\"]",
+      "related_pi": "PI-08",
+      "actor_id": "A301"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-006",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "台灣拒菸聯盟第二屆審查平行報告 — 菸害防治",
+      "summary": "拒菸聯盟主張 WHO FCTC + 菸害防治法執行落差,涵蓋 ICESCR §12 健康權與兒少接觸。具體段落號待補。",
+      "issue_tags": "[\"健康權\",\"菸害\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A810"
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-007",
+      "date": "2016-12",
+      "event_type": "shadow_report",
+      "title": "台灣新聞記者協會第二屆審查平行報告 — 新聞自由",
+      "summary": "記協主張 ICCPR §19 + GC34 三要件 + RSF 排名背景下之台灣新聞自由實況。具體段落號待補。",
+      "issue_tags": "[\"言論自由\"]",
+      "related_pi": "PI-09",
+      "actor_id": "A507"
     },
     {
       "source": "event",
@@ -594,6 +770,17 @@
     },
     {
       "source": "event",
+      "id": "EV-2020-001",
+      "date": "2020",
+      "event_type": "public_opinion",
+      "title": "私有地主團體 — 傳統領域議題立場",
+      "summary": "私有地主團體以保留派立場主張原住民族傳統領域劃設應排除私有地,涉及財產權與自決權之張力。具體日期待補。",
+      "issue_tags": "[\"原住民族\"]",
+      "related_pi": null,
+      "actor_id": "A609"
+    },
+    {
+      "source": "event",
       "id": "EV-2020-805",
       "date": "2020-02-25",
       "event_type": "legislation",
@@ -657,6 +844,160 @@
       "issue_tags": "[\"疫情\",\"疫苗\"]",
       "related_pi": "[\"PI-11\"]",
       "actor_id": "A803"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-102",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "台灣少年權益與福利促進聯盟第三屆審查平行報告",
+      "summary": "少促聯主張 ICCPR §24 + ICESCR §10 + §12 之兒少分項,並以 CRC 連動。具體段落號待補。",
+      "issue_tags": "[\"兒少自殺\",\"教育權\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A204"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-103",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "國教行動聯盟第三屆審查平行報告 — 教科書內容之選擇權",
+      "summary": "AABE 延續主張並引用 Mahmoud v Taylor 前哨案件 + ECHR 比較,涵蓋 ICESCR §13-3 + GC13 §28。具體段落號待補。",
+      "issue_tags": "[\"教育權\",\"選擇權\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A708"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-104",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "性別平等教育協會第三屆審查平行報告",
+      "summary": "性平協會主張 108 課綱性平教育之全面實施 + 教師訓練,涵蓋 ICCPR §26 + ICESCR §13。具體段落號待補。",
+      "issue_tags": "[\"性平教育\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A706"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-105",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "外籍漁工人權保障聯盟第三屆審查平行報告",
+      "summary": "漁工聯盟主張境外聘僱制度之強迫勞動風險,涵蓋 ICCPR §8 + ICESCR §7,並援引國際遠洋漁業壓力。具體段落號待補。",
+      "issue_tags": "[\"移工\",\"漁工\"]",
+      "related_pi": "PI-04",
+      "actor_id": "A404"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-106",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "平埔族復振團體第三屆審查平行報告",
+      "summary": "平埔族復振團體主張 ICCPR §1 自決權 + 平埔族正名議題,並援引憲法法庭 111 憲判 17 號。具體段落號待補。",
+      "issue_tags": "[\"原住民族\",\"平埔正名\"]",
+      "related_pi": null,
+      "actor_id": "A608"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-107",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "主要宗教團體聯合第三屆審查平行報告 — 宗教團體權益",
+      "summary": "主要宗教團體聯合(含佛教、道教、基督教、天主教等)以寬鬆派立場主張 ICCPR §18 + 教會雇用自治。具體段落號待補。",
+      "issue_tags": "[\"宗教自由\"]",
+      "related_pi": "PI-08",
+      "actor_id": "A306"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-108",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "耶和華見證人良心拒服兵役第三屆審查平行報告",
+      "summary": "耶和華見證人社群主張 ICCPR §18 + GC22 §11 + 替代役制度之良心豁免。具體段落號待補。",
+      "issue_tags": "[\"良心拒服兵役\"]",
+      "related_pi": "PI-08",
+      "actor_id": "A309"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-109",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "宗教自由倡議聯盟第三屆審查平行報告 — 稅務面向",
+      "summary": "宗教自由聯盟以稅捐稽徵法之宗教團體免稅議題切入,主張 ICCPR §18 之納稅人權利。具體段落號待補。",
+      "issue_tags": "[\"稅務\",\"宗教自由\"]",
+      "related_pi": "PI-08",
+      "actor_id": "A301"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-110",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "桃園市產業總工會第三屆審查平行報告 — 在地移工申訴",
+      "summary": "桃工總以勞工團結派立場主張在地申訴管道之 ICCPR §22 + ICESCR §7。具體段落號待補。",
+      "issue_tags": "[\"移工\"]",
+      "related_pi": "PI-04",
+      "actor_id": "A403"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-111",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "台灣醫療改革基金會第三屆審查平行報告 — 醫療體系改革",
+      "summary": "醫改會主張 ICESCR §12 + GC14 + 健保納保 + 醫療資源城鄉差距議題。具體段落號待補。",
+      "issue_tags": "[\"健康權\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A809"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-112",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "台灣人權促進會第三屆審查平行報告 — 防疫人權",
+      "summary": "台權會以個人權利派立場主張 COVID-19 期間防疫措施之 ICCPR §17 隱私權與 §12 行動自由。具體段落號待補。",
+      "issue_tags": "[\"健康權\",\"疫情\"]",
+      "related_pi": null,
+      "actor_id": "A812"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-113",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "媒體改造學社第三屆審查平行報告 — 媒體結構",
+      "summary": "媒改學社延續結構改革派主張,涵蓋 ICCPR §19 + GC34 + 媒體所有權集中議題。具體段落號待補。",
+      "issue_tags": "[\"言論自由\",\"媒體多元\"]",
+      "related_pi": "PI-09",
+      "actor_id": "A506"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-114",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "台灣事實查核中心第三屆審查平行報告 — 自律機制",
+      "summary": "查核中心以自律派立場主張媒體自律 + 假訊息議題,涵蓋 ICCPR §19 + GC34。具體段落號待補。",
+      "issue_tags": "[\"言論自由\"]",
+      "related_pi": "PI-09",
+      "actor_id": "A516"
+    },
+    {
+      "source": "event",
+      "id": "EV-2021-115",
+      "date": "2021-12",
+      "event_type": "shadow_report",
+      "title": "長照家屬/病友自助團體第三屆審查平行報告",
+      "summary": "長照家屬團體主張 ICESCR §12 + §10 之長照家屬權益,並涵蓋失能者人權。具體段落號待補。",
+      "issue_tags": "[\"長照\"]",
+      "related_pi": null,
+      "actor_id": "A815"
     },
     {
       "source": "event",
@@ -811,6 +1152,17 @@
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
       "actor_id": "A209"
+    },
+    {
+      "source": "event",
+      "id": "EV-2022-201",
+      "date": "2022-Q3",
+      "event_type": "public_opinion",
+      "title": "被害人家屬團體 — 廢死辯論立場",
+      "summary": "被害人家屬團體以嚴格派立場參與廢死辯論,主張被害者人權之 ICCPR §6 + §7 應與加害者人權並重。具體場次待補。",
+      "issue_tags": "[\"兒少自殺\"]",
+      "related_pi": null,
+      "actor_id": "A008"
     },
     {
       "source": "event",
@@ -1020,6 +1372,105 @@
       "issue_tags": null,
       "related_pi": null,
       "actor_id": null
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-201",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "兒福聯盟第四屆審查平行報告 — 兒少自殺率達 7.0/十萬警訊",
+      "summary": "兒福聯盟提出 2024 兒少自殺率達 7.0/十萬,高於 OECD 平均 6.5(z=3.12 outlier)。主張 ICESCR §12 + 學生輔導法執行落差。具體段落號待補。",
+      "issue_tags": "[\"兒少自殺\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A201"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-202",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "國教行動聯盟第四屆審查平行報告 — Mahmoud v Taylor 援引",
+      "summary": "AABE 援引美國最高法院 Mahmoud v Taylor (605 U.S., 2025-06-27) 之父母教育選擇權判決,主張 ICESCR §13-3 + GC13 §28 之國際趨勢。具體段落號待補。",
+      "issue_tags": "[\"教育權\",\"選擇權\"]",
+      "related_pi": "PI-10",
+      "actor_id": "A708"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-203",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "性平/同婚倡議團體第四屆審查平行報告",
+      "summary": "性平倡議團體援引 113 憲判 8 號廢死案 + 同婚立法成果,主張 ICCPR §26 + 性別平等之延伸。具體段落號待補。",
+      "issue_tags": "[\"性平教育\"]",
+      "related_pi": null,
+      "actor_id": "A311"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-204",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "移工聯盟 MENT 第四屆審查平行報告",
+      "summary": "MENT 移工聯盟延續主張,並援引 ILO 國際標準 + 強迫勞動議題之新增案例。具體段落號待補。",
+      "issue_tags": "[\"移工\"]",
+      "related_pi": "PI-04",
+      "actor_id": "A402"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-205",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "原住民族青年陣線第四屆審查平行報告 — 自決權",
+      "summary": "原民青年陣線主張 ICCPR §1 + UN Declaration on Rights of Indigenous Peoples + 傳統領域議題之新進展。具體段落號待補。",
+      "issue_tags": "[\"原住民族\"]",
+      "related_pi": null,
+      "actor_id": "A605"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-206",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "醫療藥物使用者權益團體第四屆審查平行報告",
+      "summary": "醫藥使用者團體以個人權利派立場主張 ICESCR §12 + 健保給付 + 罕見疾病議題。具體段落號待補。",
+      "issue_tags": "[\"健康權\",\"健保\"]",
+      "related_pi": null,
+      "actor_id": "A813"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-207",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "台灣新聞記者協會第四屆審查平行報告 — 平台監管時代",
+      "summary": "記協援引 RSF 2025 排名 24 + Freedom House 2026 公民自由首次下降,主張 ICCPR §19 + GC34 + 平台監管立法之挑戰。具體段落號待補。",
+      "issue_tags": "[\"言論自由\",\"平台監管\"]",
+      "related_pi": "PI-09",
+      "actor_id": "A507"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-208",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "董氏基金會心理衛生中心第四屆審查平行報告",
+      "summary": "董氏心衛中心主張 ICESCR §12 + 心理健康分項 + 自殺防治法十年成效檢核。具體段落號待補。",
+      "issue_tags": "[\"心理健康\"]",
+      "related_pi": "PI-11",
+      "actor_id": "A202"
+    },
+    {
+      "source": "event",
+      "id": "EV-2024-209",
+      "date": "2024-12",
+      "event_type": "shadow_report",
+      "title": "全國教師會/國教盟(校園藥物)第四屆審查平行報告",
+      "summary": "教師會援引校園藥物使用議題,主張 ICESCR §12 + ICCPR §24 兒少保護之雙公約執法。具體段落號待補。",
+      "issue_tags": "[\"健康權\",\"校園菸毒\"]",
+      "related_pi": null,
+      "actor_id": "A814"
     },
     {
       "source": "event",

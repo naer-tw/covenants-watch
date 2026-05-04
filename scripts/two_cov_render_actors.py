@@ -61,6 +61,16 @@ def main() -> int:
     for r in conn.execute("SELECT actor_id, COUNT(*) FROM event WHERE actor_id IS NOT NULL GROUP BY actor_id"):
         event_counts[r[0]] = r[1]
 
+    # 取每位 actor 之完整事件清單(供 accordion 展開)
+    actor_events: dict[str, list] = {}
+    for r in conn.execute("""
+        SELECT actor_id, event_id, event_date, event_type, title, summary, issue_tags, related_pi
+        FROM event
+        WHERE actor_id IS NOT NULL
+        ORDER BY actor_id, event_date DESC
+    """):
+        actor_events.setdefault(r["actor_id"], []).append(dict(r))
+
     # ── HTML 起頭 ──
     types_present = sorted(type_count.keys(), key=lambda t: TYPE_ORDER.get(t, 999))
 
@@ -150,6 +160,37 @@ h1 {{ font-family: var(--serif); font-size: 30px; font-weight: 700; line-height:
 .card .position {{ display: inline-block; margin-top: 4px; padding: 1px 6px; background: var(--bg-alt); border-radius: 2px; font-size: 11px; color: var(--text-muted); }}
 .card .events-count {{ margin-top: 6px; font-family: var(--sans-en); font-size: 11px; color: var(--text-meta); }}
 .card .events-count b {{ color: var(--bg-deep); font-weight: 700; }}
+.card .toggle-events {{
+  margin-top: 8px; padding: 5px 10px; font-size: 11.5px;
+  background: var(--bg-alt); border: 1px solid var(--border); border-radius: 3px;
+  color: var(--text-muted); cursor: pointer; font-family: var(--sans);
+  transition: background .15s;
+}}
+.card .toggle-events:hover {{ background: var(--bg-deep); color: #fff; border-color: var(--bg-deep); }}
+.card .events-list {{
+  display: none; margin-top: 10px; padding: 10px; background: var(--bg-alt); border-radius: 3px;
+  font-size: 11.5px; line-height: 1.55; max-height: 300px; overflow-y: auto;
+}}
+.card .events-list.open {{ display: block; }}
+.event-item {{
+  padding: 6px 0; border-bottom: 1px dashed var(--border);
+}}
+.event-item:last-child {{ border-bottom: none; }}
+.event-date {{ font-family: var(--sans-en); font-size: 10.5px; color: var(--text-meta); margin-right: 6px; }}
+.event-type-mini {{
+  font-family: var(--sans-en); font-size: 9px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 1px 5px; border-radius: 2px; background: var(--aabe-gold); color: #fff;
+}}
+.event-type-mini.shadow_report {{ background: var(--brand); }}
+.event-type-mini.legislation {{ background: var(--bg-deep); }}
+.event-type-mini.govt_response {{ background: var(--cycle-iccpr); }}
+.event-type-mini.court_ruling {{ background: #4f4f4f; }}
+.event-type-mini.public_opinion {{ background: var(--institutional-light); }}
+.event-type-mini.outcome {{ background: #2D5F3E; }}
+.event-type-mini.intl_actor {{ background: #6d28d9; }}
+.event-type-mini.co_paragraph {{ background: var(--cycle-icescr); }}
+.event-title {{ font-weight: 600; color: var(--bg-deep); margin-top: 2px; }}
+.event-summary {{ color: var(--text-muted); margin-top: 2px; }}
 
 .legend {{ margin-top: 32px; padding: 16px; background: var(--bg-alt); border-left: 3px solid var(--aabe-gold); font-size: 13px; color: var(--text-muted); }}
 .legend strong {{ color: var(--bg-deep); }}
@@ -244,6 +285,32 @@ h1 {{ font-family: var(--serif); font-size: 30px; font-weight: 700; line-height:
                 html += f'        <div><span class="position">{escape(position)}</span></div>\n'
             if n_evt > 0:
                 html += f'        <div class="events-count">參與事件:<b>{n_evt}</b> 個</div>\n'
+                html += f'        <button class="toggle-events" data-target="evts-{a["actor_id"]}">▸ 展開事件清單</button>\n'
+                html += f'        <div id="evts-{a["actor_id"]}" class="events-list">\n'
+                for ev in actor_events.get(a["actor_id"], []):
+                    et = ev["event_type"] or ""
+                    et_label = {
+                        "shadow_report": "影子報告",
+                        "legislation": "立法",
+                        "govt_response": "政府回應",
+                        "court_ruling": "判決",
+                        "public_opinion": "公民倡議",
+                        "outcome": "結果指標",
+                        "intl_actor": "國際行動者",
+                        "co_paragraph": "結論性意見",
+                        "committee_question": "委員質詢",
+                    }.get(et, et)
+                    date_str = escape(ev["event_date"] or "")
+                    title = escape(ev["title"] or "")
+                    summary = escape((ev["summary"] or "")[:160])
+                    html += f"""          <div class="event-item">
+            <span class="event-date">{date_str}</span>
+            <span class="event-type-mini {et}">{et_label}</span>
+            <div class="event-title">{title}</div>
+            <div class="event-summary">{summary}{'…' if len(ev['summary'] or '') > 160 else ''}</div>
+          </div>
+"""
+                html += '        </div>\n'
             html += "      </div>\n"
 
         html += """    </div>
@@ -312,6 +379,16 @@ h1 {{ font-family: var(--serif); font-size: 30px; font-weight: 700; line-height:
   q.addEventListener('input', function () {
     clearTimeout(debounce);
     debounce = setTimeout(applyFilter, 120);
+  });
+
+  // accordion 展開事件清單
+  document.querySelectorAll('.toggle-events').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      var open = target.classList.toggle('open');
+      btn.textContent = open ? '▾ 收合事件清單' : '▸ 展開事件清單';
+    });
   });
 })();
 </script>
