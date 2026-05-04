@@ -90,6 +90,8 @@ HTML_TPL = """<!DOCTYPE html>
 1. 稱「脈絡追溯」非「責任追溯」｜ 2. 每個歸因附反證 ｜ 3. 因果鏈不超過 3 層 ｜ 4. 正反結果並陳 ｜ 5. 論述與責任歸屬嚴格分離
 </div>
 
+{actor_summary_html}
+
 <h2>一、時序鏈（{n_events} 個事件）</h2>
 
 <div class="timeline">
@@ -216,6 +218,76 @@ def render_actors(conn, issue: str) -> str:
     return "\n".join(out)
 
 
+# actor_type 中文標籤(供 summary chip 用)
+_TYPE_LABEL = {
+    "ngo": "NGO", "govt_agency": "政府", "court": "法院",
+    "committee_member": "國際委員", "legislator": "立委",
+    "intl_actor": "國際組織", "academic": "學界",
+    "private_media": "媒體", "media": "媒體",
+    "industry_assoc": "產業", "public": "公眾",
+}
+_TYPE_COLOR = {
+    "ngo": "#B5371F", "govt_agency": "#0E2238", "court": "#5D3A1A",
+    "committee_member": "#8B6F50", "legislator": "#44638A",
+    "intl_actor": "#8B6F50", "academic": "#4f4f4f",
+    "private_media": "#6d28d9", "media": "#6d28d9",
+    "industry_assoc": "#5C1A1B", "public": "#8A8A8A",
+}
+
+
+def render_actor_summary(conn, issue: str) -> str:
+    """產生「本議題行動者」chip 群組,放在頁首讓讀者一眼看到參與者"""
+    cur = conn.execute(
+        """SELECT a.actor_id, a.name, a.actor_type, a.position_spectrum,
+                  COUNT(e.event_id) AS n_events
+           FROM actor a JOIN event e ON e.actor_id=a.actor_id
+           WHERE e.issue_tags LIKE ?
+           GROUP BY a.actor_id
+           ORDER BY a.actor_type, n_events DESC, a.name""",
+        (f"%{issue}%",),
+    )
+    rows = cur.fetchall()
+    if not rows:
+        return ""
+
+    # 按 type 分組
+    by_type: dict[str, list] = {}
+    for actor_id, name, typ, pos, n_evt in rows:
+        by_type.setdefault(typ, []).append((actor_id, name, pos, n_evt))
+
+    # 排序:NGO 優先,再政府,再其他
+    type_order = ["ngo", "govt_agency", "court", "committee_member", "legislator",
+                  "intl_actor", "academic", "private_media", "media", "industry_assoc", "public"]
+    sorted_types = sorted(by_type.keys(), key=lambda t: type_order.index(t) if t in type_order else 99)
+
+    parts = [
+        '<section style="margin:24px 0;padding:18px 20px;background:#F1EFEA;border-left:3px solid #0E2238;border-radius:3px">',
+        f'<h2 style="font-family:\'Noto Serif TC\',serif;font-size:18px;color:#0E2238;margin-bottom:6px">本議題行動者({len(rows)} 位)</h2>',
+        '<p style="font-size:12.5px;color:#5C5C5C;margin-bottom:12px">含立場光譜 + 參與事件數,點按可至 <a href="../actors/index.html" style="color:#B5371F">行動者目錄</a> 查全部 107 位。</p>',
+    ]
+    for typ in sorted_types:
+        actors = by_type[typ]
+        t_label = _TYPE_LABEL.get(typ, typ)
+        t_color = _TYPE_COLOR.get(typ, "#8A8A8A")
+        parts.append(
+            f'<div style="margin-bottom:10px">'
+            f'<div style="font-size:12px;font-weight:600;color:#5C5C5C;margin-bottom:4px">{t_label}({len(actors)})</div>'
+            f'<div style="display:flex;flex-wrap:wrap;gap:5px">'
+        )
+        for actor_id, name, pos, n_evt in actors:
+            pos_text = f' · {html.escape(pos)}' if pos else ''
+            parts.append(
+                f'<span style="display:inline-flex;align-items:center;gap:4px;padding:3px 8px;background:#fff;border:1px solid #DDD8CD;border-radius:3px;font-size:11.5px">'
+                f'<span style="font-family:Inter,sans-serif;font-size:9px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:1px 5px;border-radius:2px;background:{t_color};color:#fff">{t_label}</span>'
+                f'<span style="color:#1F1F1F">{html.escape(name)}{pos_text}</span>'
+                f'<span style="font-family:Inter,sans-serif;font-size:10px;color:#8A8A8A">{n_evt} 事件</span>'
+                f'</span>'
+            )
+        parts.append('</div></div>')
+    parts.append('</section>')
+    return "\n".join(parts)
+
+
 def render_outcomes(conn, issue: str) -> str:
     cur = conn.execute(
         """SELECT oi.metric_name, oi.before_value, oi.before_year, oi.after_value, oi.after_year,
@@ -245,6 +317,7 @@ def render_one(conn, issue: str, slug: str) -> Path:
     links_html, n_links = render_links(conn, issue)
     actors_html = render_actors(conn, issue)
     outcomes_html = render_outcomes(conn, issue)
+    actor_summary_html = render_actor_summary(conn, issue)
     final = HTML_TPL.format(
         issue=html.escape(issue),
         n_events=n_events,
@@ -253,6 +326,7 @@ def render_one(conn, issue: str, slug: str) -> Path:
         links_html=links_html,
         actors_html=actors_html,
         outcomes_html=outcomes_html,
+        actor_summary_html=actor_summary_html,
     )
     out_path = OUT_DIR / f"{slug}.html"
     out_path.write_text(final, encoding="utf-8")

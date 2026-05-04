@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<!-- aabe-insider-gate --><script src="../insider-gate.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>內部工作區 · v0.3 規劃中 — 兩公約監督平台</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7; --bg-alt: #F1EFEA; --bg-deep: #0E2238;
+  --text: #1F1F1F; --text-muted: #5C5C5C;
+  --brand: #B5371F; --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A; --cycle-icescr: #5C1A1B;
+  --border: #DDD8CD;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; min-height:100vh; display:flex; flex-direction:column; }
+.color-strip { display:flex; height:5px; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+main { flex:1; max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+.nav { font-size: 14px; margin-bottom: 24px; }
+.nav a { color: var(--brand); text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 14px; }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--aabe-gold); color: #fff; border-radius: 3px; font-family: var(--sans-en); font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; color: var(--bg-deep); margin: 16px 0 12px; line-height: 1.25; }
+.lead { font-size: 15.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
+
+.tool-card { background: #fff; border: 1px solid var(--border); border-radius: 4px; padding: 18px 22px; margin-bottom: 14px; }
+.tool-card h2 { font-family: var(--serif); font-size: 18px; color: var(--bg-deep); margin-bottom: 6px; }
+.tool-card .desc { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 8px; }
+.tool-card .status { display: inline-flex; gap: 6px; align-items: center; font-size: 11.5px; color: var(--text-muted); margin-top: 6px; }
+.tool-card .status .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--aabe-gold); display: inline-block; }
+.tool-card .est-version { font-family: var(--sans-en); font-size: 11px; color: var(--brand); padding: 1px 6px; background: rgba(181,55,31,0.08); border-radius: 2px; }
+
+.cta { margin-top: 32px; padding: 20px; background: var(--bg-alt); border-left: 3px solid var(--bg-deep); }
+.cta h3 { font-family: var(--serif); font-size: 17px; color: var(--bg-deep); margin-bottom: 8px; }
+.cta p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; }
+.cta a { color: var(--brand); }
+
+.footer { padding: 24px; text-align: center; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 48px; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<main>
+  <div class="nav"><a href="../index.html">← 回首頁</a></div>
+
+  <span class="badge">內部工作區 · v0.3 規劃中</span>
+  <h1>四項內部協作工具(規劃中)</h1>
+  <p class="lead">
+    本平台之公開層(16 PI / 21 trace / 107 actor / 6 法律 / 5 audience 影子報告 / 4 dashboard 圖)已上線。
+    內部協作工具屬 v0.3 規劃,預計 2026-Q3 隨第四屆審查週期同步開放給 AABE 自家人使用。
+  </p>
+
+  <div class="tool-card">
+    <h2>倡議追蹤矩陣 <span class="est-version">v0.3</span></h2>
+    <div class="desc">
+      矩陣式呈現「我方 / 各議題 / 對手立場 / 已執行 / 待跟進」,
+      協助 AABE 內部跨議題盤點當前倡議優先順序,連動 16 PI 之 P0-P3 priority。
+      規劃結合 22 條核心條文 × 7 主管機關之熱圖。
+    </div>
+    <div class="status"><span class="dot"></span> 設計階段 · 預計 2026-08 開發</div>
+  </div>
+
+  <div class="tool-card">
+    <h2>影子報告產生器 <span class="est-version">v0.3</span></h2>
+    <div class="desc">
+      互動式組合 5 audience 之段落 + PI 卡內容,協助 AABE 自家人快速生成
+      投書 / 公聽會發言稿 / 立委質詢備忘錄之初稿。
+      已有後端基礎(<code style="background:#FAFAF7;padding:1px 4px">shadow_report/compile.py</code>),
+      待加 web 互動層。
+    </div>
+    <div class="status"><span class="dot"></span> 後端就緒 · 待前端 UI</div>
+  </div>
+
+  <div class="tool-card">
+    <h2>倡議工作底稿(drafts/)<span class="est-version">v0.3</span></h2>
+    <div class="desc">
+      公開頁面之前的草稿管理區,含 PI 卡編輯、影子報告階段稿、新增議題之 trace seed 編輯。
+      可結合 Decap CMS(設定已備但 OAuth 流程未啟用)或保留為 git 編輯模式。
+    </div>
+    <div class="status"><span class="dot"></span> 待決定:Decap CMS or markdown native</div>
+  </div>
+
+  <div class="tool-card">
+    <h2>自我問責(self-audit)<span class="est-version">v0.3</span></h2>
+    <div class="desc">
+      內部紅線檢查表 + 雙面 Steelman 對等強度自評 + 議程透明度 z-score 月度警示。
+      涵蓋 about.html 之 5 條紅線(脈絡 not 責任 / counter_evidence / chain depth ≤3 /
+      正負並陳 / 立場 vs 問責分離)之機械式自檢。
+    </div>
+    <div class="status"><span class="dot"></span> 紅線已定義 · 待自動檢核 SQL</div>
+  </div>
+
+  <div class="cta">
+    <h3>目前可用之公開工具</h3>
+    <p>
+      若您正在尋找對應功能,以下為已上線之公開工具:<br><br>
+      <strong>追蹤現況</strong>:<a href="../trace/index.html">議題脈絡追溯</a>(21 議題)·
+      <a href="../actors/index.html">行動者目錄</a>(107 位)<br>
+      <strong>產生稿件</strong>:<a href="../shadow_reports/index.html">5 audience 影子報告</a>(已自動編譯)<br>
+      <strong>底稿管理</strong>:暫由 git 工作流負責(直接編輯 <code style="background:#fff;padding:1px 4px">data/policy_issues/PI-*.md</code>)<br>
+      <strong>議程透明度</strong>:<a href="../agenda_transparency.html">z-score outliers 月度報告</a>
+    </p>
+  </div>
+</main>
+<div class="footer">
+  本頁屬內部工作區 · 非公開內容 · noindex<br>
+  © 2026 國教行動聯盟 AABE
+</div>
+</body>
+</html>
