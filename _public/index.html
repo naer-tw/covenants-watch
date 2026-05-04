@@ -1744,83 +1744,69 @@ footer .credit {
         </div>
 
         <h4>屆別</h4>
-        <label class="filter-row"><input type="checkbox" checked> 第一屆 (2013) · 81 點</label>
-        <label class="filter-row"><input type="checkbox" checked> 第二屆 (2017) · 78 點</label>
-        <label class="filter-row"><input type="checkbox" checked> 第三屆 (2022) · 91 點</label>
-        <label class="filter-row"><input type="checkbox" checked> 第四屆 (2026 預定) · 12 委員</label>
+        <label class="filter-row"><input type="checkbox" class="docs-cycle" data-cycle="1" checked> 第一屆 (2013) · 81 點</label>
+        <label class="filter-row"><input type="checkbox" class="docs-cycle" data-cycle="2" checked> 第二屆 (2017) · 78 點</label>
+        <label class="filter-row"><input type="checkbox" class="docs-cycle" data-cycle="3" checked> 第三屆 (2022) · 91 點</label>
+        <label class="filter-row"><input type="checkbox" class="docs-cycle" data-cycle="4" checked> 第四屆 (2025-2026) · 進行中</label>
 
         <h4>公約別</h4>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:var(--cycle-iccpr)"></span>ICCPR 公政公約<span class="count">22 條</span></label>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:var(--cycle-icescr)"></span>ICESCR 經社文公約<span class="count">15 條</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-covenant" data-covenant="ICCPR" checked><span class="swatch" style="background:var(--cycle-iccpr)"></span>ICCPR 公政公約</label>
+        <label class="filter-row"><input type="checkbox" class="docs-covenant" data-covenant="ICESCR" checked><span class="swatch" style="background:var(--cycle-icescr)"></span>ICESCR 經社文公約</label>
 
         <h4>文件類型</h4>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:#1F3D6B"></span>國家報告 (NR)<span class="count">4</span></label>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:#2D7059"></span>結論性意見 (CO)<span class="count">250+</span></label>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:#C68822"></span>人權行動計畫 (NAP)<span class="count">2</span></label>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:#4B2480"></span>民間影子報告<span class="count">~8</span></label>
-        <label class="filter-row"><input type="checkbox"><span class="swatch" style="background:#EF4444"></span>議題前問題清單 (LOI)<span class="count">—</span></label>
-        <label class="filter-row"><input type="checkbox"><span class="swatch" style="background:#475569"></span>政府書面回應<span class="count">—</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="shadow_report" checked><span class="swatch" style="background:#B5371F"></span>民間影子報告<span class="count" id="cnt-shadow_report">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="co_paragraph" checked><span class="swatch" style="background:#5C1A1B"></span>結論性意見 (CO)<span class="count" id="cnt-co_paragraph">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="legislation" checked><span class="swatch" style="background:#0E2238"></span>立法 / 修法<span class="count" id="cnt-legislation">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="govt_response" checked><span class="swatch" style="background:#5D3A1A"></span>政府回應<span class="count" id="cnt-govt_response">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="court_ruling" checked><span class="swatch" style="background:#4f4f4f"></span>司法判決<span class="count" id="cnt-court_ruling">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="public_opinion" checked><span class="swatch" style="background:#44638A"></span>公民倡議<span class="count" id="cnt-public_opinion">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="outcome" checked><span class="swatch" style="background:#2D5F3E"></span>結果指標<span class="count" id="cnt-outcome">0</span></label>
+        <label class="filter-row"><input type="checkbox" class="docs-type" data-type="intl_actor" checked><span class="swatch" style="background:#6d28d9"></span>國際行動者<span class="count" id="cnt-intl_actor">0</span></label>
 
         <h4>議題分類</h4>
-        <div class="filter-tag-row">
-          <span class="filter-tag active">兒少自殺</span>
-          <span class="filter-tag">同性婚姻</span>
-          <span class="filter-tag">廢死</span>
-          <span class="filter-tag">宗教自由</span>
-          <span class="filter-tag">原住民族</span>
-          <span class="filter-tag">移工</span>
-          <span class="filter-tag">言論自由</span>
-          <span class="filter-tag">教育權</span>
-          <span class="filter-tag">健康權</span>
+        <div class="filter-tag-row" id="docs-issue-tags">
+          <!-- JS 動態填入 -->
+          <span class="filter-tag active" data-issue="all">全部</span>
         </div>
 
         <h4>提出單位</h4>
-        <select class="filter-select">
+        <select class="filter-select" id="docs-actor-select">
           <option value="">所有單位</option>
-          <option value="cw" selected>人約盟(CovenantsWatch)⭐ 主協調者</option>
-          <option value="aabe">國教盟 (AABE) — 健康教育 / 父母選擇權</option>
-          <option value="jrf">民間司改會 — 公平審判</option>
-          <option value="taedp">廢死聯盟 — ICCPR §6 廢死</option>
-          <option value="tahr">台灣人權促進會 — 言論自由 / 隱私</option>
-          <option value="tiwa">移工聯盟 TIWA — ICESCR §6/§7</option>
-          <option value="dfli">原民團體 — ICCPR §27 自決權</option>
-          <option value="dfx">宗教團體聯合 — ICCPR §18</option>
-          <option value="gov">政府機關</option>
+          <!-- JS 動態填入 actor_id 與名稱 -->
         </select>
         <p style="font-size: 11px; color: var(--text-muted); margin-top: 6px; line-height: 1.4;">
-          可看出該團體的倡議在歷屆 CO / NAP / NR 的採納路徑
+          下拉選擇即可篩選 — 可看出該團體在歷屆 CO / NAP / 影子報告之倡議軌跡
         </p>
 
         <h4>公約條文</h4>
-        <input type="text" class="filter-input" placeholder="例如:ICCPR §18(宗教自由)">
+        <input type="text" class="filter-input" id="docs-article-input" placeholder="例:ICCPR §18 / §19 / §26 / ICESCR §12">
 
         <h4>採納狀態</h4>
-        <label class="filter-row"><input type="checkbox"><span class="swatch" style="background:var(--success)"></span>已採納</label>
-        <label class="filter-row"><input type="checkbox"><span class="swatch" style="background:#C68822"></span>部分採納</label>
-        <label class="filter-row"><input type="checkbox" checked><span class="swatch" style="background:var(--warning)"></span>未採納(優先)</label>
+        <label class="filter-row"><input type="checkbox" id="docs-status-positive" data-status="positive"><span class="swatch" style="background:var(--success)"></span>已採納 / 正向結果</label>
+        <label class="filter-row"><input type="checkbox" id="docs-status-mixed" data-status="mixed"><span class="swatch" style="background:#C68822"></span>部分採納 / 結果未明</label>
+        <label class="filter-row"><input type="checkbox" id="docs-status-negative" data-status="negative"><span class="swatch" style="background:var(--warning)"></span>未採納 / 負向結果</label>
       </aside>
 
       <!-- 文件清單 -->
       <div>
         <div class="docs-toolbar">
-          <span class="count-info">顯示 <b>8</b> 筆 / 共 ~50 筆 · 已套用 <b>提出單位:人約盟</b></span>
+          <span class="count-info" id="docs-count-info">載入中…</span>
           <div style="display: flex; gap: var(--space-2); align-items: center;">
-            <div class="view-tabs" role="tablist">
-              <button class="view-tab active" role="tab">列表</button>
-              <button class="view-tab" role="tab">時間軸</button>
-              <button class="view-tab" role="tab">關係圖</button>
-            </div>
-            <select class="filter-select" style="width: auto; min-width: 130px; font-size: 12.5px;">
-              <option>排序:相關度</option>
-              <option>發表日期 ↓</option>
-              <option>屆別</option>
-              <option>採納率</option>
+            <select class="filter-select" id="docs-sort" style="width: auto; min-width: 150px; font-size: 12.5px;">
+              <option value="date_desc">排序:發表日期 ↓</option>
+              <option value="date_asc">發表日期 ↑</option>
+              <option value="title">標題 A-Z</option>
+              <option value="type">文件類型</option>
             </select>
           </div>
         </div>
 
-        <div class="doc-list">
-
+        <div class="doc-list" id="docs-list">
+          <!-- JS 動態填入 -->
+          <div style="text-align:center;padding:40px;color:var(--text-muted);font-size:14px">載入文件中…</div>
+        </div>
+        <!-- HARDCODE_DOCS_REPLACED -->
+        <div style="display:none">
           <a href="shadow_reports/professional.html" class="doc-card featured-doc">
             <span class="doc-stripe" style="background:var(--aabe-gold)"></span>
             <div class="doc-body">
@@ -1971,20 +1957,386 @@ footer .credit {
           </a>
 
         </div>
+        <!-- /HARDCODE_DOCS_REPLACED -->
 
-        <div style="display: flex; justify-content: center; gap: 4px; margin-top: var(--space-4); font-size: 13px;">
-          <button class="view-tab" style="color: var(--text-muted)">‹ 上頁</button>
-          <button class="view-tab active" style="background: var(--bg-deep); color: #fff;">1</button>
-          <button class="view-tab">2</button>
-          <button class="view-tab">3</button>
-          <span style="padding: 5px 8px; color: var(--text-muted)">...</span>
-          <button class="view-tab">18</button>
-          <button class="view-tab" style="color: var(--text-muted)">下頁 ›</button>
-        </div>
+        <div id="docs-pagination" style="display: flex; justify-content: center; gap: 4px; margin-top: var(--space-4); font-size: 13px;"></div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+/* ─── 文件資料庫 動態載入 + 篩選 + 分頁 ──────────────── */
+(function () {
+  var allDocs = [];          // 載入後的全部文件
+  var allActors = {};        // actor_id → name 對照
+  var allIssues = new Set(); // 全部議題標籤
+  var state = {
+    cycles: [1, 2, 3, 4],
+    covenants: ['ICCPR', 'ICESCR'],
+    types: new Set(['shadow_report','co_paragraph','legislation','govt_response','court_ruling','public_opinion','outcome','intl_actor']),
+    issue: 'all',
+    actorId: '',
+    article: '',
+    statuses: new Set(),  // empty = no filter
+    sort: 'date_desc',
+    page: 1,
+    pageSize: 10,
+  };
+
+  var TYPE_LABEL = {
+    shadow_report: '影子報告', co_paragraph: '結論性意見',
+    legislation: '立法', govt_response: '政府回應',
+    court_ruling: '司法判決', public_opinion: '公民倡議',
+    outcome: '結果指標', intl_actor: '國際行動者',
+    committee_question: '委員質詢',
+  };
+  var TYPE_COLOR = {
+    shadow_report: '#B5371F', co_paragraph: '#5C1A1B',
+    legislation: '#0E2238', govt_response: '#5D3A1A',
+    court_ruling: '#4f4f4f', public_opinion: '#44638A',
+    outcome: '#2D5F3E', intl_actor: '#6d28d9',
+    committee_question: '#8B6F50',
+  };
+
+  function inferCycle(date) {
+    if (!date) return null;
+    var year = parseInt((date.match(/\d{4}/) || [''])[0]) || 0;
+    if (year >= 2009 && year <= 2014) return 1;
+    if (year >= 2015 && year <= 2018) return 2;
+    if (year >= 2019 && year <= 2023) return 3;
+    if (year >= 2024) return 4;
+    return null;
+  }
+
+  function inferCovenant(article) {
+    if (!article) return [];
+    var cov = [];
+    if (/ICCPR/i.test(article)) cov.push('ICCPR');
+    if (/ICESCR/i.test(article)) cov.push('ICESCR');
+    return cov;
+  }
+
+  function inferStatus(ev) {
+    if (ev.is_positive_outcome === 1 || ev.is_positive_outcome === '1') return 'positive';
+    if (ev.is_positive_outcome === 0 || ev.is_positive_outcome === '0') return 'negative';
+    return 'mixed';
+  }
+
+  function escapeHTML(s) {
+    if (s == null) return '';
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderCard(doc) {
+    var typeColor = TYPE_COLOR[doc.event_type] || '#8B6F50';
+    var typeLabel = TYPE_LABEL[doc.event_type] || doc.event_type;
+    var cycle = inferCycle(doc.event_date);
+    var actorName = doc.actor_id && allActors[doc.actor_id] ? allActors[doc.actor_id] : '';
+    var status = inferStatus(doc);
+    var statusLabel = { positive: '正向結果', mixed: '結果未明', negative: '負向結果 / 未採納' }[status];
+    var statusClass = { positive: 'adoption-good', mixed: 'adoption-mid', negative: 'adoption-bad' }[status];
+
+    // 連結:若有 related_pi 連到 PI 卡;否則 search.html?q=
+    var href = 'search.html?q=' + encodeURIComponent(doc.title || '');
+    if (doc.related_pi) {
+      var pi = doc.related_pi.replace(/[\[\]"]/g, '').split(',')[0].trim();
+      if (/^PI-\d+$/.test(pi)) href = 'issues/' + pi + '.html';
+    }
+
+    var pills = [];
+    pills.push('<span class="pill" style="background:' + typeColor + ';color:#fff">' + escapeHTML(typeLabel) + '</span>');
+    if (cycle) pills.push('<span class="pill pill-meta">第 ' + cycle + ' 屆</span>');
+    pills.push('<span class="pill pill-meta">' + escapeHTML(doc.event_date || '') + '</span>');
+    if (doc.related_article) {
+      pills.push('<span class="pill pill-cycle" style="background:#5C1A1B;color:#fff">' + escapeHTML(doc.related_article.slice(0, 30)) + '</span>');
+    }
+
+    var issueTags = '';
+    if (doc.issue_tags) {
+      try {
+        var tags = JSON.parse(doc.issue_tags);
+        issueTags = tags.slice(0, 3).map(function(t){return '<span style="display:inline-block;padding:1px 6px;background:#F1EFEA;border-radius:2px;font-size:10.5px;color:#5C5C5C;margin-right:3px">' + escapeHTML(t) + '</span>';}).join('');
+      } catch (e) {
+        issueTags = '<span style="display:inline-block;padding:1px 6px;background:#F1EFEA;border-radius:2px;font-size:10.5px;color:#5C5C5C">' + escapeHTML(doc.issue_tags) + '</span>';
+      }
+    }
+
+    return '<a href="' + href + '" class="doc-card">' +
+      '<span class="doc-stripe" style="background:' + typeColor + '"></span>' +
+      '<div class="doc-body">' +
+        '<div class="doc-pills">' + pills.join('') + '</div>' +
+        '<h3>' + escapeHTML(doc.title || '(未命名)') + '</h3>' +
+        (actorName ? '<div class="doc-issuer">提出:<span class="ngo-tag">' + escapeHTML(actorName) + '</span></div>' : '') +
+        '<p class="doc-excerpt">' + escapeHTML((doc.summary || '').slice(0, 220)) + '</p>' +
+        '<div class="doc-stats">' +
+          (issueTags || '') +
+          '<span class="' + statusClass + '">' + statusLabel + '</span>' +
+        '</div>' +
+      '</div>' +
+    '</a>';
+  }
+
+  function applyFilter() {
+    var filtered = allDocs.filter(function (d) {
+      // 類型
+      if (!state.types.has(d.event_type)) return false;
+      // 屆別
+      var cycle = inferCycle(d.event_date);
+      if (cycle && state.cycles.indexOf(cycle) === -1) return false;
+      // 公約
+      var cov = inferCovenant(d.related_article);
+      if (cov.length > 0) {
+        var anyMatch = cov.some(function(c) { return state.covenants.indexOf(c) !== -1; });
+        if (!anyMatch) return false;
+      }
+      // 議題分類
+      if (state.issue && state.issue !== 'all') {
+        if (!d.issue_tags || d.issue_tags.indexOf(state.issue) === -1) return false;
+      }
+      // 提出單位
+      if (state.actorId && d.actor_id !== state.actorId) return false;
+      // 條文
+      if (state.article) {
+        if (!d.related_article || d.related_article.indexOf(state.article) === -1) return false;
+      }
+      // 採納狀態
+      if (state.statuses.size > 0) {
+        if (!state.statuses.has(inferStatus(d))) return false;
+      }
+      return true;
+    });
+
+    // 排序
+    filtered.sort(function (a, b) {
+      if (state.sort === 'date_desc') return (b.event_date || '').localeCompare(a.event_date || '');
+      if (state.sort === 'date_asc')  return (a.event_date || '').localeCompare(b.event_date || '');
+      if (state.sort === 'title')     return (a.title || '').localeCompare(b.title || '', 'zh');
+      if (state.sort === 'type')      return (a.event_type || '').localeCompare(b.event_type || '');
+      return 0;
+    });
+
+    // 分頁
+    var total = filtered.length;
+    var totalPages = Math.max(1, Math.ceil(total / state.pageSize));
+    if (state.page > totalPages) state.page = 1;
+    var start = (state.page - 1) * state.pageSize;
+    var pageDocs = filtered.slice(start, start + state.pageSize);
+
+    // 描述 toolbar
+    var info = '顯示 <b>' + (start + 1) + '-' + (start + pageDocs.length) + '</b> 筆 / 共 <b>' + total + '</b> 筆';
+    var filters = [];
+    if (state.actorId && allActors[state.actorId]) filters.push('提出單位:' + allActors[state.actorId]);
+    if (state.issue !== 'all') filters.push('議題:' + state.issue);
+    if (state.article) filters.push('條文:' + state.article);
+    if (state.statuses.size > 0) filters.push('狀態:' + Array.from(state.statuses).join('/'));
+    if (filters.length) info += ' · 已套用 <b>' + filters.join(' + ') + '</b>';
+    document.getElementById('docs-count-info').innerHTML = info;
+
+    // 卡片
+    var listEl = document.getElementById('docs-list');
+    listEl.innerHTML = pageDocs.length === 0
+      ? '<div style="text-align:center;padding:40px;color:#5C5C5C;font-size:14px">無符合條件之文件,請放寬篩選</div>'
+      : pageDocs.map(renderCard).join('');
+
+    // 分頁
+    var pagEl = document.getElementById('docs-pagination');
+    if (totalPages <= 1) {
+      pagEl.innerHTML = '';
+    } else {
+      var pagHTML = '';
+      pagHTML += '<button class="view-tab" data-page="' + (state.page - 1) + '"' + (state.page === 1 ? ' disabled' : '') + ' style="' + (state.page === 1 ? 'color:#8A8A8A' : '') + '">‹ 上頁</button>';
+      // 頁碼:1, 2, 3, ..., last
+      var pages = [];
+      if (totalPages <= 7) {
+        for (var i = 1; i <= totalPages; i++) pages.push(i);
+      } else {
+        pages = [1];
+        if (state.page > 3) pages.push('…');
+        for (var p = Math.max(2, state.page - 1); p <= Math.min(totalPages - 1, state.page + 1); p++) pages.push(p);
+        if (state.page < totalPages - 2) pages.push('…');
+        pages.push(totalPages);
+      }
+      pages.forEach(function (p) {
+        if (p === '…') {
+          pagHTML += '<span style="padding:5px 8px;color:#8A8A8A">…</span>';
+        } else {
+          var active = p === state.page ? ' style="background:#0E2238;color:#fff" class="view-tab active"' : ' class="view-tab"';
+          pagHTML += '<button data-page="' + p + '"' + active + '>' + p + '</button>';
+        }
+      });
+      pagHTML += '<button class="view-tab" data-page="' + (state.page + 1) + '"' + (state.page === totalPages ? ' disabled' : '') + ' style="' + (state.page === totalPages ? 'color:#8A8A8A' : '') + '">下頁 ›</button>';
+      pagEl.innerHTML = pagHTML;
+      pagEl.querySelectorAll('button[data-page]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var p = parseInt(btn.dataset.page);
+          if (p >= 1 && p <= totalPages) {
+            state.page = p;
+            applyFilter();
+            document.getElementById('documents').scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        });
+      });
+    }
+  }
+
+  function populateIssueFilter() {
+    var issueRow = document.getElementById('docs-issue-tags');
+    var issuesList = Array.from(allIssues).sort();
+    var html = '<span class="filter-tag active" data-issue="all">全部</span>';
+    issuesList.forEach(function (issue) {
+      html += '<span class="filter-tag" data-issue="' + escapeHTML(issue) + '">' + escapeHTML(issue) + '</span>';
+    });
+    issueRow.innerHTML = html;
+    issueRow.querySelectorAll('.filter-tag').forEach(function (tag) {
+      tag.addEventListener('click', function () {
+        issueRow.querySelectorAll('.filter-tag').forEach(function(t){t.classList.remove('active');});
+        tag.classList.add('active');
+        state.issue = tag.dataset.issue;
+        state.page = 1;
+        applyFilter();
+      });
+    });
+  }
+
+  function populateActorFilter() {
+    var sel = document.getElementById('docs-actor-select');
+    // 統計每個 actor 之文件數
+    var counts = {};
+    allDocs.forEach(function (d) {
+      if (d.actor_id) counts[d.actor_id] = (counts[d.actor_id] || 0) + 1;
+    });
+    var actorList = Object.keys(counts).map(function (aid) {
+      return { id: aid, name: allActors[aid] || aid, count: counts[aid] };
+    }).sort(function (a, b) { return b.count - a.count; });
+    var html = '<option value="">所有單位 (' + allDocs.length + ')</option>';
+    actorList.forEach(function (a) {
+      html += '<option value="' + escapeHTML(a.id) + '">' + escapeHTML(a.name) + ' (' + a.count + ')</option>';
+    });
+    sel.innerHTML = html;
+    sel.addEventListener('change', function () {
+      state.actorId = sel.value;
+      state.page = 1;
+      applyFilter();
+    });
+  }
+
+  function updateTypeCounts() {
+    Object.keys(TYPE_LABEL).forEach(function (t) {
+      var n = allDocs.filter(function(d){return d.event_type === t;}).length;
+      var el = document.getElementById('cnt-' + t);
+      if (el) el.textContent = n;
+    });
+  }
+
+  function bindFilters() {
+    // 屆別
+    document.querySelectorAll('.docs-cycle').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        state.cycles = Array.from(document.querySelectorAll('.docs-cycle:checked')).map(function(x){return parseInt(x.dataset.cycle);});
+        state.page = 1;
+        applyFilter();
+      });
+    });
+    // 公約別
+    document.querySelectorAll('.docs-covenant').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        state.covenants = Array.from(document.querySelectorAll('.docs-covenant:checked')).map(function(x){return x.dataset.covenant;});
+        state.page = 1;
+        applyFilter();
+      });
+    });
+    // 文件類型
+    document.querySelectorAll('.docs-type').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        state.types = new Set(Array.from(document.querySelectorAll('.docs-type:checked')).map(function(x){return x.dataset.type;}));
+        state.page = 1;
+        applyFilter();
+      });
+    });
+    // 條文輸入
+    var artInput = document.getElementById('docs-article-input');
+    var artDeb;
+    artInput.addEventListener('input', function () {
+      clearTimeout(artDeb);
+      artDeb = setTimeout(function () {
+        state.article = artInput.value.trim();
+        state.page = 1;
+        applyFilter();
+      }, 200);
+    });
+    // 採納狀態
+    document.querySelectorAll('input[data-status]').forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        state.statuses = new Set(Array.from(document.querySelectorAll('input[data-status]:checked')).map(function(x){return x.dataset.status;}));
+        state.page = 1;
+        applyFilter();
+      });
+    });
+    // 排序
+    document.getElementById('docs-sort').addEventListener('change', function (e) {
+      state.sort = e.target.value;
+      applyFilter();
+    });
+    // 清除
+    document.querySelector('#documents .docs-sidebar .clear').addEventListener('click', function () {
+      state.cycles = [1,2,3,4];
+      state.covenants = ['ICCPR','ICESCR'];
+      state.types = new Set(['shadow_report','co_paragraph','legislation','govt_response','court_ruling','public_opinion','outcome','intl_actor']);
+      state.issue = 'all';
+      state.actorId = '';
+      state.article = '';
+      state.statuses = new Set();
+      state.page = 1;
+      // reset UI
+      document.querySelectorAll('.docs-cycle, .docs-covenant, .docs-type').forEach(function(cb){cb.checked = true;});
+      document.querySelectorAll('input[data-status]').forEach(function(cb){cb.checked = false;});
+      document.getElementById('docs-actor-select').value = '';
+      document.getElementById('docs-article-input').value = '';
+      document.querySelectorAll('#docs-issue-tags .filter-tag').forEach(function(t){t.classList.remove('active');});
+      var allTag = document.querySelector('#docs-issue-tags .filter-tag[data-issue="all"]');
+      if (allTag) allTag.classList.add('active');
+      applyFilter();
+    });
+  }
+
+  // 載入資料
+  Promise.all([
+    fetch('api/timeline.json').then(function(r){return r.json();}),
+    fetch('api/trace.json').then(function(r){return r.json();}),
+  ]).then(function (results) {
+    var timeline = results[0];
+    var trace = results[1];
+    // timeline.items 含 events + amendments,我們以 events 為主(過濾掉 amendment)
+    allDocs = (timeline.items || []).filter(function (d) {
+      // 排除 amendment(已在 laws 頁)
+      return d.source !== 'amendment';
+    });
+    // 取 actors 對照
+    (trace.actors || []).forEach(function (a) {
+      allActors[a.actor_id] = a.name;
+    });
+    // 蒐集議題標籤
+    allDocs.forEach(function (d) {
+      if (d.issue_tags) {
+        try {
+          JSON.parse(d.issue_tags).forEach(function(t){allIssues.add(t);});
+        } catch (e) {}
+      }
+    });
+    updateTypeCounts();
+    populateIssueFilter();
+    populateActorFilter();
+    bindFilters();
+    applyFilter();
+  }).catch(function (err) {
+    console.error('docs load failed', err);
+    document.getElementById('docs-list').innerHTML = '<div style="text-align:center;padding:40px;color:#B5371F;font-size:14px">載入失敗:' + err.message + '</div>';
+  });
+})();
+</script>
 
 <!-- ━━━━━━━━━━━━━ Topic index ━━━━━━━━━━━━━ -->
 <section class="topic-index" aria-label="主題索引">
