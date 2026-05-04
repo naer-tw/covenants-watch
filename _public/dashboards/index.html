@@ -92,6 +92,9 @@
 </tbody>
 </table>
 
+<div class="embed-frame" style="display:block;height:auto;padding:16px"><canvas id="chart-fh" style="max-height:340px"></canvas></div>
+<p style="font-size:12px;color:#888;margin-top:6px"><strong>觀察點</strong>:總分 9 年高位穩定(91-94),但 <strong>2026 公民自由(Civil Liberties)首次下降 1 分(56→55)</strong>,為早期訊號值得追蹤。</p>
+
 <h2>3. 青少年自殺率（2018-2025）</h2>
 <p>對應議題：<a href="../issues/PI-11.html">PI-11 ICESCR 第 12 條健康權</a></p>
 
@@ -108,7 +111,19 @@
 </tbody>
 </table>
 
-<h3>政策投入時間軸</h3>
+<div class="embed-frame" style="display:block;height:auto;padding:16px"><canvas id="chart-suicide" style="max-height:340px"></canvas></div>
+<p style="font-size:12px;color:#888;margin-top:6px"><strong>口徑說明</strong>:藍線為 15-19 歲(衛福部死因統計);橙線為 OECD 10-24 歲口徑(可跨國比較)。 z-score 3.12 表 2023 年 7.0/十萬高於 OECD 平均 6.5/十萬之 outlier。</p>
+
+<h2 id="article-citations">4. 條文援引頻率(立法院公報 2009-2026)</h2>
+<p>對應議題:<a href="../issues/PI-13.html">PI-13 立法院公報量化分析</a> · <a href="../issues/PI-12.html">PI-12 條文援引頻率對稱性</a></p>
+<p style="font-size:12px;color:#888;margin-bottom:8px"><em>初稿:基於 22 條核心條文之 Wave 132 結構性 advocacy events 計數 + 既有 PI-13 試辦版資料,完整實證待立法院 API token 取得後補</em></p>
+
+<div class="embed-frame" style="display:block;height:auto;padding:16px"><canvas id="chart-articles" style="max-height:380px"></canvas></div>
+<p style="font-size:12px;color:#888;margin-top:6px"><strong>不對稱觀察</strong>:§19(言論)與 §26(不歧視)合計超過總援引 60%,§18(宗教)、§22(集會)、§13-3(父母教育選擇權)合計不足 5%。</p>
+
+<h2>5. NAP 第一期(2022-2024)</h2>
+
+<h3 id="policy-timeline">兒少自殺政策投入時間軸</h3>
 <ul>
   <li>2014：學生輔導法施行</li>
   <li>2022：縣市輔諮中心人力 83% 達成率</li>
@@ -118,8 +133,8 @@
   <li>2025：全民心理健康韌性計畫 2025-2030 啟動</li>
 </ul>
 
-<h2>4. NAP 第一期（2022-2024）</h2>
-<p>對應議題：<a href="../issues/PI-05.html">PI-05 第一期 NAP 執行率</a></p>
+<h2>6. NAP 第一期(2022-2024)</h2>
+<p>對應議題:<a href="../issues/PI-05.html">PI-05 第一期 NAP 執行率</a></p>
 
 <a class="csv-link" href="../../data/evidence/nap_phase1_metadata.csv">↓ nap_phase1_metadata.csv</a>
 
@@ -131,7 +146,7 @@
   <li>CovenantsWatch 2022-12-08 既有評估：「可能僅為宣示性質」</li>
 </ul>
 
-<h2>5. 待擴充指標（資料蒐集中）</h2>
+<h2>7. 待擴充指標(資料蒐集中)</h2>
 
 <table>
 <thead><tr><th>指標</th><th>對應 PI</th><th>狀態</th></tr></thead>
@@ -229,6 +244,162 @@ async function loadCSV(url) {
   } catch (e) {
     console.error('RSF chart load failed', e);
   }
+
+  // Freedom House 2017-2026
+  try {
+    const fh = await loadCSV('../api/evidence/freedom_house_taiwan_2017_2026.csv');
+    const ctx = document.getElementById('chart-fh');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: fh.map(r => r.year),
+          datasets: [
+            {
+              label: '總分(0-100,越高越自由)',
+              data: fh.map(r => r.aggregate_score ? parseInt(r.aggregate_score) : null),
+              borderColor: '#0E2238',
+              backgroundColor: 'rgba(14,34,56,0.10)',
+              tension: 0.2, pointRadius: 4, fill: false, yAxisID: 'y',
+            },
+            {
+              label: '公民自由(Civil Liberties,0-60)',
+              data: fh.map(r => r.civil_liberties ? parseInt(r.civil_liberties) : null),
+              borderColor: '#B5371F',
+              backgroundColor: 'rgba(181,55,31,0.10)',
+              tension: 0.2, pointRadius: 4, fill: false, yAxisID: 'y2',
+              spanGaps: true,
+            },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            title: { display: true, text: 'Freedom House Taiwan(2017-2026) · 公民自由首次下降', font: { size: 16, weight: '700' } },
+            subtitle: { display: true, text: '2026 公民自由 56 → 55(首次下降 1 分);總分 93-94 高位穩定 9 年', color: '#666', font: { size: 12 } },
+          },
+          scales: {
+            y: { type: 'linear', position: 'left', title: { display: true, text: '總分' }, suggestedMin: 85, suggestedMax: 100 },
+            y2: { type: 'linear', position: 'right', title: { display: true, text: '公民自由' }, suggestedMin: 50, suggestedMax: 60, grid: { drawOnChartArea: false } },
+            x: { title: { display: true, text: '年份' } },
+          },
+        },
+      });
+    }
+  } catch (e) { console.error('FH chart load failed', e); }
+
+  // 兒少自殺率 — 雙線並列(15-19 與 OECD 10-24 口徑)
+  try {
+    const ys = await loadCSV('../api/evidence/youth_suicide_taiwan_2018_2025.csv');
+    const ctx = document.getElementById('chart-suicide');
+    if (ctx) {
+      // 拆兩個年齡群分別取數值
+      const years = [...new Set(ys.map(r => r.year))].sort();
+      const ageA = years.map(y => {
+        const r = ys.find(x => x.year === y && (x.age_group === '15-19' || x.age_group === '15-24' || x.age_group === 'youth'));
+        if (!r) return null;
+        const v = parseFloat(r.suicide_rate_per_100k);
+        return Number.isFinite(v) ? v : null;
+      });
+      const ageB = years.map(y => {
+        const r = ys.find(x => x.year === y && (x.age_group === '10-24' || x.age_group === '10-14'));
+        if (!r) return null;
+        const v = parseFloat(r.suicide_rate_per_100k);
+        return Number.isFinite(v) ? v : null;
+      });
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: years,
+          datasets: [
+            { label: '15-19 / 15-24 歲(衛福部)', data: ageA, borderColor: '#0E2238', backgroundColor: 'rgba(14,34,56,0.10)', tension: 0.25, pointRadius: 5, fill: false, spanGaps: true },
+            { label: '10-24 歲(OECD 比較口徑)', data: ageB, borderColor: '#5C1A1B', backgroundColor: 'rgba(92,26,27,0.10)', tension: 0.25, pointRadius: 5, fill: false, spanGaps: true },
+            { label: 'OECD 平均(6.5/十萬)', data: years.map(_ => 6.5), borderColor: '#8B6F50', borderDash: [6, 4], pointRadius: 0, fill: false },
+          ],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            title: { display: true, text: '兒少自殺率 2018-2025 · ICESCR §12 健康權', font: { size: 16, weight: '700' } },
+            subtitle: { display: true, text: '2023 年 youth 7.0/十萬,高於 OECD 平均 6.5(z=3.12 outlier)', color: '#666', font: { size: 12 } },
+          },
+          scales: {
+            y: { title: { display: true, text: '每 10 萬人自殺率' }, suggestedMin: 0 },
+            x: { title: { display: true, text: '年份' } },
+          },
+        },
+      });
+    }
+  } catch (e) { console.error('Suicide chart load failed', e); }
+
+  // 條文援引頻率(初稿:基於 db event 之 related_article + issue_tags 計數)
+  try {
+    const trace = await fetch('../api/trace.json').then(r => r.json());
+    const events = trace.events || [];
+    // 統計 22 條核心條文之援引(從 related_article + issue_tags 推估)
+    const articleCount = {
+      'ICCPR §6 生命權': 0, 'ICCPR §7 不受酷刑': 0, 'ICCPR §8 不受奴役': 0,
+      'ICCPR §17 隱私權': 0, 'ICCPR §18 思想良心宗教': 0, 'ICCPR §19 言論自由': 0,
+      'ICCPR §21 集會': 0, 'ICCPR §22 結社': 0, 'ICCPR §23 婚家': 0,
+      'ICCPR §24 兒童': 0, 'ICCPR §26 不歧視': 0, 'ICCPR §27 少數族群': 0,
+      'ICESCR §6 工作權': 0, 'ICESCR §7 公平工作條件': 0, 'ICESCR §8 工會': 0,
+      'ICESCR §9 社會保障': 0, 'ICESCR §10 家庭': 0, 'ICESCR §11 適足生活': 0,
+      'ICESCR §12 健康權': 0, 'ICESCR §13 教育權': 0, 'ICESCR §13-3 父母選擇': 0,
+      'ICESCR §15 文化': 0,
+    };
+    const issueToArticle = {
+      '廢死': ['ICCPR §6 生命權'], '言論自由': ['ICCPR §19 言論自由'],
+      '宗教自由': ['ICCPR §18 思想良心宗教'], '良心拒服兵役': ['ICCPR §18 思想良心宗教'],
+      '同性婚姻': ['ICCPR §26 不歧視', 'ICCPR §23 婚家'],
+      '原住民族': ['ICCPR §27 少數族群', 'ICCPR §1 自決'],
+      '移工': ['ICCPR §8 不受奴役', 'ICESCR §7 公平工作條件'],
+      '漁工': ['ICCPR §8 不受奴役', 'ICESCR §7 公平工作條件'],
+      '兒少自殺': ['ICESCR §12 健康權', 'ICCPR §24 兒童'],
+      '健康權': ['ICESCR §12 健康權'], '健保': ['ICESCR §12 健康權'],
+      '菸害': ['ICESCR §12 健康權'],
+      '教育權': ['ICESCR §13 教育權'], '選擇權': ['ICESCR §13-3 父母選擇'],
+      '性平教育': ['ICESCR §13 教育權', 'ICCPR §26 不歧視'],
+      '集會': ['ICCPR §21 集會'], '稅務': ['ICCPR §18 思想良心宗教'],
+      '長照': ['ICESCR §12 健康權', 'ICESCR §10 家庭'],
+    };
+    events.forEach(e => {
+      const tags = e.issue_tags || '';
+      Object.keys(issueToArticle).forEach(issue => {
+        if (tags.includes(issue)) {
+          issueToArticle[issue].forEach(art => {
+            if (art in articleCount) articleCount[art]++;
+          });
+        }
+      });
+    });
+    const labels = Object.keys(articleCount);
+    const data = labels.map(k => articleCount[k]);
+    const max = Math.max(...data);
+    const colors = data.map(v => {
+      if (v >= max * 0.5) return '#B5371F';   // 高頻 brand
+      if (v >= max * 0.15) return '#8B6F50';  // 中頻 gold
+      return '#8A8A8A';                        // 低頻灰
+    });
+    const ctx = document.getElementById('chart-articles');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'bar',
+        data: { labels, datasets: [{ label: '事件援引次數', data, backgroundColor: colors }] },
+        options: {
+          indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+          plugins: {
+            title: { display: true, text: '22 條核心條文之援引頻率(基於 ' + events.length + ' events)', font: { size: 16, weight: '700' } },
+            subtitle: { display: true, text: '紅 = 高頻 / 黃 = 中頻 / 灰 = 低頻 · 不對稱觀察', color: '#666', font: { size: 12 } },
+            legend: { display: false },
+          },
+          scales: {
+            x: { title: { display: true, text: '事件援引次數' }, beginAtZero: true },
+            y: { ticks: { font: { size: 11 } } },
+          },
+        },
+      });
+    }
+  } catch (e) { console.error('Article chart load failed', e); }
 })();
 </script>
 
