@@ -4,8 +4,8 @@
 <!-- aabe-insider-gate --><script src="../insider-gate.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>議題脈絡追溯 · 全 16 議題 — 兩公約監督平台</title>
-<meta name="description" content="兩公約監督平台議題脈絡追溯,涵蓋 16 個議題、164 個事件、108+ 行動者、95 條因果連結。可按議題類別篩選。">
+<title>議題脈絡追溯 · 全 21 議題 — 兩公約監督平台</title>
+<meta name="description" content="兩公約監督平台議題脈絡追溯,涵蓋 21 個議題、179 個事件、120+ 行動者、103 條因果連結。可按議題類別篩選。">
 <meta name="robots" content="noindex,nofollow">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -98,7 +98,7 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
   </div>
 
   <header class="page">
-    <h1>議題脈絡追溯 · 全 16 個議題</h1>
+    <h1>議題脈絡追溯 · 全 21 個議題</h1>
     <p class="lead">
       本平台以 actor / event / causal_link / outcome_indicator 四元結構,追溯議題從倡議發動 → 政府回應 → 結果指標之完整因果脈絡。
       可按議題類別篩選,或直接點入個別議題查看完整時間軸。
@@ -106,19 +106,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
   </header>
 
   <div class="totals">
-    <div class="stat"><span class="num">16</span><span class="lbl">議題</span></div>
-    <div class="stat"><span class="num">164</span><span class="lbl">事件 events</span></div>
-    <div class="stat"><span class="num">108</span><span class="lbl">行動者引用</span></div>
-    <div class="stat"><span class="num">95</span><span class="lbl">因果連結</span></div>
+    <div class="stat"><span class="num">21</span><span class="lbl">議題</span></div>
+    <div class="stat"><span class="num">179</span><span class="lbl">事件 events</span></div>
+    <div class="stat"><span class="num">120</span><span class="lbl">行動者引用</span></div>
+    <div class="stat"><span class="num">103</span><span class="lbl">因果連結</span></div>
   </div>
 
   <div class="filter-bar">
     <span class="filter-label">議題分類:</span>
     <button class="filter-btn active" data-group="all">全部 <span class="cnt" id="cnt-all">0</span></button>
-    <button class="filter-btn" data-group="civil_political">公民政治權 <span class="cnt">4</span></button>
-    <button class="filter-btn" data-group="minority">少數族群 / 弱勢 <span class="cnt">3</span></button>
-    <button class="filter-btn" data-group="family_education">家庭與教育 <span class="cnt">4</span></button>
-    <button class="filter-btn" data-group="health_welfare">健康與福利 <span class="cnt">5</span></button>
+    <button class="filter-btn" data-group="civil_political">公民政治權 <span class="cnt">5</span></button>
+    <button class="filter-btn" data-group="minority">少數族群 / 弱勢 <span class="cnt">4</span></button>
+    <button class="filter-btn" data-group="family_education">家庭與教育 <span class="cnt">5</span></button>
+    <button class="filter-btn" data-group="health_welfare">健康與福利 <span class="cnt">7</span></button>
   </div>
 
   <div id="grid" class="grid">
@@ -146,6 +146,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <span><b>8</b> links</span>
         <span><b>11</b> actors</span>
         <span><b>4</b> outcomes</span>
+      </div>
+    </a>
+    <a href="media_diversity.html" class="card" data-group="civil_political">
+      <div class="card-head">
+        <span class="group-tag civil_political">公民政治權</span>
+      </div>
+      <h2>媒體多元議題脈絡</h2>
+      <div class="desc">ICCPR §19 + GC34 + 媒體所有權集中議題 + NCC 監管 + 公廣集團定位</div>
+      <div class="stats">
+        <span><b>3</b> events</span>
+        <span><b>2</b> links</span>
+        <span><b>2</b> actors</span>
+        <span><b>0</b> outcomes</span>
       </div>
     </a>
     <a href="religious_freedom.html" class="card" data-group="civil_political">
@@ -185,6 +198,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <span><b>8</b> links</span>
         <span><b>10</b> actors</span>
         <span><b>4</b> outcomes</span>
+      </div>
+    </a>
+    <a href="plains_indigenous.html" class="card" data-group="minority">
+      <div class="card-head">
+        <span class="group-tag minority">少數族群 / 弱勢</span>
+      </div>
+      <h2>平埔正名議題脈絡</h2>
+      <div class="desc">ICCPR §1 自決權 + §27 少數族群 + 平埔族正名議題 + 111 憲判 17 號</div>
+      <div class="stats">
+        <span><b>3</b> events</span>
+        <span><b>2</b> links</span>
+        <span><b>3</b> actors</span>
+        <span><b>1</b> outcomes</span>
       </div>
     </a>
     <a href="migrant_workers.html" class="card" data-group="minority">
@@ -265,6 +291,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <span><b>3</b> outcomes</span>
       </div>
     </a>
+    <a href="campus.html" class="card" data-group="family_education">
+      <div class="card-head">
+        <span class="group-tag family_education">家庭與教育</span>
+      </div>
+      <h2>校園議題脈絡</h2>
+      <div class="desc">ICESCR §13 教育權 + ICCPR §24 兒少 + 校園藥物 / 體罰 / 輔導機制議題</div>
+      <div class="stats">
+        <span><b>3</b> events</span>
+        <span><b>1</b> links</span>
+        <span><b>3</b> actors</span>
+        <span><b>1</b> outcomes</span>
+      </div>
+    </a>
     <a href="youth_suicide.html" class="card" data-group="health_welfare">
       <div class="card-head">
         <span class="group-tag health_welfare">健康與福利</span>
@@ -289,6 +328,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <span><b>4</b> links</span>
         <span><b>8</b> actors</span>
         <span><b>0</b> outcomes</span>
+      </div>
+    </a>
+    <a href="national_health.html" class="card" data-group="health_welfare">
+      <div class="card-head">
+        <span class="group-tag health_welfare">健康與福利</span>
+      </div>
+      <h2>健保議題脈絡</h2>
+      <div class="desc">ICESCR §12 健康權 + 全民健保納保範圍 + 給付項目 + 罕見疾病 + 城鄉醫療差距</div>
+      <div class="stats">
+        <span><b>3</b> events</span>
+        <span><b>1</b> links</span>
+        <span><b>2</b> actors</span>
+        <span><b>1</b> outcomes</span>
       </div>
     </a>
     <a href="tobacco.html" class="card" data-group="health_welfare">
@@ -328,6 +380,19 @@ h1 { font-family: var(--serif); font-size: 30px; font-weight: 700; line-height: 
         <span><b>1</b> links</span>
         <span><b>2</b> actors</span>
         <span><b>1</b> outcomes</span>
+      </div>
+    </a>
+    <a href="pandemic.html" class="card" data-group="health_welfare">
+      <div class="card-head">
+        <span class="group-tag health_welfare">健康與福利</span>
+      </div>
+      <h2>疫情議題脈絡</h2>
+      <div class="desc">ICCPR §17 隱私 + §12 行動自由 + ICESCR §12 健康權 / COVID-19 期間防疫措施張力</div>
+      <div class="stats">
+        <span><b>3</b> events</span>
+        <span><b>2</b> links</span>
+        <span><b>2</b> actors</span>
+        <span><b>0</b> outcomes</span>
       </div>
     </a>
   </div>
