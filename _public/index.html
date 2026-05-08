@@ -1779,7 +1779,10 @@ footer .credit {
         </p>
 
         <h4>公約條文</h4>
-        <input type="text" class="filter-input" id="docs-article-input" placeholder="例:ICCPR §18 / §19 / §26 / ICESCR §12">
+        <input type="text" class="filter-input" id="docs-article-input" placeholder="例:ICCPR §18 或 §19 或 18 (自動匹配各種寫法)">
+        <p style="font-size: 11px; color: var(--text-muted); margin-top: 4px; line-height: 1.4;">
+          可輸入 <code style="background:#fff;padding:1px 4px">ICCPR §18</code> / <code style="background:#fff;padding:1px 4px">§18</code> / <code style="background:#fff;padding:1px 4px">Art.18</code> / <code style="background:#fff;padding:1px 4px">18</code> — 自動正規化匹配
+        </p>
 
         <h4>採納狀態</h4>
         <label class="filter-row"><input type="checkbox" id="docs-status-positive" data-status="positive"><span class="swatch" style="background:var(--success)"></span>已採納 / 正向結果</label>
@@ -2010,10 +2013,12 @@ footer .credit {
   }
 
   function inferCovenant(article) {
+    // article 可能為 JSON array 字串如 '["ICCPR-18","ICCPR-22"]' 或 plain 字串
     if (!article) return [];
     var cov = [];
-    if (/ICCPR/i.test(article)) cov.push('ICCPR');
-    if (/ICESCR/i.test(article)) cov.push('ICESCR');
+    var text = String(article).toUpperCase();
+    if (text.indexOf('ICCPR') >= 0) cov.push('ICCPR');
+    if (text.indexOf('ICESCR') >= 0) cov.push('ICESCR');
     return cov;
   }
 
@@ -2098,9 +2103,25 @@ footer .credit {
       }
       // 提出單位
       if (state.actorId && d.actor_id !== state.actorId) return false;
-      // 條文
+      // 條文(支援 ICCPR §18 / §18 / Art.18 / 18 / ICCPR-18 各種寫法)
       if (state.article) {
-        if (!d.related_article || d.related_article.indexOf(state.article) === -1) return false;
+        if (!d.related_article) return false;
+        var q = state.article.trim();
+        // 正規化用戶輸入:抽公約名(可選)+ 條號
+        var qCov = (q.match(/ICCPR|ICESCR|CRC|CEDAW|CRPD/i) || [''])[0].toUpperCase();
+        var qNum = (q.replace(/§|Art\.?/gi, ' ').match(/\d+(-\d+)?/) || [''])[0];
+        var article = d.related_article.toUpperCase();
+        if (qCov && article.indexOf(qCov) < 0) return false;
+        // 條號匹配:資料格式 ICCPR-18 / ICCPR-18-4
+        if (qNum) {
+          // 用 regex 匹配 -18 或 -18-X(避免 -1 誤中 -18)
+          var re = new RegExp('-' + qNum + '(?!\\d)', 'i');
+          if (!re.test(article)) return false;
+        }
+        // 若兩個都沒抽出,fallback substring 比對
+        if (!qCov && !qNum) {
+          if (article.indexOf(q.toUpperCase()) < 0) return false;
+        }
       }
       // 採納狀態
       if (state.statuses.size > 0) {
