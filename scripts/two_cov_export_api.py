@@ -66,14 +66,15 @@ def export_timeline(conn) -> dict:
     """混合 events + amendments 的全平台時間軸"""
     events = fetch_all(conn, """
         SELECT 'event' AS source, event_id AS id, event_date AS date, event_type, title, summary,
-               issue_tags, related_pi, actor_id
+               issue_tags, related_pi, related_article, actor_id, is_positive_outcome
         FROM event
     """)
     amendments = fetch_all(conn, """
         SELECT 'amendment' AS source, amendment_id AS id, COALESCE(third_reading, promulgated) AS date,
                'legislation' AS event_type,
                (SELECT law_name_zh FROM law WHERE law_id = la.law_id) AS title,
-               key_changes AS summary, NULL AS issue_tags, NULL AS related_pi, NULL AS actor_id
+               key_changes AS summary, NULL AS issue_tags, NULL AS related_pi,
+               NULL AS related_article, NULL AS actor_id, NULL AS is_positive_outcome
         FROM law_amendment la
     """)
     timeline = sorted(events + amendments, key=lambda r: r["date"] or "")

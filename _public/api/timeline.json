@@ -18,7 +18,9 @@
       "summary": "[\"許可制改報備制\",\"刪除刑罰\",\"禁制區檢討\",\"更名為集會遊行保障法\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "amendment",
@@ -29,7 +31,9 @@
       "summary": "[\"緊急偶發改報備\",\"一般仍許可\",\"刑罰存廢未定\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -40,7 +44,9 @@
       "summary": "UN HRC 首次認定 ICCPR sex 涵蓋 sexual orientation",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-10\"]",
-      "actor_id": "A106"
+      "related_article": "[\"ICCPR-26\",\"ICCPR-17\"]",
+      "actor_id": "A106",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -51,7 +57,9 @@
       "summary": "檢方搜索並查扣資產，國稅局同步開單補稅；後續延伸 25 年稅務行政爭議",
       "issue_tags": "[\"宗教自由\",\"稅務\"]",
       "related_pi": "[\"PI-08\",\"PI-16\"]",
-      "actor_id": "A302"
+      "related_article": "[\"ICCPR-18\",\"ICCPR-26\"]",
+      "actor_id": "A302",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -62,7 +70,9 @@
       "summary": "大法官就良心拒服兵役者宣告兵役制度合憲，但促政府研議替代方案",
       "issue_tags": "[\"宗教自由\",\"良心拒服兵役\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A308"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A308",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -73,7 +83,9 @@
       "summary": "建立宗教因素得申服替代役之制度，回應釋字 490 與國際標準",
       "issue_tags": "[\"良心拒服兵役\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A307"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A307",
+      "is_positive_outcome": 1
     },
     {
       "source": "amendment",
@@ -84,7 +96,9 @@
       "summary": "[\"違憲款項刪除\",\"許可制保留\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -95,7 +109,9 @@
       "summary": "確認該團體弟子敬師禮屬贈與性質、非營業收入；刑事爭議告終",
       "issue_tags": "[\"宗教自由\",\"稅務\"]",
       "related_pi": "[\"PI-08\",\"PI-16\"]",
-      "actor_id": "A303"
+      "related_article": "[\"ICCPR-14\",\"ICCPR-18\"]",
+      "actor_id": "A303",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -106,7 +122,9 @@
       "summary": "確立 FPIC、自決、文化權；台灣雖非會員，原民會 2008 年中譯",
       "issue_tags": "[\"原住民族\",\"自決權\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A613"
+      "related_article": "[\"ICCPR-1\",\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A613",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -117,7 +135,9 @@
       "summary": "室內公共場所全面禁菸、菸品稅捐調升、菸盒警示圖文 35%",
       "issue_tags": "[\"菸害\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A801"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A801",
+      "is_positive_outcome": 1
     },
     {
       "source": "amendment",
@@ -128,7 +148,9 @@
       "summary": "[\"明定兩公約具國內法律效力（第2條）\",\"政府機關應符合兩公約規定（第4條）\",\"建立人權報告制度（第6條）\",\"2 年法令檢討期（第8條）\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -139,7 +161,9 @@
       "summary": "ICCPR Art.6 生命權成為國內法律效力",
       "issue_tags": "[\"廢死\",\"兩公約施行\"]",
       "related_pi": "[\"PI-01\"]",
-      "actor_id": "A003"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A003",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -150,7 +174,9 @@
       "summary": "ICESCR Art.13 經施行法引入內國法體系",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-01\"]",
-      "actor_id": "A703"
+      "related_article": "[\"ICESCR-13\",\"ICCPR-18-4\"]",
+      "actor_id": "A703",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -161,7 +187,9 @@
       "summary": "ICESCR 第 12 條經施行法引入內國法體系，並依 GC14 認定健康權包含可獲得性／可近性／可接受性／品質四要素",
       "issue_tags": "[\"健康權\"]",
       "related_pi": "[\"PI-01\"]",
-      "actor_id": "A816"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A816",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -172,7 +200,9 @@
       "summary": "對 ICCPR Art.19 採嚴格詮釋：限制須由法律明定、針對 19(3)(a)(b) 列舉目的、符合必要性與比例原則",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A511"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A511",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -183,7 +213,9 @@
       "summary": "要求台灣立即停止執行死刑、批准 ICCPR OP2",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\",\"PI-14\"]",
-      "actor_id": "A007"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A007",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -194,7 +226,9 @@
       "summary": "要求批准 ICCPR 第二任擇議定書",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A001"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A001",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -205,7 +239,9 @@
       "summary": "兒福聯盟首次參與兩公約國際審查,提出兒少權益關切,主張兒少健康權與教育權應對應 CRC 標準同步檢視。具體段落號待補。",
       "issue_tags": "[\"兒少自殺\",\"教育權\"]",
       "related_pi": "PI-11",
-      "actor_id": "A201"
+      "related_article": null,
+      "actor_id": "A201",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -216,7 +252,9 @@
       "summary": "人本教育以結構派立場提出校園文化、體罰、輔導與管教等議題,涵蓋 ICESCR §13 教育權與 ICCPR §7 不受酷刑。具體段落號待補。",
       "issue_tags": "[\"兒少自殺\",\"教育權\"]",
       "related_pi": "PI-10",
-      "actor_id": "A203"
+      "related_article": null,
+      "actor_id": "A203",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -227,7 +265,9 @@
       "summary": "性平教育協會主張 108 課綱前期之性別平等教育推動,涵蓋 ICESCR §13 教育權與 ICCPR §26 不歧視。具體段落號待補。",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "PI-10",
-      "actor_id": "A706"
+      "related_article": null,
+      "actor_id": "A706",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -238,7 +278,9 @@
       "summary": "AABE 國教行動聯盟援引 ICESCR §13-3 + GC13 §28,主張父母依其信念選擇宗教與道德教育之核心權利。具體段落號待補。",
       "issue_tags": "[\"選擇權\",\"教育權\"]",
       "related_pi": "PI-10",
-      "actor_id": "A708"
+      "related_article": null,
+      "actor_id": "A708",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -249,7 +291,9 @@
       "summary": "TIWA 主張勞基法應全面適用家事勞工 + 仲介費議題 + 居留權,涵蓋 ICCPR §8 強迫勞動 + ICESCR §7 公平工作條件。具體段落號待補。",
       "issue_tags": "[\"移工\"]",
       "related_pi": "PI-04",
-      "actor_id": "A401"
+      "related_article": null,
+      "actor_id": "A401",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -260,7 +304,9 @@
       "summary": "移工聯盟主張仲介剝削、強迫勞動之系統性問題,涵蓋 ICCPR §8 + §22 結社自由。具體段落號待補。",
       "issue_tags": "[\"移工\"]",
       "related_pi": "PI-04",
-      "actor_id": "A402"
+      "related_article": null,
+      "actor_id": "A402",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -271,7 +317,9 @@
       "summary": "原住民族 16 族聯合主張 ICCPR §1 自決權 + 傳統領域 + 語言權,對應 UN Declaration on the Rights of Indigenous Peoples。具體段落號待補。",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": null,
-      "actor_id": "A607"
+      "related_article": null,
+      "actor_id": "A607",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -282,7 +330,9 @@
       "summary": "媒改學社主張媒體結構改革議題,涵蓋 ICCPR §19 言論自由與 GC34 標準。具體段落號待補。",
       "issue_tags": "[\"言論自由\",\"媒體多元\"]",
       "related_pi": "PI-09",
-      "actor_id": "A506"
+      "related_article": null,
+      "actor_id": "A506",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -293,7 +343,9 @@
       "summary": "董氏基金會以公衛派立場主張菸害防治 + 心理衛生,涵蓋 ICESCR §12 健康權。具體段落號待補。",
       "issue_tags": "[\"健康權\",\"菸害\"]",
       "related_pi": "PI-11",
-      "actor_id": "A808"
+      "related_article": null,
+      "actor_id": "A808",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -304,7 +356,9 @@
       "summary": "健保財源由薪資為主改採經常性所得＋6 類補充保費",
       "issue_tags": "[\"健保\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A802"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A802",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -315,7 +369,9 @@
       "summary": "國際委員建議台灣立即批准廢死議定書",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A002"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A002",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -326,7 +382,9 @@
       "summary": "國際委員建議立即停止執行死刑、邁向廢除",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A002"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A002",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -337,7 +395,9 @@
       "summary": "國際審查委員會關注良心拒服兵役、宗教團體法立法停滯與少數信仰行政差別待遇",
       "issue_tags": "[\"宗教自由\",\"良心拒服兵役\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A304"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A304",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -348,7 +408,9 @@
       "summary": "首次審查結論性意見要求政府落實原基法 §21 諮商同意，並參酌 UNDRIP",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A612"
+      "related_article": "[\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A612",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -359,7 +421,9 @@
       "summary": "要求檢討家事勞工、漁工排除於勞基法外之合理性，並關注強制體檢、限制轉換雇主與人身自由",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A410"
+      "related_article": "[\"ICESCR-6\",\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A410",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -370,7 +434,9 @@
       "summary": "建立國中小／高中／大專三級輔導體制與輔諮中心",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A207"
+      "related_article": "[\"ICESCR-12\",\"ICESCR-13\"]",
+      "actor_id": "A207",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -381,7 +447,9 @@
       "summary": "「家長教育選擇權」首次完整法制化（公辦民營/學校型態/非學校型態三軌）",
       "issue_tags": "[\"教育權\",\"選擇權\"]",
       "related_pi": "[\"PI-16\"]",
-      "actor_id": "A703"
+      "related_article": "[\"ICESCR-13-3\",\"CRC-28\",\"CRC-29\"]",
+      "actor_id": "A703",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -392,7 +460,9 @@
       "summary": "CRC 28/29 與 ICESCR 並行",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-01\"]",
-      "actor_id": "A703"
+      "related_article": "[\"CRC-28\",\"CRC-29\",\"ICESCR-13\"]",
+      "actor_id": "A703",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -403,7 +473,9 @@
       "summary": "美國最高法院 5-4 認定結婚為基本權",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-10\"]",
-      "actor_id": "A105"
+      "related_article": "[\"ICCPR-26\"]",
+      "actor_id": "A105",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -414,7 +486,9 @@
       "summary": "總統府成立歷史正義與轉型正義委員會，提出語言法、自治法、土海法、平埔正名等九項承諾",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A603"
+      "related_article": "[\"ICCPR-27\"]",
+      "actor_id": "A603",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -425,7 +499,9 @@
       "summary": "兒福聯盟提出兒少自殺率近年上升之早期警訊,主張 ICESCR §12 健康權之兒少分項應有獨立指標。具體段落號待補。",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "PI-11",
-      "actor_id": "A201"
+      "related_article": null,
+      "actor_id": "A201",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -436,7 +512,9 @@
       "summary": "AABE 延續 2013 年立場,進一步援引 ICESCR §13-3 + GC13 §28 + 國際比較對照(Hosanna-Tabor v EEOC)。具體段落號待補。",
       "issue_tags": "[\"教育權\",\"選擇權\"]",
       "related_pi": "PI-10",
-      "actor_id": "A708"
+      "related_article": null,
+      "actor_id": "A708",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -447,7 +525,9 @@
       "summary": "性平倡議團體主張 ICCPR §26 不歧視 + 性別認同之整合執法,涵蓋 108 課綱前期之教材爭議。具體段落號待補。",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "PI-10",
-      "actor_id": "A311"
+      "related_article": null,
+      "actor_id": "A311",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -458,7 +538,9 @@
       "summary": "護家盟以嚴格派立場主張婚姻定義之傳統解釋,涵蓋 ICESCR §10 家庭保障 + ICCPR §23 婚姻自由。具體段落號待補。",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": null,
-      "actor_id": "A310"
+      "related_article": null,
+      "actor_id": "A310",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -469,7 +551,9 @@
       "summary": "宗教自由聯盟(含太極門相關 NGO、世界公民總會台灣分會)主張 ICCPR §18 + GC22 + 既有案件平反。具體段落號待補。",
       "issue_tags": "[\"宗教自由\",\"良心拒服兵役\"]",
       "related_pi": "PI-08",
-      "actor_id": "A301"
+      "related_article": null,
+      "actor_id": "A301",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -480,7 +564,9 @@
       "summary": "拒菸聯盟主張 WHO FCTC + 菸害防治法執行落差,涵蓋 ICESCR §12 健康權與兒少接觸。具體段落號待補。",
       "issue_tags": "[\"健康權\",\"菸害\"]",
       "related_pi": "PI-11",
-      "actor_id": "A810"
+      "related_article": null,
+      "actor_id": "A810",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -491,7 +577,9 @@
       "summary": "記協主張 ICCPR §19 + GC34 三要件 + RSF 排名背景下之台灣新聞自由實況。具體段落號待補。",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "PI-09",
-      "actor_id": "A507"
+      "related_article": null,
+      "actor_id": "A507",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -502,7 +590,9 @@
       "summary": "80 個 NGO 聯合提交，涵蓋兒少權益／心理健康人力不足",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A205"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A205",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -513,7 +603,9 @@
       "summary": "§69：強烈建議將所有移工納入勞基法保障；§70：應廢除（abolish）私人就業仲介制度",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A410"
+      "related_article": "[\"ICESCR-6\",\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A410",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -524,7 +616,9 @@
       "summary": "建議政府採取預防措施，避免新聞台與報社併購使公眾資訊傳播被過度集中",
       "issue_tags": "[\"言論自由\",\"媒體多元\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A512"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A512",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -535,7 +629,9 @@
       "summary": "《原住民族土地或部落範圍土地劃設辦法》排除私有地，引爆團體反彈",
       "issue_tags": "[\"原住民族\",\"傳統領域\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A601"
+      "related_article": "[\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A601",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -546,7 +642,9 @@
       "summary": "原住民族團體在凱達格蘭大道紮營抗議諮商同意辦法排除私有地，後遭驅離至二二八公園，持續逾百日",
       "issue_tags": "[\"原住民族\",\"集會\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A605"
+      "related_article": "[\"ICCPR-21\",\"ICCPR-27\"]",
+      "actor_id": "A605",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -557,7 +655,9 @@
       "summary": "要求 2 年內完成同性結合立法",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A101"
+      "related_article": "[\"ICCPR-26\",\"ICCPR-23\"]",
+      "actor_id": "A101",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -568,7 +668,9 @@
       "summary": "宣告民法未保障同婚違憲；多元宗教團體聯合表達反對立場",
       "issue_tags": "[\"同性婚姻\",\"宗教自由\"]",
       "related_pi": "[\"PI-08\",\"PI-10\"]",
-      "actor_id": "A308"
+      "related_article": "[\"ICCPR-18\",\"ICCPR-23\"]",
+      "actor_id": "A308",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -579,7 +681,9 @@
       "summary": "從 1.0 機構式擴大為社區整合（A）／複合式（B）／巷弄站（C）",
       "issue_tags": "[\"長照\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A804"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A804",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -590,7 +694,9 @@
       "summary": "正式承認 16 族語為國家語言，落實道歉文承諾之一",
       "issue_tags": "[\"原住民族\",\"語言\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A610"
+      "related_article": "[\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A610",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -601,7 +707,9 @@
       "summary": "因宗教團體與人權團體反對行政管制密度過高、寺廟財產規範未獲共識，立法暫擱",
       "issue_tags": "[\"宗教自由\",\"結社自由\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A305"
+      "related_article": "[\"ICCPR-18\",\"ICCPR-22\"]",
+      "actor_id": "A305",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -612,7 +720,9 @@
       "summary": "關注兒少自殺率與心理健康支持資源不足",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A209"
+      "related_article": "[\"CRC-6\",\"CRC-24\"]",
+      "actor_id": "A209",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -623,7 +733,9 @@
       "summary": "結論性意見再次點名 FPIC 程序不完備，並指諮商同意辦法限縮傳統領域違反公約精神",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A612"
+      "related_article": "[\"ICCPR-1\",\"ICCPR-27\"]",
+      "actor_id": "A612",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -634,7 +746,9 @@
       "summary": "列出 ILO 11 項強迫勞動指標：扣留證件、限制行動、超時工作、暴力、苛扣薪資",
       "issue_tags": "[\"移工\",\"漁工\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A412"
+      "related_article": "[\"ICCPR-8\"]",
+      "actor_id": "A412",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -645,7 +759,9 @@
       "summary": "公投反對同性婚姻納入民法",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A103"
+      "related_article": "[\"ICCPR-26\",\"ICCPR-18\"]",
+      "actor_id": "A103",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -656,7 +772,9 @@
       "summary": "宗教多元團體主導，主張家長宗教教育選擇權；性平倡議方則認損及學生平等受教權",
       "issue_tags": "[\"性平教育\",\"宗教自由\",\"家長教育選擇權\"]",
       "related_pi": "[\"PI-08\",\"PI-10\",\"PI-16\"]",
-      "actor_id": "A310"
+      "related_article": "[\"ICCPR-18\",\"ICESCR-13\"]",
+      "actor_id": "A310",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -667,7 +785,9 @@
       "summary": "宗教與家長團體主導；性平倡議方則認損及學生平等受教權",
       "issue_tags": "[\"性平教育\",\"選擇權\"]",
       "related_pi": "[\"PI-10\",\"PI-16\"]",
-      "actor_id": "A704"
+      "related_article": "[\"ICESCR-13-3\",\"ICCPR-18-4\"]",
+      "actor_id": "A704",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -678,7 +798,9 @@
       "summary": "延宕逾 20 年之行政爭議部分終結",
       "issue_tags": "[\"稅務\",\"宗教自由\"]",
       "related_pi": "[\"PI-08\",\"PI-16\"]",
-      "actor_id": "A302"
+      "related_article": "[\"ICCPR-18\",\"ICCPR-26\"]",
+      "actor_id": "A302",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -689,7 +811,9 @@
       "summary": "確立各固有族群自然語言一律平等，原民語、客語、台語、手語並列",
       "issue_tags": "[\"原住民族\",\"語言\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A610"
+      "related_article": "[\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A610",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -700,7 +824,9 @@
       "summary": "行政技術調整使雙方陣營皆認立場未受尊重",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "[\"PI-10\",\"PI-16\"]",
-      "actor_id": "A705"
+      "related_article": "[\"ICCPR-18-4\",\"ICESCR-13-3\"]",
+      "actor_id": "A705",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -711,7 +837,9 @@
       "summary": "刪「同志教育」字樣，新增「認識尊重不同性傾向/性別認同」",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "[\"PI-10\",\"PI-16\"]",
-      "actor_id": "A701"
+      "related_article": "[\"ICESCR-13-3\",\"ICCPR-18-4\"]",
+      "actor_id": "A701",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -722,7 +850,9 @@
       "summary": "另立專法保障同性結合",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A003"
+      "related_article": "[\"ICCPR-26\"]",
+      "actor_id": "A003",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -733,7 +863,9 @@
       "summary": "2019 較 2018 增 47 人達 257 人，連 6 年上升",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A210"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A210",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -744,7 +876,9 @@
       "summary": "建立通報、關懷、媒體報導規範",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A206"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A206",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -755,7 +889,9 @@
       "summary": "議題融入、選修擴大、自主學習",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-16\"]",
-      "actor_id": "A701"
+      "related_article": "[\"ICESCR-13\",\"CRC-29\"]",
+      "actor_id": "A701",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -766,7 +902,9 @@
       "summary": "立法院以 67:4 三讀通過，2020/1/15 公布、2020/1/17 施行",
       "issue_tags": "[\"言論自由\",\"反滲透\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A503"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A503",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -777,7 +915,9 @@
       "summary": "私有地主團體以保留派立場主張原住民族傳統領域劃設應排除私有地,涉及財產權與自決權之張力。具體日期待補。",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": null,
-      "actor_id": "A609"
+      "related_article": null,
+      "actor_id": "A609",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -788,7 +928,9 @@
       "summary": "邊境管制、居家隔離、口罩配售、手機定位追蹤等措施引發法源依據與比例原則爭議",
       "issue_tags": "[\"疫情\",\"健康權\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A803"
+      "related_article": "[\"ICESCR-12\",\"ICCPR-9\",\"ICCPR-12\"]",
+      "actor_id": "A803",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -799,7 +941,9 @@
       "summary": "遠洋漁工長工時、扣證件、苛扣薪資情形未改善",
       "issue_tags": "[\"移工\",\"漁工\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A412"
+      "related_article": "[\"ICCPR-8\"]",
+      "actor_id": "A412",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -810,7 +954,9 @@
       "summary": "NCC 委員一致決議不予換照，理由為違反查證原則累積處分",
       "issue_tags": "[\"言論自由\",\"媒體換照\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A501"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A501",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -821,7 +967,9 @@
       "summary": "數起高中／國中校園事件引發對校規、自述書、學業壓力之檢討（不點名個人）",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A203"
+      "related_article": "[\"CRC-19\"]",
+      "actor_id": "A203",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -832,7 +980,9 @@
       "summary": "工人版草案 2004 年提出，至 2021 年仍卡關；勞動部稱「社會共識不足」推動專法困難",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A402"
+      "related_article": "[\"ICESCR-6\",\"ICESCR-7\"]",
+      "actor_id": "A402",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -843,7 +993,9 @@
       "summary": "食藥署於解盲日同步公告審查標準，名單與會議過程不公開，引發 ICESCR 健康權「可接受性／資訊透明」面向質疑",
       "issue_tags": "[\"疫情\",\"疫苗\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A803"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A803",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -854,7 +1006,9 @@
       "summary": "少促聯主張 ICCPR §24 + ICESCR §10 + §12 之兒少分項,並以 CRC 連動。具體段落號待補。",
       "issue_tags": "[\"兒少自殺\",\"教育權\"]",
       "related_pi": "PI-11",
-      "actor_id": "A204"
+      "related_article": null,
+      "actor_id": "A204",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -865,7 +1019,9 @@
       "summary": "AABE 延續主張並引用 Mahmoud v Taylor 前哨案件 + ECHR 比較,涵蓋 ICESCR §13-3 + GC13 §28。具體段落號待補。",
       "issue_tags": "[\"教育權\",\"選擇權\"]",
       "related_pi": "PI-10",
-      "actor_id": "A708"
+      "related_article": null,
+      "actor_id": "A708",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -876,7 +1032,9 @@
       "summary": "性平協會主張 108 課綱性平教育之全面實施 + 教師訓練,涵蓋 ICCPR §26 + ICESCR §13。具體段落號待補。",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "PI-10",
-      "actor_id": "A706"
+      "related_article": null,
+      "actor_id": "A706",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -887,7 +1045,9 @@
       "summary": "漁工聯盟主張境外聘僱制度之強迫勞動風險,涵蓋 ICCPR §8 + ICESCR §7,並援引國際遠洋漁業壓力。具體段落號待補。",
       "issue_tags": "[\"移工\",\"漁工\"]",
       "related_pi": "PI-04",
-      "actor_id": "A404"
+      "related_article": null,
+      "actor_id": "A404",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -898,7 +1058,9 @@
       "summary": "平埔族復振團體主張 ICCPR §1 自決權 + 平埔族正名議題,並援引憲法法庭 111 憲判 17 號。具體段落號待補。",
       "issue_tags": "[\"原住民族\",\"平埔正名\"]",
       "related_pi": null,
-      "actor_id": "A608"
+      "related_article": null,
+      "actor_id": "A608",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -909,7 +1071,9 @@
       "summary": "主要宗教團體聯合(含佛教、道教、基督教、天主教等)以寬鬆派立場主張 ICCPR §18 + 教會雇用自治。具體段落號待補。",
       "issue_tags": "[\"宗教自由\"]",
       "related_pi": "PI-08",
-      "actor_id": "A306"
+      "related_article": null,
+      "actor_id": "A306",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -920,7 +1084,9 @@
       "summary": "耶和華見證人社群主張 ICCPR §18 + GC22 §11 + 替代役制度之良心豁免。具體段落號待補。",
       "issue_tags": "[\"良心拒服兵役\"]",
       "related_pi": "PI-08",
-      "actor_id": "A309"
+      "related_article": null,
+      "actor_id": "A309",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -931,7 +1097,9 @@
       "summary": "宗教自由聯盟以稅捐稽徵法之宗教團體免稅議題切入,主張 ICCPR §18 之納稅人權利。具體段落號待補。",
       "issue_tags": "[\"稅務\",\"宗教自由\"]",
       "related_pi": "PI-08",
-      "actor_id": "A301"
+      "related_article": null,
+      "actor_id": "A301",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -942,7 +1110,9 @@
       "summary": "桃工總以勞工團結派立場主張在地申訴管道之 ICCPR §22 + ICESCR §7。具體段落號待補。",
       "issue_tags": "[\"移工\"]",
       "related_pi": "PI-04",
-      "actor_id": "A403"
+      "related_article": null,
+      "actor_id": "A403",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -953,7 +1123,9 @@
       "summary": "醫改會主張 ICESCR §12 + GC14 + 健保納保 + 醫療資源城鄉差距議題。具體段落號待補。",
       "issue_tags": "[\"健康權\"]",
       "related_pi": "PI-11",
-      "actor_id": "A809"
+      "related_article": null,
+      "actor_id": "A809",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -964,7 +1136,9 @@
       "summary": "台權會以個人權利派立場主張 COVID-19 期間防疫措施之 ICCPR §17 隱私權與 §12 行動自由。具體段落號待補。",
       "issue_tags": "[\"健康權\",\"疫情\"]",
       "related_pi": null,
-      "actor_id": "A812"
+      "related_article": null,
+      "actor_id": "A812",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -975,7 +1149,9 @@
       "summary": "媒改學社延續結構改革派主張,涵蓋 ICCPR §19 + GC34 + 媒體所有權集中議題。具體段落號待補。",
       "issue_tags": "[\"言論自由\",\"媒體多元\"]",
       "related_pi": "PI-09",
-      "actor_id": "A506"
+      "related_article": null,
+      "actor_id": "A506",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -986,7 +1162,9 @@
       "summary": "查核中心以自律派立場主張媒體自律 + 假訊息議題,涵蓋 ICCPR §19 + GC34。具體段落號待補。",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "PI-09",
-      "actor_id": "A516"
+      "related_article": null,
+      "actor_id": "A516",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -997,7 +1175,9 @@
       "summary": "長照家屬團體主張 ICESCR §12 + §10 之長照家屬權益,並涵蓋失能者人權。具體段落號待補。",
       "issue_tags": "[\"長照\"]",
       "related_pi": null,
-      "actor_id": "A815"
+      "related_article": null,
+      "actor_id": "A815",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1008,7 +1188,9 @@
       "summary": "改採五大面向（政治／法律／經濟／社會文化／安全），2022 起與 2021 以前不可直接比較",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A509"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A509",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1019,7 +1201,9 @@
       "summary": "要求同性收養、跨國同婚立法",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A002"
+      "related_article": "[\"ICCPR-26\",\"ICCPR-23\"]",
+      "actor_id": "A002",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1030,7 +1214,9 @@
       "summary": "要求強化兒少心理健康、減壓校園文化、擴增輔導人力",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A209"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A209",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1041,7 +1227,9 @@
       "summary": "關切後備軍人召集無宗教豁免、宗教團體法立法延宕、少數信仰行政待遇差別",
       "issue_tags": "[\"宗教自由\",\"良心拒服兵役\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A304"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A304",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1052,7 +1240,9 @@
       "summary": "92 點結論性意見第三度要求修正諮商同意辦法、落實 FPIC、檢討傳統領域排除私有地",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A612"
+      "related_article": "[\"ICCPR-1\",\"ICCPR-27\",\"ICESCR-15\"]",
+      "actor_id": "A612",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1063,7 +1253,9 @@
       "summary": "再次要求：家事與漁業移工納入勞基法、檢討仲介制度、強制體檢應符 ICESCR Art.12，第三次連續提出",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A410"
+      "related_article": "[\"ICESCR-6\",\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A410",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1074,7 +1266,9 @@
       "summary": "涉教育權多項建議，含家長教育選擇權之爭議",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A711"
+      "related_article": "[\"ICESCR-13\",\"ICCPR-18-4\"]",
+      "actor_id": "A711",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1085,7 +1279,9 @@
       "summary": "委員續關切媒體多元、查證義務與假訊息治理之比例原則衝突",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A512"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A512",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1096,7 +1292,9 @@
       "summary": "國際審查委員就健康權提出多項建議，含長照給付公平、心理衛生、傳染病期間人權平衡與健康資訊近用",
       "issue_tags": "[\"健康權\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A816"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A816",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1107,7 +1305,9 @@
       "summary": "第 18 條等規定使主管機關可於法院裁定前要求平台對被指控不實訊息加註警示",
       "issue_tags": "[\"言論自由\",\"平台監管\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A501"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A501",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -1118,7 +1318,9 @@
       "summary": "行政院長指示 NCC 暫緩原訂 8/25 公聽會；總統公開重申言論自由為憲法權利",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A502"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A502",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1129,7 +1331,9 @@
       "summary": "NCC 宣布全案退回內部工作小組重議，無重新提出時程",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A501"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A501",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1140,7 +1344,9 @@
       "summary": "15 位大法官全體一致判《原住民身分法》§2 違憲，命 3 年內修法",
       "issue_tags": "[\"原住民族\",\"平埔正名\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A611"
+      "related_article": "[\"ICCPR-27\"]",
+      "actor_id": "A611",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1151,7 +1357,9 @@
       "summary": "指出生育率低但兒少死亡率高，肯定政策但點出結構性壓力（學業／霸凌／不當對待）",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A209"
+      "related_article": "[\"CRC-6\",\"CRC-19\",\"CRC-24\"]",
+      "actor_id": "A209",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1162,7 +1370,9 @@
       "summary": "被害人家屬團體以嚴格派立場參與廢死辯論,主張被害者人權之 ICCPR §6 + §7 應與加害者人權並重。具體場次待補。",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": null,
-      "actor_id": "A008"
+      "related_article": null,
+      "actor_id": "A008",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1173,7 +1383,9 @@
       "summary": "15-30 歲免費 3 次心理諮商試辦",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A206"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A206",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1184,7 +1396,9 @@
       "summary": "全面禁類菸品、加熱菸採「健康風險評估審查制」、吸菸年齡提升至 20 歲、警示圖文擴至 50%",
       "issue_tags": "[\"菸害\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A801"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A801",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1195,7 +1409,9 @@
       "summary": "行政院修法允許同性收養共同子女",
       "issue_tags": "[\"同性婚姻\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A003"
+      "related_article": "[\"ICCPR-26\"]",
+      "actor_id": "A003",
+      "is_positive_outcome": null
     },
     {
       "source": "amendment",
@@ -1206,7 +1422,9 @@
       "summary": "[\"第 20 條：開放共同收養與收養他方子女（不限親生）\",\"第 3、9、16 條：配合溯及自 2023-01-01 施行之相關修正\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1217,7 +1435,9 @@
       "summary": "跨部會檢討三級輔導與死因回溯",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A211"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A211",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1228,7 +1448,9 @@
       "summary": "撤銷原處分但同時駁回業者請求重新換照與賠償；命 NCC 依判決法律見解另為適法處分",
       "issue_tags": "[\"言論自由\",\"媒體換照\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A505"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A505",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1239,7 +1461,9 @@
       "summary": "放寬聘僱家庭看護工門檻；同次修法未處理移工自由轉換雇主之 §53 限制",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A413"
+      "related_article": "[\"ICESCR-6\"]",
+      "actor_id": "A413",
+      "is_positive_outcome": 1
     },
     {
       "source": "amendment",
@@ -1250,7 +1474,9 @@
       "summary": "[\"四類型化\",\"全部外聘調查\",\"軍警納入\",\"實習督導入法\",\"實際照顧者告知\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1261,7 +1487,9 @@
       "summary": "禁師生戀、外聘調查、懲罰性賠償；**未引入家長 opt-out 課程選擇權**",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": "[\"PI-10\"]",
-      "actor_id": "A703"
+      "related_article": "[\"ICESCR-13\",\"CEDAW\"]",
+      "actor_id": "A703",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1272,7 +1500,9 @@
       "summary": "失聯移工 2023 年底達 8.6 萬人新高，列出仲介剝削、轉換雇主限制等 10 大根源",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A411"
+      "related_article": "[\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A411",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -1283,7 +1513,9 @@
       "summary": "長期結構性現象，108 課綱未根本解決",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-16\"]",
-      "actor_id": "A707"
+      "related_article": "[\"ICESCR-13-2-e\",\"CRC-28\"]",
+      "actor_id": "A707",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -1294,7 +1526,9 @@
       "summary": "明指「政府調查人力與規定不足，持續阻礙鑑別、調查與起訴」",
       "issue_tags": "[\"移工\",\"漁工\"]",
       "related_pi": "[\"PI-13\"]",
-      "actor_id": "A412"
+      "related_article": "[\"ICCPR-8\"]",
+      "actor_id": "A412",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -1305,7 +1539,9 @@
       "summary": "原 2024-01-15 上路延至 07-15；同期增加引進印度移工 MOU 簽署",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A407"
+      "related_article": "[\"ICESCR-6\",\"ICESCR-7\"]",
+      "actor_id": "A407",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1316,7 +1552,9 @@
       "summary": "擴大年齡上限至 45 歲，預估 6 萬人次",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A206"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A206",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1327,7 +1565,9 @@
       "summary": "實質縮限死刑適用範圍但未廢除；要求 2 年內修法",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A004"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A004",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1338,7 +1578,9 @@
       "summary": "36 名死囚仍在獄中；尚未進入 OP2 批准程序",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-02\"]",
-      "actor_id": "A003"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A003",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1349,7 +1591,9 @@
       "summary": "建立線上轉換系統，研擬禁止雇主與仲介扣留證件之條文",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A407"
+      "related_article": "[\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A407",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1360,7 +1604,9 @@
       "summary": "攔檢現場唾液快篩，陽性後血液／尿液二層確認；拒測罰 18 萬",
       "issue_tags": "[\"毒駕\",\"校園菸毒\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A806"
+      "related_article": "[\"ICESCR-12\",\"ICCPR-17\"]",
+      "actor_id": "A806",
+      "is_positive_outcome": null
     },
     {
       "source": "amendment",
@@ -1371,7 +1617,9 @@
       "summary": "[\"大專師生比 1,200:1 → 900:1\",\"新增第 11-1 條：國中小輔導教師員額編制母法\",\"新增第 5-1 條：跨機關聯繫機制\",\"新增第 6-1 條：原住民族學生輔導\",\"強化專業督導\",\"中央統一訂定諮商中心設置辦法\"]",
       "issue_tags": null,
       "related_pi": null,
-      "actor_id": null
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1382,7 +1630,9 @@
       "summary": "兒福聯盟提出 2024 兒少自殺率達 7.0/十萬,高於 OECD 平均 6.5(z=3.12 outlier)。主張 ICESCR §12 + 學生輔導法執行落差。具體段落號待補。",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "PI-11",
-      "actor_id": "A201"
+      "related_article": null,
+      "actor_id": "A201",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1393,7 +1643,9 @@
       "summary": "AABE 援引美國最高法院 Mahmoud v Taylor (605 U.S., 2025-06-27) 之父母教育選擇權判決,主張 ICESCR §13-3 + GC13 §28 之國際趨勢。具體段落號待補。",
       "issue_tags": "[\"教育權\",\"選擇權\"]",
       "related_pi": "PI-10",
-      "actor_id": "A708"
+      "related_article": null,
+      "actor_id": "A708",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1404,7 +1656,9 @@
       "summary": "性平倡議團體援引 113 憲判 8 號廢死案 + 同婚立法成果,主張 ICCPR §26 + 性別平等之延伸。具體段落號待補。",
       "issue_tags": "[\"性平教育\"]",
       "related_pi": null,
-      "actor_id": "A311"
+      "related_article": null,
+      "actor_id": "A311",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1415,7 +1669,9 @@
       "summary": "MENT 移工聯盟延續主張,並援引 ILO 國際標準 + 強迫勞動議題之新增案例。具體段落號待補。",
       "issue_tags": "[\"移工\"]",
       "related_pi": "PI-04",
-      "actor_id": "A402"
+      "related_article": null,
+      "actor_id": "A402",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1426,7 +1682,9 @@
       "summary": "原民青年陣線主張 ICCPR §1 + UN Declaration on Rights of Indigenous Peoples + 傳統領域議題之新進展。具體段落號待補。",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": null,
-      "actor_id": "A605"
+      "related_article": null,
+      "actor_id": "A605",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1437,7 +1695,9 @@
       "summary": "醫藥使用者團體以個人權利派立場主張 ICESCR §12 + 健保給付 + 罕見疾病議題。具體段落號待補。",
       "issue_tags": "[\"健康權\",\"健保\"]",
       "related_pi": null,
-      "actor_id": "A813"
+      "related_article": null,
+      "actor_id": "A813",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1448,7 +1708,9 @@
       "summary": "記協援引 RSF 2025 排名 24 + Freedom House 2026 公民自由首次下降,主張 ICCPR §19 + GC34 + 平台監管立法之挑戰。具體段落號待補。",
       "issue_tags": "[\"言論自由\",\"平台監管\"]",
       "related_pi": "PI-09",
-      "actor_id": "A507"
+      "related_article": null,
+      "actor_id": "A507",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1459,7 +1721,9 @@
       "summary": "董氏心衛中心主張 ICESCR §12 + 心理健康分項 + 自殺防治法十年成效檢核。具體段落號待補。",
       "issue_tags": "[\"心理健康\"]",
       "related_pi": "PI-11",
-      "actor_id": "A202"
+      "related_article": null,
+      "actor_id": "A202",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1470,7 +1734,9 @@
       "summary": "教師會援引校園藥物使用議題,主張 ICESCR §12 + ICCPR §24 兒少保護之雙公約執法。具體段落號待補。",
       "issue_tags": "[\"健康權\",\"校園菸毒\"]",
       "related_pi": null,
-      "actor_id": "A814"
+      "related_article": null,
+      "actor_id": "A814",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1481,7 +1747,9 @@
       "summary": "大專師生比 1200:1→900:1；國中小增逾 600 名專輔教師",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A207"
+      "related_article": "[\"ICESCR-12\",\"ICESCR-13\"]",
+      "actor_id": "A207",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1492,7 +1760,9 @@
       "summary": "政治權利 38/40、公民自由 56/60、總分 94/100；網路自由 79/100",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-09\"]",
-      "actor_id": "A510"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A510",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1503,7 +1773,9 @@
       "summary": "從不足 5,000 人擴至逾 20,000 人",
       "issue_tags": "[\"教育權\"]",
       "related_pi": "[\"PI-16\"]",
-      "actor_id": "A712"
+      "related_article": "[\"ICESCR-13-3\",\"ICESCR-2-2\"]",
+      "actor_id": "A712",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1514,7 +1786,9 @@
       "summary": "6 年 56.3 億元、6 大策略",
       "issue_tags": "[\"兒少自殺\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A206"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A206",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1525,7 +1799,9 @@
       "summary": "服務對象擴大、整合醫療長照、強化家庭支持",
       "issue_tags": "[\"長照\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A804"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A804",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1536,7 +1812,9 @@
       "summary": "現行兵役法未提供合理替代選項、違反宗教信仰自由與良心自由保障",
       "issue_tags": "[\"良心拒服兵役\"]",
       "related_pi": "[\"PI-08\"]",
-      "actor_id": "A312"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A312",
+      "is_positive_outcome": 1
     },
     {
       "source": "event",
@@ -1547,7 +1825,9 @@
       "summary": "2024 新增失聯 25,773 人較前年減 5,783 人；累計失聯尚未出境者仍逾 9 萬",
       "issue_tags": "[\"移工\"]",
       "related_pi": "[\"PI-12\",\"PI-13\"]",
-      "actor_id": "A409"
+      "related_article": "[\"ICESCR-7\",\"ICCPR-8\"]",
+      "actor_id": "A409",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1558,7 +1838,9 @@
       "summary": "美最高 6-3 父母宗教教育權須通過 strict scrutiny",
       "issue_tags": "[\"同性婚姻\",\"宗教自由\"]",
       "related_pi": "[\"PI-10\"]",
-      "actor_id": "A105"
+      "related_article": "[\"ICCPR-18\"]",
+      "actor_id": "A105",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1569,7 +1851,9 @@
       "summary": "憲判限期屆至，行政院修正草案在立法院僵局；平埔族正名仍未到位",
       "issue_tags": "[\"原住民族\",\"平埔正名\"]",
       "related_pi": "[\"PI-12\"]",
-      "actor_id": "A610"
+      "related_article": "[\"ICCPR-27\"]",
+      "actor_id": "A610",
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -1580,7 +1864,9 @@
       "summary": "民團指 4 成青少年使用加味菸品",
       "issue_tags": "[\"菸害\",\"校園\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A810"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A810",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1591,7 +1877,9 @@
       "summary": "ICCPR 18-4 與 ICESCR 13-3 之內部衝突未獲制度化解方",
       "issue_tags": "[\"教育權\",\"選擇權\"]",
       "related_pi": "[\"PI-10\",\"PI-16\"]",
-      "actor_id": "A707"
+      "related_article": "[\"ICESCR-13-3\",\"ICCPR-18-4\",\"CRC-29\"]",
+      "actor_id": "A707",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1602,7 +1890,9 @@
       "summary": "審查預期再度關切平台監管比例原則 + 假訊息治理",
       "issue_tags": "[\"言論自由\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A512"
+      "related_article": "[\"ICCPR-19\"]",
+      "actor_id": "A512",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1613,7 +1903,9 @@
       "summary": "行政院因社會反彈暫緩補充保費年度累計新制",
       "issue_tags": "[\"健保\"]",
       "related_pi": "[\"PI-11\"]",
-      "actor_id": "A802"
+      "related_article": "[\"ICESCR-12\"]",
+      "actor_id": "A802",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1624,7 +1916,9 @@
       "summary": "第四次兩公約審查預期再次點名 FPIC、傳統領域、平埔身分修法三項未竟事項",
       "issue_tags": "[\"原住民族\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A612"
+      "related_article": "[\"ICCPR-1\",\"ICCPR-27\"]",
+      "actor_id": "A612",
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -1635,7 +1929,9 @@
       "summary": "Manfred Nowak 第 4 屆主席連續 4 屆關注",
       "issue_tags": "[\"廢死\"]",
       "related_pi": "[\"PI-03\"]",
-      "actor_id": "A002"
+      "related_article": "[\"ICCPR-6\"]",
+      "actor_id": "A002",
+      "is_positive_outcome": null
     }
   ]
 }
