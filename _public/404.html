@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<!-- aabe-insider-gate --><script src="insider-gate.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 找不到頁面 — 兩公約監督平台</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAFAF7; --bg-alt: #F1EFEA; --bg-deep: #0E2238;
+  --text: #1F1F1F; --text-muted: #5C5C5C;
+  --brand: #B5371F; --aabe-gold: #8B6F50;
+  --cycle-iccpr: #5D3A1A; --cycle-icescr: #5C1A1B;
+  --serif: "Noto Serif TC", Georgia, serif;
+  --sans: "Noto Sans TC", "PingFang TC", -apple-system, sans-serif;
+  --sans-en: "Inter", "Noto Sans TC", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans); background: var(--bg); color: var(--text);
+  min-height: 100vh; display: flex; flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+.color-strip { display:flex; height:5px; }
+.color-strip > div:nth-child(1) { flex:1; background: var(--cycle-iccpr); }
+.color-strip > div:nth-child(2) { flex:1; background: var(--cycle-icescr); }
+main {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  padding: 32px 20px;
+}
+.box {
+  text-align: center; max-width: 520px;
+}
+.code {
+  font-family: var(--sans-en); font-size: 88px; font-weight: 800;
+  color: var(--brand); line-height: 1; margin-bottom: 12px;
+}
+h1 { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--bg-deep); margin-bottom: 12px; }
+.lead { color: var(--text-muted); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+.grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 10px; text-align: left;
+}
+.tile {
+  background: #fff; border: 1px solid #DDD8CD; border-radius: 4px;
+  padding: 12px 14px; text-decoration: none; color: var(--text);
+  transition: border-color .15s, transform .15s;
+}
+.tile:hover { border-color: var(--brand); transform: translateY(-1px); }
+.tile h3 { font-family: var(--serif); font-size: 15px; color: var(--bg-deep); margin-bottom: 4px; }
+.tile p { font-size: 12px; color: var(--text-muted); }
+footer {
+  text-align: center; padding: 18px; font-size: 12px; color: var(--text-muted);
+}
+footer a { color: var(--brand); text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="color-strip"><div></div><div></div></div>
+<main>
+  <div class="box">
+    <div class="code">404</div>
+    <h1>找不到此頁面</h1>
+    <p class="lead">您搜尋之資源可能已搬移、或 URL 拼寫有誤。試試以下入口:</p>
+    <div class="grid">
+      <a href="/" class="tile">
+        <h3>← 回首頁</h3>
+        <p>主頁 / 文件資料庫</p>
+      </a>
+      <a href="/issues/" class="tile">
+        <h3>16 議題卡 PI</h3>
+        <p>4 區塊分類總覽</p>
+      </a>
+      <a href="/trace/" class="tile">
+        <h3>議題鏈追溯</h3>
+        <p>21 議題因果脈絡</p>
+      </a>
+      <a href="/laws/" class="tile">
+        <h3>法律修法歷程</h3>
+        <p>6 部 + 時間軸</p>
+      </a>
+      <a href="/actors/" class="tile">
+        <h3>行動者目錄</h3>
+        <p>107 位 / 11 類型</p>
+      </a>
+      <a href="/search.html" class="tile">
+        <h3>全平台搜尋</h3>
+        <p>568 條目 fuzzy 搜尋</p>
+      </a>
+    </div>
+  </div>
+</main>
+<footer>
+  © 2026 國教行動聯盟 AABE · <a href="/about.html">關於</a> · <a href="/feedback.html">回報問題</a>
+</footer>
+</body>
+</html>
