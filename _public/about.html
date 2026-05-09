@@ -28,6 +28,27 @@
 
 <h1>關於本平台</h1>
 
+<!-- live-stats-injected -->
+<div id="live-stats" style="background:#0E2238;color:#fff;padding:18px 20px;border-radius:6px;margin:24px 0;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline">
+  <div style="font-family:'Noto Serif TC',serif;font-size:14px;font-weight:700;color:#8B6F50;letter-spacing:0.05em">即時統計</div>
+  <div><b id="ls-events" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">events</span></div>
+  <div><b id="ls-actors" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">行動者</span></div>
+  <div><b id="ls-pi" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">PI 議題卡</span></div>
+  <div><b id="ls-laws" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">核心法律</span></div>
+  <div><b id="ls-traces" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">議題鏈</span></div>
+  <div style="margin-left:auto;font-size:11px;opacity:0.6">資料來源:<a href="api/coverage.json" style="color:#fff;text-decoration:underline">/api/coverage.json</a></div>
+</div>
+<script>
+fetch('api/coverage.json').then(r=>r.json()).then(d=>{
+  var t = d.totals || {};
+  document.getElementById('ls-events').textContent = t.event || 0;
+  document.getElementById('ls-actors').textContent = t.actor || 0;
+  document.getElementById('ls-pi').textContent = t.pi || 0;
+  document.getElementById('ls-laws').textContent = t.law || 0;
+  document.getElementById('ls-traces').textContent = '15';
+}).catch(e=>console.error(e));
+</script>
+
 <h2>一、平台宗旨</h2>
 <p>本平台聚焦兩公約（公民與政治權利國際公約 ICCPR、經濟社會文化權利國際公約 ICESCR）於 2009 年通過《兩公約施行法》以來 16 年（2009-2026）之施行歷程。</p>
 <p>使用者透過本平台可：</p>
