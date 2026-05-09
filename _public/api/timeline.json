@@ -36,6 +36,32 @@
       "is_positive_outcome": null
     },
     {
+      "source": "amendment",
+      "id": "AMD-2016-001",
+      "date": null,
+      "event_type": "legislation",
+      "title": "集會遊行法",
+      "summary": "{\"report_system\": \"草案\", \"expired\": true, \"reason\": \"立法院屆期不續審\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
+      "source": "amendment",
+      "id": "AMD-1992-001",
+      "date": "1992-07-15",
+      "event_type": "legislation",
+      "title": "集會遊行法",
+      "summary": "{\"penalties\": \"緩和\", \"approval_system\": \"保留(核心爭議)\", \"constitutional_challenge\": \"為日後釋字 445 號鋪路\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
       "source": "event",
       "id": "EV-1994-001",
       "date": "1994-03-31",
@@ -319,6 +345,19 @@
       "related_pi": "[\"PI-01\"]",
       "related_article": "[\"ICCPR-2\",\"ICESCR-2\"]",
       "actor_id": "A405",
+      "is_positive_outcome": null
+    },
+    {
+      "source": "amendment",
+      "id": "AMD-2011-001",
+      "date": "2011-06-07",
+      "event_type": "legislation",
+      "title": "性別平等教育法",
+      "summary": "{\"key_articles\": [\"§22\", \"§24\", \"§25\"], \"trigger\": \"校園性侵害事件後民意壓力\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
       "is_positive_outcome": null
     },
     {
@@ -1698,6 +1737,19 @@
       "related_article": "[\"ICCPR-23\",\"ICCPR-26\"]",
       "actor_id": "A005",
       "is_positive_outcome": 0
+    },
+    {
+      "source": "amendment",
+      "id": "AMD-2018-001",
+      "date": "2018-12-07",
+      "event_type": "legislation",
+      "title": "性別平等教育法",
+      "summary": "{\"scope_extended\": \"補習班教師\", \"victim_rights\": \"轉學申請權\", \"non_reporting_penalty\": \"加重\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -4001,6 +4053,19 @@
       "is_positive_outcome": 1
     },
     {
+      "source": "amendment",
+      "id": "AMD-2024-003",
+      "date": "2024-08-30",
+      "event_type": "legislation",
+      "title": "性別平等教育法",
+      "summary": "{\"principal_investigation\": \"明確程序\", \"intern_teacher\": \"督導視為現職\", \"supervision\": \"強化\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
       "source": "event",
       "id": "EV-2026-814",
       "date": "2024-09",
@@ -4534,6 +4599,19 @@
       "is_positive_outcome": null
     },
     {
+      "source": "amendment",
+      "id": "AMD-2024-002",
+      "date": "2024-12-13",
+      "event_type": "legislation",
+      "title": "學生輔導法",
+      "summary": "{\"ratio\": \"1200:1 → 900:1\", \"article_added\": \"§11-1\", \"central_authority\": \"教育部統一訂定諮商中心辦法\", \"phasing\": \"2 年過渡期\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
       "source": "event",
       "id": "EV-2024-102",
       "date": "2024-12-18",
@@ -4571,6 +4649,19 @@
       "related_article": "[\"ICESCR-12\", \"ICESCR-13\"]",
       "actor_id": "A211",
       "is_positive_outcome": 1
+    },
+    {
+      "source": "amendment",
+      "id": "AMD-2024-004",
+      "date": "2024-12-20",
+      "event_type": "legislation",
+      "title": "自殺防治法",
+      "summary": "{\"campus_chapter_added\": true, \"media_guidelines\": \"法制化\", \"interagency\": \"教育部 + 衛福部\"}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
@@ -4909,6 +5000,19 @@
       "related_article": "[\"ICCPR-18\"]",
       "actor_id": "A309",
       "is_positive_outcome": 1
+    },
+    {
+      "source": "amendment",
+      "id": "AMD-2025-001",
+      "date": "2025-01-15",
+      "event_type": "legislation",
+      "title": "司法院釋字第七四八號解釋施行法",
+      "summary": "{\"transnational_marriage\": \"全面開放\", \"art_excluded\": true, \"remaining_issues\": [\"人工生殖\", \"跨性別認可\"]}",
+      "issue_tags": null,
+      "related_pi": null,
+      "related_article": null,
+      "actor_id": null,
+      "is_positive_outcome": null
     },
     {
       "source": "event",
