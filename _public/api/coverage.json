@@ -138,6 +138,9 @@
     "law": 6,
     "law_version": 17,
     "law_article_change": 16,
-    "law_amendment": 15
+    "law_amendment": 15,
+    "concluding_observation": 80,
+    "nap_action": 90,
+    "legislative_citation": 23
   }
 }

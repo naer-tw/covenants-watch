@@ -31,11 +31,20 @@
 - CI build pipeline:加 4 個 render/inject step,修「PI HTML rebuild 覆蓋注入」之順序問題
 - 主頁過時數字統一:9 議題 → 21 議題,141 events → 390 events
 
-### 文檔(Wave 156)
+### 文檔(Wave 156a-b)
 - 新增 `README.md`(11 sections, 9 層架構表)
 - 新增 `CONTRIBUTING.md`(三類貢獻管道 + 開發環境)
 - 新增 `.github/ISSUE_TEMPLATE/`(訂正 / bug / feature)
 - 新增 `_public/404.html`(自訂 404 頁)
+- 新增 `CHANGELOG.md`
+
+### 三表填充(Wave 156)
+- `concluding_observation`: 0 → **80** 筆(4 屆累計關鍵段次,含廢死 / CAT / §22 集會 / 移工 / 原民 / 兒少自殺)
+- `nap_action`: 0 → **90** 筆(NAP I 60 + NAP II 30,含主辦機關 + 預算 + 民間評語)
+- `law_amendment`: 7 → **15** 筆(性平法 2011/2018/2024 三次 / 學輔法 2024 / 自殺防治法 2024 校園篇 等)
+- coverage.json totals 加入 CO + NAP + legislative_citation 計數
+- about.html 即時統計加 CO 段次 + NAP 行動兩欄
+- self_qa: 82 pass / 0 fail
 
 ## [v0.1] — 2026-04-30
 

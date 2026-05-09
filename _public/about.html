@@ -35,6 +35,8 @@
   <div><b id="ls-actors" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">行動者</span></div>
   <div><b id="ls-pi" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">PI 議題卡</span></div>
   <div><b id="ls-laws" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">核心法律</span></div>
+  <div><b id="ls-co" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">CO 段次</span></div>
+  <div><b id="ls-nap" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">NAP 行動</span></div>
   <div><b id="ls-traces" style="font-family:Inter,sans-serif;font-size:22px;font-weight:700">…</b><span style="font-size:12px;opacity:0.7;margin-left:4px">議題鏈</span></div>
   <div style="margin-left:auto;font-size:11px;opacity:0.6">資料來源:<a href="api/coverage.json" style="color:#fff;text-decoration:underline">/api/coverage.json</a></div>
 </div>
@@ -45,7 +47,9 @@ fetch('api/coverage.json').then(r=>r.json()).then(d=>{
   document.getElementById('ls-actors').textContent = t.actor || 0;
   document.getElementById('ls-pi').textContent = t.pi || 0;
   document.getElementById('ls-laws').textContent = t.law || 0;
-  document.getElementById('ls-traces').textContent = '15';
+  document.getElementById('ls-co').textContent = t.concluding_observation || 0;
+  document.getElementById('ls-nap').textContent = t.nap_action || 0;
+  document.getElementById('ls-traces').textContent = '21';
 }).catch(e=>console.error(e));
 </script>
 

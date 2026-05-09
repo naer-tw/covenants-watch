@@ -25,7 +25,9 @@
 | 事件 (events) | 390(影子報告 80+ / CO 援引 / 立法 / 政府回應 / 司法判決 / 倡議行動 / 結果指標)|
 | 因果連結 (causal_link) | 74(含反證 + 並列原因 + 鏈長警告) |
 | 結果指標 (outcome_indicator) | 33 |
-| 核心法律 + 修法 | 6 + 7+ amendments |
+| 結論性意見 (CO) | 80(4 屆累計關鍵段次,代表性樣本)|
+| NAP 行動 | 90(NAP I 60 + NAP II 30) |
+| 核心法律 + 修法 | 6 + 15 amendments |
 | 全平台搜尋索引 | 568 條目(Fuse.js) |
 | 影子報告 (5 audience) | professional / advocacy / legislative / media / social |
 

@@ -110,6 +110,9 @@ def export_coverage(conn) -> dict:
             "law_version": _count(conn, "law_version"),
             "law_article_change": _count(conn, "law_article_change"),
             "law_amendment": _count(conn, "law_amendment"),
+            "concluding_observation": _count(conn, "concluding_observation"),
+            "nap_action": _count(conn, "nap_action"),
+            "legislative_citation": _count(conn, "legislative_citation"),
         },
     }
 
