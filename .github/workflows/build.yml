@@ -48,8 +48,20 @@ jobs:
       - name: Render trace HTML
         run: python3 scripts/two_cov_render_trace.py --all || true
 
+      - name: Render trace index
+        run: python3 scripts/two_cov_render_trace_index.py || true
+
       - name: Render law HTML
         run: python3 scripts/two_cov_render_law.py --all || true
+
+      - name: Render laws index
+        run: python3 scripts/two_cov_render_laws_index.py || true
+
+      - name: Render actors index
+        run: python3 scripts/two_cov_render_actors.py || true
+
+      - name: Inject PI relations (db events/actors → PI cards)
+        run: python3 scripts/two_cov_inject_pi_relations.py || true
 
       - name: Recompile shadow report (5 audience)
         run: |
