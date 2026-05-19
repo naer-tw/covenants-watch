@@ -36,3 +36,6 @@ _jekyll_output/_sources/
 
 # Wave 50:_share/ 是獨立的 GitHub Pages repo,不納入主平台 git
 _share/
+
+# Git worktrees for schema migration / 隔離開發
+.worktrees/
