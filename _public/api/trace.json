@@ -1118,6 +1118,24 @@
       "created_at": "2026-05-02 06:01:35"
     },
     {
+      "event_id": "EV-1998-445",
+      "event_date": "1998-01-23",
+      "event_type": "court_ruling",
+      "issue_tags": "[\"集會自由\"]",
+      "actor_id": null,
+      "title": "司法院釋字第 445 號解釋",
+      "summary": "大法官宣告《集會遊行法》就室外集會、遊行採事前許可制之部分規定,以及不得主張共產主義或分裂國土等審查條款,違反憲法第 14 條集會自由與第 11 條言論自由,應自解釋公布日起失其效力;惟未否定許可制本身。此後 26 年集遊法核心許可制框架仍未改採報備制。",
+      "full_quote": null,
+      "source_url": null,
+      "source_archive": null,
+      "related_pi": null,
+      "related_co": "[\"CO-1-§52\"]",
+      "related_article": "[\"ICCPR-21\",\"ICCPR-19\"]",
+      "is_positive_outcome": null,
+      "note": null,
+      "created_at": "2026-06-01 23:16:34"
+    },
+    {
       "event_id": "EV-1999-301",
       "event_date": "1999-10-01",
       "event_type": "court_ruling",
@@ -1856,6 +1874,24 @@
       "created_at": "2026-05-08T17:21:03.471860Z"
     },
     {
+      "event_id": "EV-2014-718",
+      "event_date": "2014-03-21",
+      "event_type": "court_ruling",
+      "issue_tags": "[\"集會自由\"]",
+      "actor_id": null,
+      "title": "司法院釋字第 718 號解釋",
+      "summary": "大法官宣告《集會遊行法》就緊急性及偶發性集會、遊行一律事前申請許可之規定違憲,應自 2015 年 1 月 1 日起失效;惟一般集會之事前許可制仍維持合憲。釋字 445 (1998) 後再隔 16 年,僅就例外情形微調,核心許可制依舊未動。",
+      "full_quote": null,
+      "source_url": null,
+      "source_archive": null,
+      "related_pi": null,
+      "related_co": "[\"CO-2-§49\"]",
+      "related_article": "[\"ICCPR-21\"]",
+      "is_positive_outcome": null,
+      "note": null,
+      "created_at": "2026-06-01 23:16:34"
+    },
+    {
       "event_id": "EV-2014-201-A204",
       "event_date": "2014-05-30",
       "event_type": "legislation",
@@ -2160,6 +2196,24 @@
       "is_positive_outcome": null,
       "note": "v0.2 結構期 待補段號 source_url",
       "created_at": null
+    },
+    {
+      "event_id": "EV-2016-720",
+      "event_date": "2016-12",
+      "event_type": "legislation",
+      "issue_tags": "[\"集會自由\"]",
+      "actor_id": null,
+      "title": "集會遊行法修正草案 — 報備制版本立法擱置",
+      "summary": "民進黨完全執政後,行政院與立委曾提出將集遊法許可制改為報備制之修正草案,並廢除禁制區、命令解散等爭議條文;惟草案歷經一讀後於委員會擱置,未能完成三讀,延續釋字 445、718 號未竟之改革。",
+      "full_quote": null,
+      "source_url": null,
+      "source_archive": null,
+      "related_pi": null,
+      "related_co": "[\"CO-2-§49\",\"CO-3-§57\"]",
+      "related_article": "[\"ICCPR-21\"]",
+      "is_positive_outcome": 0,
+      "note": null,
+      "created_at": "2026-06-01 23:16:34"
     },
     {
       "event_id": "EV-2017-801-A806",
@@ -8100,6 +8154,24 @@
       "is_positive_outcome": null,
       "note": null,
       "created_at": "2026-05-01 11:05:36"
+    },
+    {
+      "event_id": "EV-2026-880",
+      "event_date": "2026-Q1",
+      "event_type": "outcome",
+      "issue_tags": "[\"集會自由\"]",
+      "actor_id": null,
+      "title": "集遊法第四屆審查仍零進度 — 許可制存續逾 28 年",
+      "summary": "至第四次兩公約國家報告審查 (2026),《集會遊行法》室外集會一般事前許可制自 1988 年施行、歷經釋字 445 (1998)、718 (2014) 兩號解釋及四屆 CO (§52/§49/§57/§6) 連續呼籲改採報備制,仍未完成修法;與同性婚姻自釋字 748 (2017) 至施行法 (2019) 僅 2 年即完成立法形成明顯對比。",
+      "full_quote": null,
+      "source_url": null,
+      "source_archive": null,
+      "related_pi": null,
+      "related_co": "[\"CO-4-§6\"]",
+      "related_article": "[\"ICCPR-21\"]",
+      "is_positive_outcome": 0,
+      "note": null,
+      "created_at": "2026-06-01 23:16:34"
     }
   ],
   "causal_links": [
@@ -8143,6 +8215,34 @@
       "note": "時序與案件當事人同一",
       "created_at": "2026-05-02 06:01:35",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 88,
+      "from_event": "EV-1998-445",
+      "to_event": "EV-2014-718",
+      "link_type": "parallels",
+      "evidence_strength": "direct",
+      "chain_depth": 1,
+      "counter_evidence": "釋字 445 號 (1998) 與釋字 718 號 (2014) 均宣告集遊法許可制部分違憲卻均未否定許可制本身;若 445 號已徹底改採報備制,718 號之爭議 (緊急/偶發集會) 不會再起。",
+      "multi_causal_note": "並列原因:(a) 立法院未依釋字全面修法;(b) 行政機關維持秩序管理考量;(c) 集會性質類型化之技術爭議。",
+      "note": "兩號釋憲相隔 16 年仍僅微調,顯示集會自由改革之長期停滯。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 92,
+      "from_event": "EV-1998-445",
+      "to_event": "EV-2026-880",
+      "link_type": "parallels",
+      "evidence_strength": "indirect",
+      "chain_depth": 1,
+      "counter_evidence": "釋字 445 號 (1998) 宣告許可制部分違憲後,至 2026 逾 28 年集遊法核心許可制仍存續;若釋憲拘束力足以推動修法,不致延宕至四屆審查。",
+      "multi_causal_note": "並列原因:(a) 釋字未宣告許可制本身違憲,留下立法裁量空間;(b) 立法怠惰;(c) 缺乏政治急迫性。",
+      "note": "釋字 445 → 28 年後仍零進度,標示集會自由為四議題中改革最停滯者。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     },
     {
@@ -8370,6 +8470,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 93,
+      "from_event": "EV-2017-001",
+      "to_event": "EV-1998-445",
+      "link_type": "parallels",
+      "evidence_strength": "contested",
+      "chain_depth": 1,
+      "counter_evidence": "釋字 748 (2017,同婚) 於 2 年內促成立法,釋字 445 (1998,集會) 逾 26 年未促成許可制廢除;同為大法官解釋,後續立法回應速度天差地遠。反向觀點:748 號明定 2 年立法期限且設違憲失效,445 號未設失效時限,司法拘束力設計不同。",
+      "multi_causal_note": "並列原因:(a) 釋憲是否設定時限與失效設計;(b) 議題之國際能見度差異;(c) 倡議主體之集中度差異。",
+      "note": "兩號釋憲之立法回應落差,是『同一司法工具、不同政治待遇』之對照。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 23,
       "from_event": "EV-2017-102",
       "to_event": "EV-2019-101",
@@ -8468,6 +8582,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 95,
+      "from_event": "EV-2018-301-A310",
+      "to_event": "EV-2026-870",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 1,
+      "counter_evidence": "護家盟主導之公投第 10、11、12 案動員,直接促成 2018 公投反同三案高比例通過;若無此組織化動員,公投案未必能達成案門檻並高票通過。反向觀點:即使無護家盟主導,既有宗教與家長社群之保守民意基線仍存在,公投仍可能由其他團體發起。",
+      "multi_causal_note": "並列原因:(a) 宗教團體跨教派動員網絡;(b) 釋字 748 引發之反作用;(c) 公投與大選綁定 (2018) 拉高投票率。",
+      "note": "反方倡議動員 → 公投民意展現,是 backfire 鏈中『社會反彈被制度化為公投結果』之關鍵環節。",
+      "created_at": "2026-06-01 23:17:30",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 48,
       "from_event": "EV-2018-401",
       "to_event": "EV-2020-401",
@@ -8496,6 +8624,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 91,
+      "from_event": "EV-2019-001",
+      "to_event": "EV-2026-880",
+      "link_type": "parallels",
+      "evidence_strength": "contested",
+      "chain_depth": 1,
+      "counter_evidence": "同性婚姻自釋字 748 (2017) 至 748 施行法 (2019) 僅約 2 年即完成立法;集會遊行法許可制自釋字 445 (1998) 歷經 718 (2014) 與四屆 CO 連續呼籲,逾 28 年仍未改採報備制。兩議題之立法速度差異懸殊。反向觀點:同婚有釋字 748 之明確 2 年時限與違憲宣告失效設計,集遊法釋字未設失效時限,二者司法拘束力強度不同,速度差異有制度性解釋而非單純政治選擇。",
+      "multi_causal_note": "並列原因:(a) 釋憲是否設定立法時限之差異;(b) 國際象徵壓力 (亞洲first) 僅作用於同婚;(c) 集會議題缺乏單一強力倡議主體。",
+      "note": "『同婚 2 年完成 vs 集會 28 年停滯』之對比,是平台檢視『推動速度落差』之核心 parallels 證據。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 24,
       "from_event": "EV-2019-102",
       "to_event": "EV-2021-101",
@@ -8507,6 +8649,20 @@
       "note": "個案與統計趨勢屬不同層次",
       "created_at": "2026-05-01 13:32:31",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 78,
+      "from_event": "EV-2019-301-A310",
+      "to_event": "EV-2019-707",
+      "link_type": "parallels",
+      "evidence_strength": "contested",
+      "chain_depth": 1,
+      "counter_evidence": "下一代幸福聯盟批評施行法違反公投意志、與『雙方均不滿意修法』之社會氛圍,二者反映同一時期反方之挫折感;惟挺同方亦同時主張專法為『換湯不換藥』之次等保障,故不滿來自光譜兩端。",
+      "multi_causal_note": "並列原因:(a) 立法技術上之專法 vs 民法爭議;(b) 公投與釋憲之程序衝突;(c) 媒體框架放大對立。",
+      "note": "立法後光譜兩端皆不滿,是『快速推動換取形式完成、卻未換取社會共識』之指標。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     },
     {
@@ -8734,6 +8890,62 @@
       "review_kappa": null
     },
     {
+      "link_id": 82,
+      "from_event": "EV-2024-001",
+      "to_event": "EV-2024-001-A008",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 1,
+      "counter_evidence": "113 憲判 8 號之言詞辯論程序提供被害人家屬出席表達反對廢死之正式管道;若無此釋憲案,家屬未必於此時點集中發聲。",
+      "multi_causal_note": "並列原因:(a) 被害人保護團體既有組織;(b) 個案被害人家屬之主動參與意願。",
+      "note": "釋憲程序本身觸發了反方 (被害人家屬) 之制度化參與。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 94,
+      "from_event": "EV-2024-001",
+      "to_event": "EV-2019-001",
+      "link_type": "parallels",
+      "evidence_strength": "contested",
+      "chain_depth": 1,
+      "counter_evidence": "同婚議題自釋字 748 (2017) 至立法 (2019) 僅 2 年;廢死議題自第一屆 CO (2013) 呼籲歷經 113 憲判 8 號 (2024) 逾 11 年仍未廢除且民調約 88% 反對。兩議題均涉高度社會爭議,推動速度與民意接受度卻迥異。反向觀點:同婚有明確釋憲時限,廢死之 OP2 批准屬政策選擇且民意阻力遠高,二者不完全可比。",
+      "multi_causal_note": "並列原因:(a) 國際象徵壓力強度差異 (同婚『亞洲first』vs 廢死國際趨勢);(b) 民意反對強度差異 (廢死約 88% 反對);(c) 釋憲拘束力設計差異。",
+      "note": "同婚『快速完成』與廢死『長期停滯且民意高度保留』之對比,呈現公約議題推進之選擇性。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 81,
+      "from_event": "EV-2024-001-A008",
+      "to_event": "EV-2026-871",
+      "link_type": "parallels",
+      "evidence_strength": "indirect",
+      "chain_depth": 1,
+      "counter_evidence": "被害人家屬出席 113 憲判 8 號言詞辯論主張保留死刑,與後續約 88% 民調反對廢死反映同一方向之民意;惟家屬個案立場不必然等同整體民調結構。",
+      "multi_causal_note": "並列原因:(a) 重大刑案社會情緒;(b) 媒體對家屬陳述之放大;(c) 被害人保護運動之長期累積。",
+      "note": "被害人家屬之程序參與,是『廢死推動忽略被害人視角』backfire 論述之關鍵證據。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 83,
+      "from_event": "EV-2024-002",
+      "to_event": "EV-2024-002-A008",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 1,
+      "counter_evidence": "法務部 2024-09 後未再執行死刑之事實上暫停,直接觸發被害人家屬團體於 2024-12 質疑死刑暫緩執行;若仍正常執行,此質疑未必發生。",
+      "multi_causal_note": "並列原因:(a) 既有被害人權運動;(b) 個案家屬之司法正義訴求。",
+      "note": "行政不執行 → 被害人家屬反彈,構成 backfire 鏈之社會反作用環節。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 52,
       "from_event": "EV-2024-401",
       "to_event": "EV-2024-403",
@@ -8815,6 +9027,34 @@
       "note": "美國判例對 ICCPR 詮釋光譜之挑戰",
       "created_at": "2026-05-01 11:08:38",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 85,
+      "from_event": "EV-2025-001",
+      "to_event": "EV-2023-709",
+      "link_type": "contradicts",
+      "evidence_strength": "contested",
+      "chain_depth": 1,
+      "counter_evidence": "美國最高法院 Mahmoud v. Taylor (2025-06-27, 6-3) 認定父母就涉宗教信仰之課程享 opt-out 權並須通過 strict scrutiny,與台灣 2023 性平教育法大修『未引入家長 opt-out』之方向相反。反向觀點:美台法制與憲政脈絡不同 (美國第一修正案 free exercise vs 我國 ICCPR §18-4),Mahmoud 不當然可直接移植;且我國採共同核心課綱以保障學生平等受教權。",
+      "multi_causal_note": "並列原因:(a) 美國判決係其國內憲法脈絡產物;(b) 我國 108 課綱之國家義務設計;(c) ICESCR §13 教育目的條款之不同詮釋。",
+      "note": "國際 (美最高) 判決強化家長選擇權,與本土立法方向背離,被 AABE/下幸盟援引為論據,構成跨國 backfire 張力。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 86,
+      "from_event": "EV-2025-001",
+      "to_event": "EV-2025-701-A705",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 1,
+      "counter_evidence": "下一代幸福聯盟於 2025-06-27 援引美最高 Mahmoud v. Taylor 判決強化其家長教育選擇權倡議;若無該判決,此特定援引論據不會出現。",
+      "multi_causal_note": "並列原因:(a) 下幸盟既有家長選擇權主張;(b) 第四屆審查在即之倡議窗口。",
+      "note": "國際判決成為本土保守派倡議之新彈藥,顯示議題之跨國連動。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     },
     {
@@ -8930,6 +9170,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 89,
+      "from_event": "EV-2014-718",
+      "to_event": "EV-2016-720",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 2,
+      "counter_evidence": "釋字 718 號 (2014) 後,2016 年完全執政之政府提出集遊法報備制修正草案以回應釋憲;惟草案最終擱置,顯示釋憲壓力未轉化為立法成果。",
+      "multi_causal_note": "並列原因:(a) 釋字 445/718 累積之違憲宣告;(b) 民間團體 (人約盟) 長期倡議;(c) 政黨輪替之政治窗口。",
+      "note": "釋憲 → 修法草案 → 擱置,構成集會議題『有壓力無成果』之鏈。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 43,
       "from_event": "EV-2016-603",
       "to_event": "EV-2022-610",
@@ -8941,6 +9195,20 @@
       "note": "訴訟路徑獨立於政治承諾",
       "created_at": "2026-05-02 06:01:35",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 75,
+      "from_event": "EV-2017-001",
+      "to_event": "EV-2026-870",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 2,
+      "counter_evidence": "若無釋字 748 號要求 2 年內立法,2018 反同公投三案 (第 10/11/12 案) 仍可能因既有宗教文化動員而提出;但釋字 748 之急迫時限明顯升高了反方公投動員之強度與急迫性。",
+      "multi_causal_note": "並列原因:(a) 宗教團體既有組織動員能量;(b) 護家盟/下一代幸福聯盟長期經營;(c) 2016 多元成家爭議累積之社會對立。",
+      "note": "司法路徑 (釋字) 先於民主審議,被反方詮釋為「司法凌駕民意」,構成反作用力之起點。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     },
     {
@@ -8986,6 +9254,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 87,
+      "from_event": "EV-2018-704",
+      "to_event": "EV-2024-202",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 2,
+      "counter_evidence": "2018 公投第 11 案通過後家長選擇權爭議延續,構成國教行動聯盟於第四屆審查 (2024) 援引 Mahmoud v. Taylor 之平行報告背景;惟 AABE 之主張亦本於其長期父母教育選擇權立場,非僅源於公投。",
+      "multi_causal_note": "並列原因:(a) AABE 自第一屆審查即主張父母教育選擇權;(b) Mahmoud 判決提供新國際論據;(c) 108 課綱實施爭議。",
+      "note": "公投民意 → 多年後仍透過平行報告延續,顯示爭議之長尾效應。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 12,
       "from_event": "EV-2019-001",
       "to_event": "EV-2022-001",
@@ -9014,6 +9296,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 77,
+      "from_event": "EV-2019-001",
+      "to_event": "EV-2024-301-A310",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 2,
+      "counter_evidence": "若無 2019 年 748 施行法之快速立法,護家盟未必於第四屆審查 (2024) 持續提出『婚家保障』平行報告;但反方亦長期關注此議題,即使無施行法仍可能就其他婚家議題表態。",
+      "multi_causal_note": "並列原因:(a) 第四屆審查程序本身提供發聲管道;(b) 跨國同婚、收養等後續爭議延燒;(c) 國際反對運動連動。",
+      "note": "立法雖完成,社會對立未消解,反方於每屆審查持續抗議,顯示『立法 ≠ 共識達成』。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 58,
       "from_event": "EV-2019-705",
       "to_event": "EV-2024-710",
@@ -9025,6 +9321,20 @@
       "note": "課綱非升學壓力主因",
       "created_at": "2026-05-02 06:01:35",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 84,
+      "from_event": "EV-2019-707",
+      "to_event": "EV-2023-709",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 2,
+      "counter_evidence": "2019 年『雙方均不滿意修法』之社會張力延續至 2023 年性平教育法第三次大修;惟 2023 大修主要係回應 #MeToo 浪潮 (禁師生戀、外聘調查),家長 opt-out 課程選擇權之缺席,未必直接源於 2019 之不滿。",
+      "multi_causal_note": "並列原因:(a) 2023 #MeToo 校園性平事件浪潮;(b) 既有性平三法修法時程;(c) 行政院政策方向。",
+      "note": "歷經多年爭議,第三次大修仍未引入家長 opt-out,反方所主張之『選擇權落差』未獲制度性回應。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     },
     {
@@ -9126,6 +9436,20 @@
       "review_kappa": null
     },
     {
+      "link_id": 79,
+      "from_event": "EV-2024-001",
+      "to_event": "EV-2026-871",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 2,
+      "counter_evidence": "若無 113 憲判 8 號之死刑釋憲爭議,2024-2025 多項民調未必集中於『是否廢死』;惟台灣民意長期 (歷年逾八成) 反對廢死,即使無此判決,反廢死民意基線仍高。",
+      "multi_causal_note": "並列原因:(a) 台灣長期高比例反廢死之民意基線;(b) 重大刑案 (如近年隨機殺人案) 引發之社會情緒;(c) 被害人家屬團體之能見度提升。",
+      "note": "釋憲縮限死刑後民調呈現約 88% 反對廢除,顯示『司法縮限』與『民意保留』之巨大落差。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
       "link_id": 30,
       "from_event": "EV-2024-102",
       "to_event": "EV-2025-101",
@@ -9137,6 +9461,62 @@
       "note": "兩條政策軌道平行而非因果",
       "created_at": "2026-05-01 13:32:31",
       "reviewed_by": null,
+      "review_kappa": null
+    },
+    {
+      "link_id": 90,
+      "from_event": "EV-2016-720",
+      "to_event": "EV-2026-880",
+      "link_type": "triggered_by",
+      "evidence_strength": "direct",
+      "chain_depth": 3,
+      "counter_evidence": "2016 年集遊法報備制修正草案擱置,直接導致至 2026 第四屆審查集遊法仍零進度;若 2016 草案完成三讀,第四屆 CO §6 不會第四度呼籲改採報備制。",
+      "multi_causal_note": "並列原因:(a) 後續立法院屆期不連續;(b) 行政機關維持許可制之治安考量;(c) 缺乏重大集會事件推動修法之政治急迫性。",
+      "note": "草案擱置 → 持續零進度,是集會議題 backfire (改革停滯) 之直接因果。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 76,
+      "from_event": "EV-2026-870",
+      "to_event": "EV-2019-001",
+      "link_type": "contradicts",
+      "evidence_strength": "contested",
+      "chain_depth": 3,
+      "counter_evidence": "若嚴格依 2018 公投民意 (第 10 案民法婚姻限一男一女、第 12 案以非民法形式保障同性結合均高比例通過),立法本應採『非民法專法』形式並經更長社會溝通;2019 年仍以接近婚姻之專法快速三讀,與公投展現之民意方向存在張力。反向觀點:釋字 748 具憲法拘束力,立法者本即受其拘束,公投不得牴觸違憲審查結論。",
+      "multi_causal_note": "並列原因:(a) 釋字 748 之 2 年立法時限將屆;(b) 執政黨政策承諾;(c) 國際『亞洲first』象徵壓力。",
+      "note": "公投民意 vs 釋憲拘束之衝突,是同婚議題最典型之『民意覆蓋』張力點。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 80,
+      "from_event": "EV-2026-871",
+      "to_event": "EV-2024-002",
+      "link_type": "contradicts",
+      "evidence_strength": "contested",
+      "chain_depth": 3,
+      "counter_evidence": "約 88% 民調反對廢死與法務部 2024-09 後未再執行死刑之事實上暫停形成張力:民意支持維持並執行死刑,行政實務卻趨向不執行。反向觀點:死刑執行屬法務部法定裁量與正當法律程序考量,本不應單以民調決定;且憲判 8 號後個案多進入非常上訴/釋憲聲請程序,程序未終結。",
+      "multi_causal_note": "並列原因:(a) 113 憲判 8 號要求 2 年內修法之過渡期;(b) 死刑案件之非常救濟程序未結;(c) 國際廢死趨勢與行政考量;(d) OP2 尚未批准之政策方向。",
+      "note": "民意 (反對廢死) 與行政實務 (事實上暫停執行) 背離,是『菁英/國際標準』與『在地民意』落差之核心案例。",
+      "created_at": "2026-06-01 23:16:34",
+      "reviewed_by": "Wave158-backfire-agent",
+      "review_kappa": null
+    },
+    {
+      "link_id": 96,
+      "from_event": "EV-2026-871",
+      "to_event": "EV-2025-001-A008",
+      "link_type": "triggered_by",
+      "evidence_strength": "indirect",
+      "chain_depth": 3,
+      "counter_evidence": "113 憲判 8 號後約 88% 民調反對廢死之氛圍,助長被害人家屬團體於 2025 推動『重大犯罪被害人補償特別條例』修法;若釋憲後民意轉向支持廢死,此修法動能未必形成。反向觀點:被害人補償立法本有其獨立正當性 (被害人保護),不必然以反廢死民意為前提。",
+      "multi_causal_note": "並列原因:(a) 被害人保護運動之長期累積;(b) 既有犯罪被害人保護法之修法需求;(c) 個案被害人家屬之倡議。",
+      "note": "民意反彈 → 被害人立法行動,顯示廢死推動之反作用力轉化為具體立法倡議。",
+      "created_at": "2026-06-01 23:17:30",
+      "reviewed_by": "Wave158-backfire-agent",
       "review_kappa": null
     }
   ],

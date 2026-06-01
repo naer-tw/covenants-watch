@@ -89,6 +89,19 @@
     },
     {
       "source": "event",
+      "id": "EV-1998-445",
+      "date": "1998-01-23",
+      "event_type": "court_ruling",
+      "title": "司法院釋字第 445 號解釋",
+      "summary": "大法官宣告《集會遊行法》就室外集會、遊行採事前許可制之部分規定,以及不得主張共產主義或分裂國土等審查條款,違反憲法第 14 條集會自由與第 11 條言論自由,應自解釋公布日起失其效力;惟未否定許可制本身。此後 26 年集遊法核心許可制框架仍未改採報備制。",
+      "issue_tags": "[\"集會自由\"]",
+      "related_pi": null,
+      "related_article": "[\"ICCPR-21\",\"ICCPR-19\"]",
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
+      "source": "event",
       "id": "EV-1999-301",
       "date": "1999-10-01",
       "event_type": "court_ruling",
@@ -661,6 +674,19 @@
     },
     {
       "source": "event",
+      "id": "EV-2014-718",
+      "date": "2014-03-21",
+      "event_type": "court_ruling",
+      "title": "司法院釋字第 718 號解釋",
+      "summary": "大法官宣告《集會遊行法》就緊急性及偶發性集會、遊行一律事前申請許可之規定違憲,應自 2015 年 1 月 1 日起失效;惟一般集會之事前許可制仍維持合憲。釋字 445 (1998) 後再隔 16 年,僅就例外情形微調,核心許可制依舊未動。",
+      "issue_tags": "[\"集會自由\"]",
+      "related_pi": null,
+      "related_article": "[\"ICCPR-21\"]",
+      "actor_id": null,
+      "is_positive_outcome": null
+    },
+    {
+      "source": "event",
       "id": "EV-2014-201-A204",
       "date": "2014-05-30",
       "event_type": "legislation",
@@ -879,6 +905,19 @@
       "related_article": null,
       "actor_id": "A507",
       "is_positive_outcome": null
+    },
+    {
+      "source": "event",
+      "id": "EV-2016-720",
+      "date": "2016-12",
+      "event_type": "legislation",
+      "title": "集會遊行法修正草案 — 報備制版本立法擱置",
+      "summary": "民進黨完全執政後,行政院與立委曾提出將集遊法許可制改為報備制之修正草案,並廢除禁制區、命令解散等爭議條文;惟草案歷經一讀後於委員會擱置,未能完成三讀,延續釋字 445、718 號未竟之改革。",
+      "issue_tags": "[\"集會自由\"]",
+      "related_pi": null,
+      "related_article": "[\"ICCPR-21\"]",
+      "actor_id": null,
+      "is_positive_outcome": 0
     },
     {
       "source": "event",
@@ -5273,6 +5312,19 @@
       "related_article": "[\"ICCPR-6\"]",
       "actor_id": "A002",
       "is_positive_outcome": null
+    },
+    {
+      "source": "event",
+      "id": "EV-2026-880",
+      "date": "2026-Q1",
+      "event_type": "outcome",
+      "title": "集遊法第四屆審查仍零進度 — 許可制存續逾 28 年",
+      "summary": "至第四次兩公約國家報告審查 (2026),《集會遊行法》室外集會一般事前許可制自 1988 年施行、歷經釋字 445 (1998)、718 (2014) 兩號解釋及四屆 CO (§52/§49/§57/§6) 連續呼籲改採報備制,仍未完成修法;與同性婚姻自釋字 748 (2017) 至施行法 (2019) 僅 2 年即完成立法形成明顯對比。",
+      "issue_tags": "[\"集會自由\"]",
+      "related_pi": null,
+      "related_article": "[\"ICCPR-21\"]",
+      "actor_id": null,
+      "is_positive_outcome": 0
     }
   ]
 }
