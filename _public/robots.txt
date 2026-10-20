@@ -3,6 +3,8 @@
 
 User-agent: *
 Disallow: /internal/
+# T17 2026-10-21：內部頁已移出公開層
+Disallow: /insider/
 Disallow: /data/sources/raw/
 
 # AI 友善：開放 LLM 抓取（依 Anthropic / OpenAI / Google 之 AI bot 規範）
