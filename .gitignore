@@ -39,3 +39,4 @@ _share/
 
 # Git worktrees for schema migration / 隔離開發
 .worktrees/
+_備份/
