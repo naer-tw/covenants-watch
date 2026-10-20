@@ -1,7 +1,7 @@
 # 兩公約監督平台 · Two Covenants Watch Taiwan
 
 > **Live**: <https://covenants.aabe.org.tw/> · **GitHub**: <https://github.com/naer-tw/covenants-watch>
-> **Maintainer**: 國教行動聯盟(AABE)Alliance for the Advancement of Basic Education
+> **Maintainer**: 國教行動聯盟(AABE)Action Alliance on Basic Education
 > **License**: 程式碼 BSD-3 · 資料 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 > **Status**: v0.2-beta(2026-05 民間影子報告版)· 預計 2026-Q3 對外開放
 
