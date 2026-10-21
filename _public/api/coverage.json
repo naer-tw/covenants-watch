@@ -132,14 +132,14 @@
     "pi": 16,
     "partial_evidence": 16,
     "actor": 107,
-    "event": 394,
+    "event": 405,
     "causal_link": 96,
     "outcome_indicator": 33,
     "law": 6,
     "law_version": 17,
     "law_article_change": 16,
     "law_amendment": 15,
-    "concluding_observation": 80,
+    "concluding_observation": 215,
     "nap_action": 90,
     "legislative_citation": 23
   }
